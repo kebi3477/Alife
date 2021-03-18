@@ -1,3 +1,20 @@
+@keyframes blink {
+    0% {
+        top: -5rem;
+    }
+    5% {
+        top: 0;
+    }
+    10% {
+        top: -5rem;
+    }
+    15% {
+        top: 0;
+    }
+    20% {
+        top: -5rem;
+    }
+}
 html {
     scroll-behavior: smooth;
 }
@@ -12,21 +29,36 @@ body {
     height: 100vh;
 }
 .one {
-    background-color: red;
+    background-color: #330000;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.eye-box {
+    position: relative;   
+    overflow: hidden;
 }
 .eye {
     width: 10rem;
     height: 10rem;
     border-radius: 50%;
+    position: relative;
 }
 .eye__in {
     width: 3rem;
     height: 3rem;
     background-color: #333;
     border-radius: 50%;
+}
+.eye-cover {
+    width: 10rem;
+    height: 5rem;
+    background-color: #300;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    top: -5rem;
+    animation: blink 4s infinite;
 }
 .two {
     background-color: orange;
