@@ -1,16 +1,17 @@
 const slides = document.querySelectorAll(".slide");
-const eyeIn = document.querySelector(".eye__in");
+const eye = document.querySelector(".eye");
+const eyeIn = eye.querySelector(".eye-in");
 let scrolling = true;
 let preScroll = 0;
 let now = 0;
 
 // window.scroll(0, 0);
 window.onmousemove = e => {
-    const width = window.innerWidth / 2;
-    const height = window.innerHeight / 2;
-    const left = e.clientX/10;
-    const top = e.clientY/10;
-    console.log(left, top);
+    const innerWidth = window.innerWidth/2;
+    const innerHeight = window.innerHeight/2;
+    const range = 30;
+    const left = (e.clientX-innerWidth)/range;
+    const top = (e.clientY-innerHeight)/range;
     eyeIn.style.transform = `translate(${left}px, ${top}px)`;
 }
 window.onscroll = () => {

@@ -17,14 +17,10 @@ body {
     justify-content: center;
     align-items: center;
 }
-.eye__out {
+.eye {
     width: 10rem;
     height: 10rem;
-    background-color: #fff;
     border-radius: 50%;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
 }
 .eye__in {
     width: 3rem;

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84.9 84.9">
+<defs>
+<style>.cls-1{fill:#fff;}.cls-2{fill:#1d1d1b;}</style>
+</defs>
+<title>Asset 1</title>
+    <g id="Layer_2" data-name="Layer 2">
+        <g id="Layer_1-2" data-name="Layer 1">
+            <circle class="cls-1" cx="42.45" cy="42.45" r="42.45"/>
+            <circle class="cls-2 eye-in" cx="42.45" cy="42.45" r="16.57"/>
+        </g>
+    </g>
+</svg>
