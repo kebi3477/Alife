@@ -28,17 +28,21 @@ header {
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    z-index: 10;
 }
 .header__list {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
 }
-.header__item {
-    margin-left: 1.2rem;
+.header__logo {
+    font-weight: 800;
+    font-size: 2rem;
+    margin-right: 1.5rem;
 }
-.header__item:first-child {
-    margin-left: 0;
+.header__item {
+    margin-left: 1.5rem;
 }
 .header__item--gray {
     color: var(--gray-middle);
@@ -46,4 +50,3 @@ header {
 .header__item--small {
     font-size: .9rem;
 }
-/*  */

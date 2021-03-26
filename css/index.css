@@ -1,0 +1,11 @@
+/* Main */
+#main {
+    height: 100vh;
+    background-color: var(--gray-light);
+    position: relative;
+}
+.main__monster-wrap {
+    position: absolute;
+    left: 25%;
+    bottom: 0;
+}
