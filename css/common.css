@@ -1,8 +1,12 @@
 :root {
+    --white: #fff;
     --gray-light: #ddd;
     --gray-middle: #bbb;
     --gray-hard: #666;
+    --gray-btn: #444;
     --gray-font: #333;
+    --black-light: #191919;
+    --black: #000;
 }
 @font-face {
     font-family: 'noto-kr-medium';
@@ -24,6 +28,10 @@
 .padding {
     padding-left: 20%;
     padding-right: 20%;
+}
+.page {
+    height: 100vh;
+    position: relative;
 }
 /* Header Navi */
 header {
