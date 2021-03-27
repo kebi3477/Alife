@@ -5,17 +5,25 @@
     --gray-font: #333;
 }
 @font-face {
-    font-family: 'noto-kr';
+    font-family: 'noto-kr-medium';
     src: url('../font/NotoSansKR-Medium.otf');
+}
+@font-face {
+    font-family: 'noto-kr-black';
+    src: url('../font/NotoSansKR-Black.otf');
 }
 * {
     margin: 0;
     padding: 0;
     list-style: none;
     text-decoration: none;
-    font-family: 'noto-kr';
+    font-family: 'noto-kr-medium';
     box-sizing: border-box;
     color: var(--gray-font);
+}
+.padding {
+    padding-left: 20%;
+    padding-right: 20%;
 }
 /* Header Navi */
 header {
@@ -23,7 +31,6 @@ header {
     height: 80px;
     background-color: #fff;
     box-shadow: 1px 1px 1px 1px #3333;
-    padding: 0 20%;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;

@@ -1,11 +1,42 @@
 /* Main */
 #main {
     height: 100vh;
-    background-color: var(--gray-light);
     position: relative;
+    padding-top: 20vh;
 }
-.main__monster-wrap {
+/* Intro */
+.intro {
+    display: flex;
+    flex-flow: column nowrap;
+}
+.intro__text {
+    display: flex;
+    align-items: flex-end;
+    color: var(--gray-hard);
+    font-size: 24px;
+}
+.intro__text--big {
+    font-size: 7rem;
+    font-family: 'noto-kr-black';
+}
+.intro__text--middle {
+    font-size: 36px;
+    padding-left: 10px;
+    padding-bottom: 24px;
+}
+/* Monster */
+.monster {
     position: absolute;
     left: 25%;
-    bottom: 0;
+    bottom: -10%;
+}
+.monster__mouse--open {
+    display: none;
+    transform: translate(814px, -430px);
+}
+.monster:hover .monster__mouse--open {
+    display: block;
+}
+.monster:hover .monster__mouse--close {
+    display: none;
 }
