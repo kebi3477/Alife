@@ -13,6 +13,10 @@
     src: url('../font/NotoSansKR-Medium.otf');
 }
 @font-face {
+    font-family: 'noto-kr-light';
+    src: url('../font/NotoSansKR-Light.otf');
+}
+@font-face {
     font-family: 'noto-kr-black';
     src: url('../font/NotoSansKR-Black.otf');
 }
