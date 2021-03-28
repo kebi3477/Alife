@@ -91,6 +91,7 @@
 /* Recommend */
 .recommend {
     padding-top: 10rem;
+    border-bottom: 1px solid var(--gray-middle);
 }
 .cooks {
     display: flex;
@@ -199,8 +200,66 @@
     border-radius: 5rem;
     box-shadow: 0px 3px 6px #000;
     position: relative;
+    cursor: pointer;
+    transition: .2s;
+}
+.button:hover {
+    background-color: var(--gray-hard);
 }
 .button > svg {
     position: absolute;
     right: 30%;
 }
+/* Community */
+.community {
+    height: 600px;
+    display: flex;
+    flex-flow: row nowrap;
+    padding-top: 10rem;
+}
+.community__wrap {
+    flex: 1;
+    position: relative;
+    z-index: 2;
+}
+.community__wrap--black {
+    width: 100%;
+    height: 30%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: var(--gray-btn);
+    z-index: 1;
+}
+.community__wrap > .title {
+    text-align: left;
+    margin-top: 2rem;
+}
+.community__button {
+    margin-top: 1.2rem;
+}
+.community__list {
+    width: 80%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+.community__item {
+    background-color: var(--gray-btn);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5rem;
+    padding: .5rem 1.5rem;
+}
+.community__item--over {
+    position: relative;
+    bottom: 3rem;
+}
+/* Fridge */
+.fridge {
+    padding-top: 10rem;
+    background-color: #EEE;
+}
+
+/* Footer */
