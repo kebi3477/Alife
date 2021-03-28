@@ -13,6 +13,7 @@
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 .login__logo {
     font-size: 3rem;
@@ -53,4 +54,82 @@
 }
 .login__text--under {
     margin-top: 1.2rem;
+}
+/* 회원가입 */
+.login__title {
+    border-bottom: 1px solid var(--gray-btn);
+    width: 70%;
+    text-align: left;
+    padding: .5rem 2%;
+}
+.login__phone {
+    width: 70%;
+    display: flex;
+    flex-flow: row nowrap;
+}
+.login__input--short {
+    margin-right: 1.2rem;
+}
+.login__input--short:last-child {
+    margin-right: 0;
+}
+.login__label {
+    width: 60%;
+    font-size: .7rem;
+    color: var(--gray-hard);
+    text-align: left;
+}
+.login__buttons {
+    width: 70%;
+    display: flex;
+    flex-flow: row nowrap;
+}
+/* 아이디 + 비밀번호 찾기 */
+.login__toggle {
+    width: 70%;
+    display: flex;
+    flex-flow: row nowrap;
+}
+.login__toggle-button {
+    flex: 1;
+    text-align: center;
+    border-bottom: 1px solid var(--gray-btn);
+    padding: .5rem 0;
+    cursor: pointer;
+}
+.login__form-list {
+    width: 70%;
+    overflow: hidden;
+}
+.login__form-items {
+    width: 200%;
+    display: flex;
+    flex-flow: row nowrap;
+    position: relative;
+    transition: 1s;
+}
+.login__form-item {
+    position: relative;
+}
+.login__form-item:last-child {
+    left: 10%;
+}
+.login__form-id .login__toggle-button:first-child {
+    font-weight: bold;
+    border-bottom: 2px solid var(--gray-btn);
+}
+.login__form-pw .login__toggle-button:last-child {
+    font-weight: bold;
+    border-bottom: 2px solid var(--gray-btn);
+}
+.login__form-id .login__form-items{
+    left: 0;
+}
+.login__form-pw .login__form-items{
+    left: -120%;
+}
+.login__form-list .login__input,
+.login__form-list .login__phone,
+.login__form-list .login__buttons {
+    width: 100%;
 }
