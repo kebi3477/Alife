@@ -1,5 +1,6 @@
 :root {
     --white: #fff;
+    --white-hard: #f1f1f1;
     --gray-light: #ddd;
     --gray-middle: #bbb;
     --gray-hard: #666;
@@ -36,6 +37,9 @@
 .page {
     height: 100vh;
     position: relative;
+}
+button {
+    cursor: pointer;
 }
 /* Header Navi */
 header {
