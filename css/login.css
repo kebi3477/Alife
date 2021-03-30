@@ -1,14 +1,33 @@
+@keyframes wave {
+    0% {
+        background-position-y: 0px;
+    }
+    50% {
+        background-position-y: 50px;
+    }
+    100% {
+        background-position-y: 0px;
+    }
+}
+/* Login */
 .login {
     display: flex;
     flex-flow: row nowrap;
 }
 .login__img {
-    flex: .6;
-    background-color: var(--gray-light);
+    flex: .4;
+    background-image: url('../images/login.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    /* background-color: var(--gray-light); */
+    animation: 5s wave infinite;
 }
 .login__form {
-    flex: .4;
-    padding-right: 20%;
+    flex: .6;
+    padding-left: 3%;
+    padding-right: 17%;
+    margin-right: 17%;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -26,7 +45,7 @@
     border: 1px solid var(--white-hard);
     border-radius: 5rem;
     padding: .8rem 2rem;
-    background-color: var(--gray-light);
+    background-color: var(--green-light);
     font-size: 1rem;
     margin-top: .7rem;
 }
@@ -36,8 +55,8 @@
 .login__button {
     width: 70%;
     color: var(--white);
-    background-color: var(--gray-btn);
-    font-size: 1.2rem; 
+    background-color: var(--green-middle);
+    font-size: 1.2rem;
     font-weight: bold;
     border: none;
     border-radius: 5rem;
@@ -46,7 +65,7 @@
     transition: .2s;
 }
 .login__button:hover {
-    background-color: var(--gray-hard);
+    background-color: #218a19;
 }
 .login__text {
     margin-top: .5rem;

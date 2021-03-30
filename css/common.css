@@ -8,6 +8,9 @@
     --gray-font: #333;
     --black-light: #191919;
     --black: #000;
+    --green-light: #EDF5D1;
+    --green-middle: #15700E;
+    --green-hard: #183E15;
 }
 @font-face {
     font-family: 'noto-kr-medium';
@@ -31,8 +34,8 @@
     color: var(--gray-font);
 }
 .padding {
-    padding-left: 20%;
-    padding-right: 20%;
+    padding-left: 17%;
+    padding-right: 17%;
 }
 .page {
     height: 100vh;
@@ -65,10 +68,11 @@ header {
     margin-right: 1.5rem;
 }
 .header__item {
-    margin-left: 1.5rem;
+    margin-left: 2.5rem;
 }
 .header__item--gray {
     color: var(--gray-middle);
+    font-size: .9rem;
 }
 .header__item--small {
     font-size: .9rem;

@@ -1,3 +1,50 @@
+.button {
+    width: 224px;
+    background-color: var(--green-middle);
+    color: var(--white);
+    font-weight: bold;
+    padding: .5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5rem;
+    box-shadow: 0px 3px 6px #000;
+    position: relative;
+    cursor: pointer;
+    transition: .2s;
+}
+.button:hover {
+    background-color: #218a19;
+}
+/* Remocon */
+.remocon {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    z-index: 10;
+}
+.remocon__item {
+    width: 4rem;
+    height: 4rem;
+    border: 1px solid var(--gray-light);
+    border-radius: 5rem;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    background-color: var(--white);
+    box-shadow: 0px 3px 6px var(--gray-light);
+    cursor: pointer;
+    transition: .2s;
+}
+.remocon__item:hover {
+    background-color: var(--white-hard);
+}
+.remocon__item > object {
+    width: 35%;
+    cursor: pointer;
+}
 /* Main */
 #main {
     padding-top: 20vh;
@@ -14,6 +61,7 @@
     font-size: 24px;
 }
 .intro__text--big {
+    color: var(--green-hard);
     font-size: 7rem;
     font-family: 'noto-kr-black';
 }
@@ -26,12 +74,8 @@
 .monster {
     position: absolute;
     left: 25%;
-    bottom: -10%;
+    bottom: -5.5%;
     z-index: 2;
-}
-.monster__mouse--open {
-    display: none;
-    transform: translate(814px, -430px);
 }
 .monster:hover .monster__mouse--open {
     display: block;
@@ -42,7 +86,7 @@
 /* Find */
 .find {
     padding-top: 8rem;
-    background-color: var(--gray-light);
+    background-color: var(--green-light);
     height: 700px;
     z-index: 1;
 }
@@ -68,8 +112,8 @@
     flex: 1;
 }
 .find__img {
-    width: 5rem;
-    height: 5rem;
+    width: 7rem;
+    height: 7rem;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -83,6 +127,7 @@
 .find__text--big {
     font-size: 24px;
     margin: 1.2rem 0;
+    font-weight: 600;
 }
 .find__text--small {
     font-size: 18px;
@@ -91,13 +136,12 @@
 /* Recommend */
 .recommend {
     padding-top: 10rem;
-    border-bottom: 1px solid var(--gray-middle);
 }
 .cooks {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 .type__list {
     display: flex;
@@ -108,13 +152,19 @@
     justify-content: center;
 }
 .type__item {
-    border: 1px solid var(--gray-light);
-    padding: .5rem 1.2rem;
+    border: 1px solid var(--green-hard);
+    padding: .2rem 1.2rem;
     border-radius: 5rem;
     margin-right: 1.2rem;
+    cursor: pointer;
+    transition: .2s;
 }
 .type__item:last-child {
     margin-right: 0;
+}
+.type__item:hover {
+    background-color: var(--green-middle);
+    color: var(--white);
 }
 .cook__list {
     width: 100%;
@@ -138,6 +188,11 @@
     top: 1rem;
     background-color: var(--white);
     border-radius: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cook__heart {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -188,25 +243,7 @@
 .cook__button {
     margin-top: 3rem;
 }
-.button {
-    width: 224px;
-    background-color: var(--gray-btn);
-    color: var(--white);
-    font-weight: bold;
-    padding: .5rem 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5rem;
-    box-shadow: 0px 3px 6px #000;
-    position: relative;
-    cursor: pointer;
-    transition: .2s;
-}
-.button:hover {
-    background-color: var(--gray-hard);
-}
-.button > svg {
+.cook__button > object {
     position: absolute;
     right: 30%;
 }
@@ -215,12 +252,18 @@
     height: 600px;
     display: flex;
     flex-flow: row nowrap;
-    padding-top: 10rem;
+    padding-top: 5rem;
 }
 .community__wrap {
     flex: 1;
     position: relative;
     z-index: 2;
+    display: flex;
+    flex-flow: column wrap;
+}
+.community__wrap:nth-of-type(2) {
+    align-items: flex-end;
+    justify-content: center;
 }
 .community__wrap--black {
     width: 100%;
@@ -228,7 +271,7 @@
     position: absolute;
     left: 0;
     bottom: 0;
-    background-color: var(--gray-btn);
+    background-color: var(--green-light);
     z-index: 1;
 }
 .community__wrap > .title {
@@ -236,32 +279,83 @@
     margin-top: 2rem;
 }
 .community__button {
-    margin-top: 1.2rem;
+    margin-top: 2rem;
+}
+.community__button-arrow {
+    margin-left: .2rem;
+}
+.community__button-arrow path {
+    fill: var(--white);
 }
 .community__list {
-    width: 80%;
+    width: 70%;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
 }
 .community__item {
-    background-color: var(--gray-btn);
+    background-color: var(--green-hard);
     color: #fff;
     font-size: 1rem;
     font-weight: bold;
     border-radius: 5rem;
     padding: .5rem 1.5rem;
+    box-shadow: 0px 3px 6px var(--gray-light);
+}
+.community__item:first-child::after {
+    margin-left: -0.8rem;
+    border-top: 1rem solid var(--green-hard);
+    border-left: 1rem solid transparent;
+    border-right: 0rem solid transparent;
+}
+.community__item:last-child::after {
+    margin-left: -4.8rem;
+    border-top: 1rem solid var(--green-hard);
+    border-left: 0rem solid transparent;
+    border-right: 1rem solid transparent;
+}
+.community__item::after {
+    content: '';
+    position: absolute;
+    margin-top: 2rem;
+    margin-left: -2rem;
+    border-top: 1rem solid var(--green-hard);
+    border-left: .5rem solid transparent;
+    border-right: .5rem solid transparent;
 }
 .community__item--over {
     position: relative;
     bottom: 3rem;
 }
+.community__img {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-end;
+}
+.community__img--left {
+    margin-right: -5rem;
+}
 /* Fridge */
 .fridge {
-    padding-top: 10rem;
-    background-color: #EEE;
+    padding-top: 6rem;
 }
-
+.fridge__img {
+    display: flex;
+    flex-flow: row nowrap;
+    position: relative;
+    z-index: 2;
+    align-items: flex-end;
+    justify-content: center;
+    margin-top: 3rem;
+}
+.fridge__item {
+    margin: 0px 2rem;
+}
+.fridge_button {
+    z-index: 2;
+    margin: 0 auto;
+    margin-top: 3rem;
+}
 /* Footer */
 footer {
     background-color: var(--gray-btn);
@@ -271,6 +365,7 @@ footer {
 .footer__text {
     color: var(--white);
     font-family: 'noto-kr-light';
+    font-size: .9rem;
 }
 .footer__list {
     display: flex;
@@ -288,6 +383,7 @@ footer {
 .footer__item {
     color: var(--white);
     font-family: 'noto-kr-light';
+    font-size: .9rem;
     padding: 0 .6rem;
     border-right: 2px solid var(--white);
 }
