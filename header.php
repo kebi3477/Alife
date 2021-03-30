@@ -6,7 +6,10 @@
         <div class="header__item">레시피</div>
         <div class="header__item">밀키트</div>
         <div class="header__item">오늘 뭐 먹지?</div>
-        <div class="header__item header__item--gray">더 보기</div>
+        <div class="header__item header__item--gray">
+            더 보기
+            <object data="images/icon/arrow_down_g.svg" type="image/svg+xml"></object>
+        </div>
     </div>
     <div class="header__list">
         <div class="header__item header__item--small"><a href="login.php">로그인</a></div>

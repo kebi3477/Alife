@@ -71,7 +71,7 @@ header {
     margin-left: 2.5rem;
 }
 .header__item--gray {
-    color: var(--gray-middle);
+    color: #767676;
     font-size: .9rem;
 }
 .header__item--small {
