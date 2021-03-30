@@ -77,3 +77,8 @@ header {
 .header__item--small {
     font-size: .9rem;
 }
+.header__img {
+    margin-left: 1.5rem;
+    width: 2rem;
+    height: 2rem;    
+}

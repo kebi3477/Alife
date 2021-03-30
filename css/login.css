@@ -15,7 +15,7 @@
     flex-flow: row nowrap;
 }
 .login__img {
-    flex: .4;
+    flex: .55;
     background-image: url('../images/login.png');
     background-repeat: no-repeat;
     background-position: center;
@@ -24,15 +24,12 @@
     animation: 5s wave infinite;
 }
 .login__form {
-    flex: .6;
-    padding-left: 3%;
-    padding-right: 17%;
-    margin-right: 17%;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-    position: relative;
+    flex: .6;
+    padding-right: 17%;
 }
 .login__logo {
     font-size: 3rem;
@@ -41,7 +38,7 @@
     margin-bottom: 2rem;
 }
 .login__input {
-    width: 70%;
+    width: 60%;
     border: 1px solid var(--white-hard);
     border-radius: 5rem;
     padding: .8rem 2rem;
@@ -53,7 +50,7 @@
     outline: none;
 }
 .login__button {
-    width: 70%;
+    width: 60%;
     color: var(--white);
     background-color: var(--green-middle);
     font-size: 1.2rem;
@@ -77,12 +74,12 @@
 /* 회원가입 */
 .login__title {
     border-bottom: 1px solid var(--gray-btn);
-    width: 70%;
+    width: 60%;
     text-align: left;
     padding: .5rem 2%;
 }
 .login__phone {
-    width: 70%;
+    width: 60%;
     display: flex;
     flex-flow: row nowrap;
 }
@@ -93,19 +90,19 @@
     margin-right: 0;
 }
 .login__label {
-    width: 60%;
+    width: 55%;
     font-size: .7rem;
     color: var(--gray-hard);
     text-align: left;
 }
 .login__buttons {
-    width: 70%;
+    width: 60%;
     display: flex;
     flex-flow: row nowrap;
 }
 /* 아이디 + 비밀번호 찾기 */
 .login__toggle {
-    width: 70%;
+    width: 60%;
     display: flex;
     flex-flow: row nowrap;
 }
@@ -117,7 +114,7 @@
     cursor: pointer;
 }
 .login__form-list {
-    width: 70%;
+    width: 60%;
     overflow: hidden;
 }
 .login__form-items {
