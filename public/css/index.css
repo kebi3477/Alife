@@ -123,6 +123,7 @@
 }
 .find__img > object {
     width: 30%;
+    height: 30%;
 }
 .find__text {
     text-align: center;

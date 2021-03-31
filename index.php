@@ -4,7 +4,7 @@
     if($type == 'controller') {
         $dir = '\\controller\\';
     } else if($type == 'model') {
-        $dir = '\\models\\';      
+        $dir = '\\model\\';
     } else {
         $dir = '\\public\\views\\';
         require_once __DIR__.$dir.$type.".php";
