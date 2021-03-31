@@ -121,6 +121,9 @@
     background-color: var(--white);
     border-radius: 50%;
 }
+.find__img > object {
+    width: 30%;
+}
 .find__text {
     text-align: center;
 }

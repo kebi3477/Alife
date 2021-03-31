@@ -8,13 +8,16 @@
         <div class="header__item">오늘 뭐 먹지?</div>
         <div class="header__item header__item--gray">
             더 보기
-            <object data="images/icon/arrow_down_g.svg" type="image/svg+xml"></object>
+            <object data="public/images/
+icon/arrow_down_g.svg" type="image/svg+xml"></object>
         </div>
     </div>
     <div class="header__list">
-        <div class="header__item header__item--small"><a href="login.php">로그인</a></div>
+        <div class="header__item header__item--small"><a href="login">로그인</a></div>
         <div class="header__item header__item--small">회원가입</div>
-        <object class="header__img" data="images/icon/search.svg" type="image/svg+xml"></object>
-        <object class="header__img" data="images/icon/menu.svg" type="image/svg+xml"></object>
+        <object class="header__img" data="public/images/
+icon/search.svg" type="image/svg+xml"></object>
+        <object class="header__img" data="public/images/
+icon/menu.svg" type="image/svg+xml"></object>
     </div>
 </header>
