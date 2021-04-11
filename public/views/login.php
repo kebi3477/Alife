@@ -20,7 +20,7 @@
             <div class="login__text login__text--under"><b>아이디 / 비밀번호 찾기</b></div>
             <div class="login__text">회원이 아니십니까? <b>회원가입</b></div>
         </div>
-        <div class="login__form sign__wrap">
+        <form class="login__form sign__wrap">
             <div class="login__logo">A Life</div>
             <div class="login__title">회원정보입력</div>
             <input type="text" class="login__input" placeholder="아이디" name="id">
@@ -35,10 +35,10 @@
             <input type="text" class="login__input" placeholder="주소" name="address">
             <div class="login__label">※ 정확한 도로명 주소 기입 시 배송주문이 가능합니다.</div>
             <div class="login__buttons">
-                <button class="login__button login__input--short">회원가입</button>
-                <button class="login__button login__input--short">취소</button>
+                <button class="login__button login__input--short" type="button">회원가입</button>
+                <button class="login__button login__input--short" type="reset">취소</button>
             </div>
-        </div>
+        </form>
         <div class="login__form find__wrap login__form-id">
             <div class="login__logo">A Life</div>
             <div class="login__toggle">

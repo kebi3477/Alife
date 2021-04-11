@@ -5,10 +5,14 @@
     } else {
         $type = $urls[1];
     }
+    $dir = "\\$type\\";
+
     if($type == 'controller') {
-        $dir = '\\controller\\';
+        $controllerType = $urls[2];
+        $url = __DIR__.$dir.$controllerType."Controller.php";
+        require_once $url;
     } else if($type == 'model') {
-        $dir = '\\model\\';
+
     } else {
         $dir = '\\public\\views\\';
         $url = __DIR__.$dir.$type.".php";
