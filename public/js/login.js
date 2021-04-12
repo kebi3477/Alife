@@ -2,6 +2,7 @@ const login = document.querySelector(".login");
 const loginWrap = document.querySelector(".login__wrap");
 const signWrap = document.querySelector(".sign__wrap");
 const findWrap = document.querySelector(".find__wrap");
+const loginButton = loginWrap.querySelector('.login__button');
 const showSign = loginWrap.querySelector(".login__text:last-child");
 const showFind = loginWrap.querySelector(".login__text--under");
 const signButton = signWrap.querySelector(".login__button:first-child");
@@ -12,6 +13,13 @@ const cancelButtons = findWrap.querySelectorAll(".login__buttons > .login__butto
 
 signWrap.remove();
 findWrap.remove();
+loginButton.addEventListener('click', function() {
+    fetch('controller/user/login')
+    .then(data => data.text())
+    .then(text => {
+        console.log(text);
+    })
+})
 showSign.addEventListener("click", function() {
     login.append(signWrap);
     loginWrap.remove();

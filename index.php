@@ -12,7 +12,7 @@
         $url = __DIR__.$dir.$controllerType."Controller.php";
         require_once $url;
     } else if($type == 'model') {
-
+        
     } else {
         $dir = '\\public\\views\\';
         $url = __DIR__.$dir.$type.".php";
