@@ -10,7 +10,6 @@ const showFind = loginWrap.querySelector(".login__text--under");
 const signInputId = signWrap.querySelector('.login__input[name=id]');
 const signInputPw = signWrap.querySelector('.login__input[name=password]');
 const signInputRepw = signWrap.querySelector('.login__input[name=rePassword]');
-const signInputPhone = signWrap.querySelector('.login__input[name=phone1]');
 const signInputAddress = signWrap.querySelector('.login__input[name=address]');
 const signButton = signWrap.querySelector(".login__button:first-child");
 const closeSign = signWrap.querySelector(".login__button:last-child");
@@ -25,10 +24,21 @@ signWrap.remove();
 findWrap.remove();
 //로그인
 loginButton.addEventListener('click', function() {
-    fetch('controller/user/login')
-    .then(data => data.text())
-    .then(text => {
-        console.log(text);
+    const formData = new FormData(loginWrap);
+    fetch('controller/user/login', {
+        method: 'POST',
+        body: formData
+    })
+    .then(msg => msg.json())
+    .then(msg => {
+        if(msg.status === 'A200') {
+            alert('로그인 성공!');
+            location.href = 'index';
+        } else if(msg.status === 'A404') {
+            alert('아이디와 비밀번호를 다시 확인해주세요!');
+        } else if(msg.status === 'A400') {
+            alert('비어있는 값이 있습니다!');
+        }
     })
 })
 //회원가입
@@ -65,11 +75,8 @@ signInputRepw.addEventListener('blur', function() {
     if(this.value === signInputPw.value) {
         changeLabelTextColor(loginLabelRepw, '비밀번호가 같습니다!', 'green');
     } else {
-        changeLabelTextColor(loginLabelRepw, '비밀번호가 다릅니다!.', 'red');
+        changeLabelTextColor(loginLabelRepw, '비밀번호가 다릅니다!', 'red');
     }
-})
-signInputPhone.addEventListener('click', function() {
-    
 })
 signInputAddress.addEventListener('click', function() {
     if(this.value === '') {
