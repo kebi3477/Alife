@@ -30,6 +30,7 @@
     justify-content: center;
     flex: .6;
     padding-right: 17%;
+    position: relative;
 }
 .login__logo {
     font-size: 3rem;
@@ -148,4 +149,11 @@
 .login__form-list .login__phone,
 .login__form-list .login__buttons {
     width: 100%;
+}
+.login__form > label {
+    width: 60%;
+    text-align: left;
+    font-size: .8rem;
+    padding: 0 2rem;
+    color: red;
 }

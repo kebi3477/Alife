@@ -1,6 +1,6 @@
 <header class="padding">
     <div class="header__list">
-        <text class="header__logo" transform="translate(1 42)" font-size="36">A Life</text>
+        <a href="index"><text class="header__logo" transform="translate(1 42)" font-size="36">A Life</text></a>
         <img class="header__logo" src="" alt="">
         <div class="header__item">나의 냉장고</div>
         <div class="header__item">레시피</div>

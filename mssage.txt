@@ -1,0 +1,9 @@
+login
+
+signUp
+A200 - 성공
+A500 - 에러
+
+doubleCheck
+A403 - 중복
+A200 - 성공

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="public/css/index.css">
 </head>
 <body>
-    <?= include('header.php')?>
+    <?php include('header.php') ?>
     <div class="remocon">
         <div class="remocon__item">
             <object data="public/images/icon/arrow_up.svg" type="image/svg+xml"></object>
