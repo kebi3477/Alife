@@ -83,5 +83,6 @@
         </div>
     </div>
     <script src="public/js/login.js"></script>
+    <script src="public/js/monster.js"></script>
 </body>
 </html>

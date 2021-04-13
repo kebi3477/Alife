@@ -1,62 +1,61 @@
-// const monster = document.querySelector(".monster")
-// const monsterDoc = monster.contentDocument;
-// const monsterEye = monsterDoc.querySelectorAll(".monster__eye");
-// const main = document.querySelector("#main");
+const main = document.querySelector("#main");
+window.onload = () => {
+    const monster = document.querySelector(".monster");
+    const monsterDoc = monster.contentDocument;
+    const monsterEye = monsterDoc.querySelectorAll(".monster__eye");
 
-// window.onmousemove = e => {
-//     const boxPositionX = monster.offsetLeft + monster.offsetWidth/2;
-//     const boxPositionY = monster.offsetTop + monster.offsetHeight/2;
-//     const range = 15;
-//     const left = (e.clientX-boxPositionX)/(range+10)+1068.94;
-//     const top = (e.clientY-boxPositionY)/range-522.49;
-//     const left2 = (e.clientX-boxPositionX)/(range+10)+907.736;
-//     const top2 = (e.clientY-boxPositionY)/range-522.49;
+    window.onmousemove = e => {
+        const boxPositionX = monster.offsetLeft + monster.offsetWidth/2;
+        const boxPositionY = monster.offsetTop + monster.offsetHeight/2;
+        const range = 30;
+        const left = (e.clientX-boxPositionX)/(range+10)+1066.769;
+        const top = (e.clientY-boxPositionY)/range+705.373;
+        const left2 = (e.clientX-boxPositionX)/(range+10)+905.376;
+        const top2 = (e.clientY-boxPositionY)/range+705.373;
+        
+        monsterEye[0].style.transform = `translate(${left}px, ${top}px)`;
+        monsterEye[1].style.transform = `translate(${left2}px, ${top2}px)`;
+    }
 
-//     monsterEye[0].style.transform = `translate(${left}px, ${top}px)`;
-//     monsterEye[1].style.transform = `translate(${left2}px, ${top2}px)`;
-// }
+    const mealClasses = [new Meal('chicken'), new Meal('cabbage'), new Meal('carrot'), new Meal('green_onion')];
+    mealClasses.forEach(obj => {
+        obj.start();
+    })
+}
 
-// const meal1 = `
-// <svg id="그룹_220" data-name="그룹 220" xmlns="http://www.w3.org/2000/svg" width="139.715" height="139.02" viewBox="0 0 139.715 139.02">
-// <path id="패스_70" data-name="패스 70" d="M701.718,858a38.951,38.951,0,0,1-14.133-2.823c-7.284-2.881-13.44-7.494-17.99-11.191-14.51-11.788-25.047-24.871-31.321-38.886-3.6-8.047-5.025-15.108-4.347-21.572-3.9-4.752-13.825-16.728-22.269-25.9-7.432-8.072-10.429-21.593-6.68-30.14a13.843,13.843,0,0,1,13.213-8.509,25.669,25.669,0,0,1,9.419,2.044c7.759,3.1,11.92,6.35,13.487,10.532,1.745,4.656-.351,8.749-2.035,12.036-1.14,2.226-2.217,4.329-1.975,6.137.479,3.559,4.095,9.017,9.643,14.676q1.1-.578,2.273-1.055a20.76,20.76,0,0,1,7.75-1.522,18.427,18.427,0,0,1,12.1,4.364,17.336,17.336,0,0,1,2.716,2.977c.651.9,1.191,1.817,1.714,2.7.761,1.283,1.707,2.881,2.353,3.085a.689.689,0,0,0,.19.021,4.146,4.146,0,0,0,1.906-.692,24.292,24.292,0,0,0,2.34-1.731c.778-.621,1.583-1.264,2.493-1.883a25.7,25.7,0,0,1,14.53-4.2,31.6,31.6,0,0,1,4.93.392c5.312.84,10.759,2.953,17.141,6.649,11.324,6.562,18.7,14.385,21.912,23.254a37.475,37.475,0,0,1,.724,21.864,62.134,62.134,0,0,1-8.742,18.976c-6.9,10.534-14.436,16.837-23.04,19.27a30.5,30.5,0,0,1-8.3,1.121Z" transform="translate(-603.362 -718.976)" fill="#444"/>
-// <g id="그룹_219" data-name="그룹 219" transform="translate(4.685 4.714)">
-//     <path id="패스_71" data-name="패스 71" d="M647.482,771.491s-14.729-12.278-16.053-22.13,14.845-16.4-6.555-24.958-21.583,17.254-10.735,29.037,24.107,28.135,24.107,28.135Z" transform="translate(-607.06 -722.696)" fill="#fce8c0"/>
-//     <g id="그룹_218" data-name="그룹 218" transform="translate(30.43 42.849)">
-//     <path id="패스_72" data-name="패스 72" d="M658.367,759.729c-4.054-3.511-10-4.071-14.985-2.04a19.2,19.2,0,0,0-12.131,15.986c-.784,6.657,1.188,13.353,3.926,19.472,6.563,14.66,17.525,27.025,29.991,37.154,5.13,4.168,10.6,8.034,16.752,10.465s13.056,3.349,19.417,1.55c8.769-2.48,15.388-9.7,20.381-17.317a57.942,57.942,0,0,0,8.111-17.531,33.026,33.026,0,0,0-.581-19.119c-3.332-9.193-11.383-15.879-19.845-20.781-4.832-2.8-10-5.2-15.513-6.073s-11.454-.09-16.074,3.048c-1.729,1.173-3.245,2.649-5.029,3.738a7.456,7.456,0,0,1-5.969,1.142c-3.228-1.02-4.5-4.78-6.474-7.528A12.55,12.55,0,0,0,658.367,759.729Z" transform="translate(-631.077 -756.516)" fill="#fff"/>
-//     <path id="패스_73" data-name="패스 73" d="M678.714,830.834a70.359,70.359,0,0,1-10.635-7.376c-13.08-10.629-22.512-22.271-28.033-34.606-2.789-6.228-3.89-11.405-3.369-15.826a12.321,12.321,0,0,1,7.858-10.374,8.192,8.192,0,0,1,6.825.163,5.733,5.733,0,0,1,1.007.7,5.657,5.657,0,0,1,.884.971c.348.484.736,1.14,1.148,1.835,1.361,2.3,3.223,5.446,6.693,7.333a12.28,12.28,0,0,0,2.177.925,14.137,14.137,0,0,0,11.668-1.835,34,34,0,0,0,3.546-2.574c.631-.5,1.226-.981,1.765-1.346,2.8-1.9,6.847-2.609,11.1-1.936a35.465,35.465,0,0,1,11.381,4.245q.878.479,1.74.979c8.892,5.152,14.545,10.92,16.8,17.145,2.022,5.577,1.318,11.279.371,15.078a50.807,50.807,0,0,1-7.184,15.408c-5.293,8.083-10.681,12.808-16.466,14.444-4.374,1.237-9.694.767-14.98-1.324A39.278,39.278,0,0,1,678.714,830.834Z" transform="translate(-629.615 -755.055)" fill="#f9957f"/>
-//     <path id="패스_74" data-name="패스 74" d="M683.644,807.56c-9.871-6.555-2.7-6.8-3.077-12.937s-3.461-13.543,3.7-13.994,19.225,3.939,13.933,19.634C698.2,800.263,693.514,814.116,683.644,807.56Z" transform="translate(-618.442 -750.087)" fill="#fff"/>
-//     <ellipse id="타원_19" data-name="타원 19" cx="5.478" cy="6.661" rx="5.478" ry="6.661" transform="translate(40.764 39.091) rotate(-16.45)" fill="#fff"/>
-//     </g>
-// </g>
-// </svg>
-// `;
-// const mealSVG = document.createElement("div");
-// let x=0, y=0, reverseX=false, reverseY=false;
-// mealSVG.innerHTML = meal1;
-// mealSVG.style.position = "relative";
-// mealSVG.style.width = 'fit-content';
-// main.append(mealSVG)
-// setInterval(function() {
-//     mealSVG.style.left = `${x}px`;
-//     mealSVG.style.top = `${y}px`;
-//     if(mealSVG.offsetLeft + mealSVG.offsetWidth > window.innerWidth) {
-//         reverseX = true;
-//     } else if(mealSVG.offsetLeft <= 0) {
-//         reverseX = false;
-//     }
-//     if(mealSVG.offsetTop + mealSVG.offsetHeight > window.innerHeight) {
-//         reverseY = true;
-//     } else if(mealSVG.offsetTop <= 0) {
-//         reverseY = false;
-//     }
-//     if(reverseX) {
-//         x-=2;
-//     } else {
-//         x+=2; 
-//     }
-//     if(reverseY) {
-//         y-=2;
-//     } else {
-//         y+=2; 
-//     }
-// } ,1);
+class Meal {
+    constructor(imgName) {
+        this.object = `<object data="public/images/object/${imgName}.svg" type="image/svg+xml"></object>`;
+        this.x = Math.floor(Math.random() * 1800);
+        this.y = Math.floor(Math.random() * 800);
+        this.reverseX = Math.floor(Math.random() * 2) ? true : false;
+        this.reverseY = false;
+        this.speed = Math.random() * 1 + .5;
+
+        const mealSVG = document.createElement("div");
+        mealSVG.innerHTML = this.object;
+        mealSVG.style.position = "absolute";
+        mealSVG.style.width = 'fit-content';
+        this.mealSVG = mealSVG;
+        main.append(this.mealSVG);
+    }
+    moveObject() {
+        this.mealSVG.style.left = `${this.x}px`;
+        this.mealSVG.style.top = `${this.y}px`;
+        if(this.mealSVG.offsetLeft + this.mealSVG.offsetWidth > document.body.offsetWidth) {
+            this.reverseX = true;
+        } else if(this.mealSVG.offsetLeft <= 0) {
+            this.reverseX = false;
+        }
+        if(this.mealSVG.offsetTop + this.mealSVG.offsetHeight > window.innerHeight) {
+            this.reverseY = true;
+        } else if(this.mealSVG.offsetTop <= 0) {
+            this.reverseY = false;
+        }
+        this.x = this.reverseX ? this.x - this.speed : this.x + this.speed;
+        this.y = this.reverseY ? this.y - this.speed : this.y + this.speed;
+    }
+    start() {
+        setInterval(() => this.moveObject(), 1);
+    }
+}
