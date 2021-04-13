@@ -59,12 +59,33 @@
 
         $sql = "select * from users where user_id = '$id'";
         $users = mysqli_get_query($sql);
-        if(count($users) > 0) {
+        if(count($users) == 1) {
             $message['status'] = 'A409';
         } else {
             $message['status'] = 'A200';
         }
         
+        echo json_encode($message);
+    }
+
+    function findId() {
+        $message = array();
+        $name = $_POST['name'];
+        $phone = $_POST['phone1']."-".$_POST['phone2']."-".$_POST['phone3'];
+
+        if($name === '' || $_POST['phone1'] === '' || $_POST['phone2'] === '' || $_POST['phone3'] === '') {
+            $message['status'] = 'A400';
+        } else {
+            $sql = "select * from users where user_name = '$name' and user_phone = '$phone'";
+            $users = mysqli_get_query($sql);
+            if(count($users) == 1) {
+                $message['status'] = 'A200';
+                $message['id'] = $users[0]['user_id'];
+            } else {
+                $message['status'] = 'A409';
+            }
+        }
+
         echo json_encode($message);
     }
 

@@ -53,7 +53,7 @@
             </div>
             <div class="login__form-list">
                 <div class="login__form-items">
-                    <form class="login__form-item">
+                    <form class="login__form-item find-id__wrap">
                         <input type="text" class="login__input" placeholder="이름" name="name">
                         <div class="login__phone">
                             <input type="text" class="login__input login__input--short" placeholder="휴대전화" name="phone1" maxlength=3>
@@ -65,7 +65,7 @@
                             <button class="login__button login__input--short" type="reset">취소</button>
                         </div>
                     </form>
-                    <form class="login__form-item">
+                    <form class="login__form-item find-pw__wrap">
                         <input type="text" class="login__input" placeholder="아이디" name="id">
                         <input type="text" class="login__input" placeholder="이름" name="name">
                         <div class="login__phone">

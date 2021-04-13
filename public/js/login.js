@@ -1,7 +1,10 @@
+"use strict";
 const login = document.querySelector(".login");
 const loginWrap = document.querySelector(".login__wrap");
 const signWrap = document.querySelector(".sign__wrap");
 const findWrap = document.querySelector(".find__wrap");
+const findIdWrap = document.querySelector(".find-id__wrap");
+const findPwWrap = document.querySelector(".find-pw__wrap");
 //로그인
 const loginButton = loginWrap.querySelector('.login__button');
 const showSign = loginWrap.querySelector(".login__text:last-child");
@@ -16,6 +19,7 @@ const closeSign = signWrap.querySelector(".login__button:last-child");
 //아이디 및 비밀번호 찾기
 const findId = findWrap.querySelector(".login__toggle-button:first-child");
 const findPw = findWrap.querySelector(".login__toggle-button:last-child");
+const findIdButton = findWrap.querySelector(".login__form-item:first-child button");
 const cancelButtons = findWrap.querySelectorAll(".login__buttons > .login__button:last-child");
 //공통
 const phones = document.querySelectorAll('.login__phone > input');
@@ -24,40 +28,15 @@ signWrap.remove();
 findWrap.remove();
 //로그인
 loginButton.addEventListener('click', function() {
-    const formData = new FormData(loginWrap);
-    fetch('controller/user/login', {
-        method: 'POST',
-        body: formData
-    })
-    .then(msg => msg.json())
-    .then(msg => {
-        if(msg.status === 'A200') {
-            alert('로그인 성공!');
-            location.href = 'index';
-        } else if(msg.status === 'A404') {
-            alert('아이디와 비밀번호를 다시 확인해주세요!');
-        } else if(msg.status === 'A400') {
-            alert('비어있는 값이 있습니다!');
-        }
-    })
+    const user = new User(loginWrap);
+    user.login();
 })
 //회원가입
-signInputId.addEventListener('blur', function() {
+signInputId.addEventListener('blur', function() { //중복 아이디 체크
     const loginLabelId = signWrap.querySelector('.login__label-id');
     if(/^[a-z0-9]{5,20}$/g.test(this.value)) {
-        const formData = new FormData(signWrap);
-        fetch('controller/user/doubleCheck', {
-            method: 'POST',
-            body: formData
-        })
-        .then(msg => msg.json())
-        .then(msg => {
-            if(msg.status === 'A200') {
-                changeLabelTextColor(loginLabelId, '적당합니다!', 'green');
-            } else if(msg.status === 'A409') {
-                changeLabelTextColor(loginLabelId, '중복입니다!', 'red');
-            }
-        })
+        const user = new User(signWrap);
+        user.doubleCheck();
     } else {
         changeLabelTextColor(loginLabelId, '아이디는 6~20자 영문자 또는 숫자이어야 합니다.', 'red');
     }
@@ -96,22 +75,8 @@ showFind.addEventListener("click", function() {
     loginWrap.remove();
 })
 signButton.addEventListener('click', function() {
-    const formData = new FormData(signWrap);
-    fetch('controller/user/signUp', {
-        method: 'POST',
-        body: formData
-    })
-    .then(msg => msg.json())
-    .then(msg => {
-        if(msg.status === 'A200') {
-            alert('가입 완료!');
-            location.href = 'index';
-        } else if(msg.status === 'A500') {
-            alert('에러! 관리자에게 문의해주세요. Tel.010-5295-6530');
-        } else if(msg.status === 'A400') {
-            alert('비어 있는 값이 있습니다!');
-        }
-    })
+    const user = new User(signWrap);
+    user.signUp();
 })
 closeSign.addEventListener("click", function() {
     login.append(loginWrap);
@@ -123,6 +88,10 @@ findId.addEventListener("click", function() {
 })
 findPw.addEventListener("click", function() {
     findWrap.classList.replace("login__form-id", "login__form-pw");
+})
+findIdButton.addEventListener('click', function() {
+    const user = new User(findIdWrap);
+    user.findId();
 })
 //공통
 cancelButtons.forEach(button => {
@@ -139,6 +108,69 @@ phones.forEach(input => {
         }
     })
 })
+
+class User {
+    constructor(form) {
+        this.formData = new FormData(form);
+        this.header = {
+            method: 'POST',
+            body: this.formData
+        }
+    }
+    async fetching(url) {
+        const msg = await fetch(`controller/user/${url}`, this.header);
+        return await msg.json();
+    }
+    login() {
+        this.fetching('login')
+        .then(msg => {
+            if(msg.status === 'A200') {
+                alert('로그인 성공!');
+                location.href = 'index';
+            } else if(msg.status === 'A404') {
+                alert('아이디와 비밀번호를 다시 확인해주세요!');
+            } else if(msg.status === 'A400') {
+                alert('비어있는 값이 있습니다!');
+            }
+        })
+    }
+    signUp() {
+        this.fetching('signUp')
+        .then(msg => {
+            if(msg.status === 'A200') {
+                alert('가입 완료!');
+                location.href = 'index';
+            } else if(msg.status === 'A500') {
+                alert('에러! 관리자에게 문의해주세요. Tel.010-5295-6530');
+            } else if(msg.status === 'A400') {
+                alert('비어 있는 값이 있습니다!');
+            }
+        })
+    }
+    doubleCheck() {
+        const loginLabelId = signWrap.querySelector('.login__label-id');
+        this.fetching('doubleCheck')
+        .then(msg => {
+            if(msg.status === 'A200') {
+                changeLabelTextColor(loginLabelId, '적당합니다!', 'green');
+            } else if(msg.status === 'A409') {
+                changeLabelTextColor(loginLabelId, '중복입니다!', 'red');
+            }
+        })
+    }
+    findId() {
+        this.fetching('findId')
+        .then(msg => {
+            if(msg.status === 'A200') {
+                alert(`아이디는 ${msg.id}입니다!`);
+            } else if(msg.status === 'A409') {
+                alert('이름과 휴대전화번호를 다시 한번 확인해주세요!');
+            } else if(msg.status === 'A400') {
+                alert('비어 있는 값이 있습니다!');
+            }
+        })
+    }
+}
 
 function changeLabelTextColor(label, text, color) {
     label.innerText = text;
