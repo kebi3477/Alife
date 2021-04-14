@@ -28,6 +28,7 @@
             <div class="intro__text intro__text--small">레시피의 음식을 만들어 볼 수 있습니다.</div>
         </div>
         <object data="public/images/object/monster.svg" type="image/svg+xml" class="monster"></object>
+        <audio class="sound" src="public/audio/eat.mp3" crossOrigin="anonymous" loop></audio>
     </div>
     <div class="find page padding">
         <div class="title">

@@ -7,7 +7,7 @@
         <circle id="타원_97" data-name="타원 97" cx="66.837" cy="66.837" r="66.837" transform="translate(866.388 677.124)" fill="#fff"/>
         <circle id="타원_98" class="monster__eye" data-name="타원 98" cx="27.849" cy="27.849" r="27.849" transform="translate(905.376 695.373)" fill="#1d1d1b"/>
         <ellipse id="타원_99" data-name="타원 99" cx="36.74" cy="22.454" rx="36.74" ry="22.454" transform="translate(977.182 765.89)" fill="#15700e"/>
-        <g class="monster__mouse-close">
+        <g class="monster__mouse--close">
             <g id="그룹_494" data-name="그룹 494" transform="translate(920.443 843.545)">
                 <path id="패스_892" data-name="패스 892" d="M1198.975,304.172c-12.364,0-20.144,5.714-26.74,12.9l16.223,29.6c5.91,10.784,19.909,10.388,25.2-.711l13.175-27.642C1219.992,310.561,1212.046,304.172,1198.975,304.172Z" transform="translate(-1172.236 -304.172)" fill="#f8f6f7"/>
                 <path id="패스_893" data-name="패스 893" d="M1295.576,304.172c-13.063,0-21.006,6.381-27.845,14.138l13.183,27.657c5.29,11.1,19.291,11.5,25.2.711l16.217-29.592C1315.731,309.892,1307.949,304.172,1295.576,304.172Z" transform="translate(-1135.379 -304.172)" fill="#f8f6f7"/>
