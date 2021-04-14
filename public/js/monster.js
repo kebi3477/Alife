@@ -2,7 +2,6 @@ const main = document.querySelector("#main");
 const sound = document.querySelector('.sound');
 let moster, monsterDoc, monsterEye, monsterMouseClose, monsterMouseOpen;
 
-sound.crossOrigin = "anonymous";
 
 window.onload = () => {
     monster = document.querySelector(".monster");
@@ -14,7 +13,11 @@ window.onload = () => {
         movingEye(e);
     }
 
-    const mealClasses = [new Meal('chicken'), new Meal('cabbage'), new Meal('carrot'), new Meal('green_onion')];
+    const mealClasses = [
+        new Meal('chicken'), new Meal('cabbage'), new Meal('carrot'), new Meal('green_onion'),
+        new Meal('chicken'), new Meal('cabbage'), new Meal('carrot'), new Meal('green_onion'),
+        new Meal('chicken'), new Meal('cabbage'), new Meal('carrot'), new Meal('green_onion')
+    ];
     mealClasses.forEach(obj => {
         obj.start();
     })

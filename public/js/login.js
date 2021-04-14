@@ -9,6 +9,7 @@ const findPwWrap = document.querySelector(".find-pw__wrap");
 const loginButton = loginWrap.querySelector('.login__button');
 const showSign = loginWrap.querySelector(".login__text:last-child");
 const showFind = loginWrap.querySelector(".login__text--under");
+const loginInputs = loginWrap.querySelectorAll('input');
 //회원가입
 const signInputId = signWrap.querySelector('.login__input[name=id]');
 const signInputPw = signWrap.querySelector('.login__input[name=password]');
@@ -30,6 +31,14 @@ findWrap.remove();
 loginButton.addEventListener('click', function() {
     const user = new User(loginWrap);
     user.login();
+})
+loginInputs.forEach(input => {
+    input.addEventListener('keypress', function(e) {
+        if(e.key === 'Enter') {
+            const user = new User(loginWrap);
+            user.login();
+        }
+    })
 })
 //회원가입
 signInputId.addEventListener('blur', function() { //중복 아이디 체크
@@ -164,7 +173,7 @@ class User {
             if(msg.status === 'A200') {
                 alert(`아이디는 ${msg.id}입니다!`);
             } else if(msg.status === 'A409') {
-                alert('이름과 휴대전화번호를 다시 한번 확인해주세요!');
+                alert('사용자가 존재하지 않습니다!');
             } else if(msg.status === 'A400') {
                 alert('비어 있는 값이 있습니다!');
             }
