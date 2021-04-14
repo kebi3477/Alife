@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <header class="padding">
     <div class="header__list">
         <a href="index"><text class="header__logo" transform="translate(1 42)" font-size="36">A Life</text></a>
@@ -12,8 +13,19 @@
         </div>
     </div>
     <div class="header__list">
+    <?php
+        if(isset($_SESSION['alife_user_id'])) {
+    ?>
+        <div class="header__item header__item--small"><a href="myfigure">나의 냉장고</a></div>
+        <div class="header__item header__item--small logout">로그아웃</div>
+    <?php
+        } else {
+    ?>
         <div class="header__item header__item--small"><a href="login">로그인</a></div>
         <div class="header__item header__item--small"><a href="login">회원가입</a></div>
+    <?php
+        }
+    ?>
         <object class="header__img" data="public/images/icon/search.svg" type="image/svg+xml"></object>
         <object class="header__img" data="public/images/icon/menu.svg" type="image/svg+xml"></object>
     </div>

@@ -261,5 +261,6 @@
     </footer>
     <script src="public/js/monster.js"></script>
     <script src="public/js/index.js"></script>
+    <script src="public/js/common.js"></script>
 </body>
 </html>

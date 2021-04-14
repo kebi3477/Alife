@@ -1,4 +1,5 @@
 <?php
+    session_start();
     function mysqli_get_query($sql) {
         $conn = mysqli_connect('localhost', 'root', '', 'alife');
         $query = mysqli_query($conn, $sql);

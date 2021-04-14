@@ -89,5 +89,13 @@
         echo json_encode($message);
     }
 
+    function logout() {
+        $message = array();
+        session_destroy();
+        $message['status'] = 'A200';
+        
+        echo json_encode($message);
+    }
+
     $urls[3]();
 ?>

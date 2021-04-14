@@ -76,7 +76,6 @@ class Meal {
     pause(e) {
         e.dataTransfer.setDragImage(this.emptyCanvas, 0, 0);
         clearInterval(this.moving);
-        sound.play();
     }
     drag(e) {
         this.mealSVG.style.left = `${e.clientX-40}px`;
@@ -116,10 +115,6 @@ class Meal {
     eating() {  
         this.mealSVG.remove();
         sound.paused ? sound.play() : '';
-        // const audio = document.querySelector('audio');
-        // if (audio.paused) { 
-        //     audio.play();
-        // }
         setTimeout(() => {
             this.x = Math.floor(Math.random() * 1800);
             this.y = Math.floor(Math.random() * 800);
