@@ -21,8 +21,7 @@
     <?php
         } else {
     ?>
-        <div class="header__item header__item--small"><a href="login">로그인</a></div>
-        <div class="header__item header__item--small"><a href="login">회원가입</a></div>
+        <div class="header__item header__item--small"><a href="login">로그인 / 회원가입</a></div>
     <?php
         }
     ?>
