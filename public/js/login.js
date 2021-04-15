@@ -17,6 +17,9 @@ const signInputRepw = signWrap.querySelector('.login__input[name=rePassword]');
 const signInputAddress = signWrap.querySelector('.login__input[name=address]');
 const signButton = signWrap.querySelector(".login__button:first-child");
 const closeSign = signWrap.querySelector(".login__button:last-child");
+// 약관 동의
+const accept1 = signWrap.querySelectorAll('.login__accept-button').item(0);
+const accept2 = signWrap.querySelectorAll('.login__accept-button').item(1);
 //아이디 및 비밀번호 찾기
 const findId = findWrap.querySelector(".login__toggle-button:first-child");
 const findPw = findWrap.querySelector(".login__toggle-button:last-child");
@@ -66,7 +69,7 @@ signInputRepw.addEventListener('blur', function() {
         changeLabelTextColor(loginLabelRepw, '비밀번호가 다릅니다!', 'red');
     }
 })
-signInputAddress.addEventListener('click', function() {
+signInputAddress.addEventListener('focus', function() {
     if(this.value === '') {
         new daum.Postcode({
             oncomplete: function(data) {
@@ -90,6 +93,13 @@ signButton.addEventListener('click', function() {
 closeSign.addEventListener("click", function() {
     login.append(loginWrap);
     signWrap.remove();
+})
+// 약관 동의
+accept1.addEventListener('click', function() {
+    new Accept('accept1');
+})
+accept2.addEventListener('click', function() {
+    new Accept('accept2');
 })
 //아이디 및 비밀번호 찾기
 findId.addEventListener("click", function() {
@@ -178,6 +188,28 @@ class User {
                 alert('비어 있는 값이 있습니다!');
             }
         })
+    }
+}
+
+class Accept {
+    constructor(name) {
+        this.name = name;
+        this.form = document.querySelector(`.${name}`);
+        this.closeBtn = this.form.querySelector('.popup__close');
+        this.button = this.form.querySelector('.popup__button');
+        this.closeBtn.onclick = () => this.close();
+        this.button.onclick = () => this.accept();
+        this.show();
+    }
+    show() {
+        this.form.style.display = 'flex';
+    }
+    close() {
+        this.form.style.display = 'none';
+    }
+    accept() {
+        this.close();
+        document.querySelector(`#${this.name}`).checked = true;
     }
 }
 
