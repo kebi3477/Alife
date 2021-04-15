@@ -11,7 +11,7 @@ const showSign = loginWrap.querySelector(".login__text:last-child");
 const showFind = loginWrap.querySelector(".login__text--under");
 const loginInputs = loginWrap.querySelectorAll('input');
 //회원가입
-const signInputId = signWrap.querySelector('.login__input[name=id]');
+const signInputEmail = signWrap.querySelector('.login__input[name=email]');
 const signInputPw = signWrap.querySelector('.login__input[name=password]');
 const signInputRepw = signWrap.querySelector('.login__input[name=rePassword]');
 const signInputAddress = signWrap.querySelector('.login__input[name=address]');
@@ -32,44 +32,45 @@ signWrap.remove();
 findWrap.remove();
 //로그인
 loginButton.addEventListener('click', function() {
-    const user = new User(loginWrap);
     user.login();
 })
 loginInputs.forEach(input => {
     input.addEventListener('keypress', function(e) {
         if(e.key === 'Enter') {
-            const user = new User(loginWrap);
             user.login();
         }
     })
 })
 //회원가입
-signInputId.addEventListener('blur', function() { //중복 아이디 체크
+signInputEmail.addEventListener('blur', function() { //중복 아이디 체크
     const loginLabelId = signWrap.querySelector('.login__label-id');
-    if(/^[a-z0-9]{5,20}$/g.test(this.value)) {
-        const user = new User(signWrap);
+    if(/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test(this.value)) {
         user.doubleCheck();
     } else {
-        changeLabelTextColor(loginLabelId, '아이디는 6~20자 영문자 또는 숫자이어야 합니다.', 'red');
+        changeLabelTextColor(loginLabelId, '이메일 형식이 아닙니다!', 'red');
     }
 })
 signInputPw.addEventListener('blur', function() {
     const loginLabelPw = signWrap.querySelector('.login__label-pw');
     if(/^[a-z0-9]{8,20}$/g.test(this.value)) {
         changeLabelTextColor(loginLabelPw, '적당합니다!', 'green');
+        user.asign.password = true;
     } else {
         changeLabelTextColor(loginLabelPw, '비밀번호는 8~20자 영문자 또는 숫자이어야 합니다.', 'red');
+        user.asign.password = false;
     }
 })
 signInputRepw.addEventListener('blur', function() {
     const loginLabelRepw = signWrap.querySelector('.login__label-repw');
     if(this.value === signInputPw.value) {
         changeLabelTextColor(loginLabelRepw, '비밀번호가 같습니다!', 'green');
+        user.asign.rePassword = true;
     } else {
         changeLabelTextColor(loginLabelRepw, '비밀번호가 다릅니다!', 'red');
+        user.asign.rePassword = false;
     }
 })
-signInputAddress.addEventListener('focus', function() {
+signInputAddress.addEventListener('click', function() {
     if(this.value === '') {
         new daum.Postcode({
             oncomplete: function(data) {
@@ -87,7 +88,6 @@ showFind.addEventListener("click", function() {
     loginWrap.remove();
 })
 signButton.addEventListener('click', function() {
-    const user = new User(signWrap);
     user.signUp();
 })
 closeSign.addEventListener("click", function() {
@@ -109,8 +109,7 @@ findPw.addEventListener("click", function() {
     findWrap.classList.replace("login__form-id", "login__form-pw");
 })
 findIdButton.addEventListener('click', function() {
-    const user = new User(findIdWrap);
-    user.findId();
+    user.findEmail();
 })
 //공통
 cancelButtons.forEach(button => {
@@ -129,18 +128,28 @@ phones.forEach(input => {
 })
 
 class User {
-    constructor(form) {
-        this.formData = new FormData(form);
-        this.header = {
-            method: 'POST',
-            body: this.formData
+    constructor() {
+        this.asign = {
+            email: false,
+            password: false,
+            rePassword: false,
+            accept1: false,
+            accept2: false
         }
     }
     async fetching(url) {
         const msg = await fetch(`controller/user/${url}`, this.header);
         return await msg.json();
     }
+    init(form) {
+        this.formData = new FormData(form);
+        this.header = {
+            method: 'POST',
+            body: this.formData
+        }
+    }
     login() {
+        this.init(loginWrap);
         this.fetching('login')
         .then(msg => {
             if(msg.status === 'A200') {
@@ -154,40 +163,58 @@ class User {
         })
     }
     signUp() {
-        this.fetching('signUp')
-        .then(msg => {
-            if(msg.status === 'A200') {
-                alert('가입 완료!');
-                location.href = 'index';
-            } else if(msg.status === 'A500') {
-                alert('에러! 관리자에게 문의해주세요. Tel.010-5295-6530');
-            } else if(msg.status === 'A400') {
-                alert('비어 있는 값이 있습니다!');
-            }
-        })
+        this.init(signWrap);
+        this.checkAccept();
+        if(!this.asign.email) {
+            alert('이메일을 확인하세요!');
+        } else if(!this.asign.password || !this.asign.rePassword) {
+            alert('비밀번호를 확인하세요!');
+        } else if(!this.asign.accept1 || !this.asign.accept2) {
+            alert('이용약관에 동의해주세요!');
+        } else {
+            this.fetching('signUp')
+            .then(msg => {
+                if(msg.status === 'A200') {
+                    alert('가입 완료!');
+                    location.href = 'index';
+                } else if(msg.status === 'A500') {
+                    alert('에러! 관리자에게 문의해주세요. Tel.010-5295-6530');
+                } else if(msg.status === 'A400') {
+                    alert('비어 있는 값이 있습니다!');
+                }
+            })
+        }
     }
     doubleCheck() {
         const loginLabelId = signWrap.querySelector('.login__label-id');
+        this.init(signWrap);
         this.fetching('doubleCheck')
         .then(msg => {
             if(msg.status === 'A200') {
+                this.asign.email = true;
                 changeLabelTextColor(loginLabelId, '적당합니다!', 'green');
             } else if(msg.status === 'A409') {
+                this.asign.email = false;
                 changeLabelTextColor(loginLabelId, '중복입니다!', 'red');
             }
         })
     }
-    findId() {
-        this.fetching('findId')
+    findEmail() {
+        this.init(findIdWrap);
+        this.fetching('findEmail')
         .then(msg => {
             if(msg.status === 'A200') {
-                alert(`아이디는 ${msg.id}입니다!`);
+                alert(`아이디는 ${msg.email}입니다!`);
             } else if(msg.status === 'A409') {
                 alert('사용자가 존재하지 않습니다!');
             } else if(msg.status === 'A400') {
                 alert('비어 있는 값이 있습니다!');
             }
         })
+    }
+    checkAccept() {
+        this.asign.accept1 = document.querySelector('#accept1').checked;
+        this.asign.accept2 = document.querySelector('#accept2').checked;
     }
 }
 
@@ -217,3 +244,5 @@ function changeLabelTextColor(label, text, color) {
     label.innerText = text;
     label.style.color = color;
 }
+
+const user = new User();

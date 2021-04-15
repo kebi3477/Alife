@@ -14,7 +14,7 @@
     </div>
     <div class="header__list">
     <?php
-        if(isset($_SESSION['alife_user_id'])) {
+        if(isset($_SESSION['alife_user_email'])) {
     ?>
         <div class="header__item header__item--small"><a href="myfigure">나의 냉장고</a></div>
         <div class="header__item header__item--small logout">로그아웃</div>

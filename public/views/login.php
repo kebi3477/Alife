@@ -70,16 +70,16 @@
         <div class="login__img"></div>
         <form class="login__form login__wrap">
             <div class="login__logo">A Life</div>
-            <input type="text" class="login__input" placeholder="아이디" name="id">
+            <input type="text" class="login__input" placeholder="이메일" name="email">
             <input type="password" class="login__input" placeholder="비밀번호" name="password">
             <button class="login__button" type="button">로그인</button>
-            <div class="login__text login__text--under"><b>아이디 / 비밀번호 찾기</b></div>
+            <div class="login__text login__text--under"><b>이메일 / 비밀번호 찾기</b></div>
             <div class="login__text">회원이 아니십니까? <b>회원가입</b></div>
         </form>
         <form class="login__form sign__wrap">
             <div class="login__logo">A Life</div>
             <div class="login__title">회원정보입력</div>
-            <input type="text" class="login__input" placeholder="아이디" name="id">
+            <input type="text" class="login__input" placeholder="이메일" name="email">
             <label class='login__label-id'></label>
             <input type="password" class="login__input" placeholder="비밀번호" name="password">
             <label class='login__label-pw'></label>
@@ -114,7 +114,7 @@
         <div class="login__form find__wrap login__form-id">
             <div class="login__logo">A Life</div>
             <div class="login__toggle">
-                <div class="login__toggle-button">아이디 찾기</div>
+                <div class="login__toggle-button">이메일 찾기</div>
                 <div class="login__toggle-button">비밀번호 찾기</div>
             </div>
             <div class="login__form-list">
@@ -127,12 +127,12 @@
                             <input type="text" class="login__input login__input--short" name="phone3" maxlength=4>
                         </div>
                         <div class="login__buttons">
-                            <button class="login__button login__input--short" type="button">아이디 찾기</button>
+                            <button class="login__button login__input--short" type="button">이메일 찾기</button>
                             <button class="login__button login__input--short" type="reset">취소</button>
                         </div>
                     </form>
                     <form class="login__form-item find-pw__wrap">
-                        <input type="text" class="login__input" placeholder="아이디" name="id">
+                        <input type="text" class="login__input" placeholder="이메일" name="email">
                         <input type="text" class="login__input" placeholder="이름" name="name">
                         <div class="login__phone">
                             <input type="text" class="login__input login__input--short" placeholder="휴대전화" name="phone1" maxlength=3>

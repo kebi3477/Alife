@@ -1,5 +1,5 @@
 CREATE TABLE `users` (
-  `user_id` varchar(255) PRIMARY KEY,
+  `user_email` varchar(255) PRIMARY KEY,
   `user_password` varchar(255),
   `user_name` varchar(255),
   `user_phone` varchar(255),

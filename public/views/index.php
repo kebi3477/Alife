@@ -40,7 +40,7 @@
                 <div class="find__img">
                     <object data="public/images/icon/mouse.svg" type="image/svg+xml"></object>
                 </div>
-                <div class="find__text find__text--big">재료 선택 게시피 검색</div>
+                <div class="find__text find__text--big">재료 선택 레시피 검색</div>
                 <div class="find__text find__text--small">냉장고 안에 있는 재료들을 선택하여<br>만들 수 있는 음식의 레시피를 제공합니다.</div>
             </div>
             <div class="find__item">
@@ -157,27 +157,6 @@
                         <div class="hastag__item">#찌개용</div>
                     </div>
                 </div>
-                <div class="cook__item">
-                    <div class="cook__circle">
-                        <div class="cook__heart">
-                            <object data="public/images/icon/heart.svg" type="image/svg+xml"></object>
-                        </div>
-                    </div>
-                    <div class="cook__img">
-                        <img src="public/images/누룽지탕.JPG" alt="img">
-                    </div>
-                    <div class="cook__content">
-                        <div class="cook__type">HOT</div>
-                        <div class="cook__brand">앙트레</div>
-                        <div class="cook__title">얼큰한 해물 누룽지탕 쿠킹박스</div>
-                        <div class="cook__price">14,900</div> 
-                    </div>
-                    <div class="hastag__list">
-                        <div class="hastag__item">#1인분</div>
-                        <div class="hastag__item">#밀키트</div>
-                        <div class="hastag__item">#찌개용</div>
-                    </div>
-                </div>
             </div>
             <div class="cook__button button">
                 더보기
@@ -193,7 +172,7 @@
             </div> 
             <div class="community__button button">
                 커뮤니티 바로가기
-                <object class="community__button-arrow" data="public/images/icon/arrow_down_w.svg" type="image/svg+xml"></object>
+                <object class="community__button-arrow" data="public/images/icon/arrow_down_gr.svg" type="image/svg+xml"></object>
             </div>
         </div>
         <div class="community__wrap">
@@ -204,7 +183,7 @@
             </div>
             <div class="community__img">
                 <object data="public/images/object/desk.svg" type="image/svg+xml" class="community__img--left"></object>
-                <object data="public/images/object/monster_sit.svg" type="image/svg+xml"></object>
+                <object data="public/images/object/monster_sit.svg" type="image/svg+xml" class="community__img--right"></object>
             </div>
         </div>
         <div class="community__wrap--black"></div>
@@ -224,7 +203,7 @@
         </div>
         <div class="fridge_button button">
             나의 냉장고 바로가기
-            <object class="community__button-arrow" data="public/images/icon/arrow_down_w.svg" type="image/svg+xml"></object>
+            <object class="community__button-arrow" data="public/images/icon/arrow_down_gr.svg" type="image/svg+xml"></object>
         </div>
         <div class="community__wrap--black"></div>
     </div>
