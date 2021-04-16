@@ -13,12 +13,12 @@
             $sql = "select * from users where user_email='$email' and user_password='$encPw'";
             $users = mysqli_get_query($sql);
             if(count($users) == 1) {
-                $users = $users[0];
-                $_SESSION['alife_user_email'] = $users['user_email'];
-                $_SESSION['alife_user_name'] = $users['user_name'];
-                $_SESSION['alife_user_phone'] = $users['user_phone'];
-                $_SESSION['alife_user_address'] = $users['user_address'];
-                $_SESSION['alife_user_rank'] = $users['user_rank'];
+                $user = $users[0];
+                $_SESSION['alife_user_email'] = $user['user_email'];
+                $_SESSION['alife_user_name'] = $user['user_name'];
+                $_SESSION['alife_user_phone'] = $user['user_phone'];
+                $_SESSION['alife_user_address'] = $user['user_address'];
+                $_SESSION['alife_user_rank'] = $user['user_rank'];
 
                 $message['status'] = 'A200';
             } else {

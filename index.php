@@ -11,7 +11,7 @@
         $controllerType = $urls[2];
         $url = __DIR__.$dir.$controllerType."Controller.php";
         require_once $url;
-    } else if($type == 'model') {
+    } else if($type == 'interceptor') {
         
     } else {
         $dir = '\\public\\views\\';

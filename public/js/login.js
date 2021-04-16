@@ -186,16 +186,16 @@ class User {
         }
     }
     doubleCheck() {
-        const loginLabelId = signWrap.querySelector('.login__label-id');
+        const loginLabelEmail = signWrap.querySelector('.login__label-email');
         this.init(signWrap);
         this.fetching('doubleCheck')
         .then(msg => {
             if(msg.status === 'A200') {
                 this.asign.email = true;
-                changeLabelTextColor(loginLabelId, '적당합니다!', 'green');
+                changeLabelTextColor(loginLabelEmail, '적당합니다!', 'green');
             } else if(msg.status === 'A409') {
                 this.asign.email = false;
-                changeLabelTextColor(loginLabelId, '중복입니다!', 'red');
+                changeLabelTextColor(loginLabelEmail, '중복입니다!', 'red');
             }
         })
     }

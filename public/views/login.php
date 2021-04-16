@@ -10,7 +10,11 @@
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
-    <?php include('header.php') ?>
+    <?php 
+        include('header.php');
+        include('userInterceptor.php');
+        isNonLoging();
+    ?>
     <div class="popup accept1">
         <div class="popup__form">
             <div class="popup__header">
@@ -79,8 +83,11 @@
         <form class="login__form sign__wrap">
             <div class="login__logo">A Life</div>
             <div class="login__title">회원정보입력</div>
-            <input type="text" class="login__input" placeholder="이메일" name="email">
-            <label class='login__label-id'></label>
+            <div class="login__input--row">
+                <input type="text" class="login__input" placeholder="이메일" name="email">
+                <button class="login__button login__button--small">인증</button>
+            </div>
+            <label class='login__label-email'></label>
             <input type="password" class="login__input" placeholder="비밀번호" name="password">
             <label class='login__label-pw'></label>
             <input type="password" class="login__input" placeholder="비밀번호 재확인" name="rePassword">
@@ -149,5 +156,6 @@
         </div>
     </div>
     <script src="public/js/login.js"></script>
+    <script src="public/js/common.js"></script>
 </body>
 </html>
