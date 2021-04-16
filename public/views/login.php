@@ -85,7 +85,7 @@
             <div class="login__title">회원정보입력</div>
             <div class="login__input--row">
                 <input type="text" class="login__input" placeholder="이메일" name="email">
-                <button class="login__button login__button--small">인증</button>
+                <button type="button" class="login__button login__button--small">인증</button>
             </div>
             <label class='login__label-email'></label>
             <input type="password" class="login__input" placeholder="비밀번호" name="password">

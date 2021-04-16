@@ -29,6 +29,35 @@
         echo json_encode($message);
     }
 
+    function emailCheck() {
+        $message = array();
+        $email = $_POST['email'];
+        if($email === "") {
+            $message['status'] = 'A400';
+        } else {
+            $url = 'public/views/mail.html';
+            $to = $email;
+            $subject = 'ALIFE 이메일 인증';
+            $fp = fopen($url, 'r');   
+            $message = fread($fp,filesize($url));
+            $auth = rand(000000, 999999);
+            $message = str_replace('{auth}', $auth, $message);
+            
+            $headers[] = 'MIME-Version: 1.0';
+            $headers[] = 'Content-type: text/html; charset=utf-8';
+
+            $headers[] = "To: $email";
+            $headers[] = "From: ALIFE";
+
+            $result = mail($to, $subject, $message, implode("\r\n", $headers));
+            if($result) {
+                $message['status'] = 'A200';
+            } else {
+                $message['status'] = 'A404';
+            }
+        }
+    }
+
     function signUp() { 
         $message = array();
         $email = $_POST['email'];

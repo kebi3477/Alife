@@ -16,7 +16,8 @@ const signInputPw = signWrap.querySelector('.login__input[name=password]');
 const signInputRepw = signWrap.querySelector('.login__input[name=rePassword]');
 const signInputAddress = signWrap.querySelector('.login__input[name=address]');
 const signButton = signWrap.querySelector(".login__button:first-child");
-const closeSign = signWrap.querySelector(".login__button:last-child");
+const closeSign = signWrap.querySelectorAll(".login__button").item(2);
+const emailAuth = signWrap.querySelector('.login__button--small');
 // 약관 동의
 const accept1 = signWrap.querySelectorAll('.login__accept-button').item(0);
 const accept2 = signWrap.querySelectorAll('.login__accept-button').item(1);
@@ -43,11 +44,19 @@ loginInputs.forEach(input => {
 })
 //회원가입
 signInputEmail.addEventListener('blur', function() { //중복 아이디 체크
-    const loginLabelId = signWrap.querySelector('.login__label-id');
+    const loginLabelEmail = signWrap.querySelector('.login__label-email');
     if(/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test(this.value)) {
         user.doubleCheck();
     } else {
-        changeLabelTextColor(loginLabelId, '이메일 형식이 아닙니다!', 'red');
+        changeLabelTextColor(loginLabelEmail, '이메일 형식이 아닙니다!', 'red');
+    }
+})
+emailAuth.addEventListener('click', function() {
+    const loginLabelEmail = signWrap.querySelector('.login__label-email');
+    if(user.asign.email) {
+        user.emailCheck();
+    } else {
+        changeLabelTextColor(loginLabelEmail, '이메일 형식을 먼저 맞춰주세요!', 'red');
     }
 })
 signInputPw.addEventListener('blur', function() {
@@ -160,6 +169,13 @@ class User {
             } else if(msg.status === 'A400') {
                 alert('비어있는 값이 있습니다!');
             }
+        })
+    }
+    emailCheck() {
+        this.init(signWrap);
+        this.fetching('emailCheck')
+        .then(msg => {
+            console.log(msg);
         })
     }
     signUp() {

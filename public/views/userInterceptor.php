@@ -17,5 +17,4 @@
         location.href='$location'
         </script>";
     }
-
 ?>
