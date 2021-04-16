@@ -450,12 +450,10 @@
     flex-flow: row nowrap;
     position: relative;
     z-index: 2;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
     margin-top: 3rem;
-}
-.fridge__item {
-    margin: 0px 0rem;
+    margin-left: 30rem;
 }
 .fridge_button {
     z-index: 2;

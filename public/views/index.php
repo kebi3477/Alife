@@ -227,12 +227,12 @@
             <div class="title--small">냉장고 안에 있는 재료들을 선택하여 레시피 추천을 받을 수 있습니다.</div>
         </div>
         <div class="fridge__img">
-            <div class="fridge__item">
+            <!-- <div class="fridge__item"> -->
                 <object data="public/images/object/fridge.svg" type="image/svg+xml"></object>
-            </div>
-            <div class="fridge__item">
+            <!-- </div> -->
+            <!-- <div class="fridge__item">
                 <object data="public/images/object/monster_stand.svg" type="image/svg+xml"></object>
-            </div>
+            </div> -->
         </div>
         <div class="fridge_button button">
             나의 냉장고 바로가기
