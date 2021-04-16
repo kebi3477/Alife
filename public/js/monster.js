@@ -58,7 +58,6 @@ class Meal {
         this.mealSVG.ondragstart = e => this.pause(e);
         this.mealSVG.ondrag = e => this.drag(e);
         this.mealSVG.ondragend = e => this.restart(e);
-        console.log(this.scale)
         
         this.emptyCanvas.style.cursor = 'grabbing';
         main.append(this.mealSVG);
@@ -86,7 +85,6 @@ class Meal {
     }
     pause(e) {
         e.dataTransfer.setDragImage(this.emptyCanvas, 0, 0);
-        console.log(e);
         clearInterval(this.moving);
     }
     drag(e) {
@@ -94,8 +92,8 @@ class Meal {
         this.mealSVG.style.top = `${e.clientY-40+window.scrollY}px`;
         if(monster.offsetWidth + monster.offsetLeft > e.clientX 
         && monster.offsetLeft < e.clientX
-        && monster.offsetTop < e.clientY
-        && monster.offsetTop + monster.offsetHeight > e.clientY) {
+        && monster.offsetTop - window.scrollY < e.clientY
+        && monster.offsetTop - window.scrollY + monster.offsetHeight > e.clientY) {
             this.mouseOpen();
         } else {
             this.mouseClose();
@@ -107,8 +105,8 @@ class Meal {
         this.y = e.clientY+window.scrollY;
         if(monster.offsetWidth + monster.offsetLeft > e.clientX 
         && monster.offsetLeft < e.clientX
-        && monster.offsetTop < e.clientY
-        && monster.offsetTop + monster.offsetHeight > e.clientY) {
+        && monster.offsetTop - window.scrollY < e.clientY
+        && monster.offsetTop - window.scrollY + monster.offsetHeight > e.clientY) {
             this.eating();
         } else {
             this.mouseClose();
@@ -125,7 +123,7 @@ class Meal {
     }
     eating() {  
         this.mealSVG.remove();
-        sound.paused ? sound.play() : '';
+        // sound.paused ? sound.play() : '';
         setTimeout(() => {
             this.x = Math.floor(Math.random() * 1800);
             this.y = Math.floor(Math.random() * 800);

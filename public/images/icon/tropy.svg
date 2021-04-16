@@ -1,8 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
-    <style>
-        circle:hover {
-            
-        }  
+      <style>
+      g > * {
+        transition: .5s;
+      }
+      g:hover > circle {
+        fill: #183e15;
+      }
+      g:hover path {
+        fill: #fff;
+      }
     </style>
     <g id="그룹_441" data-name="그룹 441" transform="translate(-1334 -1325)">
     <circle id="타원_20" data-name="타원 20" cx="60" cy="60" r="60" transform="translate(1334 1325)" fill="#fff"/>

@@ -59,6 +59,39 @@
             </div>
         </div>
     </div>
+    <div class="recipe page padding">
+        <div class="recipe--left">
+            <div class="title title--left">
+                <div class="title--big">대파</div>
+                <div class="title--big">냉장고에 남아 있다면?</div>
+                <div class="title--small">냉장고 안에 있는 재료로 레시피 검색을 우선 제공합니다.</div>
+            </div>
+            <object class="recipe__monster" data="public/images/object/monster_recipe.svg" type="image/svg+xml"></object>
+        </div>
+        <div class="recipe__list">
+            <?php
+                for($i = 0; $i < 6; $i++) {
+            ?>
+            <div class="recipe__item">
+                <div class="recipe__img"></div>
+                <div class="recipe__title">국물 떡볶이 만들기</div>
+                <div class="recipe__content">국물 떡볶이 만들어 봅시다. 국물 떡볶이 만들어 봅시다.  국물 떡볶이 만들어 봅시다. 국물...  </div>
+                <div class="recipe--bottom">
+                    <div class="recipe__cover">
+                        <div class="recipe__user-img"></div>
+                        <div class="recipe__user-name">나는 요리사</div>
+                    </div>
+                    <div class="recipe__cover">
+                        <object data="public/images/icon/heart_r.svg" type="image/svg+xml"></object>
+                        <div class="recipe__user-name">100</div>
+                    </div>
+                </div>
+            </div>
+            <?php
+                }
+            ?>
+        </div>
+    </div>
     <div class="recommend page padding">
         <div class="title">
             <div class="title--small">집에서 음식을 만들어 먹고 싶지만 그 과정이 어렵다면?</div>
