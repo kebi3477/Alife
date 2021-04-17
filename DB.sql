@@ -25,8 +25,14 @@ CREATE TABLE `collection` (
 
 CREATE TABLE `ingredient` (
   `ingredient_id` int PRIMARY KEY AUTO_INCREMENT,
-  `ingredient_name` varchar(255)
+  `ingredient_name` varchar(255),
+  `ingredient_image` varchar(255),
+  `ingredient_type` varchar(255)
 );
+insert into ingredient values('', '돼지고기', 'meat.svg', '고기류')
+insert into ingredient values('', '대파', 'green_onion.svg', '채소류')
+insert into ingredient values('', '상추', 'cabbage.svg', '채소류')
+insert into ingredient values('', '당근', 'carrot.svg', '채소류')
 
 CREATE TABLE `ringredient` (
   `ringredient_id` int PRIMARY KEY AUTO_INCREMENT,
