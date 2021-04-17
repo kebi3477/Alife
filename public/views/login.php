@@ -87,6 +87,10 @@
                 <input type="text" class="login__input" placeholder="이메일" name="email">
                 <button type="button" class="login__button login__button--small">인증</button>
             </div>
+            <div class="login__input--row login__input--half">
+                <input type="text" class="login__input" placeholder="인증번호" name="certi">
+                <button type="button" class="login__button login__button--small">확인</button>
+            </div>
             <label class='login__label-email'></label>
             <input type="password" class="login__input" placeholder="비밀번호" name="password">
             <label class='login__label-pw'></label>

@@ -128,6 +128,14 @@
 .login__input--row > .login__input {
     width: 100%;
 }
+.login__input--half {
+    width: 30%;
+    left: -15%;
+    display: none;
+}
+.login__input--half > .login__button--small {
+    width: 25%;
+}
 .login__input:focus {
     outline: none;
 }

@@ -16,8 +16,10 @@ const signInputPw = signWrap.querySelector('.login__input[name=password]');
 const signInputRepw = signWrap.querySelector('.login__input[name=rePassword]');
 const signInputAddress = signWrap.querySelector('.login__input[name=address]');
 const signButton = signWrap.querySelector(".login__button:first-child");
-const closeSign = signWrap.querySelectorAll(".login__button").item(2);
+const closeSign = signWrap.querySelectorAll(".login__button").item(3);
 const emailAuth = signWrap.querySelector('.login__button--small');
+const signInputHalf = signWrap.querySelector('.login__input--half');
+const emailCheck = signInputHalf.querySelector('.login__button');
 // 약관 동의
 const accept1 = signWrap.querySelectorAll('.login__accept-button').item(0);
 const accept2 = signWrap.querySelectorAll('.login__accept-button').item(1);
@@ -58,6 +60,9 @@ emailAuth.addEventListener('click', function() {
     } else {
         changeLabelTextColor(loginLabelEmail, '이메일 형식을 먼저 맞춰주세요!', 'red');
     }
+})
+emailCheck.addEventListener('click', function() {
+    user.emailAuthCheck();
 })
 signInputPw.addEventListener('blur', function() {
     const loginLabelPw = signWrap.querySelector('.login__label-pw');
@@ -143,8 +148,10 @@ class User {
             password: false,
             rePassword: false,
             accept1: false,
-            accept2: false
+            accept2: false,
+            emailAuth: false
         }
+        this.loginLabelEmail = signWrap.querySelector('.login__label-email');
     }
     async fetching(url) {
         const msg = await fetch(`controller/user/${url}`, this.header);
@@ -175,7 +182,24 @@ class User {
         this.init(signWrap);
         this.fetching('emailCheck')
         .then(msg => {
-            console.log(msg);
+            if(msg.status === 'A200') {
+                signInputHalf.style.display = 'flex';
+            }
+        })
+    }
+    emailAuthCheck() {
+        this.init(signWrap);
+        this.fetching('emailAuthCheck')
+        .then(msg => {
+            if(msg.status === 'A200') {
+                signInputHalf.remove();
+                signInputEmail.readOnly = true;
+                this.asign.emailAuth = true;
+                changeLabelTextColor(this.loginLabelEmail, '인증 완료!', 'green');
+            } else {
+                this.asign.emailAuth = false;
+                changeLabelTextColor(this.loginLabelEmail, '인증번호를 확인해주세요!', 'red')
+            }
         })
     }
     signUp() {
@@ -187,6 +211,8 @@ class User {
             alert('비밀번호를 확인하세요!');
         } else if(!this.asign.accept1 || !this.asign.accept2) {
             alert('이용약관에 동의해주세요!');
+        } else if(!this.asign.emailAuth) {
+            alert('이메일 인증을 확인하세요!');
         } else {
             this.fetching('signUp')
             .then(msg => {
@@ -202,16 +228,15 @@ class User {
         }
     }
     doubleCheck() {
-        const loginLabelEmail = signWrap.querySelector('.login__label-email');
         this.init(signWrap);
         this.fetching('doubleCheck')
         .then(msg => {
             if(msg.status === 'A200') {
                 this.asign.email = true;
-                changeLabelTextColor(loginLabelEmail, '적당합니다!', 'green');
+                changeLabelTextColor(this.loginLabelEmail, '이메일 인증을 진행해주세요.', 'red');
             } else if(msg.status === 'A409') {
                 this.asign.email = false;
-                changeLabelTextColor(loginLabelEmail, '중복입니다!', 'red');
+                changeLabelTextColor(this.loginLabelEmail, '중복입니다!', 'red');
             }
         })
     }

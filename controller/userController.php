@@ -1,5 +1,6 @@
 <?php
     include 'modules/mysql.php';
+    include 'modules/mail.php';
 
     function login() {
         $message = array();
@@ -39,23 +40,31 @@
             $to = $email;
             $subject = 'ALIFE 이메일 인증';
             $fp = fopen($url, 'r');   
-            $message = fread($fp,filesize($url));
+            $content = fread($fp,filesize($url));
             $auth = rand(000000, 999999);
-            $message = str_replace('{auth}', $auth, $message);
+            $_SESSION['alife_auth'] = $auth;
+            $content = str_replace('{auth}', $auth, $content);
             
-            $headers[] = 'MIME-Version: 1.0';
-            $headers[] = 'Content-type: text/html; charset=utf-8';
-
-            $headers[] = "To: $email";
-            $headers[] = "From: ALIFE";
-
-            $result = mail($to, $subject, $message, implode("\r\n", $headers));
+            $result = mailer($to, $subject, $content);
             if($result) {
                 $message['status'] = 'A200';
             } else {
                 $message['status'] = 'A404';
             }
         }
+        echo json_encode($message);
+    }
+
+    function emailAuthCheck() {
+        $message = array();
+        $certi = $_POST['certi'];
+        if($certi == $_SESSION['alife_auth']) {
+            $message['status'] = 'A200';
+        } else {
+            $message['status'] = 'A400';
+        }
+        unset($_SESSION['alife_auth']);
+        echo json_encode($message);
     }
 
     function signUp() { 
