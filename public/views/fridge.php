@@ -49,7 +49,7 @@
                         foreach($ingredients as $ingredient) {
                             $img = $ingredient['ingredient_image'];
                             $name = $ingredient['ingredient_name'];
-                            echo "<div class='ingred'>
+                            echo "<div class='ingred' draggable='true'>
                                 <img class='ingred__image' src='public/images/ingredient/$img'>
                                 <div class='ingred__name'>$name</div>
                             </div>";
@@ -62,7 +62,7 @@
         <div class="monster">
             <div class="message">
                 <div class="message__title">현재 들어간 재료</div>
-                <div class="message__content">
+                <div class="message__list">
 
                 </div>
             </div>
@@ -78,5 +78,6 @@
         <div class="button">초기화</div>
     </div>
     <div class="background--bottom"></div> 
+    <script src="public/js/fridge.js"></script>
 </body>
 </html>

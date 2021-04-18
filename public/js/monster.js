@@ -59,7 +59,6 @@ class Meal {
         this.mealSVG.ondrag = e => this.drag(e);
         this.mealSVG.ondragend = e => this.restart(e);
         
-        this.emptyCanvas.style.cursor = 'grabbing';
         main.append(this.mealSVG);
     }
     moveObject() {

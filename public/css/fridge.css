@@ -101,7 +101,6 @@
     background-color: var(--green-middle);
     padding: 1rem;
     display: flex;
-    flex-flow: row nowrap;
     padding-top: 0;
     padding-bottom: 3rem;
 }
@@ -122,6 +121,7 @@
     background-color: #fff;
     display: flex;
     flex-flow: row wrap;
+    align-content: baseline;
     overflow-y: scroll;
 }
 .ingreds::-webkit-scrollbar {
@@ -136,9 +136,15 @@
     align-items: center;
     justify-content: center;
 }
+.ingred.moving {
+    position: absolute;
+    z-index: 3;
+}
 .ingred__image {
     width: 60%;
     height: 60%;
+    position: relative;
+    pointer-events: none;
 }
 .ingred__name {
     font-size: .8rem;
@@ -158,14 +164,23 @@
     border: 2px solid var(--green-hard);
     border-radius: 1rem;
     margin-left: 40%;
+    overflow-y: scroll;
+}
+.message::-webkit-scrollbar {
+    width: 0;
 }
 .message__title {
     padding: 1rem;
     text-align: center;
     color: var(--green-hard);
 }
-.message__content {
+.message__list {
     padding: .5rem;
+    display: flex;
+    flex-flow: row wrap;
+}
+.message__item {
+    padding: .2rem;
 }
 /* Buttons */
 .buttons {
@@ -184,4 +199,5 @@
     color: var(--green-middle);
     box-shadow: 1px 1px 3px lightgray;
     margin: 0 1rem;
+    cursor: pointer;
 }
