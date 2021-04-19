@@ -12,7 +12,7 @@
 <body>
     <?php 
         include('header.php');
-        include('userInterceptor.php');
+        include('interceptor/userInterceptor.php');
         isNonLoging();
     ?>
     <div class="popup accept1">

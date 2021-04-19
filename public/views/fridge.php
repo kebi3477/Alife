@@ -13,6 +13,8 @@
         error_reporting(0);
         include('header.php');
         include('modules/mysql.php');
+        include('interceptor/userInterceptor.php');
+        isLoging();
         $ingredients = mysqli_get_query('SELECT * FROM `ingredient`');
     ?>
     <div class="title">
@@ -37,25 +39,12 @@
                     <div class="category">해조류</div>
                     <div class="category">어패류</div>
                     <div class="category">과일류</div>
-                    <div class="category">탄수화물</div>
                     <div class="category">곡물류</div>
                     <div class="category">유제품</div>
                     <div class="category">양념류</div>
                     <div class="category">기타</div>
                 </div>
                 <div class="ingreds">
-                    <?php
-                        for($i = 0; $i < 10; $i++) {
-                        foreach($ingredients as $ingredient) {
-                            $img = $ingredient['ingredient_image'];
-                            $name = $ingredient['ingredient_name'];
-                            echo "<div class='ingred' draggable='true'>
-                                <img class='ingred__image' src='public/images/ingredient/$img'>
-                                <div class='ingred__name'>$name</div>
-                            </div>";
-                        }
-                        }
-                    ?>
                 </div>
             </div>
         </div>
@@ -74,7 +63,7 @@
     </div>
     <div class="buttons">
         <div class="button">레시피 검색</div>
-        <div class="button">저장하기</div>
+        <div class="button button__save">저장하기</div>
         <div class="button">초기화</div>
     </div>
     <div class="background--bottom"></div> 

@@ -30,8 +30,10 @@ function movingEye(e) {
     const top = (e.clientY-boxPositionY)/range+705.373+(window.scrollY/15);
     const left2 = (e.clientX-boxPositionX)/(range+10)+905.376;
     
-    monsterEye[0].style.transform = `translate(${left}px, ${top}px)`;
-    monsterEye[1].style.transform = `translate(${left2}px, ${top}px)`;
+    if(e.clientX !== 0 && e.clientY !== 0) {
+        monsterEye[0].style.transform = `translate(${left}px, ${top}px)`;
+        monsterEye[1].style.transform = `translate(${left2}px, ${top}px)`;
+    }
 }
 
 class Meal {
