@@ -2,10 +2,12 @@
     <style>
         .fridge--close {
             transition: .2s;
+            cursor: pointer;
         }
         .fridge--open {
             opacity: 0;
             transition: .2s;
+            cursor: pointer;
         }
         .fridge:hover > .fridge--open {
             opacity: 1;

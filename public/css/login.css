@@ -114,7 +114,7 @@
 .login__logo {
     font-size: 3rem;
     font-weight: bold;
-    font-family: 'noto-kr-black';
+    font-family: 'Noto Sans KR', sans-serif;
     margin-bottom: 2rem;
 }
 .login__input {
