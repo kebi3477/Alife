@@ -1,3 +1,4 @@
+import Loading from './loading.js';
 const ingreds = document.querySelector('.ingreds');
 const categorys = document.querySelectorAll('.category');
 const messageList = document.querySelector('.message__list');
@@ -5,6 +6,7 @@ const fridge = document.querySelector('.fridge');
 const buttonSave = document.querySelector('.button__save');
 const buttonReset = document.querySelector('.button__reset');
 let myFridge = [];
+const loading = new Loading();
 
 class Ingred {
     constructor(el) {
@@ -46,6 +48,7 @@ class Ingred {
     }
 }
 
+loading.start();
 categorys.forEach(category => {
     category.onclick = e => changeCategory(e);
 })
@@ -105,6 +108,7 @@ function saveFridge() {
     const formData = new FormData();
     const ids = [], xs = [], ys = [];
 
+    loading.start();
     myFridge.forEach(data => {
         ids.push(data.ingredient_id);
         xs.push(data.fridge_x);
@@ -121,9 +125,10 @@ function saveFridge() {
     .then(msg => msg.json())
     .then(msg => {
         if(msg.status === 'A200') {
-            alert('등록 완료!');
+            alert('저장 완료!');
             location.reload();
         }
+        loading.end();
     })
 }
 
@@ -157,6 +162,7 @@ function setPositionIngred() {
 
 function resetFridge() {
     if(confirm('초기화 하시겠습니까?')) {
+        loading.start();
         fetch('controller/fridge/resetFridge')
         .then(msg => msg.json())
         .then(msg => {
@@ -166,6 +172,9 @@ function resetFridge() {
             } else {
                 alert('초기화 실패! 관리자에게 문의해주세요.');
             }
+            loading.end();
         })
     }
 }
+
+window.onload = () => loading.end();

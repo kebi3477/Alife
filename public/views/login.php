@@ -12,6 +12,7 @@
 <body>
     <?php 
         include('header.php');
+        include('loading.php');
         include('interceptor/userInterceptor.php');
         isNonLoging();
     ?>
@@ -159,7 +160,8 @@
             </div>
         </div>
     </div>
-    <script src="public/js/login.js"></script>
-    <script src="public/js/common.js"></script>
+    <script type="module" src="public/js/loading.js"></script>
+    <script type="module" src="public/js/login.js"></script>
+    <script type="module" src="public/js/common.js"></script>
 </body>
 </html>

@@ -12,6 +12,7 @@
     <?php 
         error_reporting(0);
         include('header.php');
+        include('loading.php');
         include('modules/mysql.php');
         include('interceptor/userInterceptor.php');
         isLoging();
@@ -67,6 +68,8 @@
         <div class="button button__reset">초기화</div>
     </div>
     <div class="background--bottom"></div> 
-    <script src="public/js/fridge.js"></script>
+    <script type="module" src="public/js/loading.js"></script>
+    <script type="module" src="public/js/fridge.js"></script>
+    <script type="module" src="public/js/common.js"></script>
 </body>
 </html>

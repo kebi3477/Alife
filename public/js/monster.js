@@ -1,9 +1,12 @@
+import Loading from './loading.js';
 const main = document.querySelector("#main");
 const sound = document.querySelector('.sound');
 let moster, monsterDoc, monsterEye, monsterMouseClose, monsterMouseOpen;
+const loading = new Loading();
 
-
+loading.start();
 window.onload = () => {
+    loading.end();
     monster = document.querySelector(".monster");
     monsterDoc = monster.contentDocument;
     monsterEye = monsterDoc.querySelectorAll(".monster__eye");

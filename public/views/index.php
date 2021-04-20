@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="public/css/index.css">
 </head>
 <body>
-    <?php include('header.php') ?>
+    <?php 
+        include('header.php'); 
+        include('loading.php');
+    ?>
     <div class="remocon">
         <div class="remocon__item">
             <object data="public/images/icon/arrow_up.svg" type="image/svg+xml"></object>
@@ -237,8 +240,8 @@
         <div class="community__wrap--black"></div>
     </div>
     <?php include('footer.php') ?>
-    <script src="public/js/monster.js"></script>
-    <script src="public/js/index.js"></script>
-    <script src="public/js/common.js"></script>
+    <script type="module" src="public/js/loading.js"></script>
+    <script type="module" src="public/js/monster.js"></script>
+    <script type="module" src="public/js/common.js"></script>
 </body>
 </html>

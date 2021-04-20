@@ -1,4 +1,5 @@
 "use strict";
+import Loading from './loading.js';
 const login = document.querySelector(".login");
 const loginWrap = document.querySelector(".login__wrap");
 const signWrap = document.querySelector(".sign__wrap");
@@ -30,6 +31,7 @@ const findIdButton = findWrap.querySelector(".login__form-item:first-child butto
 const cancelButtons = findWrap.querySelectorAll(".login__buttons > .login__button:last-child");
 //공통
 const phones = document.querySelectorAll('.login__phone > input');
+const loading = new Loading();
 //init
 signWrap.remove();
 findWrap.remove();
@@ -163,6 +165,7 @@ class User {
             method: 'POST',
             body: this.formData
         }
+        loading.start();
     }
     login() {
         this.init(loginWrap);
@@ -177,6 +180,7 @@ class User {
                 alert('비어있는 값이 있습니다!');
             }
         })
+        .then(() => loading.end());
     }
     emailCheck() {
         this.init(signWrap);
@@ -186,6 +190,7 @@ class User {
                 signInputHalf.style.display = 'flex';
             }
         })
+        .then(() => loading.end());
     }
     emailAuthCheck() {
         this.init(signWrap);
@@ -201,6 +206,7 @@ class User {
                 changeLabelTextColor(this.loginLabelEmail, '인증번호를 확인해주세요!', 'red')
             }
         })
+        .then(() => loading.end());
     }
     signUp() {
         this.init(signWrap);
@@ -225,6 +231,7 @@ class User {
                     alert('비어 있는 값이 있습니다!');
                 }
             })
+            .then(() => loading.end());
         }
     }
     doubleCheck() {
@@ -239,6 +246,7 @@ class User {
                 changeLabelTextColor(this.loginLabelEmail, '중복입니다!', 'red');
             }
         })
+        .then(() => loading.end());
     }
     findEmail() {
         this.init(findIdWrap);
@@ -252,6 +260,7 @@ class User {
                 alert('비어 있는 값이 있습니다!');
             }
         })
+        .then(() => loading.end());
     }
     checkAccept() {
         this.asign.accept1 = document.querySelector('#accept1').checked;
