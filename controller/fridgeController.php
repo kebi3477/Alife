@@ -35,5 +35,12 @@
         echo json_encode($fridges);
     }
 
+    function resetFridge() {
+        $user = $_SESSION['alife_user_email'];
+        $result = mysqli_set_query("DELETE FROM fridge WHERE user_email = '$user'");
+        $message['status'] = $result ? 'A200' : 'A500';
+        echo json_encode($message);
+    }
+
     $urls[3]();
 ?>

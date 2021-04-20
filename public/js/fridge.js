@@ -3,6 +3,7 @@ const categorys = document.querySelectorAll('.category');
 const messageList = document.querySelector('.message__list');
 const fridge = document.querySelector('.fridge');
 const buttonSave = document.querySelector('.button__save');
+const buttonReset = document.querySelector('.button__reset');
 let myFridge = [];
 
 class Ingred {
@@ -49,7 +50,8 @@ categorys.forEach(category => {
     category.onclick = e => changeCategory(e);
 })
 buttonSave.onclick = () => saveFridge();
-getIngredients();
+buttonReset.onclick = () => resetFridge();
+document.querySelector('.category').click();
 
 function getIngredients(type='') { //식재료 가져오기
     const formData = new FormData();
@@ -151,4 +153,19 @@ function setPositionIngred() {
             el.style.top = `${filtering.fridge_y}px`;
         }
     })
+}
+
+function resetFridge() {
+    if(confirm('초기화 하시겠습니까?')) {
+        fetch('controller/fridge/resetFridge')
+        .then(msg => msg.json())
+        .then(msg => {
+            if(msg.status === 'A200') {
+                alert('초기화 완료!');
+                location.reload();
+            } else {
+                alert('초기화 실패! 관리자에게 문의해주세요.');
+            }
+        })
+    }
 }

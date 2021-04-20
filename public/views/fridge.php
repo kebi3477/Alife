@@ -64,7 +64,7 @@
     <div class="buttons">
         <div class="button">레시피 검색</div>
         <div class="button button__save">저장하기</div>
-        <div class="button">초기화</div>
+        <div class="button button__reset">초기화</div>
     </div>
     <div class="background--bottom"></div> 
     <script src="public/js/fridge.js"></script>
