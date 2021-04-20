@@ -1,7 +1,7 @@
 import Loading from './loading.js';
 const main = document.querySelector("#main");
 const sound = document.querySelector('.sound');
-let moster, monsterDoc, monsterEye, monsterMouseClose, monsterMouseOpen;
+let monster, monsterDoc, monsterEye, monsterMouseClose, monsterMouseOpen;
 const loading = new Loading();
 
 loading.start();
@@ -47,7 +47,7 @@ class Meal {
         this.x = Math.floor(Math.random() * 1800);
         this.y = Math.floor(Math.random() * 800);
         this.reverseX = Math.floor(Math.random() * 2) ? true : false;
-        this.reverseY = false;
+        this.reverseY = Math.floor(Math.random() * 2) ? true : false;
         this.speed = Math.random() * 1 + .5;
         this.rotateFlag = Math.floor(Math.random() * 2) ? true : false;
         this.rotate = Math.random() * 2;
@@ -88,6 +88,8 @@ class Meal {
         this.moving = setInterval(() => this.moveObject(), 1);
     }
     pause(e) {
+        this.startX = e.clientX;
+        this.startY = e.clientY;
         e.dataTransfer.setDragImage(this.emptyCanvas, 0, 0);
         clearInterval(this.moving);
     }
@@ -107,6 +109,9 @@ class Meal {
     restart(e) {
         this.x = e.clientX;
         this.y = e.clientY+window.scrollY;
+        this.reverseX = this.startX > e.clientX ? true : false;
+        this.reverseY = this.startY > e.clientY ? true : false;
+
         if(monster.offsetWidth + monster.offsetLeft > e.clientX 
         && monster.offsetLeft < e.clientX
         && monster.offsetTop - window.scrollY < e.clientY

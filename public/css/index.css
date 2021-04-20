@@ -2,7 +2,7 @@
     width: 224px;
     background-color: #fff;
     color: var(--green-middle);
-    border: 1px solid var(--white);
+    border: 1px solid var(--green-middle);
     font-weight: bold;
     padding: .5rem 0;
     display: flex;
@@ -16,7 +16,6 @@
 }
 .button:hover {
     background-color: #f9f9f9;
-    border: 1px solid #f9f9f9;
 }
 
 /* Remocon */
@@ -123,6 +122,7 @@
 .title--big {
     color: var(--black);
     font-size: 28px;
+    font-weight: 600;
 }
 .find__list {
     width: 100%;
