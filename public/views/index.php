@@ -227,9 +227,9 @@
             <div class="title--big">당신의 냉장고를 보여주세요!</div>
             <div class="title--small">냉장고 안에 있는 재료들을 선택하여 레시피 추천을 받을 수 있습니다.</div>
         </div>
-        <a href="fridge"><div class="fridge__img">
+        <div class="fridge__img">
             <object data="public/images/object/fridge.svg" type="image/svg+xml"></object>
-        </div></a>
+        </div>
         <a href="fridge"><div class="fridge_button button">
             나의 냉장고 바로가기
             <object class="community__button-arrow" data="public/images/icon/arrow_down_gr.svg" type="image/svg+xml"></object>

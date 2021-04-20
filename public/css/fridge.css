@@ -117,6 +117,10 @@
     justify-content: center;
     cursor: pointer;
 }
+.category.active {
+    background-color: var(--green-middle);
+    color: #fff;
+}
 .ingreds {
     background-color: #fff;
     display: flex;

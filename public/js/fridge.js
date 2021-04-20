@@ -84,6 +84,8 @@ function appendIngredients(ingredients) { //식재료 올리기
 }
 
 function changeCategory(e) { //카테고리 변경
+    categorys.forEach(el => el.classList.remove('active'));
+    e.target.classList.add('active');
     getIngredients(e.target.textContent);
 }
 
@@ -128,7 +130,10 @@ function getMyFridge() {
     .then(fridges => fridges.json())
     .then(fridges => {
         fridges.forEach(fridge => {
-            myFridge.push(fridge);
+            const filtering = myFridge.filter(data => data.ingredient_id === fridge.ingredient_id)[0];
+            if(!filtering) {
+                myFridge.push(fridge);
+            }
         })
         updateMessage();
         setPositionIngred();

@@ -15,8 +15,10 @@
     transition: .2s;
 }
 .button:hover {
-    background-color: #218a19;
+    background-color: #f9f9f9;
+    border: 1px solid #f9f9f9;
 }
+
 /* Remocon */
 .remocon {
     position: fixed;
@@ -66,7 +68,7 @@
 .intro__text--big {
     color: var(--green-hard);
     font-size: 7rem;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 800;
 }
 .intro__text--middle {
     font-size: 36px;
@@ -388,6 +390,7 @@
 }
 .community__button-arrow {
     margin-left: .2rem;
+    width: 10%;
 }
 .community__button-arrow path {
     fill: var(--white);
@@ -459,6 +462,9 @@
     justify-content: center;
     margin-top: 3rem;
     margin-left: 30rem;
+}
+.fridge__img > object {
+    width: 80rem;
 }
 .fridge_button {
     z-index: 2;
