@@ -39,13 +39,17 @@
             $url = 'public/views/mail.html';
             $to = $email;
             $subject = 'ALIFE 이메일 인증';
+            $headers[] = 'MIME-Version: 1.0';
+            $headers[] = 'Content-type: text/html; charset=utf-8';
+            $headers[] = 'From: ALife<kebi6270@gmail.com>';
+
             $fp = fopen($url, 'r');   
-            $content = fread($fp,filesize($url));
             $auth = rand(000000, 999999);
             $_SESSION['alife_auth'] = $auth;
+            $content = fread($fp,filesize($url));
             $content = str_replace('{auth}', $auth, $content);
-            
-            $result = mailer($to, $subject, $content);
+
+            $result = mail($to, $subject, $content, implode("\r\n", $headers));
             if($result) {
                 $message['status'] = 'A200';
             } else {
