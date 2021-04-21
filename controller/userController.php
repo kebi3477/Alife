@@ -1,6 +1,5 @@
 <?php
     include 'modules/mysql.php';
-    include 'modules/mail.php';
 
     function login() {
         $message = array();
