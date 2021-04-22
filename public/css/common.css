@@ -23,6 +23,13 @@
     color: var(--gray-font);
 }
 
+.recipe__wrap {
+    padding-top: 10rem;
+}
+
+body {
+}
+
 .login__input--row {
     width: 60%;
     display: flex;

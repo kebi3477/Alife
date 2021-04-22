@@ -1,1 +1,107 @@
- 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALife</title>
+    <link rel="stylesheet" href="public/css/common.css">
+    <link rel="stylesheet" href="public/css/recipe.css">
+</head>
+<body>
+    <?php include('header.php'); ?>
+    <div class="recipe__wrap padding">
+        <div class="recipe__list-title">좋아요가 높은 레시피</div>
+        <div class="recipe__list">
+            <?php for($i = 0; $i < 3; $i++) { ?>
+            <div class="recipe__item">
+                <div class="recipe__img"></div>
+                <div class="recipe__title">국물 떡볶이 만들기</div>
+                <div class="recipe__content">국물 떡볶이 만들어 봅시다. 국물 떡볶이 만들어 봅시다.  국물 떡볶이 만들어 봅시다. 국물...  </div>
+                <div class="recipe--bottom">
+                    <div class="recipe__cover">
+                        <div class="recipe__user-img"></div>
+                        <div class="recipe__user-name">나는 요리사</div>
+                    </div>
+                    <div class="recipe__cover">
+                        <object data="public/images/icon/heart_r.svg" type="image/svg+xml"></object>
+                        <div class="recipe__user-name">100</div>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
+            </div>
+        </div>
+    </div>
+    <div class="recipe__wrap padding">
+        <div class="recipe__list-title">대파가 냉장고에 남아 있다면?</div>
+        <div class="recipe__list">
+            <?php for($i = 0; $i < 8; $i++) { ?>
+            <div class="recipe__item">
+                <div class="recipe__img"></div>
+                <div class="recipe__title">국물 떡볶이 만들기</div>
+                <div class="recipe__content">국물 떡볶이 만들어 봅시다. 국물 떡볶이 만들어 봅시다.  국물 떡볶이 만들어 봅시다. 국물...  </div>
+                <div class="recipe--bottom">
+                    <div class="recipe__cover">
+                        <div class="recipe__user-img"></div>
+                        <div class="recipe__user-name">나는 요리사</div>
+                    </div>
+                    <div class="recipe__cover">
+                        <object data="public/images/icon/heart_r.svg" type="image/svg+xml"></object>
+                        <div class="recipe__user-name">100</div>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
+            </div>
+        </div>
+    </div>
+    <div class="recipe__wrap padding">
+        <div class="recipe__list-title">고혜경님의 냉장고 속 재료와 어울리는 레시피</div>
+        <div class="recipe__list">
+            <?php for($i = 0; $i < 8; $i++) { ?>
+            <div class="recipe__item">
+                <div class="recipe__img"></div>
+                <div class="recipe__title">국물 떡볶이 만들기</div>
+                <div class="recipe__content">국물 떡볶이 만들어 봅시다. 국물 떡볶이 만들어 봅시다.  국물 떡볶이 만들어 봅시다. 국물...  </div>
+                <div class="recipe--bottom">
+                    <div class="recipe__cover">
+                        <div class="recipe__user-img"></div>
+                        <div class="recipe__user-name">나는 요리사</div>
+                    </div>
+                    <div class="recipe__cover">
+                        <object data="public/images/icon/heart_r.svg" type="image/svg+xml"></object>
+                        <div class="recipe__user-name">100</div>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
+            </div>
+        </div>
+    </div>
+    <div class="recipe__wrap padding">
+        <div class="recipe__list-title">A-Life가 추천하는 오늘의 메뉴</div>
+        <div class="recipe__list">
+            <?php for($i = 0; $i < 8; $i++) { ?>
+            <div class="recipe__item">
+                <div class="recipe__img"></div>
+                <div class="recipe__title">국물 떡볶이 만들기</div>
+                <div class="recipe__content">국물 떡볶이 만들어 봅시다. 국물 떡볶이 만들어 봅시다.  국물 떡볶이 만들어 봅시다. 국물...  </div>
+                <div class="recipe--bottom">
+                    <div class="recipe__cover">
+                        <div class="recipe__user-img"></div>
+                        <div class="recipe__user-name">나는 요리사</div>
+                    </div>
+                    <div class="recipe__cover">
+                        <object data="public/images/icon/heart_r.svg" type="image/svg+xml"></object>
+                        <div class="recipe__user-name">100</div>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
+            </div>
+        </div>
+    </div>
+    <?php include('footer.php'); ?>
+</body>
+</html>
