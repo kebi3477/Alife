@@ -41,6 +41,9 @@ function movingEye(e) {
 
 class Meal {
     constructor() {
+        this.init();
+    }
+    randomObject() {
         this.imgArr = ['Tbon_stake','Tomahawk','Cabbage','carrot','green_onion','Chicken_leg','Eggplant','Broccoli','Chili'];
         this.imgRandom = Math.floor(Math.random() * this.imgArr.length);
         this.object = `<object data="public/images/ingredient/${this.imgArr[this.imgRandom]}.svg" type="image/svg+xml"></object>`;
@@ -52,17 +55,19 @@ class Meal {
         this.rotateFlag = Math.floor(Math.random() * 2) ? true : false;
         this.rotate = Math.random() * 2;
         this.scale = Math.random() * .2 + .8;
-        this.init();
     }
     init() {
+        this.randomObject();
         this.emptyCanvas = document.createElement('canvas');
         this.mealSVG = document.createElement('div');
         this.mealSVG.classList.add('meal');
         this.mealSVG.innerHTML = this.object;
         this.mealSVG.draggable = 'true';
-        this.mealSVG.ondragstart = e => this.pause(e);
+        this.mealSVG.onmousedown = () => this.pause();
+        this.mealSVG.ondragstart = e => this.dragstart(e);
         this.mealSVG.ondrag = e => this.drag(e);
         this.mealSVG.ondragend = e => this.restart(e);
+        this.mealSVG.onmouseup = e => this.restart(e);
         
         main.append(this.mealSVG);
     }
@@ -87,11 +92,13 @@ class Meal {
     start() {
         this.moving = setInterval(() => this.moveObject(), 1);
     }
-    pause(e) {
+    pause() {
+        clearInterval(this.moving);
+    }
+    dragstart(e) {
         this.startX = e.clientX;
         this.startY = e.clientY;
         e.dataTransfer.setDragImage(this.emptyCanvas, 0, 0);
-        clearInterval(this.moving);
     }
     drag(e) {
         this.mealSVG.style.left = `${e.clientX-40}px`;
