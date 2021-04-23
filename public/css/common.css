@@ -1,3 +1,4 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 :root {
     --white: #fff;
     --white-hard: #f1f1f1;
@@ -12,22 +13,18 @@
     --green-middle: #15700E;
     --green-hard: #183E15;
 }
-@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
 * {
     margin: 0;
     padding: 0;
     list-style: none;
     text-decoration: none;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif!important;
     box-sizing: border-box;
     color: var(--gray-font);
 }
 
 .recipe__wrap {
     padding-top: 10rem;
-}
-
-body {
 }
 
 .login__input--row {
@@ -86,6 +83,7 @@ header {
     align-items: center;
     position: fixed;
     z-index: 10;
+    top: 0;
 }
 .header__list {
     display: flex;
