@@ -23,6 +23,10 @@
     color: var(--gray-font);
 }
 
+.insert__input {
+    width: 100%;
+}
+
 .recipe__wrap {
     padding-top: 10rem;
 }
