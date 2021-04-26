@@ -30,8 +30,9 @@ CREATE TABLE `ingredient` ( --구축
   `ingredient_type` varchar(255)
 );
 
-insert into ingredient values('', '대파', 'green_onion.svg', '채소류')
-insert into ingredient values('', '당근', 'carrot.svg', '채소류')
+insert into ingredient values
+('', '대파', 'green_onion.svg', '채소류'),
+('', '당근', 'carrot.svg', '채소류'),
 ('', '숙주', 'Bean_sprouts.svg', '채소류'),
 ('', '도라지', 'Bellflower.svg', '채소류'),
 ('', '고사리', 'Bracken.svg', '채소류'),
@@ -52,7 +53,8 @@ insert into ingredient values('', '당근', 'carrot.svg', '채소류')
 ('', '무깻잎', 'Sesame.svg', '채소류'),
 ('', '순무', 'Turnip.svg', '채소류')
 
-insert into ingredient values('', '돼지고기', 'meat.svg', '고기류')
+insert into ingredient values
+('', '돼지고기', 'meat.svg', '고기류'),
 ('', '소안심', 'Beef_tenderloin.svg', '고기류'),
 ('', '닭다리', 'Chicken_leg.svg', '고기류'),
 ('', '닭날개', 'Chicken_wing.svg', '고기류'),
