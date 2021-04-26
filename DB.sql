@@ -32,40 +32,40 @@ CREATE TABLE `ingredient` ( --구축
 
 insert into ingredient values('', '대파', 'green_onion.svg', '채소류')
 insert into ingredient values('', '당근', 'carrot.svg', '채소류')
-insert into ingredient values('', '숙주', 'Bean_sprouts.svg', '채소류')
-insert into ingredient values('', '도라지', 'Bellflower.svg', '채소류')
-insert into ingredient values('', '고사리', 'Bracken.svg', '채소류')
-insert into ingredient values('', '브로콜리', 'Broccoli.svg', '채소류')
-insert into ingredient values('', '양배추', 'Cabbage.svg', '채소류')
-insert into ingredient values('', '고추', 'Chili.svg', '채소류')
-insert into ingredient values('', '오이', 'Cucumber.svg', '채소류')
-insert into ingredient values('', '더덕', 'Deodeok.svg', '채소류')
-insert into ingredient values('', '가지', 'Eggplant.svg', '채소류')
-insert into ingredient values('', '마늘', 'Garlic.svg', '채소류')
-insert into ingredient values('', '생강', 'Ginger.svg', '채소류')
-insert into ingredient values('', '부추', 'Leek.svg', '채소류')
-insert into ingredient values('', '연근', 'Lotus_root.svg', '채소류')
-insert into ingredient values('', '버섯', 'Mushroom.svg', '채소류')
-insert into ingredient values('', '양파', 'Onion.svg', '채소류')
-insert into ingredient values('', '감자', 'Potato.svg', '채소류')
-insert into ingredient values('', '무', 'Radish.svg', '채소류')
-insert into ingredient values('', '무깻잎', 'Sesame.svg', '채소류')
-insert into ingredient values('', '순무', 'Turnip.svg', '채소류')
+('', '숙주', 'Bean_sprouts.svg', '채소류'),
+('', '도라지', 'Bellflower.svg', '채소류'),
+('', '고사리', 'Bracken.svg', '채소류'),
+('', '브로콜리', 'Broccoli.svg', '채소류'),
+('', '양배추', 'Cabbage.svg', '채소류'),
+('', '고추', 'Chili.svg', '채소류'),
+('', '오이', 'Cucumber.svg', '채소류'),
+('', '더덕', 'Deodeok.svg', '채소류'),
+('', '가지', 'Eggplant.svg', '채소류'),
+('', '마늘', 'Garlic.svg', '채소류'),
+('', '생강', 'Ginger.svg', '채소류'),
+('', '부추', 'Leek.svg', '채소류'),
+('', '연근', 'Lotus_root.svg', '채소류'),
+('', '버섯', 'Mushroom.svg', '채소류'),
+('', '양파', 'Onion.svg', '채소류'),
+('', '감자', 'Potato.svg', '채소류'),
+('', '무', 'Radish.svg', '채소류'),
+('', '무깻잎', 'Sesame.svg', '채소류'),
+('', '순무', 'Turnip.svg', '채소류')
 
 insert into ingredient values('', '돼지고기', 'meat.svg', '고기류')
-insert into ingredient values('', '소안심', 'Beef_tenderloin.svg', '고기류')
-insert into ingredient values('', '닭다리', 'Chicken_leg.svg', '고기류')
-insert into ingredient values('', '닭날개', 'Chicken_wing.svg', '고기류')
-insert into ingredient values('', '앞다리살', 'Forelimb.svg', '고기류')
-insert into ingredient values('', '양고기', 'Lamb.svg', '고기류')
-insert into ingredient values('', '삼겹살', 'Pork_belly.svg', '고기류')
-insert into ingredient values('', '돼지갈비', 'Pork_ribs.svg', '고기류')
-insert into ingredient values('', '돼지안심', 'Pork_tenderloin.svg', '고기류')
-insert into ingredient values('', '소시지', 'Sausage.svg', '고기류')
-insert into ingredient values('', '소등심', 'Sirloin.svg', '고기류')
-insert into ingredient values('', '티본스테이크', 'Tbon_stake.svg', '고기류')
-insert into ingredient values('', '토마호크', 'Tomahawk.svg', '고기류')
-insert into ingredient values('', '부채살', 'Top_blade.svg', '고기류')
+('', '소안심', 'Beef_tenderloin.svg', '고기류'),
+('', '닭다리', 'Chicken_leg.svg', '고기류'),
+('', '닭날개', 'Chicken_wing.svg', '고기류'),
+('', '앞다리살', 'Forelimb.svg', '고기류'),
+('', '양고기', 'Lamb.svg', '고기류'),
+('', '삼겹살', 'Pork_belly.svg', '고기류'),
+('', '돼지갈비', 'Pork_ribs.svg', '고기류'),
+('', '돼지안심', 'Pork_tenderloin.svg', '고기류'),
+('', '소시지', 'Sausage.svg', '고기류'),
+('', '소등심', 'Sirloin.svg', '고기류'),
+('', '티본스테이크', 'Tbon_stake.svg', '고기류'),
+('', '토마호크', 'Tomahawk.svg', '고기류'),
+('', '부채살', 'Top_blade.svg', '고기류')
 
 CREATE TABLE `ringredient` (
   `ringredient_id` int PRIMARY KEY AUTO_INCREMENT,
