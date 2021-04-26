@@ -58,6 +58,7 @@ textarea[name=recipe] {
 .insert__wrap-row > div {
     display: table-cell;
     padding: 0 1rem;
+    margin: 0 1rem;
 }
 .insert__row:nth-of-type(1) > div {
     vertical-align: top;

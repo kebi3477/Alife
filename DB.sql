@@ -69,6 +69,46 @@ insert into ingredient values
 ('', '토마호크', 'Tomahawk.svg', '고기류'),
 ('', '부채살', 'Top_blade.svg', '고기류')
 
+insert into ingredient values
+('', '우뭇가사리', 'Agar.svg', '해조류'),
+('', '톳', 'Hijki.svg', '해조류'),
+('', '다시마', 'Kelp.svg', '해조류'),
+('', '메생이', 'Maesaengyi.svg', '해조류'),
+('', '미역', 'Sea_mustard.svg', '해조류'),
+('', '김', 'Seaweed.svg', '해조류')
+
+insert into ingredient values
+('', '사과', 'Apple.svg', '과일류'),
+('', '아보카도', 'Avocado.svg', '과일류'),
+('', '바나나', 'Banana.svg', '과일류'),
+('', '블루베리', 'Blueberry.svg', '과일류'),
+('', '참외', 'Korean_melon.svg', '과일류'),
+('', '레몬', 'Lemon.svg', '과일류'),
+('', '망고', 'Mango.svg', '과일류'),
+('', '오렌지', 'Orange.svg', '과일류'),
+('', '복숭아', 'Peach.svg', '과일류'),
+('', '배', 'Pear.svg', '과일류'),
+('', '딸기', 'Strawberry.svg', '과일류')
+
+insert into ingredient values
+('', '버터', 'Butter.svg', '유제품'),
+('', '까망베르', 'Camembert.svg', '유제품'),
+('', '체다치즈', 'Cheddar_Cheese.svg', '유제품'),
+('', '에멘탈 치즈', 'Emmental.svg', '유제품'),
+('', '고르곤졸라', 'Gorgonzola.svg', '유제품'),
+('', '우유', 'Milk.svg', '유제품'),
+('', '모짜렐라', 'Mozzarella.svg', '유제품'),
+('', '생크림', 'Whipping_cream.svg', '유제품'),
+('', '요구르트', 'Yogurt.svg', '유제품')
+
+insert into ingredient values
+('', '땅콩', 'Peanut.svg', '견과류'),
+('', '호두', 'Walnut.svg', '견과류'),
+('', '아몬드', 'Almond.svg', '견과류'),
+('', '잣', 'Pine_nuts.svg', '견과류'),
+('', '피스타치오', 'Pistachio.svg', '견과류'),
+('', '해바라기', 'Sunflower_seeds.svg', '견과류') 
+
 CREATE TABLE `ringredient` (
   `ringredient_id` int PRIMARY KEY AUTO_INCREMENT,
   `ingredient_id` int,

@@ -40,7 +40,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="insert__row">
+                <div class="insert__row ingredient__all">
                     <div class="insert__label">전체재료</div>
                     <div>
                         <div class="insert__wrap insert__wrap--between">
@@ -57,7 +57,7 @@
                         양념, 양념장, 소스, 드레싱, 토핑, 시럽, 육수 밑간 등으로 칸으로 구분해서 작성해주세요.<br>
                         한개, 반개, 한개반 같은 한글 표기는 1개, 1/2개, 1+1/2(또는 1.5개)와 같이 표기해주세요.
                     </div>
-                    <button class="insert__button">재료추가 +</button>
+                    <button class="insert__button insert__button-append">재료추가 +</button>
                 </div>
                 <div class="insert__row">
                     <div class="insert__label">해시태그</div>
@@ -124,5 +124,6 @@
         </div>
     </div>
     <?php include('footer.php') ?>
+    <script src="public/js/insert.js"></script>
 </body>
 </html>

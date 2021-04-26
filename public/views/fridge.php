@@ -40,7 +40,7 @@
                     <div class="category">해조류</div>
                     <div class="category">어패류</div>
                     <div class="category">과일류</div>
-                    <div class="category">곡물류</div>
+                    <div class="category">견과류</div>
                     <div class="category">유제품</div>
                     <div class="category">양념류</div>
                     <div class="category">기타</div>
