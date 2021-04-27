@@ -20,7 +20,7 @@
 .recipe__item:nth-of-type(-n+4) {
     margin-top: 0;
 }
-.recipe__wrap:nth-of-type(1) .recipe__item {
+.recipe__wrap:nth-of-type(2) .recipe__item {
     width: 30%;    
     margin-top: 0;
 }
@@ -158,12 +158,16 @@ footer {
     height: 10%;
 }
 
-.view__close {
+.view__top {
     display: flex;
     justify-content: flex-end;
 }
+.view__close {
+    cursor: pointer;
+}
 .view__close > object {
     cursor: pointer;
+    pointer-events: none;
 }
 .view__grid {
     display: grid;

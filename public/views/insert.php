@@ -51,7 +51,7 @@
                     </div>
                     <button class="insert__button">재료삭제 -</button>
                 </div>
-                <div class="insert__row">
+                <div class="insert__row ingredient__end">
                     <div></div>
                     <div class="insert__label--small">
                         재료가 남거나 부족하지 않도록 정확하게 작성해주세요.<br>
@@ -100,7 +100,7 @@
                 <div class="insert__row">
                     <div></div>
                     <div class="insert__label--small">전체 재료에서 사용되는 재료를 작성해주세요.</div>
-                    <button class="insert__button">재료추가 +</button>
+                    <button class="insert__button insert__button-append">재료추가 +</button>
                 </div>
                 <div class="insert__row">
                     <div class="insert__label">타이머</div>
