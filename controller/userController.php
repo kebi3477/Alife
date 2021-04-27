@@ -118,7 +118,7 @@
         } else {
             $sql = "select * from users where user_name = '$name' and user_phone = '$phone'";
             $users = mysqli_get_query($sql);
-            if(count($users) == 1) {
+            if(count($users) > 0) {
                 $message['status'] = 'A200';
                 $message['email'] = $users[0]['user_email'];
             } else {

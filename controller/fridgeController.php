@@ -24,9 +24,9 @@
             foreach($ids as $index => $id) {
                 $x = $xs[$index];
                 $y = $ys[$index];
-                $result = mysqli_set_query("INSERT INTO fridge VALUES('',$id,'$user',$x,$y)");
+                mysqli_set_query("INSERT INTO fridge VALUES('',$id,'$user',$x,$y)");
             }
-            $message['status'] = $reuslt ? 'A200' : 'A500';
+            $message['status'] = 'A200';
         } else {
             $message['status'] = 'A500';
         }
