@@ -122,7 +122,7 @@
                 $message['status'] = 'A200';
                 $message['email'] = $users[0]['user_email'];
             } else {
-                $message['status'] = 'A409';
+                $message['status'] = 'A404';
             }
         }
 

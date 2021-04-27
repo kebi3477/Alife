@@ -1,4 +1,5 @@
 # 통신 메세지
+## userController
 ### login
 - A200: 성공
 - A400: 비어있음
@@ -15,14 +16,23 @@
 
 ### signUp
 - A200: 성공
-- A500: 에러
 - A400: 비어있음
+- A500: 에러
 
 ### doubleCheck
-- A409: 중복
 - A200: 성공
+- A409: 중복
 
-### findId
+### findEmail
 - A200: 성공
 - A400: 비어있음
-- A409: 못 찾음
+- A404: 못 찾음
+
+## fridgeController
+### saveFridge 
+- A200: 성공
+- A500: 삭제 또는 삽입 실패
+
+### resetFridge
+- A200: 초기화 성공
+- A500: 초기화 실패

@@ -126,5 +126,6 @@
     </div>
     <?php include('footer.php') ?>
     <script src="public/js/insert.js"></script>
+    <script type="module" src="public/js/common.js"></script>
 </body>
 </html>

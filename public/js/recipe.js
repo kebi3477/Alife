@@ -13,5 +13,7 @@ class View {
 
 const view = new View;
 const recipeItems = document.querySelectorAll('.recipe__item');
+const viewClose = document.querySelector('.view__close > object');
 
 recipeItems.forEach(el => el.onclick = () => view.show());
+viewClose.onclick = () => view.close();

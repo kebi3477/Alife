@@ -254,7 +254,7 @@ class User {
         .then(msg => {
             if(msg.status === 'A200') {
                 alert(`아이디는 ${msg.email}입니다!`);
-            } else if(msg.status === 'A409') {
+            } else if(msg.status === 'A404') {
                 alert('사용자가 존재하지 않습니다!');
             } else if(msg.status === 'A400') {
                 alert('비어 있는 값이 있습니다!');

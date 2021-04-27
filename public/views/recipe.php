@@ -158,6 +158,7 @@
         </div>
     </div>
     <script src="public/js/recipe.js"></script>
+    <script type="module" src="public/js/common.js"></script>
     <?php include('footer.php'); ?>
 </body>
 </html>

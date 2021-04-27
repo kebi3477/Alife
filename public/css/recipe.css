@@ -162,6 +162,9 @@ footer {
     display: flex;
     justify-content: flex-end;
 }
+.view__close > object {
+    cursor: pointer;
+}
 .view__grid {
     display: grid;
     grid-template-rows: 1.3fr 1fr;

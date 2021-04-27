@@ -19,12 +19,16 @@
         $ys = explode(",", $_POST['fridge_ys']);
         $user = $_SESSION['alife_user_email'];
 
-        mysqli_set_query("DELETE FROM fridge WHERE user_email = '$user'");
-        foreach($ids as $index => $id) {
-            $x = $xs[$index];
-            $y = $ys[$index];
-            mysqli_set_query("INSERT INTO fridge VALUES('',$id,'$user',$x,$y)");
-            $message['status'] = 'A200';
+        $result = mysqli_set_query("DELETE FROM fridge WHERE user_email = '$user'");
+        if($result) {
+            foreach($ids as $index => $id) {
+                $x = $xs[$index];
+                $y = $ys[$index];
+                $result = mysqli_set_query("INSERT INTO fridge VALUES('',$id,'$user',$x,$y)");
+            }
+            $message['status'] = $reuslt ? 'A200' : 'A500';
+        } else {
+            $message['status'] = 'A500';
         }
         echo json_encode($message);
     }
