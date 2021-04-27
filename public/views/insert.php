@@ -7,6 +7,7 @@
     <title>ALife</title>
     <link rel="stylesheet" href="public/css/common.css">
     <link rel="stylesheet" href="public/css/insert.css">
+    <link rel="shortcut icon" href="public/images/favicon/favicon.ico">
 </head>
 <body>
     <?php include('header.php'); ?>

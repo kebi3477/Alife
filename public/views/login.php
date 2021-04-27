@@ -7,6 +7,7 @@
     <title>ALife</title>
     <link rel="stylesheet" href="public/css/common.css">
     <link rel="stylesheet" href="public/css/login.css">
+    <link rel="shortcut icon" href="public/images/favicon/favicon.ico">
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
