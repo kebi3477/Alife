@@ -1,3 +1,4 @@
+"use strict";
 const logout = document.querySelector('.logout');
 
 logout && logout.addEventListener('click', function() {

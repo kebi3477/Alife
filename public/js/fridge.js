@@ -1,3 +1,4 @@
+"use strict";
 import Loading from './loading.js';
 const ingreds = document.querySelector('.ingreds');
 const categorys = document.querySelectorAll('.category');

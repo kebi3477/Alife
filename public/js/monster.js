@@ -1,3 +1,4 @@
+"use strict";
 import Loading from './loading.js';
 const main = document.querySelector("#main");
 const sound = document.querySelector('.sound');
@@ -139,7 +140,7 @@ class Meal {
     }
     eating() {  
         this.mealSVG.remove();
-        // sound.paused ? sound.play() : '';
+        sound.paused ? sound.play() : '';
         setTimeout(() => {
             this.x = Math.floor(Math.random() * 1800);
             this.y = Math.floor(Math.random() * 800);

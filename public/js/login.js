@@ -253,7 +253,7 @@ class User {
         this.fetching('findEmail')
         .then(msg => {
             if(msg.status === 'A200') {
-                alert(`아이디는 ${msg.email}입니다!`);
+                alert(`이메일은 ${msg.email}입니다!`);
             } else if(msg.status === 'A404') {
                 alert('사용자가 존재하지 않습니다!');
             } else if(msg.status === 'A400') {

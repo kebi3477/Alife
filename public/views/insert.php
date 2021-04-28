@@ -58,7 +58,7 @@
                         양념, 양념장, 소스, 드레싱, 토핑, 시럽, 육수 밑간 등으로 칸으로 구분해서 작성해주세요.<br>
                         한개, 반개, 한개반 같은 한글 표기는 1개, 1/2개, 1+1/2(또는 1.5개)와 같이 표기해주세요.
                     </div>
-                    <button class="insert__button insert__button-append">재료추가 +</button>
+                    <button class="insert__button insert__button-append" onclick="appendIngredient(this)">재료추가 +</button>
                 </div>
                 <div class="insert__row">
                     <div class="insert__label">해시태그</div>
@@ -100,7 +100,7 @@
                 <div class="insert__row">
                     <div></div>
                     <div class="insert__label--small">전체 재료에서 사용되는 재료를 작성해주세요.</div>
-                    <button class="insert__button insert__button-append">재료추가 +</button>
+                    <button class="insert__button insert__button-append" onclick="appendIngredient(this)">재료추가 +</button>
                 </div>
                 <div class="insert__row">
                     <div class="insert__label">타이머</div>
@@ -114,7 +114,7 @@
                     </div>
                 </div>
             </div>
-            <button class="insert__button insert__button--big">순서추가 +</button>
+            <button class="insert__button insert__button--big" onclick="appendSeq(this)">순서추가 +</button>
         </div>
         <div class="insert__label--small insert__label--center">
         (주)A Life의 해당 레시피의 문구와 이미지에 대한 저작권은 자사에 있으며 어떤 경우에도 이미지 사용은 불가합니다.    저작권에 위배되는 이미지 편집이나 무단 도용 및 무단 복제, 재배포 시 사전 경고 없이 행사 고발 조치와 관계법령에 의거하여 처벌됨을 알려드립니다.
