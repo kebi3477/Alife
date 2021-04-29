@@ -172,7 +172,7 @@ class User {
         this.fetching('login')
         .then(msg => {
             if(msg.status === 'A200') {
-                alert('로그인 성공!');
+                // alert('로그인 성공!');
                 location.href = 'index';
             } else if(msg.status === 'A404') {
                 alert('아이디와 비밀번호를 다시 확인해주세요!');

@@ -1,4 +1,5 @@
-CREATE TABLE `users` ( --구축
+--구축
+CREATE TABLE `users` (
   `user_email` varchar(255) PRIMARY KEY,
   `user_password` varchar(255),
   `user_name` varchar(255),
@@ -20,10 +21,12 @@ CREATE TABLE `collection` (
   `collection_id` int PRIMARY KEY AUTO_INCREMENT,
   `recipe_title` varchar(255),
   `recipe_date` datetime,
+  `recipe_intro` varchar(255),
+  `collection_img` varchar(255),
   `user_email` varchar(255)
 );
-
-CREATE TABLE `ingredient` ( --구축
+--구축
+CREATE TABLE `ingredient` (
   `ingredient_id` int PRIMARY KEY AUTO_INCREMENT,
   `ingredient_name` varchar(255),
   `ingredient_image` varchar(255),
@@ -115,8 +118,8 @@ CREATE TABLE `ringredient` (
   `collection_id` int,
   `ringredient_amount` varchar(255)
 );
-
-CREATE TABLE `fridge` ( --구축
+--구축
+CREATE TABLE `fridge` (
   `fridge_id` int PRIMARY KEY AUTO_INCREMENT,
   `ingredient_id` int,
   `user_email` varchar(255),
