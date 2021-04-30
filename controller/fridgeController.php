@@ -35,7 +35,8 @@
 
     function getMyFridge() {
         $user = $_SESSION['alife_user_email'];
-        $fridges = mysqli_get_query("SELECT * FROM fridge f, ingredient i WHERE f.ingredient_id = i.ingredient_id AND f.user_email = '$user'");
+        $fridges = mysqli_get_query("SELECT * FROM fridge JOIN ingredient ON fridge.ingredient_id = ingredient.ingredient_id WHERE fridge.user_email = '$user'");
+        // $fridges = mysqli_get_query("SELECT * FROM fridge f, ingredient i WHERE f.ingredient_id = i.ingredient_id AND f.user_email = '$user'");
         echo json_encode($fridges);
     }
 
@@ -44,6 +45,19 @@
         $result = mysqli_set_query("DELETE FROM fridge WHERE user_email = '$user'");
         $message['status'] = $result ? 'A200' : 'A500';
         echo json_encode($message);
+    }
+
+    function setRecipe() {
+        $title = $_POST['title'];
+        $intro = $_POST['intro'];
+        $time = $_POST['time'];
+        $serving = $_POST['serving'];
+        $hashtag = $_POST['hashtag'];
+        $hashtags = $_POST['hashtags'];
+
+        
+
+        print_r($hashtags);
     }
 
     $urls[3]();
