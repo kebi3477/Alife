@@ -16,16 +16,16 @@ CREATE TABLE `recipe` (
   `recipe_content` varchar(255),
   `recipe_time` timestamp
 );
-
+--구축
 CREATE TABLE `collection` (
   `collection_id` int PRIMARY KEY AUTO_INCREMENT,
-  `recipe_title` varchar(255),
-  `recipe_intro` varchar(255),
+  `collection_title` varchar(255),
+  `collection_intro` varchar(255),
   `collection_img` varchar(255),
   `collection_time` int,
   `collection_serving` int,
-  `collection_hastag` varchar(255)
-  `recipe_date` datetime,
+  `collection_hastag` varchar(255),
+  `collection_date` datetime,
   `user_email` varchar(255)
 );
 --구축

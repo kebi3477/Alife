@@ -1,9 +1,22 @@
 "use strict";
 const insert = document.querySelector('.insert');
 const seqDom = document.querySelectorAll('.insert__form').item(1).cloneNode(true);
+const files = document.querySelectorAll('input[type=file]');
 const hashtagBox = document.querySelector('.hashtag__box');
 const insertHashtag = document.querySelector('.insert__hashtag');
 const insertSubmit = document.querySelector('.insert__submit');
+
+files[0].addEventListener('change', function() {
+    const insertImg = document.querySelector('.insert__img');
+    if(this.files && this.files[0]) {
+        const reader = new FileReader();
+        reader.onload = e => {
+            insertImg.innerText = "";
+            insertImg.style.backgroundImage = `url("${e.target.result}")`;
+        }
+        reader.readAsDataURL(this.files[0]);
+    }
+})
 
 insertHashtag.addEventListener('keyup', function(e) {
     this.value = this.value.replaceAll(" ", "");

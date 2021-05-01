@@ -48,16 +48,23 @@
     }
 
     function setRecipe() {
+        $message = array();
         $title = $_POST['title'];
         $intro = $_POST['intro'];
+        $image = $_FILES['rep_img'];
         $time = $_POST['time'];
         $serving = $_POST['serving'];
-        $hashtag = $_POST['hashtag'];
         $hashtags = $_POST['hashtags'];
-
+        $imageName = $image['name'];
+        $user = $_SESSION['alife_user_email'];
+        $result = mysqli_set_query("INSERT INTO collection VALUES('','$title','$intro','$imageName','$time','$serving','$hashtags',NOW(),'$user')");
         
-
-        print_r($hashtags);
+        if($result) {
+            $message['status'] = 'A200';
+        } else {
+            $message['status'] = 'A500';
+        }
+        echo json_encode($message);
     }
 
     $urls[3]();

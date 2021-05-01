@@ -25,7 +25,8 @@
                         <textarea name="intro" placeholder="본인의 레시피에 대해 소개해주세요." name="intro"></textarea>
                     </div>
                     <div>
-                        <div class="insert__img">요리 대표사진을<br>등록해주세요.</div>
+                        <input type="file" name="rep_img" id="rep_img">
+                        <label for="rep_img"><div class="insert__img">요리 대표사진을<br>등록해주세요.</div></label>
                     </div>
                 </div>
                 <div class="insert__row">

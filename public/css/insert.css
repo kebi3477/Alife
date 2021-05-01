@@ -10,6 +10,9 @@ input {
     width: 100%;
     font-weight: 400;
 }
+input[type=file] {
+    display: none;
+}
 textarea {
     padding: .9rem;
     width: 100%;
@@ -125,6 +128,10 @@ textarea[name=recipe] {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 .insert__button {
     width: 7rem;
