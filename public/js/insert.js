@@ -1,8 +1,8 @@
 "use strict";
 const insert = document.querySelector('.insert');
-const seqDom = document.querySelectorAll('.insert__form').item(1).cloneNode(true);
+const seqDom = document.querySelector('.seq__dom').cloneNode(true);
+const ingredientDom = document.querySelector('.ingredient__dom').cloneNode(true);
 const files = document.querySelectorAll('input[type=file]');
-const hashtagBox = document.querySelector('.hashtag__box');
 const insertHashtag = document.querySelector('.insert__hashtag');
 const insertSubmit = document.querySelector('.insert__submit');
 
@@ -19,6 +19,7 @@ files[0].addEventListener('change', function() {
 })
 
 insertHashtag.addEventListener('keyup', function(e) {
+    const hashtagBox = document.querySelector('.hashtag__box');
     this.value = this.value.replaceAll(" ", "");
     if(e.keyCode === 32 && this.value !== "") {
         const hastag = document.createElement('div');
@@ -32,11 +33,14 @@ insertHashtag.addEventListener('keyup', function(e) {
 })
 insertSubmit.onclick = () => setRecipe();
 
+function deleteIngredient(that) {
+    that.parentElement.remove();
+}
+
 function appendIngredient(that) {
-    const ingredient = that.parentElement.previousElementSibling;
-    const dom = ingredient.cloneNode(true);
+    const dom = ingredientDom.cloneNode(true);
     dom.querySelector('.insert__label').innerText = '';
-    ingredient.parentElement.insertBefore(dom, that.parentElement);
+    that.parentElement.parentElement.insertBefore(dom, that.parentElement);
 }
 
 function appendSeq(that) {
@@ -47,18 +51,45 @@ function appendSeq(that) {
         alert('20개까지만 만들 수 있습니다!');
     } else {
         step.innerText = `STEP ${formCount}`;
-        document.querySelector('.insert').insertBefore(dom, that.parentElement.nextElementSibling);
+        insert.insertBefore(dom, that.parentElement.nextElementSibling);
         that.remove();
     }
 }
 
 function setRecipe() {
     const formData = new FormData(insert);
-    const hashtags = document.querySelectorAll('.hashtag');
-    const hashtag = [];
+    const hashtag = insert.querySelectorAll('.hashtag');
+    const insertForms = insert.querySelectorAll('.insert__form');
+    const hashtags = [];
+    const ingredients = [];
+    const timers = [];
+    
+    insertForms.forEach((el, index) => {
+        if(index) {
+            const arr = [];
+            const ingredientWrap = el.querySelectorAll(".ingredient__wrap");
+            const timer = el.querySelectorAll('.timer input');
+            const timeJson = {
+                minute: timer[0].value,
+                seconds: timer[1].value
+            }
+            ingredientWrap.forEach(wrap => {
+                const ingredientInfo = wrap.querySelectorAll("input");
+                const json = {
+                    name: ingredientInfo[0].value,
+                    amount: ingredientInfo[1].value
+                }
+                arr.push(json);
+            })
+            timers.push(timeJson);        
+            ingredients.push(arr);
+        }
+    })
+    hashtag.forEach(el => hashtags.push(el.textContent));
+    formData.append("hashtags", hashtags);
+    formData.append("ingredients", JSON.stringify(ingredients));
+    formData.append("timers", JSON.stringify(timers));
 
-    hashtags.forEach(el => hashtag.push(el.textContent));
-    formData.append("hashtags", hashtag)
     fetch('controller/fridge/setRecipe', {
         method: 'POST',
         body: formData

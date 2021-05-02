@@ -29,7 +29,7 @@ textarea[name=hashtag], .insert__hashtag {
     height: 4rem;
     margin-top: 1.1rem;
 }
-textarea[name=recipe] {
+textarea[name="recipe[]"] {
     height: 14rem;
 }
 .insert {

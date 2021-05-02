@@ -55,15 +55,30 @@
         $serving = $_POST['serving'];
         $hashtags = $_POST['hashtags'];
         $image = $_FILES['rep_img'];
+        $recipe = $_POST['recipe'];
+        $ingredients = json_decode($_POST['ingredients'], true);
+        $timers = json_decode($_POST['timers'], true);
         $user = $_SESSION['alife_user_email'];
         $num = mysqli_get_query("SELECT COUNT(*) count FROM collection")[0]['count'];
         $path = "recipe/".++$num;
+        
         
         $uploadCheck = 1;
         if($title == "" || $intro == "" || $time == "" || $serving == "" || $image['error'] == 4) {
             $message['status'] = 'A400';
         } else {
             $imageType = getimagesize($image['tmp_name'])[2];
+            
+            foreach($ingredients as $index => $values) {
+                $timer = "00:".$timers[$index]['minute'].":".$timers[$index]['seconds'];
+                $result = mysqli_set_query("INSERT INTO recipe VALUES('', $num, $index, '".$recipe[0]."', '$timer')");
+                if($result) {
+                    foreach($values as $value) {
+                        $result = mysqli_set_query("INSERT INTO ringredient VALUES('', $num, '".$value['name']."', '".$value['amount']."')");
+                    }
+                }
+            }
+            
             if(!is_dir($path)) {
                 mkdir($path, 0777, true);
             } else {
@@ -76,6 +91,7 @@
                 $path .= '/rep_img.jpg';
                 if(move_uploaded_file($image['tmp_name'], $path)) {
                     $result = mysqli_set_query("INSERT INTO collection VALUES('','$title','$intro','$time','$serving','$hashtags',NOW(),'$user')");
+                    
                     $message['status'] = $result ? 'A200' : 'A500';
                 } else {
                     $message['status'] = 'A500';

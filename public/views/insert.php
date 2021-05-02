@@ -57,7 +57,7 @@
                 </div>
             </div>
         </div>
-        <div class="insert__form">
+        <div class="insert__form seq__dom">
             <div class="insert__table recipe__piece">
                 <div class="insert__row">
                     <div class="insert__label">
@@ -65,7 +65,7 @@
                         <div class="insert__step">STEP 1</div>
                     </div>
                     <div class="insert__col">
-                        <textarea name="recipe" placeholder="칸마다 이미지와 레시피의 요리순서를 작성해주세요."></textarea>
+                        <textarea name="recipe[]" placeholder="칸마다 이미지와 레시피의 요리순서를 작성해주세요."></textarea>
                         <div class="insert__label--small">
                             요리의 맛이 좌우될 수 있는 중요한 부분은 빠짐없이 작성해주세요.<br>
                             요리순서는 페이지당 글자수 200자 이내, 최대 20페이지(사진) 적을 수 있습니다.
@@ -75,15 +75,15 @@
                         <div class="insert__img">이미지를<br>넣어주세요</div>
                     </div>
                 </div>
-                <div class="insert__row">
+                <div class="insert__row ingredient__dom">
                     <div class="insert__label">재료</div>
                     <div>
-                        <div class="insert__wrap insert__wrap--between">
+                        <div class="insert__wrap insert__wrap--between ingredient__wrap">
                             <div class="insert__input--middle"><input type="text" placeholder="예시) 재료이름"></div>
                             <div class="insert__input--middle"><input type="text" placeholder="예시) 계량 g"></div>
                         </div>
                     </div>
-                    <button class="insert__button" type="button">재료삭제 -</button>
+                    <button class="insert__button" type="button" onclick="deleteIngredient(this)">재료삭제 -</button>
                 </div>
                 <div class="insert__row">
                     <div></div>
@@ -97,10 +97,10 @@
                 <div class="insert__row">
                     <div class="insert__label">타이머</div>
                     <div>
-                        <div class="insert__wrap">
-                            <div class="insert__input--small"><input type="text" placeholder="00"></div>
+                        <div class="insert__wrap timer">
+                            <div class="insert__input--small"><input type="number" placeholder="00" min=0></div>
                             <p>분 : </p>
-                            <div class="insert__input--small"><input type="text" placeholder="00"></div>
+                            <div class="insert__input--small"><input type="number" placeholder="00" min=0 max=59></div>
                             <p>초</p>
                         </div>
                     </div>
