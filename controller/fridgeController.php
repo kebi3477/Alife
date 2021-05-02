@@ -51,18 +51,38 @@
         $message = array();
         $title = $_POST['title'];
         $intro = $_POST['intro'];
-        $image = $_FILES['rep_img'];
         $time = $_POST['time'];
         $serving = $_POST['serving'];
         $hashtags = $_POST['hashtags'];
-        $imageName = $image['name'];
+        $image = $_FILES['rep_img'];
         $user = $_SESSION['alife_user_email'];
-        $result = mysqli_set_query("INSERT INTO collection VALUES('','$title','$intro','$imageName','$time','$serving','$hashtags',NOW(),'$user')");
+        $num = mysqli_get_query("SELECT COUNT(*) count FROM collection")[0]['count'];
+        $path = "recipe/".++$num;
         
-        if($result) {
-            $message['status'] = 'A200';
+        $uploadCheck = 1;
+        if($title == "" || $intro == "" || $time == "" || $serving == "" || $image['error'] == 4) {
+            $message['status'] = 'A400';
         } else {
-            $message['status'] = 'A500';
+            $imageType = getimagesize($image['tmp_name'])[2];
+            if(!is_dir($path)) {
+                mkdir($path, 0777, true);
+            } else {
+                $uploadCheck = 0;
+            }
+            if($imageType > 3 || is_null($imageType)) {
+                $uploadCheck = 0;
+            }
+            if($uploadCheck) {
+                $path .= '/rep_img.jpg';
+                if(move_uploaded_file($image['tmp_name'], $path)) {
+                    $result = mysqli_set_query("INSERT INTO collection VALUES('','$title','$intro','$time','$serving','$hashtags',NOW(),'$user')");
+                    $message['status'] = $result ? 'A200' : 'A500';
+                } else {
+                    $message['status'] = 'A500';
+                }
+            } else {
+                $message['status'] = 'A500';
+            }
         }
         echo json_encode($message);
     }

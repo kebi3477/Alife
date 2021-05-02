@@ -21,7 +21,6 @@ CREATE TABLE `collection` (
   `collection_id` int PRIMARY KEY AUTO_INCREMENT,
   `collection_title` varchar(255),
   `collection_intro` varchar(255),
-  `collection_img` varchar(255),
   `collection_time` int,
   `collection_serving` int,
   `collection_hastag` varchar(255),

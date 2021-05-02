@@ -65,6 +65,13 @@ function setRecipe() {
     })
     .then(msg => msg.json())
     .then(msg => {
-        console.log(msg);
+        if(msg.status === 'A200') {
+            alert('등록 성공!');
+            // location.href = "recipe";
+        } else if(msg.status === 'A400') {
+            alert('비어 있는 값이 있습니다!');
+        } else if(msg.status === 'A500'){
+            alert('서버 오류!');
+        }
     })
 }

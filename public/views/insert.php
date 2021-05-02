@@ -10,7 +10,11 @@
     <link rel="shortcut icon" href="public/images/favicon/favicon.ico">
 </head>
 <body>
-    <?php include('header.php'); ?>
+    <?php 
+        include('header.php');
+        include('interceptor/userInterceptor.php');
+        isLoging();
+    ?>
     <form class="insert padding" enctype="multipart/form-data">
         <div class="insert__form">
             <div class="insert__title">레시피 등록</div>
