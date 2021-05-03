@@ -6,16 +6,10 @@ const files = document.querySelectorAll('input[type=file]');
 const insertHashtag = document.querySelector('.insert__hashtag');
 const insertSubmit = document.querySelector('.insert__submit');
 
-files[0].addEventListener('change', function() {
-    const insertImg = document.querySelector('.insert__img');
-    if(this.files && this.files[0]) {
-        const reader = new FileReader();
-        reader.onload = e => {
-            insertImg.innerText = "";
-            insertImg.style.backgroundImage = `url("${e.target.result}")`;
-        }
-        reader.readAsDataURL(this.files[0]);
-    }
+files.forEach(file => {
+    file.addEventListener('change', function() {
+        changeImage(this);
+    })
 })
 
 insertHashtag.addEventListener('keyup', function(e) {
@@ -47,13 +41,17 @@ function appendSeq(that) {
     const dom = seqDom.cloneNode(true);
     const step = dom.querySelector('.insert__step');
     const formCount = document.querySelectorAll('.insert__form').length;
-    if(formCount === 21) {
-        alert('20개까지만 만들 수 있습니다!');
-    } else {
-        step.innerText = `STEP ${formCount}`;
-        insert.insertBefore(dom, that.parentElement.nextElementSibling);
-        that.remove();
+    if(formCount === 20) {
+        dom.querySelector('.insert__button--big').remove();
     }
+    dom.querySelector('input[type=file]').id = `step__img${formCount}`;
+    dom.querySelector('input[type=file]').addEventListener("change", function() {
+        changeImage(this);
+    })
+    dom.querySelector('label').setAttribute('for', `step__img${formCount}`);
+    step.innerText = `STEP ${formCount}`;
+    insert.insertBefore(dom, that.parentElement.nextElementSibling);
+    that.remove();
 }
 
 function setRecipe() {
@@ -68,6 +66,8 @@ function setRecipe() {
         if(index) {
             const arr = [];
             const ingredientWrap = el.querySelectorAll(".ingredient__wrap");
+            const stepImg = el.querySelector('.step__img');
+            console.log(stepImg.files);
             const timer = el.querySelectorAll('.timer input');
             const timeJson = {
                 minute: timer[0].value,
@@ -90,7 +90,7 @@ function setRecipe() {
     formData.append("ingredients", JSON.stringify(ingredients));
     formData.append("timers", JSON.stringify(timers));
 
-    fetch('controller/fridge/setRecipe', {
+    fetch('controller/recipe/setRecipe', {
         method: 'POST',
         body: formData
     })
@@ -105,4 +105,16 @@ function setRecipe() {
             alert('서버 오류!');
         }
     })
+}
+
+function changeImage(that) {
+    const insertImg = that.nextElementSibling.children[0];
+    if(that.files && that.files[0]) {
+        const reader = new FileReader();
+        reader.onload = e => {
+            insertImg.innerText = "";
+            insertImg.style.backgroundImage = `url("${e.target.result}")`;
+        }
+        reader.readAsDataURL(that.files[0]);
+    }
 }

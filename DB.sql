@@ -15,6 +15,14 @@ CREATE TABLE `ingredient` (
   `ingredient_type` varchar(255)
 );
 --구축
+CREATE TABLE `fridge` (
+  `fridge_id` int PRIMARY KEY AUTO_INCREMENT,
+  `ingredient_id` int,
+  `user_email` varchar(255),
+  `fridge_x` int,
+  `fridge_y` int
+);
+--구축
 CREATE TABLE `collection` (
   `collection_id` int PRIMARY KEY AUTO_INCREMENT,
   `collection_title` varchar(255),
@@ -39,14 +47,6 @@ CREATE TABLE `ringredient` (
   `collection_id` int,
   `ringredient_name` varchar(255),
   `ringredient_amount` varchar(255)
-);
---구축
-CREATE TABLE `fridge` (
-  `fridge_id` int PRIMARY KEY AUTO_INCREMENT,
-  `ingredient_id` int,
-  `user_email` varchar(255),
-  `fridge_x` int,
-  `fridge_y` int
 );
 
 CREATE TABLE `mealkit` (

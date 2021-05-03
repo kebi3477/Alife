@@ -29,7 +29,7 @@
                         <textarea name="intro" placeholder="본인의 레시피에 대해 소개해주세요." name="intro"></textarea>
                     </div>
                     <div>
-                        <input type="file" name="rep_img" id="rep_img">
+                        <input type="file" name="images[]" id="rep_img">
                         <label for="rep_img"><div class="insert__img">요리 대표사진을<br>등록해주세요.</div></label>
                     </div>
                 </div>
@@ -72,7 +72,8 @@
                         </div>
                     </div>
                     <div>
-                        <div class="insert__img">이미지를<br>넣어주세요</div>
+                        <input type="file" class="step__img" id="step__img1" name="images[]">
+                        <label for="step__img1"><div class="insert__img">이미지를<br>넣어주세요</div></label>
                     </div>
                 </div>
                 <div class="insert__row ingredient__dom">
