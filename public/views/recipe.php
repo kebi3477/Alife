@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="public/images/favicon/favicon.ico">
 </head>
 <body>
-    <?php include('header.php'); ?>
+    <?php include('header.php'); include('modules/mysql.php'); ?>
     <div class="popup">
         <div class="view">
             <div class="view__wrap view__wrap--left">
@@ -68,8 +68,7 @@
     </div>
     <div class="recipe__wrap padding">
         <div class="recipe__list-title">좋아요가 높은 레시피</div>
-        <div class="recipe__list">
-            <?php for($i = 0; $i < 3; $i++) { ?>
+        <div class="recipe__list rank">
             <div class="recipe__item">
                 <div class="recipe__img"></div>
                 <div class="recipe__title">국물 떡볶이 만들기</div>
@@ -84,8 +83,6 @@
                         <div class="recipe__user-name">100</div>
                     </div>
                 </div>
-            </div>
-            <?php } ?>
             </div>
         </div>
     </div>

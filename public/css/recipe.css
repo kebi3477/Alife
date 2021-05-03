@@ -27,6 +27,9 @@
 .recipe__img {
     height: 13.5rem;
     background-color: var(--gray-light);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 .recipe__wrap:nth-of-type(1) .recipe__img {
     height: 18rem;  
@@ -86,7 +89,7 @@ footer {
     justify-content: space-between;
     align-items: center;
     background-color: #fff;
-    margin-top: 5rem;
+    margin-top: 0rem;
     border-radius: 1.5rem;
     overflow: hidden;
 }
