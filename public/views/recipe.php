@@ -17,7 +17,7 @@
                 <div class="view__profile">
                     <div class="view__wrap-row">
                         <div class="view__user-image"></div>
-                        <div class="view__user-info">이름<br>2021. 00. 00.</div>
+                        <div class="view__user-info info">이름<br>2021. 00. 00.</div>
                     </div>
                     <div class="view__wrap-row">  
                         <object data="public/images/icon/heart_l.svg" type="image/svg+xml"></object>
@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="view__recipe">
-                    <div class="view__title">제목 입니다.</div>
+                    <div class="view__title title">제목 입니다.</div>
                     <div class="view__slide">
                         <div class="view__slide-now"></div>
                         <div class="view__slide-list"></div>
@@ -40,7 +40,6 @@
                 <div class="view__time"></div>
             </div>
             <div class="view__wrap view__wrap--right">
-
                 <div class="view__top">
                     <div class="view__close"><object data="public/images/icon/close_s.svg" type="image/svg+xml"></object></div>
                 </div>

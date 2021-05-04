@@ -103,6 +103,7 @@ footer {
     flex: 3;
     background-color: var(--green-light);
     padding: 3rem;
+    overflow-y: scroll;
 }
 .view__profile {
     display: flex;
@@ -152,6 +153,9 @@ footer {
     height: 100%;
     border: 1px solid var(--gray-middle);
     border-radius: 1rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .view__text {
     font-size: .9rem;
@@ -202,8 +206,16 @@ footer {
 }
 
 .view__hashtag {
-    padding: 2rem;
+    padding: 1rem;
     background-color: #fff;
     border-radius: 1rem;
     border: 1px solid var(--gray-light);
+    display: flex;
+    flex-flow: row wrap;
+}
+.hashtag {
+    padding: .5rem;
+    background-color: var(--green-light);
+    border-radius: 1rem;
+    margin: .5rem;
 }

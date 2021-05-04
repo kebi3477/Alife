@@ -29,7 +29,7 @@ CREATE TABLE `collection` (
   `collection_intro` varchar(255),
   `collection_time` int,
   `collection_serving` int,
-  `collection_hastag` varchar(255),
+  `collection_hashtag` varchar(255),
   `collection_date` datetime,
   `user_email` varchar(255)
 );
