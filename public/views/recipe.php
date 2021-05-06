@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="public/images/favicon/favicon.ico">
 </head>
 <body>
-    <?php include('header.php'); include('modules/mysql.php'); ?>
+    <?php include('header.php');?>
     <div class="popup">
         <div class="view">
             <div class="view__wrap view__wrap--left">
@@ -24,16 +24,18 @@
                         <div class="view__title">0</div>
                     </div>
                 </div>
-                <div class="view__recipe">
-                    <div class="view__title title">제목 입니다.</div>
-                    <div class="view__slide">
-                        <div class="view__slide-now"></div>
-                        <div class="view__slide-list"></div>
-                    </div>
-                    <div class="view__seq">
-                        <div class="view__title view__title--small">요리순서</div>
-                        <div class="view__text">
-                            레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.
+                <div class="view__recipes">
+                    <div class="view__recipe">
+                        <div class="view__title title">제목 입니다.</div>
+                        <div class="view__slide">
+                            <div class="view__slide-now"></div>
+                            <div class="view__slide-list"></div>
+                        </div>
+                        <div class="view__seq">
+                            <div class="view__title view__title--small">요리순서</div>
+                            <div class="view__text">
+                                레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.레시피 정보입니다.
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -55,6 +55,12 @@
                         <div class="insert__label--small">해시태그 설정 시 A Life이용자들이 쉽게 레시피를 검색할 수 있습니다.</div>
                     </div>
                 </div>
+                <div class="insert__row">
+                    <div class="insert__label">타이머</div>
+                    <div class="insert__wrap">
+                        <input type="checkbox">
+                    </div>
+                </div>
             </div>
         </div>
         <div class="insert__form seq__dom">
@@ -100,9 +106,7 @@
                     <div>
                         <div class="insert__wrap timer">
                             <div class="insert__input--small"><input type="number" placeholder="00" min=0></div>
-                            <p>분 : </p>
-                            <div class="insert__input--small"><input type="number" placeholder="00" min=0 max=59></div>
-                            <p>초</p>
+                            <p>분</p>
                         </div>
                     </div>
                 </div>
@@ -117,7 +121,6 @@
             <button class="insert__button" type="reset">취소</button>
         </div>
     </form>
-    <?php include('footer.php') ?>
     <script src="public/js/insert.js"></script>
     <script type="module" src="public/js/common.js"></script>
 </body>

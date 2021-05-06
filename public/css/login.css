@@ -25,12 +25,13 @@
     width: 40%;
     background-color: #fff;
     border-radius: 1rem;
+    overflow: hidden;
 }
 .popup__header {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    padding: 2rem;
+    padding: 1.5rem;
     border-bottom: 1px solid var(--black);
     box-shadow: 0px 3px 2px #3333;
     align-items: baseline;
@@ -55,13 +56,18 @@
     margin-top: 0;
 }
 .popup__button {
-    font-size: 2rem;
+    font-size: 1.5rem;
     width: 100%;
     text-align: center;
-    padding: 2rem;
+    padding: 1.5rem;
     color: var(--green-middle);
     border-top: 1px solid var(--black);
     cursor: pointer;
+    transition: .2s;
+}
+.popup__button:hover {
+    background-color: var(--green-middle);
+    color: #fff;
 }
 .popup__table {
     width: 100%;
@@ -113,13 +119,13 @@
 }
 .login__logo {
     font-size: 3rem;
-    font-weight: bold;
+    font-weight: 800;
     font-family: 'Noto Sans KR', sans-serif;
     margin-bottom: 2rem;
 }
 .login__input {
     width: 60%;
-    border: 1px solid var(--green-hard);
+    border: 1px solid var(--green-middle);
     border-radius: .5rem;
     padding: .8rem 2rem;
     font-size: 1rem;
@@ -136,6 +142,11 @@
 .login__input--half > .login__button--small {
     width: 25%;
 }
+.login__input--green {
+    border: 1px solid var(--green-middle);
+    text-align: center;
+    color: var(--green-middle);
+}
 .login__input:focus {
     outline: none;
 }
@@ -150,6 +161,7 @@
     padding: .6rem;
     margin-top: 1.5rem;
     transition: .2s;
+    text-align: center;
 }
 .login__button--small {
     font-size: .8rem;
@@ -193,6 +205,13 @@
     font-size: .7rem;
     color: var(--gray-hard);
     text-align: left;
+}
+.login__label--under {
+    width: 60%;
+    padding: .5rem 0;
+    text-align: left;
+    color: #676767;
+    border-bottom: 1px solid #676767;
 }
 .login__buttons {
     width: 60%;

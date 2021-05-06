@@ -6,6 +6,8 @@ const signWrap = document.querySelector(".sign__wrap");
 const findWrap = document.querySelector(".find__wrap");
 const findIdWrap = document.querySelector(".find-id__wrap");
 const findPwWrap = document.querySelector(".find-pw__wrap");
+const findEmailWrap = document.querySelector('.find-email__wrap');
+const changePwWrap = document.querySelector('.change-pw__wrap');
 //로그인
 const loginButton = loginWrap.querySelector('.login__button');
 const showSign = loginWrap.querySelector(".login__text:last-child");
@@ -29,12 +31,20 @@ const findId = findWrap.querySelector(".login__toggle-button:first-child");
 const findPw = findWrap.querySelector(".login__toggle-button:last-child");
 const findIdButton = findWrap.querySelector(".login__form-item:first-child button");
 const cancelButtons = findWrap.querySelectorAll(".login__buttons > .login__button:last-child");
+const findPwButton = findWrap.querySelector(".find-pw__wrap button");
+const findEmailButton = findEmailWrap.querySelector("button");
+const changePw = changePwWrap.querySelector('.change-pw');
+const changeRepw = changePwWrap.querySelector('.change-repw');
+const changePwButton = changePwWrap.querySelector("button");
 //공통
 const phones = document.querySelectorAll('.login__phone > input');
 const loading = new Loading();
 //init
+// loginWrap.remove();
 signWrap.remove();
 findWrap.remove();
+findEmailWrap.remove();
+changePwWrap.remove();
 //로그인
 loginButton.addEventListener('click', function() {
     user.login();
@@ -127,6 +137,36 @@ findPw.addEventListener("click", function() {
 findIdButton.addEventListener('click', function() {
     user.findEmail();
 })
+findPwButton.addEventListener('click', function() {
+    user.findPw();
+})
+findEmailButton.addEventListener('click', function() {
+    findEmailWrap.remove();
+    login.append(loginWrap);
+})
+changePw.addEventListener('blur', function() {
+    const loginLabelPw = changePwWrap.querySelector('.login__label-pw');
+    if(/^[a-z0-9]{8,20}$/g.test(this.value)) {
+        changeLabelTextColor(loginLabelPw, '적당합니다!', 'green');
+        user.asign.cPassword = true;
+    } else {
+        changeLabelTextColor(loginLabelPw, '비밀번호는 8~20자 영문자 또는 숫자이어야 합니다.', 'red');
+        user.asign.cPassword = false;
+    }
+})
+changeRepw.addEventListener('blur', function() {
+    const loginLabelRepw = changePwWrap.querySelector('.login__label-repw');
+    if(this.value === changePw.value) {
+        changeLabelTextColor(loginLabelRepw, '비밀번호가 같습니다!', 'green');
+        user.asign.cRePassword = true;
+    } else {
+        changeLabelTextColor(loginLabelRepw, '비밀번호가 다릅니다!', 'red');
+        user.asign.cRePassword = false;
+    }
+})
+changePwButton.addEventListener('click', function() {
+    user.changePw();
+})
 //공통
 cancelButtons.forEach(button => {
     button.addEventListener("click", function() {
@@ -151,7 +191,9 @@ class User {
             rePassword: false,
             accept1: false,
             accept2: false,
-            emailAuth: false
+            emailAuth: false,
+            cPassword: false,
+            cRePassword: false
         }
         this.loginLabelEmail = signWrap.querySelector('.login__label-email');
     }
@@ -172,7 +214,6 @@ class User {
         this.fetching('login')
         .then(msg => {
             if(msg.status === 'A200') {
-                // alert('로그인 성공!');
                 location.href = 'index';
             } else if(msg.status === 'A404') {
                 alert('아이디와 비밀번호를 다시 확인해주세요!');
@@ -209,7 +250,6 @@ class User {
         .then(() => loading.end());
     }
     signUp() {
-        this.init(signWrap);
         this.checkAccept();
         if(!this.asign.email) {
             alert('이메일을 확인하세요!');
@@ -220,6 +260,7 @@ class User {
         } else if(!this.asign.emailAuth) {
             alert('이메일 인증을 확인하세요!');
         } else {
+            this.init(signWrap);
             this.fetching('signUp')
             .then(msg => {
                 if(msg.status === 'A200') {
@@ -253,7 +294,9 @@ class User {
         this.fetching('findEmail')
         .then(msg => {
             if(msg.status === 'A200') {
-                alert(`이메일은 ${msg.email}입니다!`);
+                findEmailWrap.querySelector(".login__input--green").innerText = msg.email;
+                login.append(findEmailWrap);
+                findWrap.remove();
             } else if(msg.status === 'A404') {
                 alert('사용자가 존재하지 않습니다!');
             } else if(msg.status === 'A400') {
@@ -261,6 +304,42 @@ class User {
             }
         })
         .then(() => loading.end());
+    }
+    findPw() {
+        this.init(findPwWrap);
+        this.fetching('findPw')
+        .then(msg => {
+            if(msg.status === 'A200') {
+                changePwWrap.querySelector('input[type=hidden]').value = msg.email;
+                login.append(changePwWrap);
+                findWrap.remove();
+            } else if(msg.status === 'A404') {
+                alert('사용자가 존재하지 않습니다!');
+            } else if(msg.status === 'A400') {
+                alert('비어 있는 값이 있습니다!');
+            }
+        })
+        .then(() => loading.end());
+    }
+    changePw() {
+        if(this.asign.cPassword && this.asign.cRePassword) {
+            this.init(changePwWrap);
+            this.fetching('changePw')
+            .then(msg => {
+                if(msg.status === 'A200') {
+                    alert('변경 완료!');
+                    login.append(loginWrap);
+                    changePwWrap.remove();
+                } else if(msg.status === 'A400') {
+                    alert('비어 있는 값이 있습니다!');
+                } else {
+                    alert('서버 오류!');
+                }
+            })
+            .then(() => loading.end());
+        } else {
+            alert('비밀번호란을 확인해주세요!')
+        }
     }
     checkAccept() {
         this.asign.accept1 = document.querySelector('#accept1').checked;

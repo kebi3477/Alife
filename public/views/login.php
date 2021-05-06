@@ -99,13 +99,11 @@
             <input type="password" class="login__input" placeholder="비밀번호 재확인" name="rePassword">
             <label class='login__label-repw'></label>
             <input type="text" class="login__input" placeholder="이름" name="name">
-            <label></label>
             <div class="login__phone">
                 <input type="text" class="login__input login__input--short" placeholder="휴대전화" name="phone1" maxlength=3>
                 <input type="text" class="login__input login__input--short" name="phone2" maxlength=4>
                 <input type="text" class="login__input login__input--short" name="phone3" maxlength=4>
             </div>
-            <label></label>
             <input type="text" class="login__input" placeholder="주소" name="address">
             <div class="login__label">※ 정확한 도로명 주소 기입 시 배송주문이 가능합니다.</div>
             <div class="login__title">이용약관동의</div>
@@ -160,6 +158,22 @@
                 </div>
             </div>
         </div>
+        <div class="login__form find-email__wrap">
+            <div class="login__logo">A Life</div>
+            <div class="login__label--under">입력한 정보로 조회된 이메일입니다.</div>
+            <div class="login__input login__input--green">undifined</div>
+            <button class="login__button">로그인 하러가기</button>
+        </div>
+        <form class="login__form change-pw__wrap">
+            <div class="login__logo">A Life</div>
+            <input type="hidden" name="email" value="">
+            <div class="login__label--under">비밀번호 재설정</div>
+            <input type="password" class="login__input change-pw" placeholder="비밀번호" name="password">
+            <label class="login__label-pw"></label>
+            <input type="password" class="login__input change-repw" placeholder="비밀번호 재확인" name="rePassword">
+            <label class="login__label-repw"></label>
+            <button class="login__button" type="button">비밀번호 재설정</button>
+        </form>
     </div>
     <script type="module" src="public/js/loading.js"></script>
     <script type="module" src="public/js/login.js"></script>

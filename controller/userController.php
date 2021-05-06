@@ -129,6 +129,47 @@
         echo json_encode($message);
     }
 
+    function findPw() {
+        $message = array();
+        $email = $_POST['email'];
+        $name = $_POST['name'];
+        $phone = $_POST['phone1']."-".$_POST['phone2']."-".$_POST['phone3'];
+
+        if($email === '' || $name === '' || $_POST['phone1'] === '' || $_POST['phone2'] === '' || $_POST['phone3'] === '') {
+            $message['status'] = 'A400';
+        } else {
+            $sql = "SELECT * FROM users WHERE user_email = '$email' and user_name = '$name' and user_phone = '$phone'";
+            $users = mysqli_get_query($sql);
+            if(count($users) > 0) {
+                $message['status'] = 'A200';
+                $message['email'] = $users[0]['user_email'];
+            } else {
+                $message['status'] = 'A404';
+            }
+        }
+        echo json_encode($message);
+    }
+
+    function changePw() {
+        $message = array();
+        $email = $_POST['email'];
+        $pw = $_POST['password'];
+        $rePw = $_POST['rePassword'];
+        if($email === "" || $pw === "" || $rePw === "") {
+            $message['status'] = 'A400';
+        } else {
+            $encPw = hash('sha256', $pw);
+            $sql = "UPDATE users SET user_password = '$encPw' WHERE user_email = '$email'";
+            $result = mysqli_set_query($sql);
+            if($result) {
+                $message['status'] = 'A200';
+            } else {   
+                $message['status'] = 'A500';
+            }
+        }
+        echo json_encode($message);
+    }
+
     function logout() {
         $message = array();
         session_destroy();
