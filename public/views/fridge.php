@@ -20,19 +20,10 @@
         $ingredients = mysqli_get_query('SELECT * FROM `ingredient`');
     ?>
     <div class="title">
-        <div class="title--big">당신의 냉장고를 보여주세요!</div>
-        <div class="title--small">냉장고 안에 있는 재료들을 선택하여 레시피 추천을 받을 수 있습니다.</div>
+        <div class="title--big"><?=$_SESSION['alife_user_name']?>님의 냉장고</div>
     </div>
     <div class="content">
         <div class="mart">
-            <div class="mart__cap">
-                <input class="mart__search--input" type="text" placeholder="재료를 입력해주세요.">
-                <button class="mart__search--btn"><img src="public/images/icon/search.svg"></button>
-            </div>
-            <div class="mart__title">
-                <div>카테고리</div>
-                <div>재료</div>
-            </div>
             <div class="mart__content">
                 <div class="categorys">
                     <div class="category">전체</div>
