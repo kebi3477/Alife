@@ -98,6 +98,9 @@ footer {
 }
 .view__wrap--left {
     flex: 7;
+    display: flex;
+    flex-flow: column nowrap;
+    overflow: hidden;
 }
 .view__wrap--right {
     flex: 3;
@@ -111,14 +114,12 @@ footer {
     padding: 1rem 3rem;
     border-bottom: 1px solid var(--gray-light);
     box-shadow: 0px 1px 2px var(--gray-light);
-    height: 10%;
+    flex: 1;
 }
 .view__wrap-row {
     display: flex;
     align-items: center;
-}
-.view__wrap-row > .view__title {
-    margin-left: 1rem;
+    justify-content: flex-start;
 }
 .view__user-image {
     width: 2.5rem;
@@ -132,18 +133,32 @@ footer {
 }
 
 .view__recipes {
+    width: 100%;
+    flex: 8;
+    display: flex;
+    flex-flow: row nowrap;
+    transition: 2s;
+    position: relative;
+}
+.view__cover {
+    height: 100%;
     display: flex;
     flex-flow: row wrap;
-    height: 80%;
+    overflow: hidden;
 }
 .view__recipe {
     width: 100%;
     height: 100%;
     padding: 1rem 3rem;
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1;
 }
 .view__title {
     font-size: 1.5rem;
     font-weight: 600;
+    /* padding: 0.5rem 3rem; */
 }
 .view__title--small {
     font-size: 1.1rem;
@@ -154,23 +169,47 @@ footer {
     margin: 1rem 0;
     display: flex;
 }
-.view__slide-now {
+.view__list {height: 100%;}
+.view__item {
     width: 78%;
-    height: 100%;
+    height: 70%;
+}
+.view__image {
+    width: 60%;
+    flex: 3;
     border: 1px solid var(--gray-middle);
     border-radius: 1rem;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
+.view__seq {
+    flex: 1;
+    margin-top: 1.5rem;
+}
 .view__text {
     font-size: .9rem;
 }
-
-.view__time {
-    height: 10%;
+@keyframes timer {
+    from { width: 0%; }
+    to { width: 100%; }
 }
-
+.view__time {
+    border-top: 1px solid var(--gray-middle);
+    flex: 1;
+}
+.view__timer {
+    width: 80%;
+    height: 1rem;
+    border: 1px solid var(--green-middle);
+    border-radius: 5rem;
+    overflow: hidden;
+}
+.view__timebar {
+    width: 0%;
+    height: 100%;
+    background-color: var(--green-middle);
+}
 .view__top {
     display: flex;
     justify-content: flex-end;
@@ -190,6 +229,7 @@ footer {
     border-radius: 1rem;
     overflow: hidden;
     margin-bottom: 2rem;
+    border: 1px solid var(--gray-light);
 }
 .view__row {
     display: grid;
@@ -204,25 +244,27 @@ footer {
     font-size: .8rem;
 }
 .view__row:first-child {
-    background-color: var(--gray-light);
+    background-color: var(--green-middle);
     font-weight: bold;
 }
 .view__row:first-child > div {
     border: none;
+    color: #fff;
 }
 
 .view__hashtag {
-    padding: 1rem;
+    padding: .5rem;
     background-color: #fff;
     border-radius: 1rem;
-    border: 1px solid var(--gray-light);
+    border: 1px solid var(--gray-hard);
     display: flex;
     flex-flow: row wrap;
 }
 .hashtag {
-    padding: .5rem 1rem;
-    background-color: var(--green-light);
-    border-radius: .75rem;
+    padding: .3rem 1rem;
+    border-radius: 5rem;
     margin: .5rem;
     font-size: .8rem;
+    color: var(--green-middle);
+    border: 1px solid var(--green-middle);
 }

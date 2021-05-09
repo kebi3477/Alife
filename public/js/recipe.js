@@ -1,6 +1,7 @@
 class View {
     constructor() {
         this.popup = document.querySelector('.popup');
+        this.now = 0;
         this.close();
     }
     show(recipe=null) {
@@ -13,6 +14,7 @@ class View {
         })
         .then(data => data.json())
         .then(data => {
+            this.col = data.collection;
             const collection = data.collection;
             const recipes = data.recipes;
             const rin = data.ringredients;
@@ -21,6 +23,8 @@ class View {
             // Collection 변경
             this.popup.querySelector('.info').innerHTML = `${collection.user_name}<br>${collection.collection_date}`;
             this.popup.querySelector('.title').innerText = collection.collection_title;
+            this.popup.querySelector('.time').innerText = `${collection.collection_time} 분 이내`;
+            this.popup.querySelector('.serving').innerText = `${collection.collection_serving} 인분`;
             // 해시태그 올리기
             this.popup.querySelectorAll('.hashtag').forEach(el => el.remove());
             hashtags.forEach(hashtag => {
@@ -37,9 +41,8 @@ class View {
                 dom.children[1].innerText = ingred.ringredient_amount;
                 this.popup.querySelector('.view__grid').append(dom);
             })
-            //레시피 변경
-            this.popup.querySelector('.view__text').innerText = recipes[0].recipe_content;
-            this.popup.querySelector('.view__slide-now').style.backgroundImage = `url('recipes/${collection.collection_id}/seq_img_1.jpg')`;
+            //레시피 등록
+            this.appendRecipes(recipes);
         })
         .then(() => {
             this.popup.style.display = 'flex';
@@ -47,6 +50,31 @@ class View {
     }
     close() {
         this.popup.style.display = 'none';
+    }
+    appendRecipes(recipes) {
+        this.viewRecipes = this.popup.querySelector('.view__recipes');
+        const viewRecipe = this.popup.querySelector('.view__recipe');
+        recipes.forEach((recipe, index) => {
+            const dom = viewRecipe.cloneNode(true);
+            dom.querySelector('.view__text').innerText = recipe.recipe_content;
+            dom.querySelector('.view__image').style.backgroundImage = `url('recipes/${this.col.collection_id}/seq_img_${index+1}.jpg')`;
+            this.viewRecipes.append(dom);
+        })
+        this.viewRecipes.style.width = `${recipes.length}00%`;
+        viewRecipe.remove();
+        this.nextPage();
+    }
+    nextPage() {
+        this.now++;
+        this.viewRecipes.style.left = `-${this.now}00%`;
+    }
+    timer(time) {
+        const duration = time*60000;
+        this.popup.querySelector('.view__timebar').animate([
+            { width: '0%' }, { width: '100%' }
+        ], {
+            duration: duration
+        });
     }
 }
 

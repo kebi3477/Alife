@@ -48,9 +48,7 @@
         <div class="monster">
             <div class="message">
                 <div class="message__title">현재 들어간 재료</div>
-                <div class="message__list">
-
-                </div>
+                <div class="message__list"></div>
             </div>
             <object data="public/images/object/monster_book.svg" type="image/svg+xml"></object>
         </div>
