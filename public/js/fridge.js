@@ -81,7 +81,7 @@ function appendIngredients(ingredients) { //식재료 올리기
         ingred.draggable = true;
         ingred.innerHTML = `
             <input class='ingred__id' type='hidden' value='${data.ingredient_id}'>
-            <img class='ingred__image' src='public/images/ingredient/${data.ingredient_image}'>
+            <div class='ingred__image'><img src='public/images/ingredient/${data.ingredient_image}'></div>
             <div class='ingred__name'>${data.ingredient_name}</div>
         `;
         ingreds.append(ingred);
