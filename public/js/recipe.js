@@ -1,13 +1,18 @@
 class View {
     constructor() {
         this.popup = document.querySelector('.popup');
-        this.now = 0;
         this.close();
     }
-    show(recipe=null) {
+    init() {
+        this.viewRecipes = this.popup.querySelector('.view__recipes');
+        this.now = 0;
+        this.slide();
+    }
+    show(id=null) {
         const formData = new FormData();
-
-        formData.append("id", recipe.id)
+        
+        this.init();
+        formData.append("id", id);
         fetch('controller/recipe/getRecipeById', {
             method: 'POST',
             body: formData
@@ -15,16 +20,15 @@ class View {
         .then(data => data.json())
         .then(data => {
             this.col = data.collection;
-            const collection = data.collection;
-            const recipes = data.recipes;
+            this.recipes = data.recipes;
             const rin = data.ringredients;
             const hashtagDom = this.popup.querySelector('.view__hashtag');
-            const hashtags = collection.collection_hastag.split(",");
+            const hashtags = this.col.collection_hastag.split(",");
             // Collection 변경
-            this.popup.querySelector('.info').innerHTML = `${collection.user_name}<br>${collection.collection_date}`;
-            this.popup.querySelector('.title').innerText = collection.collection_title;
-            this.popup.querySelector('.time').innerText = `${collection.collection_time} 분 이내`;
-            this.popup.querySelector('.serving').innerText = `${collection.collection_serving} 인분`;
+            this.popup.querySelector('.info').innerHTML = `${this.col.user_name}<br>${this.col.collection_date}`;
+            this.popup.querySelector('.title').innerText = this.col.collection_title;
+            this.popup.querySelector('.time').innerText = `${this.col.collection_time} 분 이내`;
+            this.popup.querySelector('.serving').innerText = `${this.col.collection_serving} 인분`;
             // 해시태그 올리기
             this.popup.querySelectorAll('.hashtag').forEach(el => el.remove());
             hashtags.forEach(hashtag => {
@@ -42,39 +46,61 @@ class View {
                 this.popup.querySelector('.view__grid').append(dom);
             })
             //레시피 등록
-            this.appendRecipes(recipes);
+            this.appendRecipes();
         })
         .then(() => {
             this.popup.style.display = 'flex';
         })
     }
-    close() {
-        this.popup.style.display = 'none';
-    }
-    appendRecipes(recipes) {
-        this.viewRecipes = this.popup.querySelector('.view__recipes');
+    appendRecipes() {
         const viewRecipe = this.popup.querySelector('.view__recipe');
-        recipes.forEach((recipe, index) => {
+        this.popup.querySelectorAll('.view__recipe').forEach(el => el.remove());
+        this.recipes.forEach((recipe, index) => {
             const dom = viewRecipe.cloneNode(true);
             dom.querySelector('.view__text').innerText = recipe.recipe_content;
             dom.querySelector('.view__image').style.backgroundImage = `url('recipes/${this.col.collection_id}/seq_img_${index+1}.jpg')`;
             this.viewRecipes.append(dom);
         })
-        this.viewRecipes.style.width = `${recipes.length}00%`;
-        viewRecipe.remove();
-        this.nextPage();
+        this.viewRecipes.style.width = `${this.recipes.length}00%`;
+        this.timer(this.recipes[this.now].recipe_time);
+    }
+    slide() {
+        this.viewRecipes.style.left = `-${this.now}00%`;
     }
     nextPage() {
         this.now++;
-        this.viewRecipes.style.left = `-${this.now}00%`;
+        this.slide();
+        this.timer(this.recipes[this.now].recipe_time);
+    }
+    prevPage() {
+        this.now--;
+        this.slide();
+        this.timer(this.recipes[this.now].recipe_time);
     }
     timer(time) {
         const duration = time*60000;
+        this.timeset = time*60-1;
         this.popup.querySelector('.view__timebar').animate([
             { width: '0%' }, { width: '100%' }
         ], {
             duration: duration
         });
+        setTimeout(() => {
+            this.nextPage();
+        }, duration);
+        const interval = setInterval(() => {
+            const min = Math.floor(this.timeset/60);
+            const sec = this.timeset%60;
+            
+            this.timeset--;
+            if(this.timeset === 0) clearInterval(interval);
+            
+            console.log(this.timeset);
+            this.popup.querySelector('.view__watch').innerText = `${min}분 : ${sec}초`;
+        }, 1000);
+    }
+    close() {
+        this.popup.style.display = 'none';
     }
 }
 
@@ -96,7 +122,7 @@ fetch('controller/recipe/getRecipeByTop')
         dom.querySelector('.recipe__content').innerText = recipe.intro;
         dom.querySelector('.recipe__img').style.backgroundImage = `url(/recipes/${recipe.id}/reg_img.jpg)`;
         dom.querySelector('.recipe__user-name').innerText = recipe.user;
-        dom.onclick = () => view.show(recipe);
+        dom.onclick = () => view.show(recipe.id);
         rank.append(dom);
     })
     item.remove();

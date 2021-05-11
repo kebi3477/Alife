@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="view__title title">제목 입니다.</div>
-                <div class="view__recipes">
+                <div class="view__recipes" style="left: 0;">
                     <div class="view__recipe">
                         <div class="view__image"></div>
                         <div class="view__seq">
@@ -40,6 +40,7 @@
                     <div class="view__timer">
                         <div class="view__timebar"></div>
                     </div>
+                    <div class="view__watch">00분 : 00초</div>
                 </div>
             </div>
             <div class="view__wrap view__wrap--right">

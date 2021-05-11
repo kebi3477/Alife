@@ -112,7 +112,25 @@ insert into ingredient values
 ('', '감자', 'Potato.svg', '채소류'),
 ('', '무', 'Radish.svg', '채소류'),
 ('', '무깻잎', 'Sesame.svg', '채소류'),
-('', '순무', 'Turnip.svg', '채소류')
+('', '순무', 'Turnip.svg', '채소류'),
+('', '콩나물', 'Bean_sprouts.svg', '채소류'),
+('', '배추', 'Chinese_Cabbage.svg', '채소류'),
+('', '셀러리', 'Celery.svg', '채소류'),
+('', '팽이버섯', 'Enoki_mushroom.svg', '채소류'),
+('', '명이나물', 'Garlic_leaves.svg', '채소류'),
+('', '강낭콩', 'Kidney_beans.svg', '채소류'),
+('', '새송이버섯', 'King_oyster_mushroom.svg', '채소류'),
+('', '상추', 'Lettuce.svg', '채소류'),
+('', '쑥', 'Mugwort.svg', '채소류'),
+('', '느타리버섯', 'Oyster_mushroom.svg', '채소류'),
+('', '파프리카', 'Paprika.svg', '채소류'),
+('', '완두콩', 'Pea.svg', '채소류'),
+('', '피망', 'Pepper.svg', '채소류'),
+('', '호박', 'Pumpkin.svg', '채소류'),
+('', '표고버섯', 'Shiitake_mushroom.svg', '채소류'),
+('', '애호박', 'Squash.svg', '채소류'),
+('', '단호박', 'Sweet_pumpkin.svg', '채소류')
+
 
 insert into ingredient values
 ('', '돼지고기', 'meat.svg', '고기류'),
@@ -128,7 +146,19 @@ insert into ingredient values
 ('', '소등심', 'Sirloin.svg', '고기류'),
 ('', '티본스테이크', 'Tbon_stake.svg', '고기류'),
 ('', '토마호크', 'Tomahawk.svg', '고기류'),
-('', '부채살', 'Top_blade.svg', '고기류')
+('', '부채살', 'Top_blade.svg', '고기류'),
+('', '베이컨', 'Bacon.svg', '고기류'),
+('', '소갈비', 'Beef_ribs.svg', '고기류'),
+('', '닭가슴살', 'Chicken_breast.svg', '고기류'),
+('', '닭발', 'Chicken_feet.svg', '고기류'),
+('', '닭봉', 'Chicken_stick.svg', '고기류'),
+('', '오리고기', 'Duck_meat.svg', '고기류'),
+('', '차돌박이', 'Marbled.svg', '고기류'),
+('', '돼지등뼈', 'Pig_spine.svg', '고기류'),
+('', '족발', 'Pork_feet.svg', '고기류'),
+('', '돼지등심', 'Pork_loin.svg', '고기류'),
+('', '돼지목살', 'Pork_neck.svg', '고기류')
+
 
 insert into ingredient values
 ('', '우뭇가사리', 'Agar.svg', '해조류'),
@@ -137,6 +167,38 @@ insert into ingredient values
 ('', '메생이', 'Maesaengyi.svg', '해조류'),
 ('', '미역', 'Sea_mustard.svg', '해조류'),
 ('', '김', 'Seaweed.svg', '해조류')
+
+insert into ingredient values
+('', '전복', 'Abalone.svg', '어패류'),
+('', '멸치', 'Anchovy.svg', '어패류'),
+('', '가다랑어', 'Bonito.svg', '어패류'),
+('', '바지락', 'Clams.svg', '어패류'),
+('', '대구', 'Cod.svg', '어패류'),
+('', '소라', 'Conch.svg', '어패류'),
+('', '꽃게', 'Crab.svg', '어패류'),
+('', '조기', 'Croaker.svg', '어패류'),
+('', '북어', 'Dried_Pollock_1.svg', '어패류'),
+('', '황태', 'Dried_Pollock_2.svg', '어패류'),
+('', '장어', 'Eel.svg', '어패류'),
+('', '도다리', 'Flounder.svg', '어패류'),
+('', '동태', 'Frozen_Pollock.svg', '어패류'),
+('', '전어', 'Gizzard_Shad.svg', '어패류'),
+('', '갈치', 'Hairtail.svg', '어패류'),
+('', '삼치', 'Mackerel.svg', '어패류'),
+('', '명란', 'Mentaiko.svg', '어패류'),
+('', '아귀', 'Monkfish.svg', '어패류'),
+('', '문어', 'Octopus.svg', '어패류'),
+('', '굴', 'Oyster.svg', '어패류'),
+('', '꽁치', 'Pacific_saury.svg', '어패류'),
+('', '명태', 'Pollock.svg', '어패류'),
+('', '우럭', 'Rockfish.svg', '어패류'),
+('', '연어', 'Salmon.svg', '어패류'),
+('', '가리비', 'Scallop.svg', '어패류'),
+('', '멍게', 'Sea_squirt.svg', '어패류'),
+('', '조개', 'Shellfish.svg', '어패류'),
+('', '새우', 'Shrimp.svg', '어패류'),
+('', '오징어', 'Squid.svg', '어패류'),
+('', '주꾸미', 'Webfoot_octopus.svg', '어패류')
 
 insert into ingredient values
 ('', '사과', 'Apple.svg', '과일류'),
@@ -149,7 +211,15 @@ insert into ingredient values
 ('', '오렌지', 'Orange.svg', '과일류'),
 ('', '복숭아', 'Peach.svg', '과일류'),
 ('', '배', 'Pear.svg', '과일류'),
-('', '딸기', 'Strawberry.svg', '과일류')
+('', '딸기', 'Strawberry.svg', '과일류'),
+('', '바질', 'Basil.svg', '과일류'),
+('', '체리', 'Cherry.svg', '과일류'),
+('', '포도', 'Grape.svg', '과일류'),
+('', '매실', 'Japanese_apricot.svg', '과일류'),
+('', '대추', 'Jujube.svg', '과일류'),
+('', '라임', 'Lime.svg', '과일류'),
+('', '자두', 'Plum.svg', '과일류'),
+('', '수박', 'Watermelon.svg', '과일류')
 
 insert into ingredient values
 ('', '버터', 'Butter.svg', '유제품'),
@@ -169,3 +239,9 @@ insert into ingredient values
 ('', '잣', 'Pine_nuts.svg', '견과류'),
 ('', '피스타치오', 'Pistachio.svg', '견과류'),
 ('', '해바라기', 'Sunflower_seeds.svg', '견과류') 
+
+insert into ingredient values
+('', '보리', 'Barley.svg', '곡류'),
+('', '현미', 'Hulled_rice.svg', '곡류'),
+('', '밀', 'Wheat.svg', '곡류'),
+('', '백미', 'White_rice.svg', '곡류')

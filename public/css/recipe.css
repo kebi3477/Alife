@@ -197,6 +197,10 @@ footer {
 .view__time {
     border-top: 1px solid var(--gray-middle);
     flex: 1;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
 }
 .view__timer {
     width: 80%;
@@ -209,6 +213,9 @@ footer {
     width: 0%;
     height: 100%;
     background-color: var(--green-middle);
+}
+.view__watch {
+    margin-left: 1rem;
 }
 .view__top {
     display: flex;
