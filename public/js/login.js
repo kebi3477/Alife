@@ -108,17 +108,21 @@ signInputAddress.addEventListener('click', function() {
 showSign.addEventListener("click", function() {
     login.append(signWrap);
     loginWrap.remove();
+    removeAllInput();
 })
 showFind.addEventListener("click", function() {
     login.append(findWrap);
     loginWrap.remove();
+    removeAllInput();
 })
 signButton.addEventListener('click', function() {
     user.signUp();
+    removeAllInput();
 })
 closeSign.addEventListener("click", function() {
     login.append(loginWrap);
     signWrap.remove();
+    removeAllInput();
 })
 // 약관 동의
 accept1.addEventListener('click', function() {
@@ -130,9 +134,11 @@ accept2.addEventListener('click', function() {
 //아이디 및 비밀번호 찾기
 findId.addEventListener("click", function() {
     findWrap.classList.replace("login__form-pw", "login__form-id");
+    removeAllInput();
 })
 findPw.addEventListener("click", function() {
     findWrap.classList.replace("login__form-id", "login__form-pw");
+    removeAllInput();
 })
 findIdButton.addEventListener('click', function() {
     user.findEmail();
@@ -143,6 +149,7 @@ findPwButton.addEventListener('click', function() {
 findEmailButton.addEventListener('click', function() {
     findEmailWrap.remove();
     login.append(loginWrap);
+    removeAllInput();
 })
 changePw.addEventListener('blur', function() {
     const loginLabelPw = changePwWrap.querySelector('.login__label-pw');
@@ -372,6 +379,10 @@ class Accept {
 function changeLabelTextColor(label, text, color) {
     label.innerText = text;
     label.style.color = color;
+}
+
+function removeAllInput() {
+    document.querySelectorAll('input').forEach(el => el.value = "");
 }
 
 const user = new User();

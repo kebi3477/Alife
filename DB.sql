@@ -39,7 +39,7 @@ CREATE TABLE `recipe` (
   `collection_id` int,
   `recipe_seq` int,
   `recipe_content` varchar(255),
-  `recipe_time` time
+  `recipe_time` int
 );
 --구축
 CREATE TABLE `ringredient` (

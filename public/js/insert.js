@@ -66,13 +66,7 @@ function setRecipe() {
         if(index) {
             const arr = [];
             const ingredientWrap = el.querySelectorAll(".ingredient__wrap");
-            const stepImg = el.querySelector('.step__img');
-            console.log(stepImg.files);
-            const timer = el.querySelectorAll('.timer input');
-            const timeJson = {
-                minute: timer[0].value,
-                seconds: timer[1].value
-            }
+            const timer = el.querySelector('.timer input');
             ingredientWrap.forEach(wrap => {
                 const ingredientInfo = wrap.querySelectorAll("input");
                 const json = {
@@ -81,14 +75,14 @@ function setRecipe() {
                 }
                 arr.push(json);
             })
-            timers.push(timeJson);        
+            timers.push(timer.value);
             ingredients.push(arr);
         }
     })
     hashtag.forEach(el => hashtags.push(el.textContent));
     formData.append("hashtags", hashtags);
     formData.append("ingredients", JSON.stringify(ingredients));
-    formData.append("timers", JSON.stringify(timers));
+    formData.append("timers", timers);
 
     fetch('controller/recipe/setRecipe', {
         method: 'POST',
