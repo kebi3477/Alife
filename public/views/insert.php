@@ -25,7 +25,7 @@
                         <div>소개</div>
                     </div>
                     <div class="insert__col">
-                        <input type="text" placeholder="제목을 입력하세요." name="title">
+                        <input type="text" placeholder="제목을 입력하세요." name="title" maxlength=20>
                         <textarea name="intro" placeholder="본인의 레시피에 대해 소개해주세요." name="intro"></textarea>
                     </div>
                     <div>
