@@ -21,7 +21,7 @@ class View {
         .then(data => {
             this.col = data.collection;
             this.recipes = data.recipes;
-            const rin = data.ringredients;
+            this.rin = data.ringredients;
             const hashtagDom = this.popup.querySelector('.view__hashtag');
             const hashtags = this.col.collection_hastag.split(",");
             // Collection 변경
@@ -38,18 +38,26 @@ class View {
                 hashtagDom.append(dom);
             })
             // 재료 넣기
-            this.popup.querySelectorAll('.view__row').forEach((el, index) => index ? el.remove() : "");
-            rin.forEach(ingred => {
-                const dom = this.popup.querySelector('.view__row').cloneNode(true);
-                dom.children[0].innerText = ingred.ringredient_name;
-                dom.children[1].innerText = ingred.ringredient_amount;
-                this.popup.querySelector('.view__grid').append(dom);
-            })
+            this.changeIngredients();
             //레시피 등록
             this.appendRecipes();
+            this.timer(this.recipes[this.now].recipe_time);
         })
         .then(() => {
             this.popup.style.display = 'flex';
+        })
+    }
+    changeIngredients(step=0) {
+        let filtering;
+        filtering = this.rin.filter(data => parseInt(data.recipe_seq) === step);
+        // if(step) filtering = this.rin.filter(data => parseInt(data.recipe_seq) === step);
+        // else filtering = this.rin;
+        this.popup.querySelectorAll('.view__row').forEach((el, index) => index ? el.remove() : "");
+        filtering.forEach(ingred => {
+            const dom = this.popup.querySelector('.view__row').cloneNode(true);
+            dom.children[0].innerText = ingred.ringredient_name;
+            dom.children[1].innerText = ingred.ringredient_amount;
+            this.popup.querySelector('.view__grid').append(dom);
         })
     }
     appendRecipes() {
@@ -62,7 +70,6 @@ class View {
             this.viewRecipes.append(dom);
         })
         this.viewRecipes.style.width = `${this.recipes.length}00%`;
-        this.timer(this.recipes[this.now].recipe_time);
     }
     slide() {
         this.viewRecipes.style.left = `-${this.now}00%`;
@@ -71,11 +78,13 @@ class View {
         this.now++;
         this.slide();
         this.timer(this.recipes[this.now].recipe_time);
+        this.changeIngredients(this.now);
     }
     prevPage() {
         this.now--;
         this.slide();
         this.timer(this.recipes[this.now].recipe_time);
+        this.changeIngredients(this.now);
     }
     timer(time) {
         const duration = time*60000;
@@ -88,18 +97,17 @@ class View {
         setTimeout(() => {
             this.nextPage();
         }, duration);
-        const interval = setInterval(() => {
+        this.interval = setInterval(() => {
             const min = Math.floor(this.timeset/60);
             const sec = this.timeset%60;
-            
             this.timeset--;
-            if(this.timeset === 0) clearInterval(interval);
+            if(this.timeset === 0) clearInterval(this.interval);
             
-            console.log(this.timeset);
             this.popup.querySelector('.view__watch').innerText = `${min}분 : ${sec}초`;
         }, 1000);
     }
     close() {
+        clearInterval(this.interval);
         this.popup.style.display = 'none';
     }
 }

@@ -11,7 +11,7 @@
         $images = $_FILES['images'];
         $recipe = $_POST['recipe'];
         $ingredients = json_decode($_POST['ingredients'], true);
-        $timers = explode(',', $_POST['timers']);       
+        $timers = explode(",", $_POST['timers']);
         $user = $_SESSION['alife_user_email'];
         $num = mysqli_get_query("SELECT COUNT(*) count FROM collection")[0]['count'];
         $path = "recipes/".++$num;
@@ -45,10 +45,10 @@
                 }
                 //Recipe + Ringredient Upload
                 foreach($ingredients as $index => $values) {
-                    $result = mysqli_set_query("INSERT INTO recipe VALUES('', $num, $index, '".$recipe[0]."', '$timer[$index]')");
+                    $result = mysqli_set_query("INSERT INTO recipe VALUES('', $num, $index, '".$recipe[$index]."', $timers[$index])");
                     if($result) {
                         foreach($values as $value) {
-                            $result = mysqli_set_query("INSERT INTO ringredient VALUES('', $num, '".$value['name']."', '".$value['amount']."')");
+                            $result = mysqli_set_query("INSERT INTO ringredient VALUES('', $num, '".$value['name']."', '".$value['amount']."', $index)");
                         }
                     }
                 }

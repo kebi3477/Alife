@@ -24,7 +24,7 @@
     <?php
         }
     ?>
-        <object class="header__img" data="public/images/icon/search.svg" type="image/svg+xml"></object>
+        <a href="search"><object class="header__img" data="public/images/icon/search.svg" type="image/svg+xml"></object></a>
         <object class="header__img" data="public/images/icon/menu.svg" type="image/svg+xml"></object>
     </div>
 </header>

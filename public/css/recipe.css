@@ -105,8 +105,7 @@ footer {
 .view__wrap--right {
     flex: 3;
     background-color: var(--green-light);
-    padding: 3rem;
-    overflow-y: scroll;
+    padding: 2.5rem;
 }
 .view__profile {
     display: flex;
@@ -154,6 +153,9 @@ footer {
     display: flex;
     flex-flow: column nowrap;
     flex: 1;
+}
+.title {
+    padding: .5rem 3rem;
 }
 .view__title {
     font-size: 1.5rem;
@@ -216,6 +218,8 @@ footer {
 }
 .view__watch {
     margin-left: 1rem;
+    width: 10%;
+    text-align: center;
 }
 .view__top {
     display: flex;
@@ -228,6 +232,9 @@ footer {
     cursor: pointer;
     pointer-events: none;
 }
+.time {
+    margin-right: 2rem;
+}
 .view__grid {
     display: grid;
     grid-template-rows: 1.3fr 1fr;
@@ -237,6 +244,11 @@ footer {
     overflow: hidden;
     margin-bottom: 2rem;
     border: 1px solid var(--gray-light);
+    overflow-y: scroll;
+    max-height: 53%;
+}
+.view__grid::-webkit-scrollbar {
+    width: 0px;
 }
 .view__row {
     display: grid;

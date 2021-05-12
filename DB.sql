@@ -46,7 +46,8 @@ CREATE TABLE `ringredient` (
   `ringredient_id` int PRIMARY KEY AUTO_INCREMENT,
   `collection_id` int,
   `ringredient_name` varchar(255),
-  `ringredient_amount` varchar(255)
+  `ringredient_amount` varchar(255),
+  `recipe_seq` int
 );
 
 CREATE TABLE `mealkit` (
