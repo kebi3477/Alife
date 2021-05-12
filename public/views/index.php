@@ -23,6 +23,18 @@
         </div>
     </div>
     <div id="main" class="padding page">
+        <div class="circles">
+            <div class="circle circle--small"></div>
+            <div class="circle circle--big"></div>
+            <div class="circle circle--big"></div>
+            <div class="circle circle--ssmall"></div>
+            <div class="circle circle--middle"></div>
+            <div class="circle circle--small"></div>
+            <div class="circle circle--middle"></div>
+            <div class="circle circle--big"></div>
+            <div class="circle circle--middle"></div>
+            <div class="circle circle--ssmall"></div>
+        </div>
         <div class="intro">
             <div class="intro__text">
                 <div class="intro__text--big">A Life</div>

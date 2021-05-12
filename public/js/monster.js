@@ -7,6 +7,12 @@ const loading = new Loading();
 
 loading.start();
 window.onload = () => {
+    const mealClasses = [
+        new Meal(), new Meal(), new Meal(), new Meal(),
+        new Meal(), new Meal()
+    ];
+    const circles = document.querySelectorAll('.circle');
+
     loading.end();
     monster = document.querySelector(".monster");
     monsterDoc = monster.contentDocument;
@@ -17,12 +23,11 @@ window.onload = () => {
         movingEye(e);
     }
 
-    const mealClasses = [
-        new Meal(), new Meal(), new Meal(), new Meal(),
-        new Meal(), new Meal(), new Meal(), new Meal()
-    ];
     mealClasses.forEach(obj => {
         obj.start();
+    })
+    circles.forEach(el => {
+        new Circle(el);
     })
 }
 
@@ -37,6 +42,34 @@ function movingEye(e) {
     if(e.clientX !== 0 && e.clientY !== 0) {
         monsterEye[0].style.transform = `translate(${left}px, ${top}px)`;
         monsterEye[1].style.transform = `translate(${left2}px, ${top}px)`;
+    }
+}
+
+class Circle {
+    constructor(dom) {
+        this.circle = dom;
+        this.left = this.circle.offsetLeft;
+        this.top = this.circle.offsetTop;
+        this.right = this.circle.offsetLeft+this.circle.offsetWidth;
+        this.maxLeft = this.right+100;
+        this.minLeft = this.left-100;
+        this.leftFlag = Math.floor(Math.random() * 2) ? true : false;
+        this.init();
+    }
+    init() {
+        this.moving = setInterval(() => this.moveCircle(), 1);
+    }
+    moveCircle() {
+        this.circle.style.left = `${this.left}px`;
+        if(this.leftFlag) this.left+=.1;
+        else this.left-=.1;
+
+        if(this.right > this.maxLeft) {
+            this.leftFlag = false;
+        } else if(this.left < this.minLeft) {
+            this.leftFlag = true;
+        }
+        this.right = this.circle.offsetLeft+this.circle.offsetWidth;
     }
 }
 
