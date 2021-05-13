@@ -14,17 +14,21 @@
     <div class="popup">
         <div class="view">
             <div class="view__wrap view__wrap--left">
-                <div class="view__profile">
+                <div class="view__header">
+                    <div class="view__title title">제목 입니다.</div>
                     <div class="view__wrap-row">
-                        <div class="view__user-image"></div>
-                        <div class="view__user-info info">이름<br>2021. 00. 00.</div>
-                    </div>
-                    <div class="view__wrap-row">  
                         <object data="public/images/icon/heart_l.svg" type="image/svg+xml"></object>
                         <div class="view__title">0</div>
                     </div>
                 </div>
-                <div class="view__title title">제목 입니다.</div>
+                <div class="view__remocon">
+                    <div class="view__arrow left">
+                        <object data="public/images/icon/arrow_left.svg" type="image/svg+xml"></object>
+                    </div>
+                    <div class="view__arrow right">
+                        <object data="public/images/icon/arrow_right.svg" type="image/svg+xml"></object>
+                    </div>
+                </div>
                 <div class="view__recipes" style="left: 0;">
                     <div class="view__recipe">
                         <div class="view__image"></div>
@@ -67,6 +71,11 @@
                 </div>
                 <div class="view__title view__title--small">해시태그</div>
                 <div class="view__hashtag"></div>
+                <div class="view__wrap-row view__profile">
+                    <div class="view__user-image"></div>
+                    <div class="view__user-name name">이름</div>
+                    <div class="view__user-date date">2021. 00. 00.</div>
+                </div>
             </div>
         </div>
     </div>

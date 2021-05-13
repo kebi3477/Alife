@@ -97,6 +97,7 @@ footer {
     height: 100%;
 }
 .view__wrap--left {
+    position: relative;
     flex: 7;
     display: flex;
     flex-flow: column nowrap;
@@ -106,14 +107,15 @@ footer {
     flex: 3;
     background-color: var(--green-light);
     padding: 2.5rem;
+    position: relative;
 }
-.view__profile {
+.view__header {
     display: flex;
     justify-content: space-between;
     padding: 1rem 3rem;
     border-bottom: 1px solid var(--gray-light);
     box-shadow: 0px 1px 2px var(--gray-light);
-    flex: 1;
+    /* flex: 1; */
 }
 .view__wrap-row {
     display: flex;
@@ -125,7 +127,7 @@ footer {
     height: 2.5rem;
     border-radius: 5rem;
     border: 1px solid var(--gray-middle);
-    margin-right: 1rem;
+    margin: 1rem;
 }
 .view__user-info {
     font-size: 15px;
@@ -154,13 +156,9 @@ footer {
     flex-flow: column nowrap;
     flex: 1;
 }
-.title {
-    padding: .5rem 3rem;
-}
 .view__title {
     font-size: 1.5rem;
     font-weight: 600;
-    /* padding: 0.5rem 3rem; */
 }
 .view__title--small {
     font-size: 1.1rem;
@@ -184,6 +182,23 @@ footer {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    margin: 0 auto;
+}
+.view__remocon {
+    width: 100%;
+    position: absolute;
+    top: 40%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding: 0 3rem;
+    z-index: 3;
+}
+.view__arrow {
+    cursor: pointer;
+}
+.view__arrow > object {
+    pointer-events: none;
 }
 .view__seq {
     flex: 1;
@@ -197,8 +212,8 @@ footer {
     to { width: 100%; }
 }
 .view__time {
+    height: 10%;
     border-top: 1px solid var(--gray-middle);
-    flex: 1;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
@@ -286,4 +301,18 @@ footer {
     font-size: .8rem;
     color: var(--green-middle);
     border: 1px solid var(--green-middle);
+}
+.view__profile {
+    width: 100%;
+    height: 10%;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    border-top: 1px solid var(--gray-middle);
+}
+.name {
+    flex: 2;
+}
+.date {
+    flex: 1;
 }

@@ -49,11 +49,8 @@ class Circle {
     constructor(dom) {
         this.circle = dom;
         this.left = this.circle.offsetLeft;
-        this.top = this.circle.offsetTop;
-        this.right = this.circle.offsetLeft+this.circle.offsetWidth;
-        this.maxLeft = this.right+100;
-        this.minLeft = this.left-100;
-        this.leftFlag = Math.floor(Math.random() * 2) ? true : false;
+        this.cnt = 0;
+        this.leftFlag = false;
         this.init();
     }
     init() {
@@ -61,15 +58,20 @@ class Circle {
     }
     moveCircle() {
         this.circle.style.left = `${this.left}px`;
-        if(this.leftFlag) this.left+=.1;
-        else this.left-=.1;
-
-        if(this.right > this.maxLeft) {
+        
+        if(this.cnt > 500) {
             this.leftFlag = false;
-        } else if(this.left < this.minLeft) {
+        } else if(this.cnt < -500) {
             this.leftFlag = true;
         }
-        this.right = this.circle.offsetLeft+this.circle.offsetWidth;
+
+        if(this.leftFlag) {
+            this.cnt++;
+            this.left+=.07;
+        } else {
+            this.cnt--;
+            this.left-=.07;
+        }
     }
 }
 

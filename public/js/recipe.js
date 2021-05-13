@@ -6,7 +6,6 @@ class View {
     init() {
         this.viewRecipes = this.popup.querySelector('.view__recipes');
         this.now = 0;
-        this.slide();
     }
     show(id=null) {
         const formData = new FormData();
@@ -25,7 +24,8 @@ class View {
             const hashtagDom = this.popup.querySelector('.view__hashtag');
             const hashtags = this.col.collection_hastag.split(",");
             // Collection 변경
-            this.popup.querySelector('.info').innerHTML = `${this.col.user_name}<br>${this.col.collection_date}`;
+            this.popup.querySelector('.name').innerText = this.col.user_name;
+            this.popup.querySelector('.date').innerText = this.col.collection_date.split(" ")[0].replaceAll("-", ". ");
             this.popup.querySelector('.title').innerText = this.col.collection_title;
             this.popup.querySelector('.time').innerText = `${this.col.collection_time} 분 이내`;
             this.popup.querySelector('.serving').innerText = `${this.col.collection_serving} 인분`;
@@ -44,6 +44,8 @@ class View {
             this.timer(this.recipes[this.now].recipe_time);
         })
         .then(() => {
+            this.popup.querySelector('.left').onclick = () => this.prevPage();
+            this.popup.querySelector('.right').onclick = () => this.nextPage();
             this.popup.style.display = 'flex';
         })
     }
@@ -73,18 +75,16 @@ class View {
     }
     slide() {
         this.viewRecipes.style.left = `-${this.now}00%`;
+        this.timer(this.recipes[this.now].recipe_time);
+        this.changeIngredients(this.now);
     }
     nextPage() {
-        this.now++;
+        this.now < this.recipes.length-1 ? this.now++ : "";
         this.slide();
-        this.timer(this.recipes[this.now].recipe_time);
-        this.changeIngredients(this.now);
     }
     prevPage() {
-        this.now--;
+        this.now > 0 ? this.now-- : "";
         this.slide();
-        this.timer(this.recipes[this.now].recipe_time);
-        this.changeIngredients(this.now);
     }
     timer(time) {
         const duration = time*60000;
@@ -94,15 +94,18 @@ class View {
         ], {
             duration: duration
         });
-        setTimeout(() => {
+
+        this.timeout && clearTimeout(this.timeout);
+        this.timeout = setTimeout(() => {
             this.nextPage();
         }, duration);
+
+        this.popup.querySelector('.view__watch').innerText = `${Math.floor(this.timeset/60)+1}분 : 00초`;
+        this.interval && clearInterval(this.interval);
         this.interval = setInterval(() => {
             const min = Math.floor(this.timeset/60);
             const sec = this.timeset%60;
-            this.timeset--;
-            if(this.timeset === 0) clearInterval(this.interval);
-            
+            this.timeset--;            
             this.popup.querySelector('.view__watch').innerText = `${min}분 : ${sec}초`;
         }, 1000);
     }
