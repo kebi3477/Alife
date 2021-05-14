@@ -18,7 +18,7 @@
                     <div class="view__title title">제목 입니다.</div>
                     <div class="view__wrap-row">
                         <object data="public/images/icon/heart_l.svg" type="image/svg+xml"></object>
-                        <div class="view__title">0</div>
+                        <div class="view__title like">0</div>
                     </div>
                 </div>
                 <div class="view__remocon">
@@ -41,6 +41,7 @@
                     </div>
                 </div>
                 <div class="view__time">
+                    <div class="view__start">만들기 시작</div>
                     <div class="view__timer">
                         <div class="view__timebar"></div>
                     </div>
@@ -80,7 +81,13 @@
         </div>
     </div>
     <div class="recipe__wrap padding">
-        <div class="recipe__list-title">좋아요가 높은 레시피</div>
+        <div class="recipe__row">
+            <div class="recipe__list-title">좋아요가 높은 레시피</div> 
+            <a href="insert"><div class="recipe__insert">
+                레시피 작성
+                <object data="public/images/icon/pencil.svg" type="image/svg+xml"></object>
+            </div></a>
+        </div>
         <div class="recipe__list rank">
             <div class="recipe__item">
                 <div class="recipe__img"></div>

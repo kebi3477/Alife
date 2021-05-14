@@ -21,24 +21,16 @@ class View {
             this.col = data.collection;
             this.recipes = data.recipes;
             this.rin = data.ringredients;
-            const hashtagDom = this.popup.querySelector('.view__hashtag');
-            const hashtags = this.col.collection_hastag.split(",");
             // Collection 변경
-            this.popup.querySelector('.name').innerText = this.col.user_name;
-            this.popup.querySelector('.date').innerText = this.col.collection_date.split(" ")[0].replaceAll("-", ". ");
             this.popup.querySelector('.title').innerText = this.col.collection_title;
             this.popup.querySelector('.time').innerText = `${this.col.collection_time} 분 이내`;
             this.popup.querySelector('.serving').innerText = `${this.col.collection_serving} 인분`;
+            this.popup.querySelector('.name').innerText = this.col.user_name;
+            this.popup.querySelector('.date').innerText = this.col.collection_date.split(" ")[0].replaceAll("-", ". ");
             // 해시태그 올리기
-            this.popup.querySelectorAll('.hashtag').forEach(el => el.remove());
-            hashtags.forEach(hashtag => {
-                const dom = document.createElement('div');
-                dom.classList.add('hashtag');
-                dom.innerText = hashtag;
-                hashtagDom.append(dom);
-            })
+            this.appendHashtags();
             // 재료 넣기
-            this.changeIngredients();
+            this.appendIngredients();
             //레시피 등록
             this.appendRecipes();
             this.timer(this.recipes[this.now].recipe_time);
@@ -49,7 +41,18 @@ class View {
             this.popup.style.display = 'flex';
         })
     }
-    changeIngredients(step=0) {
+    appendHashtags() {
+        const hashtags = this.col.collection_hastag.split(",");
+        const hashtagDom = this.popup.querySelector('.view__hashtag');
+        this.popup.querySelectorAll('.hashtag').forEach(el => el.remove());
+        hashtags.forEach(hashtag => {
+            const dom = document.createElement('div');
+            dom.classList.add('hashtag');
+            dom.innerText = hashtag;
+            hashtagDom.append(dom);
+        })
+    }
+    appendIngredients(step=0) {
         let filtering;
         filtering = this.rin.filter(data => parseInt(data.recipe_seq) === step);
         // if(step) filtering = this.rin.filter(data => parseInt(data.recipe_seq) === step);
@@ -76,7 +79,7 @@ class View {
     slide() {
         this.viewRecipes.style.left = `-${this.now}00%`;
         this.timer(this.recipes[this.now].recipe_time);
-        this.changeIngredients(this.now);
+        this.appendIngredients(this.now);
     }
     nextPage() {
         this.now < this.recipes.length-1 ? this.now++ : "";

@@ -80,7 +80,7 @@ class Meal {
         this.init();
     }
     randomObject() {
-        this.imgArr = ['Tbon_stake','Tomahawk','Cabbage','carrot','green_onion','Chicken_leg','Eggplant','Broccoli','Chili'];
+        this.imgArr = ['Tbon_stake','Tomahawk','carrot','Chicken_leg','Eggplant','Chili'];
         this.imgRandom = Math.floor(Math.random() * this.imgArr.length);
         this.object = `<object data="public/images/ingredient/${this.imgArr[this.imgRandom]}.svg" type="image/svg+xml"></object>`;
         this.x = Math.floor(Math.random() * 1800);

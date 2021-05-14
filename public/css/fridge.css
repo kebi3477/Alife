@@ -118,7 +118,7 @@
 .ingred {
     width: 6.3rem;
     height: 6.3rem;
-    margin-top: 1rem;
+    margin-top: 1.7rem;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -137,16 +137,25 @@
     border-radius: 5rem;
     position: relative;
     pointer-events: none;
-    background-color: var(--gray-light);
+    background-color: #ddd;
     padding: 1rem;
+}
+.moving > .ingred__image {
+    background-color: transparent;
 }
 .ingred__image > img {
     width: 100%;
     height: 100%;
+    object-fit: contain;
 }
 .ingred__name {
+    font-size: .9rem;
+    margin-top: .4rem;
+    font-weight: 500;
+}
+.moving > .ingred__name {
+    margin-top: -1rem;
     font-size: .8rem;
-    margin-top: .2rem;
 }
 /* Monster */
 .monster {

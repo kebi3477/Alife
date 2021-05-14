@@ -3,6 +3,27 @@
     font-size: 24px;
     font-weight: 600;
 }
+.recipe__row {
+    display: flex;
+    justify-content: space-between;
+}
+.recipe__insert {
+    width: 10rem;
+    display: flex;
+    flex-flow: row nowrap;
+    border: 1px solid var(--green-middle);
+    border-radius: 5rem;
+    justify-content: center;
+    cursor: pointer;
+    padding: .2rem;
+    color: var(--green-middle);
+    font-weight: 500;
+}
+.recipe__insert > object {
+    pointer-events: none;
+    margin-left: .5rem;
+    width: .8rem;
+}
 .recipe__list {
     display: flex;
     flex-flow: row wrap;
@@ -50,6 +71,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     height: 3rem;
+    white-space: break-spaces;
 }
 .recipe--bottom {
     display: flex;
@@ -138,7 +160,7 @@ footer {
     flex: 8;
     display: flex;
     flex-flow: row nowrap;
-    transition: 2s;
+    transition: 1s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
 }
 .view__cover {
@@ -219,12 +241,24 @@ footer {
     align-items: center;
     justify-content: center;
 }
+.view__start {
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    background-color: var(--green-middle);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
 .view__timer {
-    width: 80%;
+    width: 70%;
     height: 1rem;
     border: 1px solid var(--green-middle);
     border-radius: 5rem;
     overflow: hidden;
+    margin-left: 4%;
 }
 .view__timebar {
     width: 0%;
@@ -232,8 +266,7 @@ footer {
     background-color: var(--green-middle);
 }
 .view__watch {
-    margin-left: 1rem;
-    width: 10%;
+    width: 15%;
     text-align: center;
 }
 .view__top {
@@ -247,9 +280,6 @@ footer {
     cursor: pointer;
     pointer-events: none;
 }
-.time {
-    margin-right: 2rem;
-}
 .view__grid {
     display: grid;
     grid-template-rows: 1.3fr 1fr;
@@ -258,7 +288,7 @@ footer {
     border-radius: 1rem;
     overflow: hidden;
     margin-bottom: 2rem;
-    border: 1px solid var(--gray-light);
+    border: 1px solid var(--green-middle);
     overflow-y: scroll;
     max-height: 53%;
 }
@@ -273,13 +303,16 @@ footer {
     text-align: center;
 }
 .view__row > div {
-    border: 1px solid var(--gray-light);
     padding: .5rem 0;
     font-size: .8rem;
+    border-top: 1px solid var(--green-middle);
 }
 .view__row:first-child {
     background-color: var(--green-middle);
     font-weight: bold;
+}
+.view__row > div:last-child {
+    border-left: 1px solid var(--green-middle);
 }
 .view__row:first-child > div {
     border: none;
@@ -290,7 +323,7 @@ footer {
     padding: .5rem;
     background-color: #fff;
     border-radius: 1rem;
-    border: 1px solid var(--gray-hard);
+    border: 1px solid var(--green-middle);
     display: flex;
     flex-flow: row wrap;
 }
@@ -315,4 +348,14 @@ footer {
 }
 .date {
     flex: 1;
+}
+.like {
+    margin-left: .5rem;
+}
+.time {
+    margin-right: 2rem;
+    margin-left: 1rem;
+}
+.serving {
+    margin-left: 1rem;
 }

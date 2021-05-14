@@ -25,7 +25,7 @@
                         <div>소개</div>
                     </div>
                     <div class="insert__col">
-                        <input type="text" placeholder="제목을 입력하세요." name="title" maxlength=20>
+                        <input type="text" placeholder="제목을 입력하세요." name="title" maxlength=25>
                         <textarea name="intro" placeholder="본인의 레시피에 대해 소개해주세요." name="intro"></textarea>
                     </div>
                     <div>
@@ -38,7 +38,7 @@
                     <div>
                         <div class="insert__wrap">
                             <div class="insert__label insert__label--left">조리시간</div>
-                            <div class="insert__input--small"><input type="number" placeholder="30" name="time" min=0 max=999></div>
+                            <div class="insert__input--small"><input type="number" placeholder="30" name="time" min=0 max=999 readonly></div>
                             <p>분 이내</p>
                             <div class="insert__label insert__label--left">인원</div>
                             <div class="insert__input--small"><input type="number" placeholder="1" name="serving" min=1 max=99></div>
@@ -53,12 +53,6 @@
                         </div>
                         <textarea class="insert__hashtag" placeholder="레시피와 관련된 단어를 입력 후 스페이스바를 눌러주세요."></textarea>
                         <div class="insert__label--small">해시태그 설정 시 A Life이용자들이 쉽게 레시피를 검색할 수 있습니다.</div>
-                    </div>
-                </div>
-                <div class="insert__row">
-                    <div class="insert__label">타이머</div>
-                    <div class="insert__wrap">
-                        <input type="checkbox">
                     </div>
                 </div>
             </div>
@@ -105,9 +99,15 @@
                     <div class="insert__label">타이머</div>
                     <div>
                         <div class="insert__wrap timer">
-                            <div class="insert__input--small"><input type="number" placeholder="00" min=0></div>
+                            <div class="insert__input--small"><input type="number" placeholder="00" min=1 value=1></div>
                             <p>분</p>
                         </div>
+                    </div>
+                </div>
+                <div class="insert__row">
+                    <div></div>
+                    <div class="insert__label--small">
+                       타이머를 설정하지 않을 시 기본 설정 값은 1분입니다.
                     </div>
                 </div>
             </div>
