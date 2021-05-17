@@ -1,12 +1,13 @@
 "use strict";
 import Loading from './loading.js';
+const searchInput = document.querySelector('.search__input');
 const ingreds = document.querySelector('.ingreds');
 const categorys = document.querySelectorAll('.category');
 const messageList = document.querySelector('.message__list');
 const fridge = document.querySelector('.fridge');
 const buttonSave = document.querySelector('.button__save');
 const buttonReset = document.querySelector('.button__reset');
-let myFridge = [];
+let myFridge = [], myIngredients = [];
 const loading = new Loading();
 
 class Ingred {
@@ -28,8 +29,8 @@ class Ingred {
         this.y = e.clientY;
     
         if(this.x !== 0 && this.y !== 0) {
-            this.ingred.style.left = `${this.x-35}px`;
-            this.ingred.style.top = `${this.y-35}px`;
+            this.ingred.style.left = `${this.x-40}px`;
+            this.ingred.style.top = `${this.y-65}px`;
         }
     }
     dragEnd(e) {
@@ -49,6 +50,7 @@ class Ingred {
     }
 }
 
+searchInput.onkeyup = e => searchIngredient(e);
 loading.start();
 categorys.forEach(category => {
     category.onclick = e => changeCategory(e);
@@ -56,6 +58,17 @@ categorys.forEach(category => {
 buttonSave.onclick = () => saveFridge();
 buttonReset.onclick = () => resetFridge();
 document.querySelector('.category').click();
+
+function searchIngredient(e) {
+    const copyArr = [...myIngredients];
+    if(e.target.value !== "") {
+        const filtering = copyArr.filter(data => data.ingredient_name.includes(e.target.value))
+        appendIngredients(filtering);
+    } else {
+        console.log(myIngredients);
+        appendIngredients(myIngredients);
+    }
+}
 
 function getIngredients(type='') { //식재료 가져오기
     const formData = new FormData();
@@ -68,6 +81,7 @@ function getIngredients(type='') { //식재료 가져오기
     })
     .then(data => data.json())
     .then(ingredients => {
+        myIngredients = ingredients;
         appendIngredients(ingredients);
         getMyFridge();
     })
@@ -75,6 +89,10 @@ function getIngredients(type='') { //식재료 가져오기
 
 function appendIngredients(ingredients) { //식재료 올리기
     ingreds.querySelectorAll('.ingred').forEach(el => el.remove())
+    ingredients.sort((a, b) => {
+        if(a.ingredient_name > b.ingredient_name) return 1;
+        else return -1;
+    })
     ingredients.forEach(data => {
         const ingred = document.createElement('div');
         ingred.classList.add('ingred');
