@@ -6,6 +6,11 @@ class View {
     init() {
         this.viewRecipes = this.popup.querySelector('.view__recipes');
         this.viewStart = this.popup.querySelector('.view__start');
+        this.viewWatch = this.popup.querySelector('.view__watch');
+        this.viewStart.onclick = () => this.start();
+        this.viewStart.innerText = '만들기 시작';
+        this.viewStart.style.backgroundColor = 'var(--green-middle)';
+        this.viewWatch.innerText = '';
         this.now = 0;
         this.cooking = false;
     }
@@ -13,7 +18,6 @@ class View {
         const formData = new FormData();
         
         this.init();
-        this.viewStart.onclick = () => this.start();
         formData.append("id", id);
         fetch('controller/recipe/getRecipeById', {
             method: 'POST',
@@ -45,7 +49,7 @@ class View {
         })
     }
     close() {
-        clearInterval(this.interval);
+        this.clearTimer();
         this.popup.style.display = 'none';
     }
     appendHashtags() {
@@ -99,13 +103,14 @@ class View {
     clearTimer() {
         this.timeout && clearTimeout(this.timeout);
         this.interval && clearInterval(this.interval);
+        this.barAnimate && this.barAnimate.finish();
     }
     timer(time) {
         const duration = time*60000;
 
         this.clearTimer();
         this.timeset = time*60-1;
-        this.popup.querySelector('.view__timebar').animate([
+        this.barAnimate = this.popup.querySelector('.view__timebar').animate([
             { width: '0%' }, { width: '100%' }
         ], {
             duration: duration
@@ -115,17 +120,19 @@ class View {
             this.nextPage();
         }, duration);
 
-        this.popup.querySelector('.view__watch').innerText = `${Math.floor(this.timeset/60)+1}분 : 00초`;
+        this.viewWatch.innerText = `${Math.floor(this.timeset/60)+1}분 : 00초`;
         this.interval = setInterval(() => {
             const min = Math.floor(this.timeset/60);
             const sec = this.timeset%60;
             this.timeset--;            
-            this.popup.querySelector('.view__watch').innerText = `${min}분 : ${sec}초`;
+            this.viewWatch.innerText = `${min}분 : ${sec}초`;
         }, 1000);
     }
     start() {
         if(confirm('요리를 시작하시겠습니까?')) {
             this.viewStart.onclick = () => this.end();
+            this.viewStart.innerText = '만들기 종료';
+            this.viewStart.style.backgroundColor = '#b90606';
             this.now = 0;
             this.cooking = true;
             this.slide();
@@ -133,6 +140,9 @@ class View {
     }
     end() {
         if(confirm('요리를 종료하시겠습니까?')) {
+            this.viewStart.onclick = () => this.start();
+            this.viewStart.innerText = '만들기 시작';
+            this.viewStart.style.backgroundColor = 'var(--green-middle)';
             this.clearTimer();
             this.cooking = false;
             this.slide();
