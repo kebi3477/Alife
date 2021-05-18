@@ -5,12 +5,15 @@ class View {
     }
     init() {
         this.viewRecipes = this.popup.querySelector('.view__recipes');
+        this.viewStart = this.popup.querySelector('.view__start');
         this.now = 0;
+        this.cooking = false;
     }
     show(id=null) {
         const formData = new FormData();
         
         this.init();
+        this.viewStart.onclick = () => this.start();
         formData.append("id", id);
         fetch('controller/recipe/getRecipeById', {
             method: 'POST',
@@ -33,13 +36,17 @@ class View {
             this.appendIngredients();
             //레시피 등록
             this.appendRecipes();
-            this.timer(this.recipes[this.now].recipe_time);
+            this.slide();
         })
         .then(() => {
             this.popup.querySelector('.left').onclick = () => this.prevPage();
             this.popup.querySelector('.right').onclick = () => this.nextPage();
             this.popup.style.display = 'flex';
         })
+    }
+    close() {
+        clearInterval(this.interval);
+        this.popup.style.display = 'none';
     }
     appendHashtags() {
         const hashtags = this.col.collection_hastag.split(",");
@@ -78,7 +85,7 @@ class View {
     }
     slide() {
         this.viewRecipes.style.left = `-${this.now}00%`;
-        this.timer(this.recipes[this.now].recipe_time);
+        if(this.cooking) this.timer(this.recipes[this.now].recipe_time);
         this.appendIngredients(this.now);
     }
     nextPage() {
@@ -89,8 +96,14 @@ class View {
         this.now > 0 ? this.now-- : "";
         this.slide();
     }
+    clearTimer() {
+        this.timeout && clearTimeout(this.timeout);
+        this.interval && clearInterval(this.interval);
+    }
     timer(time) {
         const duration = time*60000;
+
+        this.clearTimer();
         this.timeset = time*60-1;
         this.popup.querySelector('.view__timebar').animate([
             { width: '0%' }, { width: '100%' }
@@ -98,13 +111,11 @@ class View {
             duration: duration
         });
 
-        this.timeout && clearTimeout(this.timeout);
         this.timeout = setTimeout(() => {
             this.nextPage();
         }, duration);
 
         this.popup.querySelector('.view__watch').innerText = `${Math.floor(this.timeset/60)+1}분 : 00초`;
-        this.interval && clearInterval(this.interval);
         this.interval = setInterval(() => {
             const min = Math.floor(this.timeset/60);
             const sec = this.timeset%60;
@@ -112,9 +123,20 @@ class View {
             this.popup.querySelector('.view__watch').innerText = `${min}분 : ${sec}초`;
         }, 1000);
     }
-    close() {
-        clearInterval(this.interval);
-        this.popup.style.display = 'none';
+    start() {
+        if(confirm('요리를 시작하시겠습니까?')) {
+            this.viewStart.onclick = () => this.end();
+            this.now = 0;
+            this.cooking = true;
+            this.slide();
+        }
+    }
+    end() {
+        if(confirm('요리를 종료하시겠습니까?')) {
+            this.clearTimer();
+            this.cooking = false;
+            this.slide();
+        }
     }
 }
 

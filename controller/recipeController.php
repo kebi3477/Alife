@@ -13,11 +13,11 @@
         $ingredients = json_decode($_POST['ingredients'], true);
         $timers = explode(",", $_POST['timers']);
         $user = $_SESSION['alife_user_email'];
-        $num = mysqli_get_query("SELECT COUNT(*) count FROM collection")[0]['count'];
-        $path = "recipes/".++$num;
+        $num = mysqli_get_query("SELECT AUTO_INCREMENT FROM information_schema.tables WHERE table_name = 'collection' AND table_schema = 'alife'")[0]['AUTO_INCREMENT'];
+        $path = "recipes/".$num;
         $nullCheck = 0;
         $uploadCheck = 1;
-
+        
         foreach($images['error'] as $error) {
             if($error == 4) {
                 $nullCheck = 1;
@@ -31,11 +31,11 @@
         } else {
             if(!is_dir($path)) mkdir($path, 0777, true);
             else $uploadCheck = 0;
-
+            
             foreach($images['tmp_name'] as $tmpName) {
                 if($uploadCheck) $uploadCheck = checkImageType($tmpName);
             }
-
+            
             if($uploadCheck) {
                 //Image Upload
                 foreach($images['tmp_name'] as $index => $tmpName) {
@@ -54,7 +54,7 @@
                 }
                 //Collection Upload
                 $path .= '/rep_img.jpg';
-                $result = mysqli_set_query("INSERT INTO collection VALUES('','$title','$intro','$time','$serving','$hashtags',NOW(),'$user')");    
+                $result = mysqli_set_query("INSERT INTO collection VALUES('','$title','$intro','$time','$serving','$hashtags',NOW(),'$user')");
                 $message['status'] = $result ? 'A200' : 'A500';
             } else {
                 $message['status'] = 'A500';

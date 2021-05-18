@@ -130,7 +130,7 @@
         </div>
     </div>
     <div class="recipe__wrap padding">
-        <div class="recipe__list-title">고혜경님의 냉장고 속 재료와 어울리는 레시피</div>
+        <div class="recipe__list-title"><?=$_SESSION['alife_user_name']?>님의 냉장고 속 재료와 어울리는 레시피</div>
         <div class="recipe__list">
             <?php for($i = 0; $i < 8; $i++) { ?>
             <div class="recipe__item">

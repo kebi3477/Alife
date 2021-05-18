@@ -38,7 +38,7 @@
                     <div>
                         <div class="insert__wrap">
                             <div class="insert__label insert__label--left">조리시간</div>
-                            <div class="insert__input--small"><input type="number" placeholder="30" name="time" min=0 max=999 readonly></div>
+                            <div class="insert__input--small"><input type="number" placeholder="30" name="time" min=0 max=999></div>
                             <p>분 이내</p>
                             <div class="insert__label insert__label--left">인원</div>
                             <div class="insert__input--small"><input type="number" placeholder="1" name="serving" min=1 max=99></div>
