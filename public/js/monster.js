@@ -1,11 +1,8 @@
 "use strict";
-import Loading from './loading.js';
 const main = document.querySelector("#main");
 const sound = document.querySelector('.sound');
 let monster, monsterDoc, monsterEye, monsterMouseClose, monsterMouseOpen;
-const loading = new Loading();
 
-loading.start();
 window.onload = () => {
     const mealClasses = [
         new Meal(), new Meal(), new Meal(), new Meal(),
@@ -13,7 +10,6 @@ window.onload = () => {
     ];
     const circles = document.querySelectorAll('.circle');
 
-    loading.end();
     monster = document.querySelector(".monster");
     monsterDoc = monster.contentDocument;
     monsterEye = monsterDoc.querySelectorAll(".monster__eye");
@@ -126,6 +122,7 @@ class Meal {
         this.rotate += this.rotateFlag ? Math.random() * 1 : Math.random() * -1;
     }
     start() {
+        // this.moving && clearInterval(this.moving)
         this.moving = setInterval(() => this.moveObject(), 1);
     }
     pause() {

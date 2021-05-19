@@ -11,13 +11,9 @@
 </head>
 <body>
     <?php 
-        error_reporting(0);
         include('header.php');
-        include('loading.php');
-        include('modules/mysql.php');
         include('interceptor/userInterceptor.php');
         isLoging();
-        $ingredients = mysqli_get_query('SELECT * FROM `ingredient`');
     ?>
     <div class="title">
         <div class="title--big"><?=$_SESSION['alife_user_name']?>님의 냉장고</div>
@@ -38,7 +34,7 @@
                     <div class="category">과일류</div>
                     <div class="category">견과류</div>
                     <div class="category">유제품</div>
-                    <div class="category">양념류</div>
+                    <div class="category">곡류</div>
                     <div class="category">기타</div>
                 </div>
                 <div class="ingreds">

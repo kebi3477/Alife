@@ -1,5 +1,5 @@
 "use strict";
-import Loading from './loading.js';
+import loading from './loading.js';
 const searchInput = document.querySelector('.search__input');
 const ingreds = document.querySelector('.ingreds');
 const categorys = document.querySelectorAll('.category');
@@ -8,7 +8,6 @@ const fridge = document.querySelector('.fridge');
 const buttonSave = document.querySelector('.button__save');
 const buttonReset = document.querySelector('.button__reset');
 let myFridge = [], myIngredients = [];
-const loading = new Loading();
 
 class Ingred {
     constructor(el) {
@@ -51,7 +50,6 @@ class Ingred {
 }
 
 searchInput.onkeyup = e => searchIngredient(e);
-loading.start();
 categorys.forEach(category => {
     category.onclick = e => changeCategory(e);
 })
@@ -195,5 +193,3 @@ function resetFridge() {
         })
     }
 }
-
-window.onload = () => loading.end();

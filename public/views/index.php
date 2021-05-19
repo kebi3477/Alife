@@ -10,10 +10,7 @@
     <link rel="shortcut icon" href="public/images/favicon/favicon.ico">
 </head>
 <body>
-    <?php 
-        include('header.php'); 
-        include('loading.php');
-    ?>
+    <?php include('header.php'); ?>
     <div class="remocon">
         <div class="remocon__item">
             <object data="public/images/icon/arrow_up.svg" type="image/svg+xml"></object>
