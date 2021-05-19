@@ -303,7 +303,7 @@ footer {
 }
 .view__row {
     display: grid;
-    grid-template-columns: 1fr .7fr;
+    grid-template-columns: 1fr .5fr;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -318,6 +318,7 @@ footer {
     font-weight: bold;
 }
 .view__row > div:last-child {
+    /* height: 100%; */
     border-left: 1px solid var(--green-middle);
 }
 .view__row:first-child > div {
@@ -364,4 +365,17 @@ footer {
 }
 .serving {
     margin-left: 1rem;
+}
+.fridge__title {
+    width: fit-content;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+}
+.fridge__title > object{
+    height: 1.5rem;
+    padding: .1rem;
+    max-width: 1.5rem;
+    margin: 0 .5rem;
 }

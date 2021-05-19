@@ -107,9 +107,8 @@
         </div>
     </div>
     <div class="recipe__wrap padding">
-        <div class="recipe__list-title">대파가 냉장고에 남아 있다면?</div>
-        <div class="recipe__list">
-            <?php for($i = 0; $i < 8; $i++) { ?>
+        <div class="recipe__list-title fridge__title">대파가 냉장고에 남아 있다면?</div>
+        <div class="recipe__list fridge">
             <div class="recipe__item">
                 <div class="recipe__img"></div>
                 <div class="recipe__title">국물 떡볶이 만들기</div>
@@ -124,8 +123,6 @@
                         <div class="recipe__user-name">100</div>
                     </div>
                 </div>
-            </div>
-            <?php } ?>
             </div>
         </div>
     </div>

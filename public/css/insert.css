@@ -7,6 +7,7 @@ input {
     font-size: 15px;
     border-radius: .5rem;
     border: 1px solid #707070;
+    background-color: #F1F1F1;
     width: 100%;
     font-weight: 400;
 }
@@ -20,9 +21,10 @@ textarea {
     font-size: 15px;
     height: 100%;
     resize: none;
+    background-color: #F1F1F1;
 }
 textarea[name=intro] {
-    height: 9.5rem;
+    height: 8.5rem;
     margin-top: 1.2rem;
 }
 textarea[name=hashtag], .insert__hashtag {
@@ -58,6 +60,7 @@ textarea[name="recipe[]"] {
 }
 .insert__row {
     display: table-row;
+    height: fit-content;
 }
 .insert__row > div,
 .insert__row > button,
@@ -70,7 +73,8 @@ textarea[name="recipe[]"] {
     vertical-align: top;
 }
 .insert__row > div:nth-of-type(3) {
-    width: 14rem;
+    width: 18rem;
+    height: 12rem;
 }
 .insert__label {
     font-size: 18px;
@@ -118,20 +122,25 @@ textarea[name="recipe[]"] {
     width: 5rem;
 }
 .insert__img {
-    width: 14rem;
-    height: 14rem;
+    width: 100%;
+    height: 100%;
     border-radius: .5rem;
     border: 1px solid #707070;
-    font-size: 24px;
+    font-size: 15px;
     font-weight: bold;
     text-align: center;
     display: flex;
+    flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    background-color: #F1F1F1;
+}
+.insert__img > div {
+    margin-top: 1rem;
 }
 .insert__button {
     width: 7rem;

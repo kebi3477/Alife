@@ -30,7 +30,10 @@
                     </div>
                     <div>
                         <input type="file" name="images[]" id="rep_img">
-                        <label for="rep_img"><div class="insert__img">요리 대표사진을<br>등록해주세요.</div></label>
+                        <label for="rep_img"><div class="insert__img">
+                            <object data="public/images/icon/camera.svg" type="image/svg+xml"></object>
+                            <div>요리 완성사진을 등록해주세요.</div>
+                        </div></label>
                     </div>
                 </div>
                 <div class="insert__row">
@@ -73,7 +76,10 @@
                     </div>
                     <div>
                         <input type="file" class="step__img" id="step__img1" name="images[]">
-                        <label for="step__img1"><div class="insert__img">이미지를<br>넣어주세요</div></label>
+                        <label for="step__img1"><div class="insert__img">
+                            <object data="public/images/icon/camera.svg" type="image/svg+xml"></object>
+                            <div>사진을 등록해주세요</div>
+                        </div></label>
                     </div>
                 </div>
                 <div class="insert__row ingredient__dom">
