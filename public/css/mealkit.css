@@ -1,0 +1,13 @@
+.mealkit__list {
+    margin-top: 10rem;
+}
+.mealkit__items {
+    width: 100%;
+    height: 53rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+}
+.mealkit__item {
+    background-color: tomato;
+}

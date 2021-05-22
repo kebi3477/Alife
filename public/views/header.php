@@ -5,7 +5,7 @@
         <img class="header__logo" src="" alt="">
         <div class="header__item"><a href="fridge">나의 냉장고</a></div>
         <div class="header__item"><a href="recipe">레시피</a></div>
-        <div class="header__item">밀키트</div>
+        <div class="header__item"><a href="mealkit">밀키트</a></div>
         <!-- <div class="header__item">오늘 뭐 먹지?</div> -->
         <div class="header__item header__item--gray">
             더 보기

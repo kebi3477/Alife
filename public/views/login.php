@@ -13,7 +13,6 @@
 <body>
     <?php 
         include('header.php');
-        include('loading.php');
         include('interceptor/userInterceptor.php');
         isNonLoging();
     ?>

@@ -1,5 +1,5 @@
 "use strict";
-import Loading from './loading.js';
+import loading from './loading.js';
 const login = document.querySelector(".login");
 const loginWrap = document.querySelector(".login__wrap");
 const signWrap = document.querySelector(".sign__wrap");
@@ -38,7 +38,6 @@ const changeRepw = changePwWrap.querySelector('.change-repw');
 const changePwButton = changePwWrap.querySelector("button");
 //공통
 const phones = document.querySelectorAll('.login__phone > input');
-const loading = new Loading();
 //init
 // loginWrap.remove();
 signWrap.remove();
