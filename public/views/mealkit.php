@@ -11,20 +11,26 @@
 </head>
 <body>
     <?php include('header.php') ?>
+    <?php for($i = 0; $i < 4; $i++) { ?>
     <div class="mealkit__list padding">
         <div class="title">냉장고에 있는 대파가 사용되는 식품</div>
         <div class="mealkit__items">
-            <div class="mealkit__item"></div>
-            <div class="mealkit__item"></div>
-            <div class="mealkit__item"></div>
-            <div class="mealkit__item"></div>
-            <div class="mealkit__item"></div>
-            <div class="mealkit__item"></div>
-            <div class="mealkit__item"></div>
-            <div class="mealkit__item"></div>
+            <?php for($j = 0; $j < 8; $j++) { ?>
+            <div class="mealkit__item">
+                <div class="mealkit__image"></div>
+                <div class="mealkit__wrap">
+                    <div class="mealkit__tag"></div>
+                    <div class="mealkit__text--small">앙트레</div>
+                    <div class="mealkit__text--big">얼큰한 해물 누룽지탕 쿠킹박스</div>
+                    <div class="mealkit__text--right">
+                        <div class="mealkit__text--won">14,900</div>
+                        원
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
         </div>
     </div>
-
-
+    <?php } ?>
 </body>
 </html>

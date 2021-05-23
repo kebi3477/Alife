@@ -1,13 +1,51 @@
 .mealkit__list {
     margin-top: 10rem;
 }
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
 .mealkit__items {
     width: 100%;
-    height: 53rem;
+    height: 46rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 2rem;
+    margin-top: 1.5rem;
 }
 .mealkit__item {
-    background-color: tomato;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    border: 1px solid var(--gray-middle);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+.mealkit__image {
+    flex: 4;
+    background-color: aquamarine;
+    border-bottom: 1px solid var(--gray-middle);
+}
+.mealkit__wrap {
+    flex: 1;
+    padding: .5rem 1rem 1rem 1rem;
+}
+.mealkit__tag {
+    min-height: 1rem;
+}
+.mealkit__text--right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: .7rem;
+}
+.mealkit__text--small {
+    font-size: .7rem;
+}   
+.mealkit__text--big {
+    font-size: .9rem;
+    font-weight: bold;
+}
+.mealkit__text--won {
+    font-size: 1.13rem;
 }
