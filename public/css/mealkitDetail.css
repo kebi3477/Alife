@@ -1,0 +1,94 @@
+.show {
+    height: 35rem;
+    display: grid;
+    margin-top: 13rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+.show--left {
+    position: relative;
+    flex: 1;
+}
+.show--right {
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+}
+.show__image {
+    height: 100%;
+    background-color: var(--gray-light);
+    border-radius: 1rem;
+}
+.show__remocon {
+    width: 90%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    position: absolute;
+    top: 47%;
+    left: 5%;
+}
+.show__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+    padding-top: .5rem;
+}
+.show__wrap {
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 1rem 0;
+}
+.show__wrap:nth-of-type(3),
+.show__wrap:nth-of-type(6),
+.show__wrap:nth-of-type(8) {
+    border-top: 1px solid var(--gray-middle);
+}
+.show__wrap--right {width: 100%;justify-content: flex-end;}
+.show__label {
+    flex: 1;
+    font-size: .9rem;
+    font-weight: bold;
+}
+.show__label--light {
+    display: flex;
+    align-items: flex-end;
+    font-weight: 400;
+    flex: inherit;
+    margin-right: 1rem;
+}
+.show__label--won {
+    font-size: 1.8rem;
+    width: fit-content;
+    flex: inherit;
+}
+.show__text {
+    flex: 3;
+    font-size: .9rem;
+}
+.show__buttons {
+    height: 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr .35fr;
+    gap: 1.5rem;
+}
+.show__button {
+    background-color: var(--green-middle);
+    color: #fff;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+.show__button--reversal {
+    background-color: #fff;
+    color: var(--green-middle);
+    border: 1px solid var(--green-middle);
+}
+.show__button > img {
+    width: 35%;
+}
