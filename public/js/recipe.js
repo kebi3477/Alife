@@ -1,10 +1,12 @@
 class View {
     constructor() {
         this.popup = document.querySelector('.popup');
+        this.viewRemocon = this.popup.querySelector('.view__remocon');
+        this.viewRecipes = this.popup.querySelector('.view__recipes');
+        this.viewTime = this.popup.querySelector('.view__time');
         this.close();
     }
     init() {
-        this.viewRecipes = this.popup.querySelector('.view__recipes');
         this.viewStart = this.popup.querySelector('.view__start');
         this.viewWatch = this.popup.querySelector('.view__watch');
         this.viewStart.onclick = () => this.start();
@@ -50,6 +52,10 @@ class View {
     }
     close() {
         this.clearTimer();
+        if(this.popup.querySelector('.view__ingredients')) {
+            this.popup.querySelector('.view__ingredients').remove();
+            this.popup.querySelector('.view__wrap').append(this.viewRemocon, this.viewRecipes, this.viewTime);
+        }
         this.popup.style.display = 'none';
     }
     appendHashtags() {
@@ -93,7 +99,11 @@ class View {
         this.appendIngredients(this.now);
     }
     nextPage() {
-        this.now < this.recipes.length-1 ? this.now++ : "";
+        if(this.now < this.recipes.length-1) {
+            this.now++
+        } else if(this.cooking) {
+            this.end();
+        }
         this.slide();
     }
     prevPage() {
@@ -146,7 +156,32 @@ class View {
             this.clearTimer();
             this.cooking = false;
             this.slide();
+            if(confirm('재료를 삭제하시겠습니까?')) {
+                this.deleteIngredient();
+            }
         }
+    }
+    deleteIngredient() {
+        this.popup.querySelector('.view__recipes').remove();
+        this.popup.querySelector('.view__remocon').remove();
+        this.popup.querySelector('.view__time').remove();
+        fetch('controller/fridge/getMyFridge')
+        .then(fridge => fridge.json())
+        .then(fridge => {
+            const viewIngredients = document.createElement('div');
+            viewIngredients.classList.add('view__ingredients');
+            fridge.forEach(json => {
+                const viewIngredient = document.createElement('div');
+                viewIngredient.classList.add('view__ingredient');
+                viewIngredient.innerHTML = `
+                    <div><input type="checkbox" value=${json.ingredient_id}></div>
+                    <div><img src="public/images/ingredient/${json.ingredient_image}"></div>
+                    <div>${json.ingredient_name}</div>
+                `;
+                viewIngredients.append(viewIngredient);
+            })
+            this.popup.querySelector('.view__wrap').append(viewIngredients);
+        })
     }
 }
 

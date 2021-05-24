@@ -197,7 +197,9 @@ footer {
     margin: 1rem 0;
     display: flex;
 }
-.view__list {height: 100%;}
+.view__list {
+    height: 100%;
+}
 .view__item {
     width: 78%;
     height: 70%;
@@ -378,4 +380,18 @@ footer {
     padding: .1rem;
     max-width: 1.5rem;
     margin: 0 .5rem;
+}
+.view__ingredients {
+    padding: 2rem;
+    display: grid;
+    grid-template-rows: 1fr;
+    gap: 1rem;
+}
+.view__ingredient {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+}
+.view__ingredient img {
+    width: 20%;
 }
