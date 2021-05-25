@@ -11,7 +11,7 @@
 </head>
 <body>
     <?php include('header.php');?>
-    <div class="popup">
+    <div class="popup padding">
         <div class="view">
             <div class="view__wrap view__wrap--left">
                 <div class="view__header">
