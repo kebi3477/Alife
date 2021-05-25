@@ -29,3 +29,9 @@
     color: var(--green-middle);
     margin-top: 2rem;
 }
+.error__object {
+    position: absolute;
+    right: 17%;
+    bottom: -2rem;
+    z-index: 0;
+}

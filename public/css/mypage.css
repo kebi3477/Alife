@@ -47,7 +47,7 @@
 .profile__row {
     display: flex;
     flex-flow: row wrap;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
 }
 
@@ -56,6 +56,11 @@
 }
 input[name=tab] {
     display: none;
+}
+.content__title {
+    border-bottom: 1px solid var(--gray-light);
+    margin: 0 2rem;
+    padding: 1rem 0;
 }
 .content__tabs {
     width: 100%;
@@ -111,7 +116,8 @@ input[name=tab] {
 .modify__wraps {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem 10rem;
+    gap: 1rem 6rem;
+    margin-top: 1.5rem;
 }
 .modify__wrap {
     display: grid;
@@ -122,6 +128,7 @@ input[name=tab] {
     font-size: 1.1rem;
     display: flex;
     place-content: center center;
+    align-items: center;
 }
 .modify__input {
     border: 1px solid var(--green-middle);

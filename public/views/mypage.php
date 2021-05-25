@@ -17,8 +17,8 @@
                 <div class="profile__img"></div>
                 <div class="profile__label profile__label--small">등급이름</div>
                 <div class="profile__label profile__row">
-                    <div class="profile__label--bold">고혜경</div>
-                    <div class="profile__label--middle">(rhgprud123@naver.com)</div>
+                    <div class="profile__label--bold"><?=$_SESSION['alife_user_name']?></div>
+                    <div class="profile__label--middle">(<?=$_SESSION['alife_user_email']?>)</div>
                 </div>
             </div>
             <div class="content">

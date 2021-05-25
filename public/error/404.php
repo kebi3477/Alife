@@ -17,6 +17,7 @@
         <div class="error__text error__text--small">방문 원하시는 페이지의 주소가 잘못 입력되었거나 변경 혹은 삭제되어 요청하신 페이지를 찾을 수가 없습니다.<br>
         입력하신 페이지의 주소가 정확한지 다시 한번 확인해 주시기 바랍니다.</div>
         <a href="../"><div class="error__button">메인으로 돌아가기</div></a>
+        <object class="error__object" data="public/images/object/404.svg" type="image/svg+xml"></object>
     </div>
     <?php include(__DIR__.'/../views/footer.php'); ?>
 </body>

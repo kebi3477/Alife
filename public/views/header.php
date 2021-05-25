@@ -22,6 +22,6 @@
         }
     ?>
         <a href="search"><object class="header__img" data="public/images/icon/search.svg" type="image/svg+xml"></object></a>
-        <object class="header__img" data="public/images/icon/menu.svg" type="image/svg+xml"></object>
+        <a href="basket"><object class="header__img" data="public/images/icon/basket.svg" type="image/svg+xml"></object></a>
     </div>
 </header>
