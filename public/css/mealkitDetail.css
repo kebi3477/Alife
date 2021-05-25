@@ -1,5 +1,5 @@
 .show {
-    height: 35rem;
+    height: max-content;
     display: grid;
     margin-top: 13rem;
     grid-template-columns: 1fr 1fr;
@@ -91,4 +91,50 @@
 }
 .show__button > img {
     width: 35%;
+}
+
+input[type=radio] { 
+    display: none;
+}
+.info {
+    margin-top: 10rem;
+}
+.info__tabs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.info__tab {
+    flex: 1;
+    background-color: var(--green-light);
+    border: 1px solid var(--gray-light);
+}
+.info__tab > label {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 1.7rem;
+}
+#show1:checked ~ .info__tabs .tab1 {
+    background-color: #fff;
+    color: var(--green-middle);
+    font-weight: bold;
+}
+#show2:checked ~ .info__tabs .tab2 {
+    background-color: #fff;
+    color: var(--green-middle);
+    font-weight: bold;
+}
+#show3:checked ~ .info__tabs .tab3 {
+    background-color: #fff;
+    color: var(--green-middle);
+    font-weight: bold;
+}
+#show4:checked ~ .info__tabs .tab4 {
+    background-color: #fff;
+    color: var(--green-middle);
+    font-weight: bold;
 }

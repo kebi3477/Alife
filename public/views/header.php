@@ -16,6 +16,7 @@
     <?php
         if(isset($_SESSION['alife_user_email'])) {
     ?>
+        <div class="header__item header__item--small">마이페이지</div>
         <div class="header__item header__item--small logout">로그아웃</div>
     <?php
         } else {

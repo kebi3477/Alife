@@ -60,5 +60,18 @@
             </div>
         </div>
     </div>
+    <div class="info padding">
+        <input type="radio" id="show1" name="show" checked>
+        <input type="radio" id="show2" name="show">
+        <input type="radio" id="show3" name="show">
+        <input type="radio" id="show4" name="show">
+        <div class="info__tabs">
+            <div class="info__tab"><label for="show1" class="tab1">상품 상세정보</label></div>
+            <div class="info__tab"><label for="show2" class="tab2">상품 후기</label></div>
+            <div class="info__tab"><label for="show3" class="tab3">상품 문의</label></div>
+            <div class="info__tab"><label for="show4" class="tab4">배송 / 교환 / 반품안내</label></div>
+        </div>
+        
+    </div>
 </body>
 </html>

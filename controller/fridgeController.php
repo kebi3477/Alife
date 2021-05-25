@@ -47,5 +47,19 @@
         echo json_encode($message);
     }
     
+    function deleteFridge() {
+        if(isset($_POST['fridge_id'])) {
+            $fridge_ids = $_POST['fridge_id'];
+            foreach($fridge_ids as $id) {
+                $sql = "DELETE FROM fridge WHERE fridge_id = $id";
+                $result = mysqli_set_query($sql);
+            }
+            $message['status'] = $result ? 'A200' : 'A500';
+        } else {
+            $message['status'] = 'A400';
+        }
+        echo json_encode($message);
+    }
+
     $urls[3]();
 ?>

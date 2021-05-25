@@ -1,3 +1,4 @@
+import loading from './loading.js';
 class View {
     constructor() {
         this.popup = document.querySelector('.popup');
@@ -54,6 +55,7 @@ class View {
         this.clearTimer();
         if(this.popup.querySelector('.view__ingredients')) {
             this.popup.querySelector('.view__ingredients').remove();
+            this.popup.querySelector('.view__button').remove();
             this.popup.querySelector('.view__wrap').append(this.viewRemocon, this.viewRecipes, this.viewTime);
         }
         this.popup.style.display = 'none';
@@ -99,6 +101,7 @@ class View {
         this.appendIngredients(this.now);
     }
     nextPage() {
+        console.log(this.now, this.recipes.length);
         if(this.now < this.recipes.length-1) {
             this.now++
         } else if(this.cooking) {
@@ -157,31 +160,60 @@ class View {
             this.cooking = false;
             this.slide();
             if(confirm('재료를 삭제하시겠습니까?')) {
-                this.deleteIngredient();
+                this.showDeleteIngredient();
             }
         }
     }
-    deleteIngredient() {
+    showDeleteIngredient() {
         this.popup.querySelector('.view__recipes').remove();
         this.popup.querySelector('.view__remocon').remove();
         this.popup.querySelector('.view__time').remove();
         fetch('controller/fridge/getMyFridge')
         .then(fridge => fridge.json())
         .then(fridge => {
-            const viewIngredients = document.createElement('div');
+            const viewIngredients = document.createElement('form');
+            const viewButton = document.createElement('div');
             viewIngredients.classList.add('view__ingredients');
+            viewIngredients.innerHTML = `
+                <div class='view__title'>음식을 다 만들었나요? 전부 사용한 재료를 선택해주세요.</div>
+            `;
             fridge.forEach(json => {
                 const viewIngredient = document.createElement('div');
                 viewIngredient.classList.add('view__ingredient');
                 viewIngredient.innerHTML = `
-                    <div><input type="checkbox" value=${json.ingredient_id}></div>
-                    <div><img src="public/images/ingredient/${json.ingredient_image}"></div>
+                    <div class="view__checkbox"><input type="checkbox" value=${json.fridge_id} name='fridge_id[]'></div>
+                    <div class="view__img--ingredient"><img src="public/images/ingredient/${json.ingredient_image}"></div>
                     <div>${json.ingredient_name}</div>
                 `;
                 viewIngredients.append(viewIngredient);
             })
+            viewButton.classList.add('view__button');
+            viewButton.innerText = '재료삭제';
+            viewButton.onclick = () => this.deleteIngredient();
             this.popup.querySelector('.view__wrap').append(viewIngredients);
+            this.popup.querySelector('.view__wrap').append(viewButton);
         })
+    }
+    deleteIngredient() {
+        const formData = new FormData(this.popup.querySelector('.view__ingredients'));
+
+        loading.start();
+        fetch('controller/fridge/deleteFridge', {
+            method: 'POST',
+            body: formData
+        })
+        .then(msg => msg.json())
+        .then(msg => {
+            if(msg.status === 'A200') {
+                alert('성공적으로 제거했습니다!');
+                this.close();
+            } else if(msg.status === 'A400') {
+                alert('1개 이상 선택해주세요!');
+            } else {
+                alert('에러!');
+            }
+        })
+        .then(() => loading.end())
     }
 }
 
