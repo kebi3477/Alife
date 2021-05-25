@@ -12,4 +12,5 @@ logout && logout.addEventListener('click', function() {
         }
     })
 })
+
 window.addEventListener('load', () => loading.end());

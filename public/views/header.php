@@ -7,16 +7,12 @@
         <div class="header__item"><a href="recipe">레시피</a></div>
         <div class="header__item"><a href="mealkit">밀키트</a></div>
         <!-- <div class="header__item">오늘 뭐 먹지?</div> -->
-        <div class="header__item header__item--gray">
-            더 보기
-            <object data="public/images/icon/arrow_down_g.svg" type="image/svg+xml"></object>
-        </div>
     </div>
     <div class="header__list">
     <?php
         if(isset($_SESSION['alife_user_email'])) {
     ?>
-        <div class="header__item header__item--small">마이페이지</div>
+        <div class="header__item header__item--small"><a href="mypage">마이페이지</a></div>
         <div class="header__item header__item--small logout">로그아웃</div>
     <?php
         } else {

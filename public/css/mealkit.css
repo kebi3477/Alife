@@ -1,5 +1,5 @@
 .mealkit__list {
-    margin-top: 10rem;
+    margin-top: 11rem;
 }
 .title {
     font-size: 1.5rem;
@@ -11,7 +11,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 2rem;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
 }
 .mealkit__item {
     display: flex;
