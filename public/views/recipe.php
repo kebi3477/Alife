@@ -17,7 +17,7 @@
                 <div class="view__header">
                     <div class="view__title title">제목 입니다.</div>
                     <div class="view__wrap-row">
-                        <object data="public/images/icon/heart_l.svg" type="image/svg+xml"></object>
+                        <object class="heart" data="public/images/icon/heart_l.svg" type="image/svg+xml"></object>
                         <div class="view__title like">0</div>
                     </div>
                 </div>
@@ -73,7 +73,6 @@
                 <div class="view__title view__title--small">해시태그</div>
                 <div class="view__hashtag"></div>
                 <div class="view__wrap-row view__profile">
-                    <div class="view__user-image"></div>
                     <div class="view__user-name name">이름</div>
                     <div class="view__user-date date">2021. 00. 00.</div>
                 </div>
@@ -106,7 +105,7 @@
             </div>
         </div>
     </div>
-    <div class="recipe__wrap padding">
+    <div class="recipe__wrap padding ingredient">
         <div class="recipe__list-title fridge__title">대파가 냉장고에 남아 있다면?</div>
         <div class="recipe__list fridge">
             <div class="recipe__item">

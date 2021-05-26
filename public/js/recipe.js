@@ -5,6 +5,7 @@ class View {
         this.viewRemocon = this.popup.querySelector('.view__remocon');
         this.viewRecipes = this.popup.querySelector('.view__recipes');
         this.viewTime = this.popup.querySelector('.view__time');
+        this.popup.querySelector('.view').ondblclick = () => this.thumbsup();
         this.close();
     }
     init() {
@@ -31,6 +32,7 @@ class View {
             this.col = data.collection;
             this.recipes = data.recipes;
             this.rin = data.ringredients;
+            this.collectionId = this.col.collection_id;
             // Collection 변경
             this.popup.querySelector('.title').innerText = this.col.collection_title;
             this.popup.querySelector('.time').innerText = `${this.col.collection_time} 분 이내`;
@@ -215,6 +217,24 @@ class View {
         })
         .then(() => loading.end())
     }
+    thumbsup() {
+        const formData = new FormData();
+        formData.append('collection_id', this.collectionId);
+        fetch('controller/recipe/setThumbsup', {
+            method: 'POST',
+            body: formData
+        })
+        .then(msg => msg.json())
+        .then(msg => {
+            if(msg.status === 'A200') {
+                this.popup.querySelector('.heart').data = 'public/images/icon/heart_fill.svg';
+            } else if(msg.status === 'A401') {
+                alert('이미 좋아요를 누르셨습니다!');
+            } else {
+                alert('에러!');
+            }
+        })
+    }
 }
 
 const view = new View;
@@ -233,8 +253,12 @@ fetch('controller/recipe/getRecipeByTop')
 fetch('controller/recipe/getRecipeByFridge')
 .then(json => json.json()) 
 .then(json => {
-    document.querySelector('.fridge__title').innerHTML = `${json.ingredient.name}<object data="public/images/ingredient/${json.ingredient.image}" type="image/svg+xml"></object>가 냉장고에 남아 있다면?`;
-    appendRecipeList(json.recipes, 'fridge');
+    if(json.status !== 'A400') {
+        document.querySelector('.fridge__title').innerHTML = `${json.ingredient.name}<object data="public/images/ingredient/${json.ingredient.image}" type="image/svg+xml"></object>가 냉장고에 남아 있다면?`;
+        appendRecipeList(json.recipes, 'fridge');
+    } else {    
+        document.querySelector('.ingredient').remove();
+    }
 })
 
 function appendRecipeList(recipes, listName) {

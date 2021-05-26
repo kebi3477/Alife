@@ -56,7 +56,7 @@ CREATE TABLE `mealkit` (
   `user_email` varchar(255),
   `mealkit_img` varchar(255)
 );
-
+--구축
 CREATE TABLE `thumbsup` (
   `thumbsup_id` int PRIMARY KEY AUTO_INCREMENT,
   `user_email` varchar(255),

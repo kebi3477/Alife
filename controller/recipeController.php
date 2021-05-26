@@ -83,19 +83,25 @@
 
     function getRecipeByFridge() {
         $arr = array();
+        $message = array();
         $email = $_SESSION['alife_user_email'];
         $sql = "SELECT i.ingredient_name name, i.ingredient_image image FROM fridge f JOIN ingredient i ON f.ingredient_id = i.ingredient_id WHERE user_email = '$email'";
         $fridge = mysqli_get_query($sql);
-        $rand = rand(0, count($fridge)-1);
-        $ingredient = $fridge[$rand];
-        $sql = "SELECT DISTINCT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user
-            FROM collection c
-            JOIN ringredient ri ON c.collection_id = ri.collection_id AND ri.ringredient_name like '%".$ingredient['name']."%'
-            JOIN users u ON u.user_email = c.user_email";
-        $recipes = mysqli_get_query($sql);
-        $arr['ingredient'] = $ingredient;
-        $arr['recipes'] = $recipes;
-        echo json_encode($arr);
+        if(count($fridge) > 0) {
+            $rand = rand(0, count($fridge)-1);
+            $ingredient = $fridge[$rand];
+            $sql = "SELECT DISTINCT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user
+                FROM collection c
+                JOIN ringredient ri ON c.collection_id = ri.collection_id AND ri.ringredient_name like '%".$ingredient['name']."%'
+                JOIN users u ON u.user_email = c.user_email";
+            $recipes = mysqli_get_query($sql);
+            $arr['ingredient'] = $ingredient;
+            $arr['recipes'] = $recipes;
+            echo json_encode($arr);
+        } else {
+            $message['status'] = 'A400';
+            echo json_encode($message);
+        }
     }
 
     function getRecipeById() {
@@ -110,6 +116,31 @@
         $arr['ringredients'] = mysqli_get_query($sql);
 
         echo json_encode($arr);
+    }
+
+    function setThumbsup() {
+        $message = array();
+        $collection_id = $_POST['collection_id'];
+        
+        if(isset($_SESSION['alife_user_email'])) {
+            $user = $_SESSION['alife_user_email'];
+            $sql = "SELECT * FROM thumbsup WHERE user_email='$user' AND collection_id=$collection_id";
+            $result = mysqli_get_query($sql);
+
+            if(count($result) > 0) {
+                $message['status'] = 'A401';
+            } else {
+                $sql = "INSERT INTO thumbsup VALUES('', '$user', $collection_id)";
+                $result = mysqli_set_query($sql);
+
+                if($result) $message['status'] = 'A200';
+                else $message['status'] = 'A500';
+            }
+        } else {
+            $message['status'] = 'A400';
+        }
+
+        echo json_encode($message);
     }
 
     $urls[3]();
