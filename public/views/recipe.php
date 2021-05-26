@@ -98,7 +98,7 @@
                         <div class="recipe__user-name">나는 요리사</div>
                     </div>
                     <div class="recipe__cover">
-                        <object data="public/images/icon/heart_r.svg" type="image/svg+xml"></object>
+                        <object class="heart" data="public/images/icon/heart_r.svg" type="image/svg+xml"></object>
                         <div class="recipe__user-name">100</div>
                     </div>
                 </div>
@@ -118,7 +118,7 @@
                         <div class="recipe__user-name">나는 요리사</div>
                     </div>
                     <div class="recipe__cover">
-                        <object data="public/images/icon/heart_r.svg" type="image/svg+xml"></object>
+                        <object class="heart" data="public/images/icon/heart_r.svg" type="image/svg+xml"></object>
                         <div class="recipe__user-name">100</div>
                     </div>
                 </div>
@@ -139,7 +139,7 @@
                         <div class="recipe__user-name">나는 요리사</div>
                     </div>
                     <div class="recipe__cover">
-                        <object data="public/images/icon/heart_r.svg" type="image/svg+xml"></object>
+                        <object class="heart" data="public/images/icon/heart_r.svg" type="image/svg+xml"></object>
                         <div class="recipe__user-name">100</div>
                     </div>
                 </div>
@@ -162,7 +162,7 @@
                         <div class="recipe__user-name">나는 요리사</div>
                     </div>
                     <div class="recipe__cover">
-                        <object data="public/images/icon/heart_r.svg" type="image/svg+xml"></object>
+                        <object class="heart" data="public/images/icon/heart_r.svg" type="image/svg+xml"></object>
                         <div class="recipe__user-name">100</div>
                     </div>
                 </div>

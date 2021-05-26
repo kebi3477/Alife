@@ -265,12 +265,17 @@ function appendRecipeList(recipes, listName) {
     const rank = document.querySelector(`.${listName}`);
     const item = rank.querySelector('.recipe__item');
     recipes.forEach(recipe => {
-        const dom = item.cloneNode(true);    
+        const dom = item.cloneNode(true);
         dom.querySelector('.recipe__title').innerText = recipe.title;
         dom.querySelector('.recipe__content').innerText = recipe.intro;
         dom.querySelector('.recipe__img').style.backgroundImage = `url(/recipes/${recipe.id}/reg_img.jpg)`;
         dom.querySelector('.recipe__user-name').innerText = recipe.user;
         dom.onclick = () => view.show(recipe.id);
+        if(recipe.thumbsup) {
+            dom.querySelector('.heart').data = 'public/images/icon/heart_fill.svg';
+        } else {
+            dom.querySelector('.heart').data = 'public/images/icon/heart_l.svg';
+        }
         rank.append(dom);
     })
     item.remove();

@@ -220,7 +220,7 @@ class User {
         this.fetching('login')
         .then(msg => {
             if(msg.status === 'A200') {
-                location.href = 'index';
+                history.back();
             } else if(msg.status === 'A404') {
                 alert('아이디와 비밀번호를 다시 확인해주세요!');
             } else if(msg.status === 'A400') {
