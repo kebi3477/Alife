@@ -24,18 +24,52 @@
                     </div>
                     <div class="basket__list">
                         <div class="basket__item">
-                            <input class="basket__checkbox" type="checkbox">
+                            <div class="basket__checkbox">
+                                <input class="basket__checkbox" type="checkbox">
+                            </div>
                             <div class="basket__img"></div>
                             <div class="basket__info">
                                 <div class="basket__label--small">어라이프</div>
                                 <div class="basket__label--middle">상품명을 입력해주세요</div>
                             </div>
-                            <div class="basket__number"></div>
-                            <div class="basket__label__bold">10,000원</div>
+                            <div class="basket__number"><input type="number" value=1 min=1></div>
+                            <div class="basket__label--bold">10,000원</div>
+                            <div class="basket__delete"><img src="public/images/icon/close.svg"></div>
                         </div>
                     </div>
                 </div>
                 <div class="basket__right">
+                    <div class="basket__wrap basket__wrap--right">
+                        <div class="basket__row">
+                            <div class="basket__text basket__text--big">총 상품금액</div>
+                            <div class="basket__text basket__text--big">30,000원</div>
+                        </div>
+                        <div class="basket__row">
+                            <div class="basket__text basket__text--middle">주문금액</div>
+                            <div class="basket__text basket__text--middle">53,700원</div>
+                        </div>
+                        <div class="basket__row">
+                            <div class="basket__text basket__text--middle">할인금액</div>
+                            <div class="basket__text basket__text--middle">23,700원</div>
+                        </div>
+                        <div class="basket__row">
+                            <div class="basket__text basket__text--big">배송비</div>
+                            <div class="basket__text basket__text--big">5,500원</div>
+                        </div>
+                        <div class="basket__row">
+                            <div class="basket__text basket__text--middle">배송비</div>
+                            <div class="basket__text basket__text--middle">3,000원</div>
+                        </div>
+                        <div class="basket__row">
+                            <div class="basket__text basket__text--middle">추가배송비</div>
+                            <div class="basket__text basket__text--middle">2,500원</div>
+                        </div>
+                        <div class="basket__row">
+                            <div class="basket__text basket__text--big">결제예상금액</div>
+                            <div class="basket__text basket__text--bbig">35,500원</div>
+                        </div>
+                    </div>
+                    <div class="basket__button">주문하기</div>
                 </div>
             </div>
         </div>

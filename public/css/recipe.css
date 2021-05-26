@@ -113,6 +113,7 @@ footer {
 }
 
 .view {
+    width: 100%;
     height: 80vh;
     display: flex;
     flex-flow: row nowrap;
@@ -378,8 +379,8 @@ footer {
 }
 .fridge__title {
     width: fit-content;
-    display: flex;
-    flex-flow: row nowrap;
+    display: grid;
+    grid-template-columns: auto auto 1fr;
     align-items: center;
     justify-content: center;
 }

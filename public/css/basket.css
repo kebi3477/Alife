@@ -10,17 +10,29 @@
     margin-top: 2.5rem;
     background-color: #fff;
     border: 1px solid var(--green-middle);
-    border-radius: 1rem;
+    border-radius: .5rem;
+}
+.basket__wrap--right {
+    padding: 1rem 0;
+    height: auto;
 }
 .basket__title {
     width: 100%;
     text-align: center;
-    padding: 1.5rem;
     font-weight: bold;
     font-size: 2rem;
+    margin-top: 1.5rem;
 }
 .basket__row {
     display: flex;
+    justify-content: space-between;
+    /* margin: 1rem; */
+    padding: .7rem 1.5rem;
+}
+.basket__row:nth-of-type(4),
+.basket__row:nth-of-type(7) {
+    border-top: 1px solid #676767;
+    align-items: flex-end;
 }
 .basket__left {
     flex: 1;
@@ -28,12 +40,90 @@
 }
 .basket__navs {
     display: flex;
-    gap: .5rem;
+    gap: .3rem;
+    border-bottom: 1px solid #676767;
+    padding: .5rem 0;
 }
 .basket__item {
     display: grid;
-    grid-template-columns: 1rem 3rem 2fr 1fr 1fr;
+    grid-template-columns: 2rem 3rem 4fr 5rem 3fr 2rem;
+    place-content: center center;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
 }
+.basket__checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.basket__checkbox > input {
+    appearance: none;
+    border: 1px solid var(--green-middle);
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: .25rem;
+}
+.basket__checkbox > input:checked {
+    background-color: var(--green-light);
+}
+.basket__img {
+    background-color: var(--gray-light);
+    border-radius: .5rem;
+    height: 3rem;
+}
+.basket__label--small {
+    font-size: .8rem;
+    color: #676767;
+}
+.basket__label--middle {
+    font-size: 1rem;
+}
+.basket__label--bold {
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: right;
+}
+.basket__number > input {
+    width: 100%;
+    padding: .5rem;
+}
+.basket__delete {
+    display: grid;
+    place-content: center center;
+    cursor: pointer;
+}
+.basket__delete > img {
+    width: 80%;
+}
+
 .basket__right {
     flex: .5;
+    padding: 1rem;
+}
+.basket__text {
+    color: #676767;
+}
+.basket__text--big {
+    font-size: 1.1rem;
+}
+.basket__text--middle {
+    font-size: .9rem;
+}
+.basket__text--bbig {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.basket__button {
+    width: 100%;
+    padding: 2rem;
+    background-color: var(--green-middle);
+    margin-top: 1rem;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
