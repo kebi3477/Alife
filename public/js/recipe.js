@@ -34,11 +34,24 @@ class View {
             this.rin = data.ringredients;
             this.collectionId = this.col.collection_id;
             // Collection 변경
+            const dom = document.createElement('object');
             this.popup.querySelector('.title').innerText = this.col.collection_title;
             this.popup.querySelector('.time').innerText = `${this.col.collection_time} 분 이내`;
             this.popup.querySelector('.serving').innerText = `${this.col.collection_serving} 인분`;
             this.popup.querySelector('.name').innerText = this.col.user_name;
             this.popup.querySelector('.date').innerText = this.col.collection_date.split(" ")[0].replaceAll("-", ". ");
+            this.popup.querySelector('.like').innerHTML = data.count;
+            console.log(parseInt(data.thumbsup) === 1)
+            console.log(this.popup.querySelector('.heart'));
+            this.popup.querySelector('.heart') && this.popup.querySelector('.heart').remove();
+            dom.type = "image/svg+xml";
+            dom.classList.add('heart');
+            if(parseInt(data.thumbsup) === 1) {
+                dom.data = "public/images/icon/heart_fill.svg";
+            } else {
+                dom.data = "public/images/icon/heart_l.svg";
+            }
+            this.popup.querySelector('.like').before(dom);
             // 해시태그 올리기
             this.appendHashtags();
             // 재료 넣기
@@ -229,7 +242,7 @@ class View {
             if(msg.status === 'A200') {
                 this.popup.querySelector('.heart').data = 'public/images/icon/heart_fill.svg';
             } else if(msg.status === 'A401') {
-                alert('이미 좋아요를 누르셨습니다!');
+                this.popup.querySelector('.heart').data = 'public/images/icon/heart_l.svg';
             } else {
                 alert('에러!');
             }

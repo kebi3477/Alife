@@ -96,8 +96,10 @@
                 }
                 array_push($arr, $recipe);
             }
+            echo json_encode($arr);
+        } else {
+            echo json_encode($recipes);
         }
-        echo json_encode($arr);
     }
 
     function getRecipeByFridge() {
@@ -133,6 +135,14 @@
         $arr['recipes'] = mysqli_get_query($sql);
         $sql = "SELECT * FROM ringredient WHERE collection_id = '$id'";
         $arr['ringredients'] = mysqli_get_query($sql);
+        $sql = "SELECT count(*) thumbsupCnt FROM thumbsup WHERE collection_id = '$id'";
+        $arr['count'] = mysqli_get_query($sql)[0]['thumbsupCnt'];
+
+        if(isset($_SESSION['alife_user_email'])) {
+            $email = $_SESSION['alife_user_email'];
+            $sql = "SELECT IF(count(*) > 0, true, false) isThumbsup FROM thumbsup WHERE collection_id = '$id' and user_email = '$email'";
+            $arr['thumbsup'] = mysqli_get_query($sql)[0]['isThumbsup'];
+        }
 
         echo json_encode($arr);
     }
@@ -147,6 +157,8 @@
             $result = mysqli_get_query($sql);
 
             if(count($result) > 0) {
+                $sql = "DELETE FROM thumbsup WHERE collection_id = $collection_id";
+                $result = mysqli_set_query($sql);
                 $message['status'] = 'A401';
             } else {
                 $sql = "INSERT INTO thumbsup VALUES('', '$user', $collection_id)";

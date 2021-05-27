@@ -375,6 +375,9 @@ footer {
 .heart {
     width: 1.5rem;
 }
+.heart__s {
+    width: 1rem;
+}
 .fridge__title {
     width: fit-content;
     display: grid;
