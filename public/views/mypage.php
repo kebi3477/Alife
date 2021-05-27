@@ -35,27 +35,31 @@
                 <div class="write content__box"></div>
                 <div class="thumsup content__box"></div>
                 <div class="history content__box"></div>
-                <div class="modify content__box">
+                <form class="modify content__box">
                     <div class="content__title">회원정보수정</div>
                     <div class="modify__wraps">
                         <div class="modify__wrap">
                             <div class="modify__label">이메일</div>
-                            <input type="text" class="modify__input">
+                            <input type="text" class="modify__input" disabled="true" value="<?=$_SESSION['alife_user_email']?>">
                         </div>
                         <div class="modify__wrap">
                             <div class="modify__label">휴대전화</div>
-                            <input type="text" class="modify__input">
+                            <input type="text" class="modify__input" value="<?=$_SESSION['alife_user_phone']?>" name="phone">
                         </div>
                         <div class="modify__wrap">
                             <div class="modify__label">이름</div>
-                            <input type="text" class="modify__input">
+                            <input type="text" class="modify__input" value="<?=$_SESSION['alife_user_name']?>" name="name">
                         </div>
                         <div class="modify__wrap">
                             <div class="modify__label">주소</div>
-                            <input type="text" class="modify__input">
+                            <input type="text" class="modify__input" value="<?=$_SESSION['alife_user_address']?>" name="address">
                         </div>
                     </div>
-                </div>
+                    <div class="modify__buttons">
+                        <div class="modify__button submit">수정완료</div>
+                        <div class="modify__button cancel">취소</div>
+                    </div>
+                </form>
             </div>
         </div>        
     </div>
