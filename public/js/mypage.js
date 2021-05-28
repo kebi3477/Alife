@@ -1,7 +1,9 @@
+import loading from './loading.js';
 const modify = document.querySelector('.modify');
 
 modify.querySelector('.submit').addEventListener('click', function() {
     const formData = new FormData(modify);
+    loading.start();
     fetch('controller/user/modify', {
         method: 'POST',
         body: formData
@@ -16,6 +18,7 @@ modify.querySelector('.submit').addEventListener('click', function() {
         } else {    
             alert('에러!');
         }
+        loading.end();
     })
 })
 modify.querySelector('.cancel').addEventListener('click', function() {
