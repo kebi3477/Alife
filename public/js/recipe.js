@@ -243,6 +243,9 @@ class View {
                 this.popup.querySelector('.heart').data = 'public/images/icon/heart_fill.svg';
             } else if(msg.status === 'A401') {
                 this.popup.querySelector('.heart').data = 'public/images/icon/heart_l.svg';
+            } else if(msg.status === 'A400') {
+                alert('로그인을 해주세요!');
+                location.href = "login";
             } else {
                 alert('에러!');
             }

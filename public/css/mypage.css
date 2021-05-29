@@ -60,7 +60,7 @@ input[name=tab] {
 .content__title {
     border-bottom: 1px solid var(--gray-light);
     margin: 0 2rem;
-    padding: 1rem 0;
+    padding: 1rem 0 .5rem 0;
 }
 .content__tabs {
     width: 100%;
@@ -116,23 +116,39 @@ input[name=tab] {
 .modify__wraps {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem 6rem;
+    gap: 1rem 2rem;
+    margin: 0 2rem;
     margin-top: 1.5rem;
 }
 .modify__wrap {
     display: grid;
     grid-template-columns: 7rem 1fr;
-    gap: 0rem;
+    gap: 2rem;
 }
 .modify__label {
     font-size: 1.1rem;
     display: flex;
-    place-content: center center;
+    place-content: flex-end;
     align-items: center;
 }
 .modify__input {
     border: 1px solid var(--green-middle);
-    border-radius: 1rem;
+    border-radius: .5rem;
     padding: 1rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+}
+.modify__buttons {
+    display: flex;
+    gap: 2rem;
+    place-content: center;
+    position: relative;
+    margin-top: 15rem;
+}
+.modify__button {
+    padding: 0.8rem 4rem;
+    border: 1px solid var(--green-middle);
+    border-radius: 5rem;
+    font-weight: bold;
+    color: var(--green-middle);
+    cursor: pointer;
 }

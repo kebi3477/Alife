@@ -61,7 +61,7 @@ CREATE TABLE `thumbsup` (
   `thumbsup_id` int PRIMARY KEY AUTO_INCREMENT,
   `user_email` varchar(255),
   `collection_id` int
-);
+);  
 
 CREATE TABLE `history` (
   `history_id` int PRIMARY KEY AUTO_INCREMENT,

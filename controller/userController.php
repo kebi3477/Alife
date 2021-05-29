@@ -170,6 +170,30 @@
         echo json_encode($message);
     }
 
+    function modify() {
+        $message = array();
+        $email = $_SESSION['alife_user_email'];
+        $name = $_POST['name'];
+        $phone = $_POST['phone'];
+        $address = $_POST['address'];
+        
+        if($name === '' || $phone === '' || $address === '') {
+            $message['status'] = 'A400';
+        } else {
+            $sql = "UPDATE users SET user_name='$name', user_phone='$phone', user_address='$address' WHERE user_email='$email'";
+            $result = mysqli_set_query($sql);
+            if($result) {
+                $_SESSION['alife_user_name'] = $name;
+                $_SESSION['alife_user_phone'] = $phone;
+                $_SESSION['alife_user_address'] = $address;
+                $message['status'] = 'A200';
+            } else {
+                $message['status'] = 'A500';
+            }
+        }
+        echo json_encode($message);
+    }  
+
     function logout() {
         $message = array();
         session_destroy();
