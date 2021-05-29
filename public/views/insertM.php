@@ -38,7 +38,10 @@
                         <div class="insert__label">배송비</div>
                         <input type="text" placeholder="배송비를 입력하세요." name="title" maxlength=25>
                         <div class="insert__label">추가배송비</div>
-                        <input type="text" placeholder="추가배송비를 입력하세요." name="title" maxlength=25>
+                        <div class="insert__col">
+                            <input type="text" placeholder="추가배송비를 입력하세요." name="title" maxlength=25>
+                            <div class="insert__label--small">*왕복 도서/산간지역 추가비용을 입력해주세요.</div>
+                        </div>
                     </div>
                     <div class="insert__row">
                         <div class="insert__label">조리정보</div>
@@ -55,13 +58,24 @@
                         <div class="insert__label insert__label--right">식품 필수정보</div>
                         <textarea placeholder="식품 필수정보를 입력해주세요."></textarea>
                     </div>
-                    <div class="insert__row">
+                    <div class="insert__row insert__row--top">
                         <div class="insert__label insert__label--right">식품 상세정보</div>
-                        <div class="insert__img insert__img--small"></div>
+                        <div class="insert__col">
+                            <input type="file" name="images[]" id="rep_img">
+                            <label for="rep_img" class="insert__img insert__img--small">
+                                <object data="public/images/icon/camera.svg" type="image/svg+xml"></object>
+                                <div>칸마다 사진을 등록해주세요.</div>
+                            </label>
+                            <div class="insert__label--small">이미지(1280*세로 제한 없음, png/ jpeg)로 넣어주시길 바랍니다.</div>
+                        </div>
                     </div>
                 </div>
                 <div class="insert__col">
-                    <div class="insert__img"></div>
+                    <input type="file" name="images[]" id="rep_img1">
+                    <label for="rep_img1" class="insert__img">
+                        <object data="public/images/icon/camera.svg" type="image/svg+xml"></object>
+                        <div>요리 완성사진을 등록해주세요.</div>
+                    </label>
                 </div>
             </div>
         </div>

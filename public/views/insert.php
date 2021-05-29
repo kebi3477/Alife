@@ -28,12 +28,12 @@
                         <input type="text" placeholder="제목을 입력하세요." name="title" maxlength=25>
                         <textarea name="intro" placeholder="본인의 레시피에 대해 소개해주세요." name="intro"></textarea>
                     </div>
-                    <div class="insert__img">
+                    <div>
                         <input type="file" name="images[]" id="rep_img">
-                        <label for="rep_img">
+                        <label for="rep_img"><div class="insert__img">
                             <object data="public/images/icon/camera.svg" type="image/svg+xml"></object>
                             <div>요리 완성사진을 등록해주세요.</div>
-                        </label>
+                        </div></label>
                     </div>
                 </div>
                 <div class="insert__row">
@@ -74,12 +74,12 @@
                             요리순서는 페이지당 글자수 200자 이내, 최대 20페이지(사진) 적을 수 있습니다.
                         </div>
                     </div>
-                    <div class="insert__img">
+                    <div>
                         <input type="file" class="step__img" id="step__img1" name="images[]">
-                        <label for="step__img1">
+                        <label for="step__img1"><div class="insert__img">
                             <object data="public/images/icon/camera.svg" type="image/svg+xml"></object>
                             <div>사진을 등록해주세요</div>
-                        </label>
+                        </div></label>
                     </div>
                 </div>
                 <div class="insert__row ingredient__dom">

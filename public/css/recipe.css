@@ -337,7 +337,6 @@ footer {
     border: 1px solid var(--green-middle);
     display: flex;
     flex-flow: row wrap;
-    position: absolute;
 }
 .hashtag {
     padding: .3rem 1rem;
