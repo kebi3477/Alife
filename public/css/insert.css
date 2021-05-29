@@ -65,21 +65,18 @@ textarea[name="recipe[]"] {
 .insert__row > div,
 .insert__row > button,
 .insert__wrap-row > div {
-    display: table-cell;
-    padding: 0 1rem;
-    margin: 0 1rem;
+    /* display: table-cell; */
 }
 .insert__row:nth-of-type(1) > div {
     vertical-align: top;
 }
 .insert__row > div:nth-of-type(3) {
-    width: 18rem;
-    height: 12rem;
+    /* width: 18rem; */
 }
 .insert__label {
     font-size: 18px;
     font-weight: bold;
-    width: 13%;
+    width: 100%;
     text-align: right;
 }
 .insert__label--small {
@@ -89,8 +86,6 @@ textarea[name="recipe[]"] {
 }
 .insert__label--left {
     text-align: left;
-    width: fit-content;
-    margin-right: 1.2rem;
 }
 .insert__label--center {
     text-align: center;
@@ -138,6 +133,10 @@ textarea[name="recipe[]"] {
     background-size: cover;
     background-position: center;
     background-color: #F1F1F1;
+}
+.insert__img--small {
+    width: 15rem;
+    height: 15rem;
 }
 .insert__img > div {
     margin-top: 1rem;
@@ -202,4 +201,34 @@ textarea[name="recipe[]"] {
 .hashtag__close > img {
     width: .6rem;
     margin-left: .6rem;
+}
+
+.insert__grids {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+.insert__grid {
+    display: grid;
+    align-items: center;
+    gap: 1rem;
+}
+.insert__grid > .insert__row {
+    display: grid;
+    grid-template-columns: .2fr 1fr;
+    align-items: center;
+    gap: 3rem;
+    justify-items: baseline;
+}
+.insert__grid > .insert__row--middle {
+    grid-template-columns: .64fr 1.1fr .5fr 1.1fr;
+}
+.insert__grid > .insert__row--long {
+    grid-template-columns: 2.1fr .7fr 1fr .5fr 1fr 1fr 1fr;
+}
+.insert__flex {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
 }
