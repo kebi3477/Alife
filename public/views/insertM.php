@@ -84,6 +84,7 @@
         </div>
     </form>
     <script type="module" src="public/js/common.js"></script>
+    <script type="module" src="public/js/loading.js"></script>
     <script type="module" src="public/js/insertM.js"></script>
 </body>
 </html>

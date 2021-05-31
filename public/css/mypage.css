@@ -22,11 +22,17 @@
     padding: 1rem;
 }
 .profile__img {
-    width: 4rem;
-    height: 4rem;
+    width: 5rem;
+    height: 5rem;
     border-radius: 3rem;
     margin: 0 auto;
     border: 1px solid var(--gray-light);
+    cursor: pointer;
+}
+.profile__img > object {
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
 }
 .profile__label {
     text-align: center;
@@ -39,6 +45,7 @@
 }
 .profile__label--middle {
     font-size: 1.1rem;
+    color: #676767;
 }
 .profile__label--bold {
     font-weight: bold;
@@ -97,6 +104,9 @@ input[name=tab] {
     font-weight: bold;
     color: var(--green-middle);
 }
+#rank:checked ~ .rank {
+    display: block;
+}
 #write:checked ~ .write {
     display: block;
 }
@@ -111,6 +121,60 @@ input[name=tab] {
 }
 .content__box {
     display: none;
+}
+
+.rank__wrap {
+    padding: 0 25%;
+    margin-top: 2rem;
+}
+.rank__col {
+    padding: 0 2.5rem;
+}
+.rank__bar {
+    display: grid;
+    grid-template-columns: 3fr 5rem;
+    text-align: right;
+    gap: 1rem;
+    margin-top: .5rem;
+}
+.rank__bar-outer {
+    width: 100%;
+    background-color: #F1F1F1;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+.rank__bar-inner {
+    width: 40%;
+    height: 100%;
+    background-color: var(--green-mlight);
+    border-radius: 1rem;
+}
+.rank__icons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+.rank__icon {
+    display: grid;
+    gap: .2rem;
+    grid-template-rows: 2fr 1fr 1.2fr .7fr .7fr .7fr;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.rank__name {
+    font-size: 1rem;
+}
+.rank__label {
+    font-size: .9rem;
+    color: #676767;
+}
+.rank__label--middle {
+    font-weight: 500;
+}
+.rank__label--light {
+    font-weight: 300;
 }
 
 .modify__wraps {

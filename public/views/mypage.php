@@ -14,15 +14,17 @@
     <div class="mypage padding">
         <div class="mypage__wrap">
             <div class="profile">
-                <div class="profile__img"></div>
-                <div class="profile__label profile__label--small">등급이름</div>
+                <label class="profile__img" for="rank">
+                    <object data="public/images/icon/profile_g.svg" type="image/svg+xml"></object>
+                </label>
                 <div class="profile__label profile__row">
                     <div class="profile__label--bold"><?=$_SESSION['alife_user_name']?></div>
                     <div class="profile__label--middle">(<?=$_SESSION['alife_user_email']?>)</div>
                 </div>
             </div>
             <div class="content">
-                <input type="radio" name="tab" id="write" checked>
+                <input type="radio" name="tab" id="rank" checked>
+                <input type="radio" name="tab" id="write">
                 <input type="radio" name="tab" id="thumsup">
                 <input type="radio" name="tab" id="history">
                 <input type="radio" name="tab" id="modify">
@@ -31,6 +33,53 @@
                     <label for="thumsup" class="content__tab">좋아요</label>
                     <label for="history" class="content__tab">주문내역 조회</label>
                     <label for="modify" class="content__tab">회원정보 수정</label>
+                </div>
+                <div class="rank content__box">
+                    <div class="content__title">ALife 멤버십 혜택</div>
+                    <div class="rank__wrap">
+                        <div class="rank__col">
+                            <div class="rank__label">현재 나의 등급</div>
+                            <div class="rank__bar">
+                                <div class="rank__bar-outer">
+                                    <div class="rank__bar-inner"></div>
+                                </div>
+                                <div class="rank__label">옐로우그린</div>
+                            </div>
+                        </div>
+                        <div class="rank__icons">
+                            <div class="rank__icon">
+                                <div class="rank__img"><object data="public/images/icon/profile_g.svg" type="image/svg+xml"></object></div>
+                                <div class="rank__name">그린</div>
+                                <div class="rank__label rank__label--middle">신규가입</div>
+                                <div class="rank__label rank__label--light">1,000원 할인쿠폰</div>
+                                <div class="rank__label rank__label--light"></div>
+                            </div>
+                            <div class="rank__icon">
+                                <div class="rank__img"><object data="public/images/icon/profile_yg.svg" type="image/svg+xml"></object></div>
+                                <div class="rank__name">옐로우그린</div>
+                                <div class="rank__label rank__label--middle">기본회원</div>
+                                <div class="rank__label rank__label--light">구매 시 3% 할인</div>
+                                <div class="rank__label rank__label--light">월 1회 무료배송</div>
+                                <div class="rank__label rank__label--light"></div>
+                            </div>
+                            <div class="rank__icon">
+                                <div class="rank__img"><object data="public/images/icon/profile_y.svg" type="image/svg+xml"></object></div>
+                                <div class="rank__name">옐로우</div>
+                                <div class="rank__label rank__label--middle"></div>
+                                <div class="rank__label rank__label--light">구매시 5% 할인</div>
+                                <div class="rank__label rank__label--light">월 3회 무료배송</div>
+                                <div class="rank__label rank__label--light"></div>
+                            </div>
+                            <div class="rank__icon">
+                                <div class="rank__img"><object data="public/images/icon/profile_o.svg" type="image/svg+xml"></object></div>
+                                <div class="rank__name">오렌지</div>
+                                <div class="rank__label rank__label--middle"></div>
+                                <div class="rank__label rank__label--light">구매 시 7% 할인</div>
+                                <div class="rank__label rank__label--light">월 5회 무료배송</div>
+                                <div class="rank__label rank__label--light">신상 밀키트 배송</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="write content__box"></div>
                 <div class="thumsup content__box"></div>
