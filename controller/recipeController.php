@@ -146,6 +146,16 @@
 
         echo json_encode($arr);
     }
+    
+    function getRecipeByWriter() {
+        $user = $_SESSION['alife_user_email'];
+        $sql = "SELECT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user
+            FROM collection c
+            JOIN users u ON c.user_email = u.user_email AND u.user_email='$user'
+            ORDER BY c.collection_date desc";
+        $recipes = mysqli_get_query($sql);
+        echo json_encode($recipes);
+    }
 
     function setThumbsup() {
         $message = array();
@@ -157,7 +167,7 @@
             $result = mysqli_get_query($sql);
 
             if(count($result) > 0) {
-                $sql = "DELETE FROM thumbsup WHERE collection_id = $collection_id";
+                $sql = "DELETE FROM thumbsup WHERE collection_id = $collection_id and user_email = '$user'";
                 $result = mysqli_set_query($sql);
                 $message['status'] = 'A401';
             } else {

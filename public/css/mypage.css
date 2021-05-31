@@ -122,6 +122,13 @@ input[name=tab] {
 .content__box {
     display: none;
 }
+.write__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 0 2rem;
+}
 
 .rank__wrap {
     padding: 0 25%;
@@ -215,4 +222,8 @@ input[name=tab] {
     font-weight: bold;
     color: var(--green-middle);
     cursor: pointer;
+}
+
+.recipe__item {
+    width: 100%;
 }

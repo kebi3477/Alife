@@ -1,4 +1,5 @@
 import loading from './loading.js';
+import appendRecipeList from './view.js';
 const modify = document.querySelector('.modify');
 
 modify.querySelector('.submit').addEventListener('click', function() {
@@ -21,6 +22,13 @@ modify.querySelector('.submit').addEventListener('click', function() {
         loading.end();
     })
 })
+
 modify.querySelector('.cancel').addEventListener('click', function() {
     history.back();
+})
+
+fetch('controller/recipe/getRecipeByWriter')
+.then(recipes => recipes.json())
+.then(recipes => {
+    appendRecipeList(recipes, 'write__list');
 })

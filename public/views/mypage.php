@@ -10,7 +10,10 @@
     <link rel="shortcut icon" href="public/images/favicon/favicon.ico">
 </head>
 <body>
-    <?php include('header.php'); ?>
+    <?php 
+        include('header.php'); 
+        include('view.php');
+    ?>
     <div class="mypage padding">
         <div class="mypage__wrap">
             <div class="profile">
@@ -81,7 +84,26 @@
                         </div>
                     </div>
                 </div>
-                <div class="write content__box"></div>
+                <div class="write content__box">
+                    <div class="content__title">작성한 레시피</div>
+                    <div class="write__list">
+                        <div class="recipe__item">
+                            <div class="recipe__img"></div>
+                            <div class="recipe__title">국물 떡볶이 만들기</div>
+                            <div class="recipe__content">국물 떡볶이 만들어 봅시다. 국물 떡볶이 만들어 봅시다.  국물 떡볶이 만들어 봅시다. 국물...  </div>
+                            <div class="recipe--bottom">
+                                <div class="recipe__cover">
+                                    <div class="recipe__user-img"></div>
+                                    <div class="recipe__user-name">나는 요리사</div>
+                                </div>
+                                <div class="recipe__cover">
+                                    <object class="heart" data="public/images/icon/heart_r.svg" type="image/svg+xml"></object>
+                                    <div class="recipe__user-name">100</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="thumsup content__box"></div>
                 <div class="history content__box"></div>
                 <form class="modify content__box">
@@ -114,6 +136,7 @@
     </div>
     <script type="module" src="public/js/loading.js"></script>
     <script type="module" src="public/js/common.js"></script>
+    <script type="module" src="public/js/view.js"></script>
     <script type="module" src="public/js/mypage.js"></script>
 </body>
 </html>
