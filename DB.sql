@@ -49,12 +49,18 @@ CREATE TABLE `ringredient` (
   `ringredient_amount` varchar(255),
   `recipe_seq` int
 );
-
+--구축
 CREATE TABLE `mealkit` (
   `mealkit_id` int PRIMARY KEY AUTO_INCREMENT,
   `mealkit_name` varchar(255),
-  `user_email` varchar(255),
-  `mealkit_img` varchar(255)
+  `mealkit_cname` varchar(255),
+  `mealkit_price` int,
+  `mealkit_sprice` int,
+  `mealkit_sfee` int,
+  `mealkit_psfee` int,
+  `mealkit_weight` int,
+  `mealkit_serving` int,
+  `user_email` varchar(255)
 );
 --구축
 CREATE TABLE `thumbsup` (

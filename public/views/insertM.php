@@ -13,7 +13,7 @@
     <?php 
         include('header.php');
         include('interceptor/userInterceptor.php');
-        isLoging();
+        isAdmin();
     ?>
     <form class="insert padding" enctype="multipart/form-data">
         <div class="insert__form">
@@ -22,24 +22,24 @@
                 <div class="insert__grid">
                     <div class="insert__row">
                         <div class="insert__label">상품명</div>
-                        <input type="text" placeholder="상품명을 입력하세요." name="title" maxlength=25>
+                        <input type="text" placeholder="상품명을 입력하세요." name="name" maxlength=25>
                     </div>
                     <div class="insert__row">
                         <div class="insert__label">업체명</div>
-                        <input type="text" placeholder="업체명을 입력하세요." name="title" maxlength=25>
+                        <input type="text" placeholder="업체명을 입력하세요." name="cname" maxlength=25>
                     </div>
                     <div class="insert__row insert__row--middle">
                         <div class="insert__label">가격</div>
-                        <input type="text" placeholder="가격을 입력하세요." name="title" maxlength=25>
+                        <input type="text" placeholder="가격을 입력하세요." name="price" maxlength=25>
                         <div class="insert__label">할인가격</div>
-                        <input type="text" placeholder="할인가격을 입력하세요." name="title" maxlength=25>
+                        <input type="text" placeholder="할인가격을 입력하세요." name="sprice" maxlength=25>
                     </div>
                     <div class="insert__row insert__row--middle">
                         <div class="insert__label">배송비</div>
-                        <input type="text" placeholder="배송비를 입력하세요." name="title" maxlength=25>
+                        <input type="text" placeholder="배송비를 입력하세요." name="sfee" maxlength=25>
                         <div class="insert__label">추가배송비</div>
                         <div class="insert__col">
-                            <input type="text" placeholder="추가배송비를 입력하세요." name="title" maxlength=25>
+                            <input type="text" placeholder="추가배송비를 입력하세요." name="psfee" maxlength=25>
                             <div class="insert__label--small">*왕복 도서/산간지역 추가비용을 입력해주세요.</div>
                         </div>
                     </div>
@@ -47,22 +47,18 @@
                         <div class="insert__label">조리정보</div>
                         <div class="insert__flex">
                             <div class="insert__label">중량</div>
-                            <input type="text" placeholder="300g" name="title" maxlength=25>
+                            <input type="text" placeholder="300" name="weight" maxlength=25>
                             <div class="insert__label insert__label--left">g</div>
                             <div class="insert__label">인원</div>
-                            <input type="text" placeholder="1" name="title" maxlength=25>
+                            <input type="text" placeholder="1" name="serving" maxlength=25>
                             <div class="insert__label insert__label--left">인분</div>
                         </div>
-                    </div>
-                    <div class="insert__row">
-                        <div class="insert__label insert__label--right">식품 필수정보</div>
-                        <textarea placeholder="식품 필수정보를 입력해주세요."></textarea>
                     </div>
                     <div class="insert__row insert__row--top">
                         <div class="insert__label insert__label--right">식품 상세정보</div>
                         <div class="insert__col">
-                            <input type="file" name="images[]" id="rep_img">
-                            <label for="rep_img" class="insert__img insert__img--small">
+                            <input type="file" name="title_images[]" id="title_image">
+                            <label for="title_image" class="insert__img insert__img--small">
                                 <object data="public/images/icon/camera.svg" type="image/svg+xml"></object>
                                 <div>칸마다 사진을 등록해주세요.</div>
                             </label>
@@ -71,8 +67,8 @@
                     </div>
                 </div>
                 <div class="insert__col">
-                    <input type="file" name="images[]" id="rep_img1">
-                    <label for="rep_img1" class="insert__img">
+                    <input type="file" name="detail_images[]" id="detail_image">
+                    <label for="detail_image" class="insert__img">
                         <object data="public/images/icon/camera.svg" type="image/svg+xml"></object>
                         <div>요리 완성사진을 등록해주세요.</div>
                     </label>
@@ -88,5 +84,6 @@
         </div>
     </form>
     <script type="module" src="public/js/common.js"></script>
+    <script type="module" src="public/js/insertM.js"></script>
 </body>
 </html>

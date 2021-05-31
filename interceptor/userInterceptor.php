@@ -11,6 +11,13 @@
         }
     }
 
+    function isAdmin() {
+        isLoging();
+        if($_SESSION['alife_user_rank'] != 1) {
+            echoScript('관리자가 아닙니다!', 'index');
+        }
+    }
+
     function echoScript($text, $location) {
         echo "<script>
         alert('$text');
