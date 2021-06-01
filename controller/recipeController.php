@@ -75,31 +75,15 @@
     }
 
     function getRecipeByTop() {
+        $user = $_SESSION['alife_user_email'];
         $arr = array();
-        $sql = "SELECT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user
-            FROM collection c
-            JOIN users u ON c.user_email = u.user_email 
-            ORDER BY c.collection_date desc LIMIT 0, 3";
+        $sql = "SELECT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user, t.thumbsup_id
+                FROM collection c
+                JOIN users u ON c.user_email = u.user_email
+                LEFT JOIN thumbsup t ON t.collection_id = c.collection_id AND t.user_email = '$user'
+                ORDER BY c.collection_date desc LIMIT 0, 3";
         $recipes = mysqli_get_query($sql);
-        
-        if(isset($_SESSION['alife_user_email'])) {
-            foreach($recipes as $recipe) {
-                $user = $_SESSION['alife_user_email'];
-                $id = $recipe['id'];
-                $sql = "SELECT * FROM thumbsup WHERE user_email='$user' AND collection_id=$id";
-                $thumbsup = mysqli_get_query($sql);
-                
-                if(count($thumbsup)) {
-                    $recipe['thumbsup'] = true;
-                } else {
-                    $recipe['thumbsup'] = false;
-                }
-                array_push($arr, $recipe);
-            }
-            echo json_encode($arr);
-        } else {
-            echo json_encode($recipes);
-        }
+        echo json_encode($recipes);
     }
 
     function getRecipeByFridge() {
@@ -149,9 +133,10 @@
     
     function getRecipeByWriter() {
         $user = $_SESSION['alife_user_email'];
-        $sql = "SELECT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user
+        $sql = "SELECT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user, t.thumbsup_id
             FROM collection c
             JOIN users u ON c.user_email = u.user_email AND u.user_email='$user'
+            LEFT JOIN thumbsup t ON t.collection_id = c.collection_id
             ORDER BY c.collection_date desc";
         $recipes = mysqli_get_query($sql);
         echo json_encode($recipes);
@@ -159,10 +144,10 @@
 
     function getRecipeByThumbsup() {
         $user = $_SESSION['alife_user_email'];
-        $sql = "SELECT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user
+        $sql = "SELECT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user, t.thumbsup_id
             FROM collection c
-            JOIN thumbsup t ON t.collection_id = c.collection_id AND t.user_email = c.user_email
-            JOIN users u ON c.user_email = u.user_email AND u.user_email='$user'
+            JOIN users u ON c.user_email = u.user_email
+            JOIN thumbsup t ON t.collection_id = c.collection_id AND t.user_email='$user'
             ORDER BY c.collection_date desc";
         $recipes = mysqli_get_query($sql);
         echo json_encode($recipes);

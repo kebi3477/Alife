@@ -281,7 +281,7 @@ function appendRecipeList(recipes, listName) {
         `
         dom.querySelector('.recipe__img').style.backgroundImage = `url(/recipes/${recipe.id}/reg_img.jpg)`;
         dom.onclick = () => view.show(recipe.id);
-        if(recipe.thumbsup) {
+        if(recipe.thumbsup_id) {
             dom.querySelector('.heart').data = 'public/images/icon/heart_fill.svg';
         } else {
             dom.querySelector('.heart').data = 'public/images/icon/heart_l.svg';

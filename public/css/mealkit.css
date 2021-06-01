@@ -10,7 +10,7 @@
     height: 46rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 2rem;
+    gap: 1rem;
     margin-top: 2rem;
 }
 .mealkit__item {
@@ -20,6 +20,7 @@
     border: 1px solid var(--gray-middle);
     border-radius: 1rem;
     overflow: hidden;
+    cursor: pointer;
 }
 .mealkit__image {
     flex: 4;

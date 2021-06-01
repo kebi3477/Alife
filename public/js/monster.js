@@ -122,7 +122,6 @@ class Meal {
         this.rotate += this.rotateFlag ? Math.random() * 1 : Math.random() * -1;
     }
     start() {
-        // this.moving && clearInterval(this.moving)
         this.moving = setInterval(() => this.moveObject(), 1);
     }
     pause() {
@@ -147,6 +146,7 @@ class Meal {
         movingEye(e);
     }
     restart(e) {
+        this.moving && clearInterval(this.moving)
         this.x = e.clientX;
         this.y = e.clientY+window.scrollY;
         this.reverseX = this.startX > e.clientX ? true : false;

@@ -22,43 +22,11 @@
                 <object data="public/images/icon/pencil.svg" type="image/svg+xml"></object>
             </div></a>
         </div>
-        <div class="recipe__list rank">
-            <div class="recipe__item">
-                <div class="recipe__img"></div>
-                <div class="recipe__title">국물 떡볶이 만들기</div>
-                <div class="recipe__content">국물 떡볶이 만들어 봅시다. 국물 떡볶이 만들어 봅시다.  국물 떡볶이 만들어 봅시다. 국물...  </div>
-                <div class="recipe--bottom">
-                    <div class="recipe__cover">
-                        <div class="recipe__user-img"></div>
-                        <div class="recipe__user-name">나는 요리사</div>
-                    </div>
-                    <div class="recipe__cover">
-                        <object class="heart heart__s" data="public/images/icon/heart_r.svg" type="image/svg+xml"></object>
-                        <div class="recipe__user-name">100</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="recipe__list rank"></div>
     </div>
     <div class="recipe__wrap padding ingredient">
         <div class="recipe__list-title fridge__title">대파가 냉장고에 남아 있다면?</div>
-        <div class="recipe__list fridge">
-            <div class="recipe__item">
-                <div class="recipe__img"></div>
-                <div class="recipe__title">국물 떡볶이 만들기</div>
-                <div class="recipe__content">국물 떡볶이 만들어 봅시다. 국물 떡볶이 만들어 봅시다.  국물 떡볶이 만들어 봅시다. 국물...  </div>
-                <div class="recipe--bottom">
-                    <div class="recipe__cover">
-                        <div class="recipe__user-img"></div>
-                        <div class="recipe__user-name">나는 요리사</div>
-                    </div>
-                    <div class="recipe__cover">
-                        <object class="heart" data="public/images/icon/heart_r.svg" type="image/svg+xml"></object>
-                        <div class="recipe__user-name">100</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="recipe__list fridge"></div>
     </div>
     <div class="recipe__wrap padding">
         <div class="recipe__list-title"><?=$_SESSION['alife_user_name']?>님의 냉장고 속 재료와 어울리는 레시피</div>

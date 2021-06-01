@@ -121,6 +121,11 @@ input[name=tab] {
 }
 .content__box {
     display: none;
+    overflow-y: scroll;
+    max-height: 34rem;
+}
+.content__box::-webkit-scrollbar {
+    width: 0px;
 }
 .recipe__list {
     display: grid;
