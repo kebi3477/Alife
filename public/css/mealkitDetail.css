@@ -98,6 +98,7 @@ input[type=radio] {
 }
 .info {
     margin-top: 10rem;
+    margin-bottom: 5rem;
 }
 .info__tabs {
     display: flex;

@@ -167,7 +167,7 @@
                 $result = mysqli_set_query($sql);
                 $message['status'] = 'A401';
             } else {
-                $sql = "INSERT INTO thumbsup VALUES('', '$user', $collection_id)";
+                $sql = "INSERT INTO thumbsup VALUES('', '$user', $collection_id, '')";
                 $result = mysqli_set_query($sql);
 
                 if($result) $message['status'] = 'A200';

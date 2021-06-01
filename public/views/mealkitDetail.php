@@ -62,7 +62,7 @@
             <div class="show__buttons">
                 <div class="show__button show__button--reversal">장바구니</div>
                 <div class="show__button">바로구매</div>
-                <div class="show__button"><img src="/public/images/icon/heart_w.svg"></div>
+                <div class="show__button thumbsup" data-id=<?=$mealkit['mealkit_id']?>><img src="/public/images/icon/heart_w.svg"></div>
             </div>
         </div>
     </div>
@@ -86,6 +86,9 @@
             
         </div>
     </div>
+    <script type="module" src="/public/js/common.js"></script>
+    <script type="module" src="/public/js/loading.js"></script>
+    <script type="module" src="/public/js/mealkitDetail.js"></script>
     <?php include('footer.php'); ?>
 </body>
 </html>

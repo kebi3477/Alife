@@ -55,5 +55,32 @@
         echo json_encode($results);
     }
 
+    function setThumbsup() {
+        $message = array();
+        $mealkit_id = $_POST['id'];
+        
+        if(isset($_SESSION['alife_user_email'])) {
+            $user = $_SESSION['alife_user_email'];
+            $sql = "SELECT * FROM thumbsup WHERE user_email='$user' AND mealkit_id=$mealkit_id";
+            $result = mysqli_get_query($sql);
+
+            if(count($result) > 0) {
+                $sql = "DELETE FROM thumbsup WHERE mealkit_id = $mealkit_id and user_email = '$user'";
+                $result = mysqli_set_query($sql);
+                $message['status'] = 'A401';
+            } else {
+                $sql = "INSERT INTO thumbsup VALUES('', '$user', '', $mealkit_id)";
+                $result = mysqli_set_query($sql);
+
+                if($result) $message['status'] = 'A200';
+                else $message['status'] = 'A500';
+            }
+        } else {
+            $message['status'] = 'A400';
+        }
+
+        echo json_encode($message);
+    }
+
     $urls[3]();
 ?>
