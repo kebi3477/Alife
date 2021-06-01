@@ -22,6 +22,9 @@
     font-family: 'Noto Sans KR', sans-serif;
     box-sizing: border-box;
     color: var(--gray-font);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .recipe__wrap {
@@ -511,9 +514,6 @@ footer {
 .recipe__img {
     height: 13.5rem;
     background-color: var(--gray-light);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
 }
 .recipe__wrap:nth-of-type(2) .recipe__img {
     height: 19rem;  

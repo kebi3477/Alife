@@ -11,7 +11,11 @@
 </head>
 <body>
     <?php include('header.php') ?>
-    <?php for($i = 0; $i < 4; $i++) { ?>
+    <div class="mealkit__list padding">
+        <div class="title">냉장고에 있는 대파가 사용되는 식품</div>
+        <div class="fridge mealkit__items"></div>
+    </div>
+    <?php for($i = 0; $i < 3; $i++) { ?>
     <div class="mealkit__list padding">
         <div class="title">냉장고에 있는 대파가 사용되는 식품</div>
         <div class="mealkit__items">
@@ -32,5 +36,8 @@
         </div>
     </div>
     <?php } ?>
+    <script type="module" src="public/js/loading.js"></script>
+    <script type="module" src="public/js/common.js"></script>
+    <script type="module" src="public/js/mealkit.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <?php
     include 'modules/mysql.php';
-
+    session_start();    
     function setRecipe() {
         $message = array();
         $title = $_POST['title'];

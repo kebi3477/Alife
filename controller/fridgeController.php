@@ -1,6 +1,6 @@
 <?php
     include 'modules/mysql.php';
-
+    session_start();
     function getIngredients() {
         $type = $_POST['type'];
 

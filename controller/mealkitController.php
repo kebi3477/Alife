@@ -1,5 +1,6 @@
 <?php
     include 'modules/mysql.php';
+    session_start();    
 
     function setMealkit() {
         $message = array();
@@ -19,12 +20,17 @@
             $message['status'] = 'A400';
         } else {
             $sql = "INSERT INTO mealkit VALUES('', '$name', '$cname', $price, $sprice, $sfee, $psfee, $weight, $serving, '$user')";
-            // echo $sql;
             $result = mysqli_set_query($sql);
             $message['status'] = $result ? 'A200' : 'A500';
         }
 
         echo json_encode($message);
+    }
+
+    function getMealkitByFridge() {
+        $sql = "SELECT mealkit_id, mealkit_cname, mealkit_name, mealkit_price, mealkit_sprice FROM mealkit";
+        $results = mysqli_get_query($sql);
+        echo json_encode($results);
     }
 
     $urls[3]();
