@@ -157,6 +157,17 @@
         echo json_encode($recipes);
     }
 
+    function getRecipeByThumbsup() {
+        $user = $_SESSION['alife_user_email'];
+        $sql = "SELECT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user
+            FROM collection c
+            JOIN thumbsup t ON t.collection_id = c.collection_id AND t.user_email = c.user_email
+            JOIN users u ON c.user_email = u.user_email AND u.user_email='$user'
+            ORDER BY c.collection_date desc";
+        $recipes = mysqli_get_query($sql);
+        echo json_encode($recipes);
+    }
+
     function setThumbsup() {
         $message = array();
         $collection_id = $_POST['collection_id'];

@@ -28,12 +28,12 @@
             <div class="content">
                 <input type="radio" name="tab" id="rank" checked>
                 <input type="radio" name="tab" id="write">
-                <input type="radio" name="tab" id="thumsup">
+                <input type="radio" name="tab" id="thumbsup">
                 <input type="radio" name="tab" id="history">
                 <input type="radio" name="tab" id="modify">
                 <div class="content__tabs">
                     <label for="write" class="content__tab">작성한 게시글</label>
-                    <label for="thumsup" class="content__tab">좋아요</label>
+                    <label for="thumbsup" class="content__tab">좋아요</label>
                     <label for="history" class="content__tab">주문내역 조회</label>
                     <label for="modify" class="content__tab">회원정보 수정</label>
                 </div>
@@ -86,25 +86,12 @@
                 </div>
                 <div class="write content__box">
                     <div class="content__title">작성한 레시피</div>
-                    <div class="write__list">
-                        <div class="recipe__item">
-                            <div class="recipe__img"></div>
-                            <div class="recipe__title">국물 떡볶이 만들기</div>
-                            <div class="recipe__content">국물 떡볶이 만들어 봅시다. 국물 떡볶이 만들어 봅시다.  국물 떡볶이 만들어 봅시다. 국물...  </div>
-                            <div class="recipe--bottom">
-                                <div class="recipe__cover">
-                                    <div class="recipe__user-img"></div>
-                                    <div class="recipe__user-name">나는 요리사</div>
-                                </div>
-                                <div class="recipe__cover">
-                                    <object class="heart" data="public/images/icon/heart_r.svg" type="image/svg+xml"></object>
-                                    <div class="recipe__user-name">100</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="write__recipe-list recipe__list"></div>
                 </div>
-                <div class="thumsup content__box"></div>
+                <div class="thumbsup content__box">
+                    <div class="content__title">좋아하는 레시피</div>
+                    <div class="thumbs__recipe-list recipe__list"></div>
+                </div>
                 <div class="history content__box"></div>
                 <form class="modify content__box">
                     <div class="content__title">회원정보수정</div>

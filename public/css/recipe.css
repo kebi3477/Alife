@@ -27,7 +27,7 @@
 }
 .recipe__list {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     margin-top: 2rem;
     justify-content: space-between;
     gap: 1rem;

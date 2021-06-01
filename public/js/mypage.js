@@ -30,5 +30,11 @@ modify.querySelector('.cancel').addEventListener('click', function() {
 fetch('controller/recipe/getRecipeByWriter')
 .then(recipes => recipes.json())
 .then(recipes => {
-    appendRecipeList(recipes, 'write__list');
+    appendRecipeList(recipes, 'write__recipe-list');
+})
+
+fetch('controller/recipe/getRecipeByThumbsup')
+.then(recipes => recipes.json())
+.then(recipes => {
+    appendRecipeList(recipes, 'thumbs__recipe-list');
 })

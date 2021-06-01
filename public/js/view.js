@@ -261,13 +261,25 @@ viewClose.onclick = () => view.close();
 
 function appendRecipeList(recipes, listName) {
     const rank = document.querySelector(`.${listName}`);
-    const item = rank.querySelector('.recipe__item');
     recipes.forEach(recipe => {
-        const dom = item.cloneNode(true);
-        dom.querySelector('.recipe__title').innerText = recipe.title;
-        dom.querySelector('.recipe__content').innerText = recipe.intro;
+        const dom = document.createElement('div');
+        dom.classList.add('recipe__item');
+        dom.innerHTML = `
+            <div class="recipe__img"></div>
+            <div class="recipe__title">${recipe.title}</div>
+            <div class="recipe__content">${recipe.intro}</div>
+            <div class="recipe--bottom">
+                <div class="recipe__cover">
+                    <div class="recipe__user-img"></div>
+                    <div class="recipe__user-name">${recipe.user}</div>
+                </div>
+                <div class="recipe__cover">
+                    <object class="heart" data="public/images/icon/heart_r.svg" type="image/svg+xml"></object>
+                    <div class="recipe__user-name">100</div>
+                </div>
+            </div>
+        `
         dom.querySelector('.recipe__img').style.backgroundImage = `url(/recipes/${recipe.id}/reg_img.jpg)`;
-        dom.querySelector('.recipe__user-name').innerText = recipe.user;
         dom.onclick = () => view.show(recipe.id);
         if(recipe.thumbsup) {
             dom.querySelector('.heart').data = 'public/images/icon/heart_fill.svg';
@@ -276,7 +288,6 @@ function appendRecipeList(recipes, listName) {
         }
         rank.append(dom);
     })
-    item.remove();
 }
 
 export default appendRecipeList;

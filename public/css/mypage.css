@@ -89,7 +89,7 @@ input[name=tab] {
     font-weight: bold;
     color: var(--green-middle);
 }
-#thumsup:checked ~ .content__tabs > label[for=thumsup] {
+#thumbsup:checked ~ .content__tabs > label[for=thumbsup] {
     background-color: #fff;
     font-weight: bold;
     color: var(--green-middle);
@@ -110,7 +110,7 @@ input[name=tab] {
 #write:checked ~ .write {
     display: block;
 }
-#thumsup:checked ~ .thumsup {
+#thumbsup:checked ~ .thumbsup {
     display: block;
 }
 #history:checked ~ .history {
@@ -122,7 +122,7 @@ input[name=tab] {
 .content__box {
     display: none;
 }
-.write__list {
+.recipe__list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 1rem;
