@@ -2,7 +2,7 @@
     height: max-content;
     display: grid;
     margin-top: 13rem;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.05fr 1fr;
     gap: 3rem;
 }
 .show--left {
@@ -137,4 +137,24 @@ input[type=radio] {
     background-color: #fff;
     color: var(--green-middle);
     font-weight: bold;
+}
+.info__content {
+    display: none;
+}
+#show1:checked ~ .tab1__content {
+    display: block;
+}
+#show2:checked ~ .tab2__content {
+    display: block;
+}
+#show3:checked ~ .tab3__content {
+    display: block;
+}
+#show4:checked ~ .tab4__content {
+    display: block;
+}
+
+
+.info__content > img {
+    width: 100%;
 }

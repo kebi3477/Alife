@@ -94,6 +94,11 @@ input[name=tab] {
     font-weight: bold;
     color: var(--green-middle);
 }
+#rank:checked ~ .content__tabs > label[for=rank] {
+    background-color: #fff;
+    font-weight: bold;
+    color: var(--green-middle);
+}
 #history:checked ~ .content__tabs > label[for=history] {
     background-color: #fff;
     font-weight: bold;

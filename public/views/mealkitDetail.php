@@ -19,7 +19,7 @@
     
     <div class="show padding">
         <div class="show--left">
-            <div class="show__image"></div>
+            <div class="show__image" style="background-image: url(../mealkits/<?=$mealkit['mealkit_id']?>/title_img.jpg)"></div>
             <div class="show__remocon">
                 <img src="/public/images/icon/arrow_left.svg" alt="">
                 <img src="/public/images/icon/arrow_right.svg" alt="">
@@ -77,7 +77,15 @@
             <div class="info__tab"><label for="show3" class="tab3">상품 문의</label></div>
             <div class="info__tab"><label for="show4" class="tab4">배송 / 교환 / 반품안내</label></div>
         </div>
-        
+        <div class="info__content tab1__content">
+            <img src="../mealkits/<?=$mealkit['mealkit_id']?>/detail_img.jpg" alt="">
+        </div>
+        <div class="info__content tab2__content"></div>
+        <div class="info__content tab3__content"></div>
+        <div class="info__content tab4__content">
+            
+        </div>
     </div>
+    <?php include('footer.php'); ?>
 </body>
 </html>

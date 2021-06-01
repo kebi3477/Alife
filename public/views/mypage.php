@@ -17,9 +17,9 @@
     <div class="mypage padding">
         <div class="mypage__wrap">
             <div class="profile">
-                <label class="profile__img" for="rank">
+                <div class="profile__img">
                     <object data="public/images/icon/profile_g.svg" type="image/svg+xml"></object>
-                </label>
+                </div>
                 <div class="profile__label profile__row">
                     <div class="profile__label--bold"><?=$_SESSION['alife_user_name']?></div>
                     <div class="profile__label--middle">(<?=$_SESSION['alife_user_email']?>)</div>
@@ -34,6 +34,7 @@
                 <div class="content__tabs">
                     <label for="write" class="content__tab">작성한 게시글</label>
                     <label for="thumbsup" class="content__tab">좋아요</label>
+                    <label for="rank" class="content__tab">멤버십 혜택</label>
                     <label for="history" class="content__tab">주문내역 조회</label>
                     <label for="modify" class="content__tab">회원정보 수정</label>
                 </div>

@@ -57,8 +57,8 @@
                     <div class="insert__row insert__row--top">
                         <div class="insert__label insert__label--right">식품 상세정보</div>
                         <div class="insert__col">
-                            <input type="file" name="title_images[]" id="title_image">
-                            <label for="title_image" class="insert__img insert__img--small">
+                            <input type="file" name="detail_images[]" id="detail_images">
+                            <label for="detail_images" class="insert__img insert__img--small">
                                 <object data="public/images/icon/camera.svg" type="image/svg+xml"></object>
                                 <div>칸마다 사진을 등록해주세요.</div>
                             </label>
@@ -67,8 +67,8 @@
                     </div>
                 </div>
                 <div class="insert__col">
-                    <input type="file" name="detail_images[]" id="detail_image">
-                    <label for="detail_image" class="insert__img">
+                    <input type="file" name="title_images[]" id="title_images">
+                    <label for="title_images" class="insert__img">
                         <object data="public/images/icon/camera.svg" type="image/svg+xml"></object>
                         <div>요리 완성사진을 등록해주세요.</div>
                     </label>

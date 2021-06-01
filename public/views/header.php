@@ -11,6 +11,10 @@
     <div class="header__list">
     <?php
         if(isset($_SESSION['alife_user_email'])) {
+            if($_SESSION['alife_user_rank'] == "1")
+    ?>
+            <div class="header__item header__item--small"><a href="/insertM">밀키트 등록</a></div>
+    <?php
     ?>
         <div class="header__item header__item--small"><a href="/mypage">마이페이지</a></div>
         <div class="header__item header__item--small logout">로그아웃</div>
@@ -21,7 +25,7 @@
     <?php
         }
     ?>
-        <a href="search"><object class="header__img" data="public/images/icon/search.svg" type="image/svg+xml"></object></a>
-        <a href="basket"><object class="header__img" data="public/images/icon/basket.svg" type="image/svg+xml"></object></a>
+        <a href="/search"><object class="header__img" data="/public/images/icon/search.svg" type="image/svg+xml"></object></a>
+        <a href="/basket"><object class="header__img" data="/public/images/icon/basket.svg" type="image/svg+xml"></object></a>
     </div>
 </header>

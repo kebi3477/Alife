@@ -210,8 +210,7 @@ class View {
     }
     deleteIngredient() {
         const formData = new FormData(this.popup.querySelector('.view__ingredients'));
-
-        loading.start();
+        
         fetch('controller/fridge/deleteFridge', {
             method: 'POST',
             body: formData
@@ -227,7 +226,6 @@ class View {
                 alert('에러!');
             }
         })
-        .then(() => loading.end())
     }
     thumbsup() {
         const formData = new FormData();

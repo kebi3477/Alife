@@ -14,7 +14,7 @@
         $timers = explode(",", $_POST['timers']);
         $user = $_SESSION['alife_user_email'];
         $num = mysqli_get_query("SELECT AUTO_INCREMENT FROM information_schema.tables WHERE table_name = 'collection' AND table_schema = 'alife'")[0]['AUTO_INCREMENT'];
-        $path = "recipes/".$num;
+        $path = "recipes/$num";
         $nullCheck = 0;
         $uploadCheck = 1;
         
