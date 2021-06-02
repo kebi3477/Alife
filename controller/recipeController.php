@@ -75,7 +75,7 @@
     }
 
     function getRecipeByTop() {
-        $user = $_SESSION['alife_user_email'];
+        $user = isset($_SESSION['alife_user_email']) ? $_SESSION['alife_user_email'] : "";
         $arr = array();
         $sql = "SELECT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user, t.thumbsup_id
                 FROM collection c
@@ -95,9 +95,10 @@
         if(count($fridge) > 0) {
             $rand = rand(0, count($fridge)-1);
             $ingredient = $fridge[$rand];
-            $sql = "SELECT DISTINCT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user
+            $sql = "SELECT DISTINCT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user, t.thumbsup_id
                 FROM collection c
                 JOIN ringredient ri ON c.collection_id = ri.collection_id AND ri.ringredient_name like '%".$ingredient['name']."%'
+                LEFT JOIN thumbsup t ON t.collection_id = c.collection_id
                 JOIN users u ON u.user_email = c.user_email";
             $recipes = mysqli_get_query($sql);
             $arr['ingredient'] = $ingredient;

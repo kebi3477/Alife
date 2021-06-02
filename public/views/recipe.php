@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALife</title>
+    <title>레시피 - ALife</title>
     <link rel="stylesheet" href="public/css/common.css">
     <link rel="stylesheet" href="public/css/recipe.css">
     <link rel="shortcut icon" href="public/images/favicon/favicon.ico">
@@ -13,6 +13,7 @@
     <?php 
         include('header.php');
         include('view.php');
+        $user = isset($_SESSION['alife_user_email']) ? $_SESSION['alife_user_email'] : "";
     ?>
     <div class="recipe__wrap padding">
         <div class="recipe__row">
@@ -24,6 +25,7 @@
         </div>
         <div class="recipe__list rank"></div>
     </div>
+    <?php if($user != "") { ?>
     <div class="recipe__wrap padding ingredient">
         <div class="recipe__list-title fridge__title">대파가 냉장고에 남아 있다면?</div>
         <div class="recipe__list fridge"></div>
@@ -51,6 +53,7 @@
             </div>
         </div>
     </div>
+    <?php } ?>
     <div class="recipe__wrap padding">
         <div class="recipe__list-title">A-Life가 추천하는 오늘의 메뉴</div>
         <div class="recipe__list">

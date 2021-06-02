@@ -1,4 +1,5 @@
 "use strict";
+import loading from './loading.js';
 const insert = document.querySelector('.insert');
 const seqDom = document.querySelector('.seq__dom').cloneNode(true);
 const ingredientDom = document.querySelector('.ingredient__dom').cloneNode(true);
@@ -83,7 +84,7 @@ function setRecipe() {
     formData.append("hashtags", hashtags);
     formData.append("ingredients", JSON.stringify(ingredients));
     formData.append("timers", timers);
-
+    loading.start();
     fetch('controller/recipe/setRecipe', {
         method: 'POST',
         body: formData
@@ -92,12 +93,13 @@ function setRecipe() {
     .then(msg => {
         if(msg.status === 'A200') {
             alert('등록 성공!');
-            // location.href = "recipe";
+            location.href = "recipe";
         } else if(msg.status === 'A400') {
             alert('비어 있는 값이 있습니다!');
         } else if(msg.status === 'A500'){
             alert('서버 오류!');
         }
+        loading.end();
     })
 }
 

@@ -141,6 +141,7 @@ input[type=radio] {
 }
 .info__content {
     display: none;
+    border: 1px solid var(--gray-light);
 }
 #show1:checked ~ .tab1__content {
     display: block;
@@ -158,4 +159,12 @@ input[type=radio] {
 
 .info__content > img {
     width: 100%;
+}
+.tab4__label {
+    font-size: 15px;
+    font-weight: 300;
+}
+.tab4__label--bold {
+    font-weight: bold;
+    font-size: 18px;
 }

@@ -132,8 +132,8 @@
     height: 5rem;
 }
 .ingred__image {
-    width: 90%;
-    height: 90%;
+    width: 5rem;
+    height: 5rem;
     border-radius: 5rem;
     position: relative;
     pointer-events: none;

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALife</title>
+    <title>냉장고 - ALife</title>
     <link rel="stylesheet" href="public/css/common.css">
     <link rel="stylesheet" href="public/css/fridge.css">
     <link rel="shortcut icon" href="public/images/favicon/favicon.ico">
@@ -35,7 +35,7 @@
                     <div class="category">견과류</div>
                     <div class="category">유제품</div>
                     <div class="category">곡류</div>
-                    <div class="category">기타</div>
+                    <div class="category">양념류</div>
                 </div>
                 <div class="ingreds">
                 </div>

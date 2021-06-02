@@ -127,7 +127,8 @@
             <button class="insert__button" type="reset">취소</button>
         </div>
     </form>
-    <script src="public/js/insert.js"></script>
+    <script type="module" src="public/js/insert.js"></script>
+    <script type="module" src="public/js/loading.js"></script>
     <script type="module" src="public/js/common.js"></script>
 </body>
 </html>

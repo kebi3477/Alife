@@ -236,10 +236,13 @@ class View {
         })
         .then(msg => msg.json())
         .then(msg => {
+            const like = this.popup.querySelector('.like');
             if(msg.status === 'A200') {
                 this.popup.querySelector('.heart').data = 'public/images/icon/heart_fill.svg';
+                like.innerText = parseInt(like.textContent)+1;
             } else if(msg.status === 'A401') {
                 this.popup.querySelector('.heart').data = 'public/images/icon/heart_l.svg';
+                like.innerText = parseInt(like.textContent)-1;
             } else if(msg.status === 'A400') {
                 alert('로그인을 해주세요!');
                 location.href = "login";
