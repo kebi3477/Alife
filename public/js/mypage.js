@@ -1,5 +1,6 @@
 import loading from './loading.js';
 import appendRecipeList from './view.js';
+import appendMealkitItem from './mealkitModule.js';
 const modify = document.querySelector('.modify');
 
 modify.querySelector('.submit').addEventListener('click', function() {
@@ -37,4 +38,16 @@ fetch('controller/recipe/getRecipeByThumbsup')
 .then(recipes => recipes.json())
 .then(recipes => {
     appendRecipeList(recipes, 'thumbs__recipe-list');
+})
+
+fetch('controller/mealkit/getMealkitByWriter')
+.then(mealkits => mealkits.json())
+.then(mealkits => {
+    appendMealkitItem(mealkits, 'write__mealkit-list');
+})
+
+fetch('controller/mealkit/getMealkitByThumbsup')
+.then(mealkits => mealkits.json())
+.then(mealkits => {
+    mealkits && appendMealkitItem(mealkits, 'thumbs__mealkit-list');
 })

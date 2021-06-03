@@ -237,3 +237,7 @@ input[name=tab] {
 .recipe__item {
     width: 100%;
 }
+.mealkit__items {
+    padding: 0 2rem;
+    margin-top: 1rem;
+}

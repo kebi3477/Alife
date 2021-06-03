@@ -88,10 +88,18 @@
                 <div class="write content__box">
                     <div class="content__title">작성한 레시피</div>
                     <div class="write__recipe-list recipe__list"></div>
+                    <?php
+                        if($_SESSION['alife_user_rank'] == 1) {
+                    ?>
+                    <div class="content__title">작성한 밀키트</div>
+                    <div class="write__mealkit-list mealkit__items"></div>
+                    <?php } ?>
                 </div>
                 <div class="thumbsup content__box">
                     <div class="content__title">좋아하는 레시피</div>
                     <div class="thumbs__recipe-list recipe__list"></div>
+                    <div class="content__title">좋아하는 밀키트</div>
+                    <div class="thumbs__mealkit-list mealkit__items"></div>
                 </div>
                 <div class="history content__box"></div>
                 <form class="modify content__box">
@@ -125,6 +133,7 @@
     <script type="module" src="public/js/loading.js"></script>
     <script type="module" src="public/js/common.js"></script>
     <script type="module" src="public/js/view.js"></script>
+    <script type="module" src="public/js/mealkitModule.js"></script>
     <script type="module" src="public/js/mypage.js"></script>
 </body>
 </html>

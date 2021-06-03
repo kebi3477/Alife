@@ -51,8 +51,26 @@
 
     function getMealkitByFridge() {
         $sql = "SELECT mealkit_id, mealkit_cname, mealkit_name, mealkit_price, mealkit_sprice FROM mealkit";
-        $results = mysqli_get_query($sql);
-        echo json_encode($results);
+        $mealkits = mysqli_get_query($sql);
+        echo json_encode($mealkits);
+    }
+
+    function getMealkitByWriter() {
+        $user = $_SESSION['alife_user_email'];
+        $sql = "SELECT mealkit_id, mealkit_cname, mealkit_name, mealkit_price, mealkit_sprice
+            FROM mealkit
+            WHERE user_email = '$user'";
+        $mealkits = mysqli_get_query($sql);
+        echo json_encode($mealkits);
+    }
+
+    function getMealkitByThumbsup() {
+        $user = $_SESSION['alife_user_email'];
+        $sql = "SELECT m.mealkit_id, m.mealkit_cname, m.mealkit_name, m.mealkit_price, m.mealkit_sprice
+            FROM mealkit m
+            JOIN thumbsup t ON t.mealkit_id = m.mealkit_id AND t.user_email='$user'";
+        $mealkits = mysqli_get_query($sql);
+        echo json_encode($mealkits);
     }
 
     function setThumbsup() {
