@@ -12,11 +12,11 @@
         include('interceptor/mealkitInterceptor.php');
         $mealkit = isExist($urls[2]);
         $total = $mealkit['mealkit_price']+$mealkit['mealkit_sprice']+$mealkit['mealkit_sfee']+$mealkit['mealkit_psfree'];
+        $mealkitJson = json_encode($mealkit);
     ?>
     <title><?=$mealkit['mealkit_name']?> - ALife</title>
 </head>
 <body>
-    
     <div class="show padding">
         <div class="show--left">
             <div class="show__image" style="background-image: url(../mealkits/<?=$mealkit['mealkit_id']?>/title_img.jpg)"></div>
@@ -60,7 +60,7 @@
                 <div class="show__label show__label--won"><?=$total?>원</div>
             </div>
             <div class="show__buttons">
-                <div class="show__button show__button--reversal">장바구니</div>
+                <div class="show__button show__button--reversal basket">장바구니</div>
                 <div class="show__button">바로구매</div>
                 <div class="show__button thumbsup" data-id=<?=$mealkit['mealkit_id']?>><img src="/public/images/icon/heart_w.svg"></div>
             </div>
@@ -108,6 +108,7 @@
             </div>  
             <div class="tab4__label">자세한 내용은  A-Life 고객센터로 문의주시길 바랍니다. </div>
         </div>
+        <input type="hidden" class="mealkit__json" value='<?=$mealkitJson?>'>
     </div>
     <script type="module" src="/public/js/common.js"></script>
     <script type="module" src="/public/js/loading.js"></script>

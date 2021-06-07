@@ -23,19 +23,6 @@
                         <div class="basket__nav">주문완료</div>
                     </div>
                     <div class="basket__list">
-                        <div class="basket__item">
-                            <div class="basket__checkbox">
-                                <input class="basket__checkbox" type="checkbox">
-                            </div>
-                            <div class="basket__img"></div>
-                            <div class="basket__info">
-                                <div class="basket__label--small">어라이프</div>
-                                <div class="basket__label--middle">상품명을 입력해주세요</div>
-                            </div>
-                            <div class="basket__number"><input type="number" value=1 min=1></div>
-                            <div class="basket__label--bold">10,000원</div>
-                            <div class="basket__delete"><img src="public/images/icon/close.svg"></div>
-                        </div>
                     </div>
                 </div>
                 <div class="basket__right">
@@ -74,5 +61,6 @@
             </div>
         </div>
     </div>
+    <script src="public/js/basket.js"></script>
 </body>
 </html>
