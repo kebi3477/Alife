@@ -30,6 +30,9 @@ basket.addEventListener('click', function() {
         } else {
             basketArr.push(mealkit);
             localStorage.setItem('alife_basket', JSON.stringify(basketArr));
+            if(confirm('장바구니에 담겼습니다. 이동하시겠습니까?')) {
+                location.href = '/basket';
+            }
         }
     } catch(e) {
         console.error(e);

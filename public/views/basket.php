@@ -28,18 +28,30 @@
                         <div class="order__grid">
                             <div class="order__label order__label--right">보내는 분</div>
                             <div class="order__label"><?=$_SESSION['alife_user_name']?></div>
-                        </div>
-                        <div class="order__grid">
                             <div class="order__label order__label--right">휴대폰</div>
                             <div class="order__label"><?=$_SESSION['alife_user_phone']?></div>
-                        </div>
-                        <div class="order__grid">
                             <div class="order__label order__label--right">이메일</div>
                             <div class="order__label"><?=$_SESSION['alife_user_email']?></div>
-                        </div>
-                        <div class="order__grid">
                             <div class="order__label order__label--right">배송지 정보</div>
                             <div class="order__label"><?=$_SESSION['alife_user_address']?></div>
+                            <div class="order__label order__label--right">배송 요청사항</div>
+                            <select name="" class="order__select">
+                                <option value="">배송기사에서 전달되는 메시지입니다.  - 선택해주세요 -</option>
+                            </select>
+                        </div>
+                        <div class="order__title">회원멤버십 / 쿠폰</div>
+                        <div class="order__grid">
+                            <div class="order__label order__label--right">회원멤버십</div>
+                            <div class="order__label">옐로우 그린 3%</div>
+                            <div class="order__label order__label--right">쿠폰</div>
+                            <select name="" class="order__select">
+                                <option value="">- 쿠폰을 선택해주세요 -</option>
+                            </select>
+                        </div>
+                        <div class="order__title">결제수단</div>
+                        <div class="order__grid">
+                            <div class="order__label order__label--right">일반결제</div>
+                            <div class="order__label"><input type="checkbox" name="">신용카드</div>
                         </div>
                     </div>
                 </div>

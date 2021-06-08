@@ -18,15 +18,15 @@ if(alifeBasket) {
                 <div class="basket__label--middle">${data.mealkit_name}</div>
             </div>
             <div class="basket__number"><input class='amount' type="number" value=1 min=1></div>
-            <div class="basket__label--bold">${parseInt(data.mealkit_price).toLocaleString()}원</div>
-            ${data.mealkit_sprice !== '0' ? `<div class='basket__label--small basket__label--sale'>${(parseInt(data.mealkit_sprice)+parseInt(data.mealkit_price)).toLocaleString()}원</div>` : ""}
+            <div class="basket__label--bold">${(parseInt(data.mealkit_price)-parseInt(data.mealkit_sprice)).toLocaleString()}원</div>
+            ${data.mealkit_sprice !== '0' ? `<div class='basket__label--small basket__label--sale'>${parseInt(data.mealkit_price).toLocaleString()}원</div>` : ""}
             <div class="basket__delete"><img src="public/images/icon/close.svg"></div>
         `
         basketItem.querySelector('.amount').addEventListener('change', function() {
             data.amount = this.value;
-            this.parentElement.nextElementSibling.innerText = `${(data.mealkit_price*this.value).toLocaleString()}원`;
+                this.parentElement.nextElementSibling.innerText = `${(parseInt(data.mealkit_price)*this.value-parseInt(data.mealkit_sprice)*this.value).toLocaleString()}원`;
             if(data.mealkit_sprice !== '0') {
-                this.parentElement.nextElementSibling.nextElementSibling.innerText = `${((data.mealkit_price*this.value)+(parseInt(data.mealkit_sprice)*this.value)).toLocaleString()}원`;
+                this.parentElement.nextElementSibling.nextElementSibling.innerText = `${parseInt(data.mealkit_price*this.value).toLocaleString()}원`;
             }
             setPriceData();
         })
@@ -35,6 +35,8 @@ if(alifeBasket) {
                 const filtering = mealkits.filter(mealkit => mealkit.mealkit_id !== data.mealkit_id);
                 basketItem.remove();
                 localStorage.setItem('alife_basket', JSON.stringify(filtering));
+                data.checked = false;
+                setPriceData();
             }
         })
         basketItem.querySelector('input.basket__checkbox').addEventListener('change', function() {
@@ -54,7 +56,7 @@ if(alifeBasket) {
                 psfees = Math.max(parseInt(json.mealkit_psfree), psfees);
             }
         })
-        total = prices + sprices + sfees + psfees;
+        total = prices - sprices + sfees + psfees;
 
         document.querySelector('.price').innerText = `${prices.toLocaleString()}원`;
         document.querySelector('.sprice').innerText = `${sprices.toLocaleString()}원`;
