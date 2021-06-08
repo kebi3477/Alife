@@ -13,6 +13,8 @@
     <?php 
         include('header.php'); 
         include('view.php');
+        include('interceptor/userInterceptor.php');
+        isLoging();
     ?>
     <div class="mypage padding">
         <div class="mypage__wrap">
