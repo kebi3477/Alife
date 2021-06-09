@@ -5,7 +5,8 @@ CREATE TABLE `users` (
   `user_name` varchar(255),
   `user_phone` varchar(255),
   `user_address` varchar(255),
-  `user_rank` int
+  `user_rank` int,
+  `user_point` int
 );
 --구축
 CREATE TABLE `ingredient` (

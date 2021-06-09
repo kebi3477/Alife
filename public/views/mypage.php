@@ -20,7 +20,7 @@
         <div class="mypage__wrap">
             <div class="profile">
                 <div class="profile__img">
-                    <object data="public/images/icon/profile_g.svg" type="image/svg+xml"></object>
+                    <img src="public/images/icon/profile_g.svg" />
                 </div>
                 <div class="profile__label profile__row">
                     <div class="profile__label--bold"><?=$_SESSION['alife_user_name']?></div>
@@ -49,7 +49,7 @@
                                 <div class="rank__bar-outer">
                                     <div class="rank__bar-inner"></div>
                                 </div>
-                                <div class="rank__label">옐로우그린</div>
+                                <div class="rank__label rank__name">옐로우그린</div>
                             </div>
                         </div>
                         <div class="rank__icons">
@@ -135,6 +135,7 @@
     <script type="module" src="public/js/loading.js"></script>
     <script type="module" src="public/js/common.js"></script>
     <script type="module" src="public/js/view.js"></script>
+    <script type="module" src="public/js/point.js"></script>
     <script type="module" src="public/js/mealkitModule.js"></script>
     <script type="module" src="public/js/mypage.js"></script>
 </body>
