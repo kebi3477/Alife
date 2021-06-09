@@ -56,6 +56,11 @@
                 $path .= '/rep_img.jpg';
                 $result = mysqli_set_query("INSERT INTO collection VALUES('','$title','$intro','$time','$serving','$hashtags',NOW(),'$user')");
                 $message['status'] = $result ? 'A200' : 'A500';
+                //Update User Point
+                if($message['status'] == 'A200') {
+                    $sql = "UPDATE `users` SET `user_point`= user_point+5 WHERE user_email='$email'";
+                    $result = mysqli_set_query($sql);
+                }
             } else {
                 $message['status'] = 'A500';
             }
@@ -164,10 +169,14 @@
             $result = mysqli_get_query($sql);
 
             if(count($result) > 0) {
+                $sql = "UPDATE users SET user_point = user_point-2 WHERE user_email = (SELECT user_email FROM collection WHERE collection_id=$collection_id)";
+                $result = mysqli_set_query($sql);
                 $sql = "DELETE FROM thumbsup WHERE collection_id = $collection_id and user_email = '$user'";
                 $result = mysqli_set_query($sql);
                 $message['status'] = 'A401';
             } else {
+                $sql = "UPDATE users SET user_point = user_point+2 WHERE user_email = (SELECT user_email FROM collection WHERE collection_id=$collection_id)";
+                $result = mysqli_set_query($sql);
                 $sql = "INSERT INTO thumbsup VALUES('', '$user', $collection_id, '')";
                 $result = mysqli_set_query($sql);
 
