@@ -9,7 +9,7 @@
 
     if($type == 'controller') {
         $controllerType = $urls[2];
-        $url = __DIR__.$dir.$controllerType."Controller.php";
+        $url = __DIR__."\\model\\".$controllerType."Model.php";
         require_once $url;
     } else {
         $dir = '\\public\\views\\';

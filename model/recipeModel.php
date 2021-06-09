@@ -154,7 +154,7 @@
             FROM collection c
             JOIN users u ON c.user_email = u.user_email
             JOIN thumbsup t ON t.collection_id = c.collection_id AND t.user_email='$user'
-            ORDER BY c.collection_date desc";
+            ORDER BY t.thumbsup_date desc";
         $recipes = mysqli_get_query($sql);
         echo json_encode($recipes);
     }
@@ -177,7 +177,7 @@
             } else {
                 $sql = "UPDATE users SET user_point = user_point+2 WHERE user_email = (SELECT user_email FROM collection WHERE collection_id=$collection_id)";
                 $result = mysqli_set_query($sql);
-                $sql = "INSERT INTO thumbsup VALUES('', '$user', $collection_id, '')";
+                $sql = "INSERT INTO thumbsup VALUES('', '$user', $collection_id, '', NOW())";
                 $result = mysqli_set_query($sql);
 
                 if($result) $message['status'] = 'A200';

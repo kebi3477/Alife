@@ -87,7 +87,7 @@
                 $result = mysqli_set_query($sql);
                 $message['status'] = 'A401';
             } else {
-                $sql = "INSERT INTO thumbsup VALUES('', '$user', '', $mealkit_id)";
+                $sql = "INSERT INTO thumbsup VALUES('', '$user', '', $mealkit_id, NOW())";
                 $result = mysqli_set_query($sql);
 
                 if($result) $message['status'] = 'A200';

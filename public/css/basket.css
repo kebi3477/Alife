@@ -161,7 +161,7 @@
 .order__select {
     width: 80%;
     border: 1px solid var(--green-middle);
-    border-radius: 1rem;
+    border-radius: .5rem;
     padding: .5rem;
     color: var(--green-middle);
 }
