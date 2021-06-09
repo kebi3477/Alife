@@ -1,7 +1,7 @@
 import loading from './loading.js';
 import appendRecipeList from './view.js';
 import appendMealkitItem from './mealkitModule.js';
-import changePoint from './point.js';
+import getPoint from './point.js';
 const modify = document.querySelector('.modify');
 
 modify.querySelector('.submit').addEventListener('click', function() {
@@ -53,11 +53,8 @@ fetch('controller/mealkit/getMealkitByThumbsup')
     mealkits && appendMealkitItem(mealkits, 'thumbs__mealkit-list');
 })
 
-fetch('controller/user/getUserPoint')
-.then(point => point.text())
-.then(point => parseInt(point))
-.then(point => {
-    const json = changePoint(point);
+getPoint()
+.then(json => {
     const inner = document.querySelector('.rank__bar-inner');
     const name = document.querySelector('.rank__name');
     const image = document.querySelector('.profile__img > img');

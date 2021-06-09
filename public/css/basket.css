@@ -46,6 +46,9 @@
     border-bottom: 1px solid #676767;
     padding: .5rem 0;
 }
+.basket__active {
+    color: var(--green-middle);
+}
 .basket__item {
     display: grid;
     grid-template-columns: 2rem 3rem 4fr 5rem 3fr 2rem;
@@ -141,6 +144,9 @@
     cursor: pointer;
 }
 
+.order {
+    display: none;
+}
 .order__title {
     margin-top: 2rem;
     border-bottom: 1px solid #676767;

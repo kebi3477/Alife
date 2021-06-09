@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="public/css/common.css">
     <link rel="stylesheet" href="public/css/basket.css">
     <link rel="shortcut icon" href="public/images/favicon/favicon.ico">
-    <title>ALife</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+    <title>장바구니 - ALife</title>
 </head>
 <body>
     <?php include('header.php'); ?>
@@ -17,7 +19,7 @@
             <div class="basket__row">
                 <div class="basket__left">
                     <div class="basket__navs">
-                        <div class="basket__nav">장바구니 ></div>
+                        <div class="basket__nav basket__active">장바구니 ></div>
                         <div class="basket__nav">주문서 작성 ></div>
                         <div class="basket__nav">결제 ></div>
                         <div class="basket__nav">주문완료</div>
@@ -27,13 +29,13 @@
                         <div class="order__title">주문자 정보</div>
                         <div class="order__grid">
                             <div class="order__label order__label--right">보내는 분</div>
-                            <div class="order__label"><?=$_SESSION['alife_user_name']?></div>
+                            <div class="order__label order__name"><?=$_SESSION['alife_user_name']?></div>
                             <div class="order__label order__label--right">휴대폰</div>
-                            <div class="order__label"><?=$_SESSION['alife_user_phone']?></div>
+                            <div class="order__label order__phone"><?=$_SESSION['alife_user_phone']?></div>
                             <div class="order__label order__label--right">이메일</div>
-                            <div class="order__label"><?=$_SESSION['alife_user_email']?></div>
+                            <div class="order__label order__email"><?=$_SESSION['alife_user_email']?></div>
                             <div class="order__label order__label--right">배송지 정보</div>
-                            <div class="order__label"><?=$_SESSION['alife_user_address']?></div>
+                            <div class="order__label order__address"><?=$_SESSION['alife_user_address']?></div>
                             <div class="order__label order__label--right">배송 요청사항</div>
                             <select name="" class="order__select">
                                 <option value="">배송기사에서 전달되는 메시지입니다.  - 선택해주세요 -</option>
@@ -42,7 +44,7 @@
                         <div class="order__title">회원멤버십 / 쿠폰</div>
                         <div class="order__grid">
                             <div class="order__label order__label--right">회원멤버십</div>
-                            <div class="order__label">옐로우 그린 3%</div>
+                            <div class="order__label order__point">옐로우 그린 3%</div>
                             <div class="order__label order__label--right">쿠폰</div>
                             <select name="" class="order__select">
                                 <option value="">- 쿠폰을 선택해주세요 -</option>
@@ -91,6 +93,8 @@
             </div>
         </div>
     </div>
-    <script src="public/js/basket.js"></script>
+    <script type="module" src="public/js/point.js"></script>
+    <script type="module" src="public/js/loading.js"></script>
+    <script type="module" src="public/js/basket.js"></script>
 </body>
 </html>
