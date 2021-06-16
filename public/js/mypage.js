@@ -63,4 +63,30 @@ getPoint()
     inner.style.backgroundColor = json.color;
     name.innerText = json.name;
     image.src = `public/images/icon/${json.image}`;
+})  
+
+fetch('controller/mealkit/getPayment')
+.then(payments => payments.json())
+.then(payments => {
+    payments.forEach(data => {
+        const historyItem = document.createElement('div');
+        const date = data.payment_date.split(' ')[0];
+
+        historyItem.classList.add('history__item');
+        historyItem.innerHTML = `
+            <div>${data.payment_uid}<br>${date}</div>
+            <div class="history__info">
+                <div class="history__img"><img src="mealkits/${data.mealkit_id}/title_img.jpg"></div>
+                <div class="history__label--left">
+                    <div class="history__label--small">${data.mealkit_cname}</div>
+                    <div class="history__label--middle">${data.mealkit_name}</div>
+                </div>
+            </div>
+            <div>${data.payment_amount} 개</div>
+            <div class="history__label--right">${parseInt(data.payment_price).toLocaleString()}원</div>
+            <div class="history__label--green">결제완료</div>
+        `;
+        historyItem.querySelector('.history__info').onclick = () => location.href = `mealkitDetail/${data.mealkit_id}`;
+        document.querySelector('.history__list').append(historyItem);
+    })
 })

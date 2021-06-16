@@ -103,7 +103,18 @@
                     <div class="content__title">좋아하는 밀키트</div>
                     <div class="thumbs__mealkit-list mealkit__items"></div>
                 </div>
-                <div class="history content__box"></div>
+                <div class="history content__box">
+                    <div class="content__title">주문상품 정보</div>
+                    <div class="history__list">
+                        <div class="history__title history__item">
+                            <div>주문번호 / 주문일자</div>
+                            <div>상품정보</div>
+                            <div>수량</div>
+                            <div>주문금액</div>
+                            <div>주문처리상태</div>
+                        </div>
+                    </div>
+                </div>
                 <form class="modify content__box">
                     <div class="content__title">회원정보수정</div>
                     <div class="modify__wraps">

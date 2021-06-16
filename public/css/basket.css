@@ -75,6 +75,7 @@
     background-color: var(--green-light);
 }
 .basket__img {
+    width: 3rem;
     background-color: var(--gray-light);
     border-radius: .5rem;
     height: 3rem;
@@ -193,7 +194,7 @@
     flex-flow: column nowrap;
     align-items: center;
 }
-.payment > .basket__navs {
+.payment >  .basket__navs {
     padding-left: 2rem;
 }
 .payment > img {

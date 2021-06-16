@@ -121,5 +121,14 @@
         echo json_encode($message);
     }
 
+    function getPayment() {
+        $message = array();
+        $user = $_SESSION['alife_user_email'];
+        $sql = "SELECT * FROM payment p
+            JOIN mealkit m ON p.mealkit_id = m.mealkit_id AND p.user_email = '$user'";
+        $payment = mysqli_get_query($sql);
+        echo json_encode($payment);
+    }
+
     $urls[3]();
 ?>
