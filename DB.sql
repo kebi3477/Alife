@@ -77,6 +77,16 @@ CREATE TABLE `history` (
   `history_date` datetime
 );
 
+CREATE TABLE `payment` (
+  `payment_id` int PRIMARY KEY AUTO_INCREMENT,
+  `mealkit_id` int,
+  `payment_amount` int,
+  `payment_price` int,
+  `payment_uid` varchar(255),
+  `user_email` varchar(255),
+  `payment_date` datetime
+)
+
 ALTER TABLE `recipe` ADD FOREIGN KEY (`collection_id`) REFERENCES `collection` (`collection_id`);
 
 ALTER TABLE `collection` ADD FOREIGN KEY (`user_email`) REFERENCES `users` (`user_email`);

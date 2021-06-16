@@ -82,7 +82,7 @@
             $message['status'] = 'A400';
         } else {
             $encPw = hash('sha256', $pw);
-            $sql = "insert into users values('$email','$encPw','$name','$phone','$address',0)";
+            $sql = "insert into users values('$email','$encPw','$name','$phone','$address',0,0)";
             if(mysqli_set_query($sql)) {
                 $message['status'] = 'A200';
             } else {

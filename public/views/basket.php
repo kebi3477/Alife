@@ -14,7 +14,7 @@
 <body>
     <?php include('header.php'); ?>
     <div class="basket padding">
-        <div class="basket__wrap">
+        <form class="basket__wrap">
             <div class="basket__title">장바구니</div>
             <div class="basket__row">
                 <div class="basket__left">
@@ -53,7 +53,11 @@
                         <div class="order__title">결제수단</div>
                         <div class="order__grid">
                             <div class="order__label order__label--right">일반결제</div>
-                            <div class="order__label"><input type="checkbox" name="">신용카드</div>
+                            <div class="order__label order__label--flex">
+                                <input type="radio" name="pg" value="html5_inicis" checked>신용카드
+                                <input type="radio" name="pg" value="toss">토스
+                                <input type="radio" name="pg" value="kakaopay">카카오
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -91,7 +95,7 @@
                     <div class="basket__button">주문하기</div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
     <script type="module" src="public/js/point.js"></script>
     <script type="module" src="public/js/loading.js"></script>

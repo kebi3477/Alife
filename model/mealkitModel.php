@@ -37,7 +37,6 @@
                 if($uploadCheck) $uploadCheck = move_uploaded_file($tmpName, $path);
             }
             if($uploadCheck) {
-                print_r($titleImages);
                 $sql = "INSERT INTO mealkit VALUES('', '$name', '$cname', $price, $sprice, $sfee, $psfee, $weight, $serving, '$user')";
                 $result = mysqli_set_query($sql);
                 $message['status'] = $result ? 'A200' : 'A500';
@@ -97,6 +96,28 @@
             $message['status'] = 'A400';
         }
 
+        echo json_encode($message);
+    }
+
+    function setPayment() {
+        $message = array();
+        $mealkit_id = $_POST['id'];
+        $payment_amount = $_POST['amount'];
+        $payment_price = $_POST['price'];
+        $payment_uid = $_POST['uid'];
+        $user = $_SESSION['alife_user_email'];
+
+        if(count($mealkit_id) <= 0 || count($payment_amount) <= 0 || $payment_uid == '') {
+            $message['status'] = 'A400';
+        } else {
+            foreach($mealkit_id as $index => $id) {
+                $price = $payment_price[$index];
+                $amount = $payment_amount[$index];
+                $sql = "INSERT INTO payment VALUES('', $id, $amount, $price, '$payment_uid', '$user', now())";
+                $result = mysqli_set_query($sql);
+            }
+            $message['status'] = $result ? 'A200' : 'A500';
+        }
         echo json_encode($message);
     }
 
