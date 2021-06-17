@@ -67,6 +67,11 @@
     flex: 3;
     font-size: .9rem;
 }
+.show__text-sale {
+    font-size: .7rem;
+    text-decoration: line-through;
+    margin-right: .2rem;
+}
 .show__buttons {
     height: 5rem;
     display: grid;

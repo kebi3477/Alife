@@ -76,7 +76,7 @@ class Meal {
         this.init();
     }
     randomObject() {
-        this.imgArr = ['Bracken','Turnip','Crab','Beef_tenderloin','Shiitake_mushroom','Seaweed','Sweet_pumpkin','Shrimp','Eggplant','Grape','Blueberry','Octopus','Flounder','Walnut','Bonito','Emmental','Pepper'];
+        this.imgArr = ['Bracken','Turnip','Crab','Beef_tenderloin','Shiitake_mushroom','Seaweed','Sweet_pumpkin','Shrimp','Eggplant','Grape','Blueberry','Octopus','Flounder','Walnut','Bonito','Emmental','Chili'];
         this.imgRandom = Math.floor(Math.random() * this.imgArr.length);
         this.object = `<object data="public/images/ingredient/${this.imgArr[this.imgRandom]}.svg" type="image/svg+xml"></object>`;
         this.x = Math.floor(Math.random() * 1800);

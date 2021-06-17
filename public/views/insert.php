@@ -41,10 +41,10 @@
                     <div>
                         <div class="insert__wrap">
                             <div class="insert__label insert__label--left">조리시간</div>
-                            <div class="insert__input--small"><input type="number" placeholder="30" name="time" min=0 max=999></div>
+                            <div class="insert__input--small"><input type="number" placeholder="30" name="time" min=0 max=999 value=30></div>
                             <p>분 이내</p>
-                            <div class="insert__label insert__label--left">인원</div>
-                            <div class="insert__input--small"><input type="number" placeholder="1" name="serving" min=1 max=99></div>
+                            <div class="insert__label insert__label--left insert__label--margin">인원</div>
+                            <div class="insert__input--small"><input type="number" placeholder="1" name="serving" min=1 max=99 value=1></div>
                             <p>인분</p>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
                     </div>
                     <div>
                         <input type="file" class="step__img" id="step__img1" name="images[]">
-                        <label for="step__img1"><div class="insert__img">
+                        <label for="step__img1"><div class="insert__img insert__img--small">
                             <object data="public/images/icon/camera.svg" type="image/svg+xml"></object>
                             <div>사진을 등록해주세요</div>
                         </div></label>
@@ -127,7 +127,7 @@
             <button class="insert__button" type="reset">취소</button>
         </div>
     </form>
-    <script type="module" src="public/js/insert.js"></script>
+    <script type="text/javascript" src="public/js/insert.js"></script>
     <script type="module" src="public/js/loading.js"></script>
     <script type="module" src="public/js/common.js"></script>
 </body>

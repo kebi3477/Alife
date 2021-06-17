@@ -37,16 +37,16 @@
         </div>
         <div class="view__wrap view__wrap--right">
             <div class="view__top">
+                <div class="view__title">요리정보</div>
                 <div class="view__close"><object data="public/images/icon/close_s.svg" type="image/svg+xml"></object></div>
             </div>
-            <div class="view__title">요리정보</div>
-            <div class="view__wrap-row">
+            <div class="view__wrap-row view--margin-top">
                 <div class="view__title view__title--small">조리시간 :</div>
                 <div class="view__title--small time">30분 이내</div>
                 <div class="view__title view__title--small">인분 :</div>
                 <div class="view__title--small serving">1인분</div>
             </div>
-            <div class="view__title view__title--small">재료</div>
+            <div class="view__title view__title--small ingrident">재료</div>
             <div class="view__grid">
                 <div class="view__row">
                     <div>음식이름</div>
@@ -60,7 +60,10 @@
             <div class="view__title view__title--small">해시태그</div>
             <div class="view__hashtag"></div>
             <div class="view__wrap-row view__profile">
-                <div class="view__user-name name">이름</div>
+                <div class="view__user-row">
+                    <img class="view__user-img img" />
+                    <div class="view__user-name name"></div>
+                </div>
                 <div class="view__user-date date">2021. 00. 00.</div>
             </div>
         </div>

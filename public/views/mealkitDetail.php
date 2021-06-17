@@ -11,7 +11,7 @@
         include('header.php');
         include('interceptor/mealkitInterceptor.php');
         $mealkit = isExist($urls[2]);
-        $total = $mealkit['mealkit_price']+$mealkit['mealkit_sprice']+$mealkit['mealkit_sfee']+$mealkit['mealkit_psfree'];
+        $total = $mealkit['mealkit_price']-$mealkit['mealkit_sprice'];
         $mealkitJson = json_encode($mealkit);
     ?>
     <title><?=$mealkit['mealkit_name']?> - ALife</title>
@@ -29,7 +29,13 @@
             <div class="show__title"><?=$mealkit['mealkit_name']?></div>
             <div class="show__wrap">
                 <div class="show__label">가격</div>
-                <div class="show__text"><?=number_format($mealkit['mealkit_price'])?>원</div>
+                <div class="show__text">
+                    <?php 
+                        if($mealkit['mealkit_sprice'] > 0)  
+                    ?>
+                        <span class="show__text-sale"><?=number_format($mealkit['mealkit_price'])?>원</span>
+                        <?=number_format($mealkit['mealkit_price']-$mealkit['mealkit_sprice'])?>원
+                </div>
             </div>
             <div class="show__wrap">
                 <div class="show__label">업체명</div>

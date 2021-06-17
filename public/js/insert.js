@@ -1,5 +1,4 @@
 "use strict";
-import loading from './loading.js';
 const insert = document.querySelector('.insert');
 const seqDom = document.querySelector('.seq__dom').cloneNode(true);
 const ingredientDom = document.querySelector('.ingredient__dom').cloneNode(true);

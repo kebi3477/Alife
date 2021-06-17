@@ -103,7 +103,7 @@
             $sql = "SELECT DISTINCT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user, t.thumbsup_id, u.user_point point
                 FROM collection c
                 JOIN ringredient ri ON c.collection_id = ri.collection_id AND ri.ringredient_name like '%".$ingredient['name']."%'
-                LEFT JOIN thumbsup t ON t.collection_id = c.collection_id
+                LEFT JOIN thumbsup t ON t.collection_id = c.collection_id AND t.user_email = '$email'
                 JOIN users u ON u.user_email = c.user_email";
             $recipes = mysqli_get_query($sql);
             $arr['ingredient'] = $ingredient;
@@ -119,7 +119,7 @@
         $arr = array();
         $id = $_POST['id'];
         
-        $sql = "SELECT c.*, u.user_name FROM collection c JOIN users u ON c.user_email=u.user_email WHERE c.collection_id = '$id'";
+        $sql = "SELECT c.*, u.user_name, u.user_point FROM collection c JOIN users u ON c.user_email=u.user_email WHERE c.collection_id = '$id'";
         $arr['collection'] = mysqli_get_query($sql)[0];
         $sql = "SELECT * FROM recipe WHERE collection_id = '$id'";
         $arr['recipes'] = mysqli_get_query($sql);

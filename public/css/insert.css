@@ -33,7 +33,7 @@ textarea[name=hashtag], .insert__hashtag {
     margin-top: 1.1rem;
 }
 textarea[name="recipe[]"] {
-    height: 14rem;
+    height: 12rem;
 }
 .insert {
     margin-top: 9rem;
@@ -68,14 +68,15 @@ textarea[name="recipe[]"] {
 .insert__wrap-row > div {
     display: table-cell;
     padding: 0 1rem;
-    margin: 0 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 .insert__row:nth-of-type(1) > div {
     vertical-align: top;
 }
 .insert__row > div:nth-of-type(3) {
-    width: 18rem;
-    height: 12rem;
+    width: 20rem;
+    height: 11rem;
 }
 .insert__label {
     font-size: 18px;
@@ -91,16 +92,20 @@ textarea[name="recipe[]"] {
 .insert__label--left {
     text-align: left;
     width: fit-content;
-    margin-right: 1.2rem;
+    /* margin-right: 1.2rem; */
+}
+.insert__label--margin {
+    margin-left: 2rem;
 }
 .insert__label--center {
     text-align: center;
+    margin-top: .5rem;
 }
 .recipe__total .insert__label > div:last-child {
     margin-top: 3rem;
 }
 .recipe__piece .insert__label > div:last-child {
-    margin-top: 1rem;
+    margin-top: .5rem;
     color: var(--green-middle);
     font-size: 24px;
 }
@@ -109,15 +114,10 @@ textarea[name="recipe[]"] {
     align-items: center;
     margin-top: 1.1rem;
     justify-content: flex-start;
+    gap: 1rem;
 }
 .insert__wrap--between {
     justify-content: space-between;
-}
-.insert__wrap > p {
-    margin: 0 1.2rem;
-}
-.insert__input--middle {
-    width: 45%;
 }
 .insert__input--small {
     width: 5rem;
@@ -143,6 +143,9 @@ textarea[name="recipe[]"] {
 .insert__img > div {
     margin-top: 1rem;
 }
+.insert__img--small {
+    height: 84%;
+}
 .insert__button {
     width: 7rem;
     height: 2rem;
@@ -163,12 +166,15 @@ textarea[name="recipe[]"] {
     margin: 0 auto;
     margin-top: 2rem;
 }
+.insert__button-append {
+    margin-top: 1rem;
+}
 .insert__buttons {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 5rem;
-    margin-bottom: 10rem;
+    margin-top: 3rem;
+    margin-bottom: 6rem;
 }
 .insert__buttons > .insert__button {
     width: fit-content;
@@ -203,4 +209,8 @@ textarea[name="recipe[]"] {
 .hashtag__close > img {
     width: .6rem;
     margin-left: .6rem;
+}
+.ingredient__wrap {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
 }

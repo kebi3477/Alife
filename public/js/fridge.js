@@ -113,10 +113,14 @@ function changeCategory(e) { //카테고리 변경
 
 function updateMessage() {
     messageList.querySelectorAll('div').forEach(el => el.remove());
-    myFridge.forEach(item => {
+    myFridge.forEach((item, index) => {
         const msg = document.createElement('div');
         msg.classList.add('message__item');
-        msg.innerText = item.ingredient_name;
+        if(index === myFridge.length-1) {
+            msg.innerText = item.ingredient_name
+        } else {
+            msg.innerText = item.ingredient_name + ",";
+        }
         messageList.append(msg);
     });
 }

@@ -35,9 +35,11 @@ class View {
             this.collectionId = this.col.collection_id;
             // Collection 변경
             const dom = document.createElement('object');
+            const img = changePoint(this.col.user_point).image;
             this.popup.querySelector('.title').innerText = this.col.collection_title;
             this.popup.querySelector('.time').innerText = `${this.col.collection_time} 분 이내`;
             this.popup.querySelector('.serving').innerText = `${this.col.collection_serving} 인분`;
+            this.popup.querySelector('.img').src = `/public/images/icon/${img}`;
             this.popup.querySelector('.name').innerText = this.col.user_name;
             this.popup.querySelector('.date').innerText = this.col.collection_date.split(" ")[0].replaceAll("-", ". ");
             this.popup.querySelector('.like').innerHTML = data.count;
@@ -186,12 +188,12 @@ class View {
         fetch('controller/fridge/getMyFridge')
         .then(fridge => fridge.json())
         .then(fridge => {
+            const viewTitle = document.createElement('div');
             const viewIngredients = document.createElement('form');
             const viewButton = document.createElement('div');
+            viewTitle.classList.add('view__title', 'view__fixed');
+            viewTitle.innerText = `음식을 다 만들었나요? 전부 사용한 재료를 선택해주세요.`;
             viewIngredients.classList.add('view__ingredients');
-            viewIngredients.innerHTML = `
-                <div class='view__title'>음식을 다 만들었나요? 전부 사용한 재료를 선택해주세요.</div>
-            `;
             fridge.forEach(json => {
                 const viewIngredient = document.createElement('div');
                 viewIngredient.classList.add('view__ingredient');
@@ -205,6 +207,7 @@ class View {
             viewButton.classList.add('view__button');
             viewButton.innerText = '재료삭제';
             viewButton.onclick = () => this.deleteIngredient();
+            this.popup.querySelector('.view__wrap').append(viewTitle);
             this.popup.querySelector('.view__wrap').append(viewIngredients);
             this.popup.querySelector('.view__wrap').append(viewButton);
         })

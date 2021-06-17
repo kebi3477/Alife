@@ -28,12 +28,9 @@
 .recipe__list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    margin-top: 2rem;
+    margin-top: 1rem;
     justify-content: space-between;
-    gap: 1rem;
-}
-.rank {
-    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
 }
 
 footer {

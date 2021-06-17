@@ -19,7 +19,7 @@
         <div class="title--big"><?=$_SESSION['alife_user_name']?>님의 냉장고</div>
         <div class="search">
             <input class="search__input" placeholder="찾는 재료가 없으신가요?"/>
-            <img class="search__button" src="public/images/icon/search.svg" alt="">
+            <img class="search__button" src="public/images/icon/search_g.svg" alt="">
         </div>
     </div>
     <div class="content">

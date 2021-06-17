@@ -10,7 +10,7 @@ fetch('controller/recipe/getRecipeByFridge')
 .then(json => json.json()) 
 .then(json => {
     if(json.status !== 'A400') {
-        document.querySelector('.fridge__title').innerHTML = `${json.ingredient.name}<object data="public/images/ingredient/${json.ingredient.image}" type="image/svg+xml"></object>가 냉장고에 남아 있다면?`;
+        document.querySelector('.fridge__title').innerHTML = `${json.ingredient.name}<object data="public/images/ingredient/${json.ingredient.image}" type="image/svg+xml"></object> 냉장고에 남아 있다면?`;
         appendRecipeList(json.recipes, 'fridge');
     } else {    
         document.querySelector('.ingredient').remove();

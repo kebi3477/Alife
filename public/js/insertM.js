@@ -29,6 +29,7 @@ submit.addEventListener('click', function() {
             alert('값이 비어 있습니다!');
         } else if(msg.status === 'A200') {
             alert('등록 성공');
+            location.href = '/mealkit';
         }
         loading.end();
     })
