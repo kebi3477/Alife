@@ -158,35 +158,37 @@ if(alifeBasket) {
                             
                             dom.classList.add('basket__wrap', 'payment');
                             dom.innerHTML = ` 
-                            <div class='basket__title'>주문완료</div>
-                            <div class="basket__navs">
-                            <div class="basket__nav">장바구니 ></div>
-                                <div class="basket__nav">주문서 작성 ></div>
-                                <div class="basket__nav">결제 ></div>
-                                <div class="basket__nav basket__active">주문완료</div>
-                            </div>
-                            <img src='public/images/icon/payment.svg'>
-                            <div class='payment__label'>주문이 완료되었습니다.</div>
-                            <div class="payment__list">
-                                <div class="payment__item--title">주문번호 :</div>
-                                <div class="payment__item--value">${rsp.imp_uid}</div>
-                                <div class="payment__item--title">결제수단 :</div>
-                                <div class="payment__item--value">${rsp.merchant_uid}</div>
-                                <div class="payment__item--title">주문일자 :</div>
-                                <div class="payment__item--value">${new Date()}</div>
-                                <div class="payment__item--title">주문상품 :</div>
-                                <div class="payment__item--value"></div>
-                                <div class="payment__item--title">결제금액 :</div>
-                                <div class="payment__item--value">${total}</div>
-                            </div>
-                            <div class='payment__buttons'>
-                                <div class='payment__button'>주문 상세보기</div>
-                                <div class='payment__button'>계속 쇼핑하기</div>
-                            </div>
+                                <div class='basket__title'>주문완료</div>
+                                <div class="basket__navs">
+                                <div class="basket__nav">장바구니 ></div>
+                                    <div class="basket__nav">주문서 작성 ></div>
+                                    <div class="basket__nav">결제 ></div>
+                                    <div class="basket__nav basket__active">주문완료</div>
+                                </div>
+                                <img src='public/images/icon/payment.svg'>
+                                <div class='payment__label'>주문이 완료되었습니다.</div>
+                                <div class="payment__list">
+                                    <div class="payment__item--title">주문번호 :</div>
+                                    <div class="payment__item--value">${rsp.imp_uid}</div>
+                                    <div class="payment__item--title">결제수단 :</div>
+                                    <div class="payment__item--value">${rsp.merchant_uid}</div>
+                                    <div class="payment__item--title">주문일자 :</div>
+                                    <div class="payment__item--value">${new Date()}</div>
+                                    <div class="payment__item--title">주문상품 :</div>
+                                    <div class="payment__item--value"></div>
+                                    <div class="payment__item--title">결제금액 :</div>
+                                    <div class="payment__item--value">${total}</div>
+                                </div>
+                                <div class='payment__buttons'>
+                                    <div class='payment__button'>마이페이지</div>
+                                    <div class='payment__button'>계속 쇼핑하기</div>
+                                </div>
                             `;
+                            dom.querySelector('.payment__button:first-child').onclick = () => location.href = '/mypage';
                             dom.querySelector('.payment__button:last-child').onclick = () => location.href = '/mealkit';
                             document.querySelector('.basket').append(dom);
                             document.querySelector('.basket__wrap').remove();
+                            
                         } else {
                             alert('장난 치지 마시길 바랍니다.');
                         }

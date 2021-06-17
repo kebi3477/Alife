@@ -124,10 +124,35 @@
     function getPayment() {
         $message = array();
         $user = $_SESSION['alife_user_email'];
-        $sql = "SELECT * FROM payment p
-            JOIN mealkit m ON p.mealkit_id = m.mealkit_id AND p.user_email = '$user'";
-        $payment = mysqli_get_query($sql);
-        echo json_encode($payment);
+        $sql = "UPDATE users SET user_point = user_point+5 WHERE user_email = '$user'";
+        $result = mysqli_set_query($sql);
+        if($result) {
+            $sql = "SELECT * FROM payment p
+                JOIN mealkit m ON p.mealkit_id = m.mealkit_id AND p.user_email = '$user'";
+            $payment = mysqli_get_query($sql);
+            echo json_encode($payment);
+        } else {
+            $message['status'] = 'A500';
+            echo json_encode($message);
+        }
+    }
+
+    function isThumbsup() {
+        $message = array();
+        $json = json_decode(file_get_contents('php://input'));
+        if(isset($_SESSION['alife_user_email'])) {
+            $user = $_SESSION['alife_user_email'];
+            $sql = "SELECT * FROM thumbsup WHERE mealkit_id=$json->url AND user_email='$user'";
+            $result = mysqli_get_query($sql);
+            if(count($result) > 0) {
+                $message['status'] = 'A200';
+            } else {
+                $message['status'] = 'A400';
+            }
+        } else {
+            $message['status'] = 'A400';
+        }
+        echo json_encode($message);
     }
 
     $urls[3]();

@@ -29,7 +29,7 @@
             <div class="show__title"><?=$mealkit['mealkit_name']?></div>
             <div class="show__wrap">
                 <div class="show__label">가격</div>
-                <div class="show__text"><?=$mealkit['mealkit_price']?>원</div>
+                <div class="show__text"><?=number_format($mealkit['mealkit_price'])?>원</div>
             </div>
             <div class="show__wrap">
                 <div class="show__label">업체명</div>
@@ -41,15 +41,15 @@
             </div>
             <div class="show__wrap">
                 <div class="show__label">중량</div>
-                <div class="show__text"><?=$mealkit['mealkit_weight']?>g</div>
+                <div class="show__text"><?=number_format($mealkit['mealkit_weight'])?>g</div>
             </div>
             <div class="show__wrap">
                 <div class="show__label">배송비</div>
-                <div class="show__text"><?=$mealkit['mealkit_sfee']?>원</div>
+                <div class="show__text"><?=number_format($mealkit['mealkit_sfee'])?>원</div>
             </div>
             <div class="show__wrap">
                 <div class="show__label">추가배송비</div>
-                <div class="show__text"><?=$mealkit['mealkit_psfree']?>원</div>
+                <div class="show__text"><?=number_format($mealkit['mealkit_psfree'])?>원</div>
             </div>
             <div class="show__wrap">
                 <div class="show__label">구매수량</div>
@@ -57,12 +57,16 @@
             </div>
             <div class="show__wrap show__wrap--right">
                 <div class="show__label show__label--light">총 상품금액 :</div>
-                <div class="show__label show__label--won"><?=$total?>원</div>
+                <div class="show__label show__label--won"><?=number_format($total)?>원</div>
             </div>
             <div class="show__buttons">
                 <div class="show__button show__button--reversal basket">장바구니</div>
-                <div class="show__button">바로구매</div>
-                <div class="show__button thumbsup" data-id=<?=$mealkit['mealkit_id']?>><img src="/public/images/icon/heart_w.svg"></div>
+                <div class="show__button payment">바로구매</div>
+                <div class="show__button thumbsup" data-id=<?=$mealkit['mealkit_id']?>>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13.547 12.403">
+                        <path class="heart" d="M45.154,37.689A3.22,3.22,0,0,0,42.2,34.673c-2.823-.274-3.355,1.919-3.355,1.919s-.531-2.193-3.355-1.919a3.22,3.22,0,0,0-2.956,3.015s-.85,3.493,6.238,8.387l.073.052.08-.056C46,41.18,45.154,37.689,45.154,37.689Z" transform="translate(-32.07 -34.229)" stroke-miterlimit="10" stroke-width="0.825"/>
+                    </svg>
+                </div>
             </div>
         </div>
     </div>

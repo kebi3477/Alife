@@ -1,6 +1,8 @@
 const thumbsup = document.querySelector('.thumbsup');
 const basket = document.querySelector('.basket');
+const payment = document.querySelector('.payment');
 const local = JSON.parse(localStorage.getItem('alife_basket'));
+const mealkitId = {'url': new URL(window.location).pathname.split('/')[2]};
 
 if(!local) {
     localStorage.setItem('alife_basket', '[]');
@@ -15,7 +17,14 @@ thumbsup.addEventListener('click', function() {
     })
     .then(msg => msg.json())
     .then(msg => {
-        console.log(msg);
+        const heart = thumbsup.querySelector('svg > path');
+        if(msg.status === 'A200') {
+            heart.style.fill = '#fff';
+        } else if(msg.status === 'A401') {
+            heart.style.fill = 'transparent';
+        } else {
+            alert('오류가 발생하였습니다.');
+        }
     })
 })
 
@@ -39,3 +48,18 @@ basket.addEventListener('click', function() {
     }
 })
     
+payment.onclick = () => location.href = '/basket';
+
+fetch('/controller/mealkit/isThumbsup', {
+    method: 'POST',
+    body: JSON.stringify(mealkitId)
+})
+.then(msg => msg.json())
+.then(msg => {
+    const heart = thumbsup.querySelector('svg > path');
+    if(msg.status === 'A200') {
+        heart.style.fill = '#fff';
+    } else {
+        heart.style.fill = 'transparent';
+    }
+})

@@ -89,8 +89,14 @@
     color: var(--green-middle);
     border: 1px solid var(--green-middle);
 }
-.show__button > img {
-    width: 35%;
+.thumbsup > svg {
+    width: 2rem;
+    transition: .2s;
+}
+.heart {
+    fill: #fff;
+    stroke: #fff;
+    transition: .2s;
 }
 
 input[type=radio] { 
