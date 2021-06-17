@@ -80,6 +80,7 @@
     <script type="module" src="public/js/loading.js"></script>
     <script type="module" src="public/js/common.js"></script>
     <script type="module" src="public/js/view.js"></script>
+    <script type="module" src="public/js/point.js"></script>
     <script type="module" src="public/js/recipe.js"></script>
     <?php include('footer.php'); ?>
 </body>

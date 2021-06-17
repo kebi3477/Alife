@@ -1,3 +1,4 @@
+import { changePoint } from './point.js';
 class View {
     constructor() {
         this.popup = document.querySelector('.popup');
@@ -264,6 +265,7 @@ function appendRecipeList(recipes, listName) {
     const rank = document.querySelector(`.${listName}`);
     recipes.forEach(recipe => {
         const dom = document.createElement('div');
+        const image = changePoint(recipe.point).image;
         dom.classList.add('recipe__item');
         dom.innerHTML = `
             <div class="recipe__img"></div>
@@ -279,8 +281,9 @@ function appendRecipeList(recipes, listName) {
                     <div class="recipe__user-name">100</div>
                 </div>
             </div>
-        `
+        `;
         dom.querySelector('.recipe__img').style.backgroundImage = `url(/recipes/${recipe.id}/reg_img.jpg)`;
+        dom.querySelector('.recipe__user-img').style.backgroundImage = `url(/public/images/icon/${image})`;
         dom.onclick = () => view.show(recipe.id);
         if(recipe.thumbsup_id) {
             dom.querySelector('.heart').data = 'public/images/icon/heart_fill.svg';

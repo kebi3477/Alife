@@ -1,4 +1,4 @@
-import getPoint from './point.js';
+import { getPoint } from './point.js';
 const alifeBasket = localStorage.getItem('alife_basket');
 let state = 0, total = 0, sale = 0;
 

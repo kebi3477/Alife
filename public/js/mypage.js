@@ -1,7 +1,7 @@
 import loading from './loading.js';
 import appendRecipeList from './view.js';
 import appendMealkitItem from './mealkitModule.js';
-import getPoint from './point.js';
+import { getPoint } from './point.js';
 const modify = document.querySelector('.modify');
 
 modify.querySelector('.submit').addEventListener('click', function() {

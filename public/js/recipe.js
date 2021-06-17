@@ -1,4 +1,3 @@
-import loading from './loading.js';
 import appendRecipeList from './view.js';
 
 fetch('controller/recipe/getRecipeByTop')
