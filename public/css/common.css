@@ -57,6 +57,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 2;
 }
 /* Loading */
 @keyframes loading {
@@ -211,10 +212,9 @@ footer {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 1rem 3rem;
+    padding: 1rem 2rem;
     border-bottom: 1px solid var(--gray-light);
     box-shadow: 0px 1px 2px var(--gray-light);
-    /* flex: 1; */
 }
 .view__wrap-row {
     display: flex;
@@ -252,7 +252,7 @@ footer {
 .view__recipe {
     width: 100%;
     height: 100%;
-    padding: 2rem 3rem;
+    padding: 2rem 2rem;
     position: relative;
     display: flex;
     flex-flow: column nowrap;
@@ -395,7 +395,7 @@ footer {
     margin-bottom: 2rem;
     border: 1px solid var(--green-middle);
     overflow-y: scroll;
-    max-height: 53%;
+    max-height: 45%;
 }
 .view__grid::-webkit-scrollbar {
     width: 0px;
@@ -485,6 +485,11 @@ footer {
 }
 .heart {
     width: 1rem;
+    fill: none;
+    stroke: #15700E;
+    stroke-miterlimit: 10;
+    stroke-width: 0.825;
+    transition: .2s;
 }
 .heart__s {
     width: 1rem;
@@ -577,6 +582,45 @@ footer {
     color: var(--green-middle);
     margin: 2rem auto;
 }
+.view__circles {
+    display: flex;
+    flex-flow: column;
+    gap: .2rem;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+.view__circle {
+    width: .4rem;
+    height: .4rem;
+    background-color: #000;
+    border-radius: 1rem;
+}
+.view__menus {
+    background-color: #fff;
+    position: absolute;
+    right: 2rem;
+    top: 3.5rem;
+    z-index: 3;
+    box-shadow: 1px 1px 3px #666;
+    transition: .2s;
+    opacity: 0;
+    visibility: hidden;
+}
+.menu__active {
+    opacity: 1;
+    visibility: visible;
+}
+.view__menu {
+    border: 1px solid #676767;
+    padding: .4rem .7rem;
+    padding-right: 1.5rem;
+    font-size: .9rem;
+    cursor: pointer;
+    transition: .2s;
+}
+.view__menu:hover {
+    background-color: #efefef;
+}
 
 .recipe__item {
     width: 100%;
@@ -584,6 +628,7 @@ footer {
     border-radius: 1rem;
     overflow: hidden;
     cursor: pointer;
+    position: relative;
 }
 .recipe__img {
     height: 13.5rem;
@@ -639,6 +684,37 @@ footer {
 }
 .recipe__cover object {
     margin-right: .3rem;
+}
+.recipe__thumbs {
+    width: 2.5rem;
+    height: 2.5rem;
+    position: absolute;
+    right: .8rem;
+    bottom: 7.5rem;
+    background-color: var(--green-middle);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .2s;
+    opacity: 0;
+}
+.recipe__item:hover .recipe__thumbs {
+    opacity: 1;
+    bottom: 8rem;
+}
+.heart--green {
+    fill: none;
+    stroke: var(--green-hard);
+    stroke-miterlimit: 10;
+    stroke-width: 0.825;
+    transition: .2s;
+}
+.heart--white {
+    fill: #fff;
+    stroke: #fff;
+    stroke-miterlimit: 0;
+    stroke-width: 0.825;
 }
 
 .mealkit__items {

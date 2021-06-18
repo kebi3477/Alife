@@ -28,7 +28,7 @@ function changePoint(point) {
     } else if(point < 400) {
         json.name = '오렌지';
         json.color = 'rgb(247, 156, 1)';
-        json.width = `0%`;
+        json.width = `100%`;
         json.image = 'profile_o.svg';
         json.benefit = '7%';
     }

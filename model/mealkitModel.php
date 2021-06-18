@@ -37,7 +37,7 @@
                 if($uploadCheck) $uploadCheck = move_uploaded_file($tmpName, $path);
             }
             if($uploadCheck) {
-                $sql = "INSERT INTO mealkit VALUES('', '$name', '$cname', $price, $sprice, $sfee, $psfee, $weight, $serving, '$user')";
+                $sql = "INSERT INTO mealkit VALUES('', '$name', '$cname', $price, $sprice, $sfee, $psfee, $weight, '$serving', '$user')";
                 $result = mysqli_set_query($sql);
                 $message['status'] = $result ? 'A200' : 'A500';
             } else {
@@ -111,6 +111,8 @@
             $message['status'] = 'A400';
         } else {
             foreach($mealkit_id as $index => $id) {
+                $sql = "UPDATE users SET user_point = user_point+5 WHERE user_email = '$user'";
+                $result = mysqli_set_query($sql);
                 $price = $payment_price[$index];
                 $amount = $payment_amount[$index];
                 $sql = "INSERT INTO payment VALUES('', $id, $amount, $price, '$payment_uid', '$user', now())";
@@ -124,17 +126,10 @@
     function getPayment() {
         $message = array();
         $user = $_SESSION['alife_user_email'];
-        $sql = "UPDATE users SET user_point = user_point+5 WHERE user_email = '$user'";
-        $result = mysqli_set_query($sql);
-        if($result) {
-            $sql = "SELECT * FROM payment p
-                JOIN mealkit m ON p.mealkit_id = m.mealkit_id AND p.user_email = '$user'";
-            $payment = mysqli_get_query($sql);
-            echo json_encode($payment);
-        } else {
-            $message['status'] = 'A500';
-            echo json_encode($message);
-        }
+        $sql = "SELECT * FROM payment p
+            JOIN mealkit m ON p.mealkit_id = m.mealkit_id AND p.user_email = '$user'";
+        $payment = mysqli_get_query($sql);
+        echo json_encode($payment);
     }
 
     function isThumbsup() {

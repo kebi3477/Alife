@@ -141,7 +141,7 @@ input[name=tab] {
 .recipe__list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 1rem;
+    gap: 2rem;
     margin-top: 1rem;
     padding: 0 2rem;
 }

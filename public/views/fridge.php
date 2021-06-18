@@ -40,22 +40,30 @@
                 <div class="ingreds">
                 </div>
             </div>
+            <div class="mart__label">※ 원하는 재료가 없을 시 고객센터로 문의 해주시길 바랍니다.</div>
         </div>
         <div class="monster">
             <div class="message">
                 <div class="message__title">현재 들어간 재료</div>
                 <div class="message__list"></div>
             </div>
+            <div class="message__tri-cover">
+                <div class="message__tri"></div>
+            </div>
             <object data="public/images/object/monster_book.svg" type="image/svg+xml"></object>
         </div>
         <div class="fridge">
             <object data="public/images/object/fridge_open.svg" type="image/svg+xml"></object>
+            <div class="fridge__buttons">
+                <div class="button__save">저장하기
+                <object data="public/images/icon/check_g.svg" type="image/svg+xml"></object></div>
+                <div class="button__reset">초기화
+                <object data="public/images/icon/init_g.svg" type="image/svg+xml"></object></div>
+            </div>
         </div>
     </div>
     <div class="buttons">
         <div class="button">레시피 검색</div>
-        <div class="button button__save">저장하기</div>
-        <div class="button button__reset">초기화</div>
     </div>
     <div class="background--bottom"></div> 
     <script type="module" src="public/js/loading.js"></script>

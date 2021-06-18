@@ -34,8 +34,10 @@ class View {
             this.rin = data.ringredients;
             this.collectionId = this.col.collection_id;
             // Collection 변경
-            const dom = document.createElement('object');
+            const heart = this.popup.querySelector('.heart');
             const img = changePoint(this.col.user_point).image;
+            const circles = this.popup.querySelector('.view__circles');
+            const menu = this.popup.querySelector('.view__menus');
             this.popup.querySelector('.title').innerText = this.col.collection_title;
             this.popup.querySelector('.time').innerText = `${this.col.collection_time} 분 이내`;
             this.popup.querySelector('.serving').innerText = `${this.col.collection_serving} 인분`;
@@ -43,17 +45,8 @@ class View {
             this.popup.querySelector('.name').innerText = this.col.user_name;
             this.popup.querySelector('.date').innerText = this.col.collection_date.split(" ")[0].replaceAll("-", ". ");
             this.popup.querySelector('.like').innerHTML = data.count;
-            console.log(parseInt(data.thumbsup) === 1)
-            console.log(this.popup.querySelector('.heart'));
-            this.popup.querySelector('.heart') && this.popup.querySelector('.heart').remove();
-            dom.type = "image/svg+xml";
-            dom.classList.add('heart');
-            if(parseInt(data.thumbsup) === 1) {
-                dom.data = "public/images/icon/heart_fill.svg";
-            } else {
-                dom.data = "public/images/icon/heart_l.svg";
-            }
-            this.popup.querySelector('.like').before(dom);
+            heart.style.fill = parseInt(data.thumbsup) === 1 ? 'var(--green-middle)' : "#fff";
+            circles.onclick = () => menu.className.includes('menu__active') ? menu.classList.remove('menu__active') : menu.classList.add('menu__active');
             // 해시태그 올리기
             this.appendHashtags();
             // 재료 넣기
@@ -90,27 +83,39 @@ class View {
     }
     appendIngredients(step=0) {
         let filtering;
-        filtering = this.rin.filter(data => parseInt(data.recipe_seq) === step);
-        // if(step) filtering = this.rin.filter(data => parseInt(data.recipe_seq) === step);
-        // else filtering = this.rin;
         this.popup.querySelectorAll('.view__row').forEach((el, index) => index ? el.remove() : "");
+        if(!this.now) {
+            filtering = this.rin;            
+        } else {
+            filtering = this.rin.filter(data => parseInt(data.recipe_seq) === step);
+        }
         filtering.forEach(ingred => {
             const dom = this.popup.querySelector('.view__row').cloneNode(true);
             dom.children[0].innerText = ingred.ringredient_name;
             dom.children[1].innerText = ingred.ringredient_amount;
-            this.popup.querySelector('.view__grid').append(dom);
+            ingred.ringredient_name !== '없음' ? this.popup.querySelector('.view__grid').append(dom) : "";
         })
     }
     appendRecipes() {
         const viewRecipe = this.popup.querySelector('.view__recipe');
-        this.popup.querySelectorAll('.view__recipe').forEach(el => el.remove());
-        this.recipes.forEach((recipe, index) => {
+        const appendRecipe = (recipe, index) => {
             const dom = viewRecipe.cloneNode(true);
-            dom.querySelector('.view__text').innerText = recipe.recipe_content;
-            dom.querySelector('.view__image').style.backgroundImage = `url('recipes/${this.col.collection_id}/seq_img_${index+1}.jpg')`;
             this.viewRecipes.append(dom);
-        })
-        this.viewRecipes.style.width = `${this.recipes.length}00%`;
+            if(!index) {
+                dom.querySelector('.view__text').innerText = this.col.collection_intro;
+                dom.querySelector('.view__image').style.backgroundImage = `url('recipes/${this.col.collection_id}/reg_img.jpg')`;
+            } else {
+                dom.querySelector('.view__text').innerText = recipe.recipe_content;
+                dom.querySelector('.view__image').style.backgroundImage = `url('recipes/${this.col.collection_id}/seq_img_${index}.jpg')`;
+            }
+        }
+    
+        this.popup.querySelectorAll('.view__recipe').forEach(el => el.remove());
+        appendRecipe("", 0);
+        this.recipes.forEach((recipe, index) => {
+            appendRecipe(recipe, index+1)
+        });
+        this.viewRecipes.style.width = `${this.recipes.length+1}00%`;
     }
     slide() {
         this.viewRecipes.style.left = `-${this.now}00%`;
@@ -119,7 +124,7 @@ class View {
     }
     nextPage() {
         console.log(this.now, this.recipes.length);
-        if(this.now < this.recipes.length-1) {
+        if(this.now < this.recipes.length) {
             this.now++
         } else if(this.cooking) {
             this.end();
@@ -231,9 +236,11 @@ class View {
             }
         })
     }
-    thumbsup() {
+    thumbsup(collectionId=null) {
         const formData = new FormData();
-        formData.append('collection_id', this.collectionId);
+        
+        collectionId = collectionId ? collectionId : this.collectionId;
+        formData.append('collection_id', collectionId);
         fetch('controller/recipe/setThumbsup', {
             method: 'POST',
             body: formData
@@ -241,12 +248,21 @@ class View {
         .then(msg => msg.json())
         .then(msg => {
             const like = this.popup.querySelector('.like');
+            const parent = document.querySelector(`input[name=recipeId_${collectionId}]`).parentElement;
+            const count = parent.querySelector('.recipe__count')
+            
             if(msg.status === 'A200') {
-                this.popup.querySelector('.heart').data = 'public/images/icon/heart_fill.svg';
+                this.popup.querySelector('.heart').style.fill = 'var(--green-middle)';
+                parent.querySelector('.heart--green').style.fill = 'var(--green-middle)';
+                parent.querySelector('.heart--white').style.fill = '#fff';
                 like.innerText = parseInt(like.textContent)+1;
+                count.innerText = parseInt(count.textContent)+1;
             } else if(msg.status === 'A401') {
-                this.popup.querySelector('.heart').data = 'public/images/icon/heart_l.svg';
+                this.popup.querySelector('.heart').style.fill = '#fff';
+                parent.querySelector('.heart--green').style.fill = 'transparent';
+                parent.querySelector('.heart--white').style.fill = 'transparent';
                 like.innerText = parseInt(like.textContent)-1;
+                count.innerText = parseInt(count.textContent)-1;
             } else if(msg.status === 'A400') {
                 alert('로그인을 해주세요!');
                 location.href = "login";
@@ -271,6 +287,7 @@ function appendRecipeList(recipes, listName) {
         const image = changePoint(recipe.point).image;
         dom.classList.add('recipe__item');
         dom.innerHTML = `
+            <input type='hidden' name='recipeId_${recipe.id}'>
             <div class="recipe__img"></div>
             <div class="recipe__title">${recipe.title}</div>
             <div class="recipe__content">${recipe.intro}</div>
@@ -280,18 +297,31 @@ function appendRecipeList(recipes, listName) {
                     <div class="recipe__user-name">${recipe.user}</div>
                 </div>
                 <div class="recipe__cover">
-                    <object class="heart" data="public/images/icon/heart_r.svg" type="image/svg+xml"></object>
-                    <div class="recipe__user-name">100</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 10.12 8.133">
+                        <path class='heart--green' d="M40.45,36.559a2.023,2.023,0,0,0-1.857-1.894,1.8,1.8,0,0,0-2.108,1.205,1.8,1.8,0,0,0-2.108-1.205,2.023,2.023,0,0,0-1.857,1.894s-.534,2.195,3.919,5.27l.046.032.05-.035C40.983,38.752,40.45,36.559,40.45,36.559Z" transform="translate(-32.051 -33)"/>
+                    </svg>              
+                    <div class="recipe__user-name recipe__count">${recipe.count}</div>
                 </div>
+            </div>
+            <div class="recipe__thumbs">
+                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 13.547 12.403">
+                    <path class='heart--white' d="M45.154,37.689A3.22,3.22,0,0,0,42.2,34.673c-2.823-.274-3.355,1.919-3.355,1.919s-.531-2.193-3.355-1.919a3.22,3.22,0,0,0-2.956,3.015s-.85,3.493,6.238,8.387l.073.052.08-.056C46,41.18,45.154,37.689,45.154,37.689Z" transform="translate(-32.07 -34.229)"/> 
+                </svg>
             </div>
         `;
         dom.querySelector('.recipe__img').style.backgroundImage = `url(/recipes/${recipe.id}/reg_img.jpg)`;
         dom.querySelector('.recipe__user-img').style.backgroundImage = `url(/public/images/icon/${image})`;
+        dom.querySelector('.recipe__thumbs').onclick = e => {
+            e.stopPropagation() 
+            view.thumbsup(recipe.id);
+        }
         dom.onclick = () => view.show(recipe.id);
         if(recipe.thumbsup_id) {
-            dom.querySelector('.heart').data = 'public/images/icon/heart_fill.svg';
+            dom.querySelector('.heart--green').style.fill = 'var(--green-middle)';
+            dom.querySelector('.heart--white').style.fill = '#fff';
         } else {
-            dom.querySelector('.heart').data = 'public/images/icon/heart_l.svg';
+            dom.querySelector('.heart--green').style.fill = 'transparent';
+            dom.querySelector('.heart--white').style.fill = 'transparent';
         }
         rank.append(dom);
     })

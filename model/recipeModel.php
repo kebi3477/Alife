@@ -82,11 +82,12 @@
     function getRecipeByTop() {
         $user = isset($_SESSION['alife_user_email']) ? $_SESSION['alife_user_email'] : "";
         $arr = array();
-        $sql = "SELECT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user, t.thumbsup_id, u.user_point point
+        $sql = "SELECT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user, t.thumbsup_id, u.user_point point,
+                (SELECT count(*) from thumbsup WHERE thumbsup.collection_id=c.collection_id) count
                 FROM collection c
                 JOIN users u ON c.user_email = u.user_email
                 LEFT JOIN thumbsup t ON t.collection_id = c.collection_id AND t.user_email = '$user'
-                ORDER BY c.collection_date desc LIMIT 0, 3";
+                ORDER BY count DESC LIMIT 0, 4";
         $recipes = mysqli_get_query($sql);
         echo json_encode($recipes);
     }
@@ -100,7 +101,8 @@
         if(count($fridge) > 0) {
             $rand = rand(0, count($fridge)-1);
             $ingredient = $fridge[$rand];
-            $sql = "SELECT DISTINCT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user, t.thumbsup_id, u.user_point point
+            $sql = "SELECT DISTINCT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user, t.thumbsup_id, u.user_point point,
+                (SELECT count(*) from thumbsup WHERE thumbsup.collection_id=c.collection_id) count
                 FROM collection c
                 JOIN ringredient ri ON c.collection_id = ri.collection_id AND ri.ringredient_name like '%".$ingredient['name']."%'
                 LEFT JOIN thumbsup t ON t.collection_id = c.collection_id AND t.user_email = '$email'
@@ -139,7 +141,8 @@
     
     function getRecipeByWriter() {
         $user = $_SESSION['alife_user_email'];
-        $sql = "SELECT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user, t.thumbsup_id, u.user_point point
+        $sql = "SELECT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user, t.thumbsup_id, u.user_point point,
+            (SELECT count(*) from thumbsup WHERE thumbsup.collection_id=c.collection_id) count
             FROM collection c
             JOIN users u ON c.user_email = u.user_email AND u.user_email='$user'
             LEFT JOIN thumbsup t ON t.collection_id = c.collection_id
@@ -150,7 +153,8 @@
 
     function getRecipeByThumbsup() {
         $user = $_SESSION['alife_user_email'];
-        $sql = "SELECT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user, t.thumbsup_id, u.user_point point
+        $sql = "SELECT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user, t.thumbsup_id, u.user_point point,
+            (SELECT count(*) from thumbsup WHERE thumbsup.collection_id=c.collection_id) count
             FROM collection c
             JOIN users u ON c.user_email = u.user_email
             JOIN thumbsup t ON t.collection_id = c.collection_id AND t.user_email='$user'

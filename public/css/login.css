@@ -47,6 +47,8 @@
 }
 .popup__body {
     padding: 2rem;
+    overflow-y: scroll;
+    max-height: 30rem;
 }
 .popup__body > p {
     color: var(--gray-hard);

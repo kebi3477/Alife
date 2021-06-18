@@ -4,8 +4,20 @@
             <div class="view__header">
                 <div class="view__title title">제목 입니다.</div>
                 <div class="view__wrap-row">
-                    <object class="heart" data="public/images/icon/heart_l.svg" type="image/svg+xml"></object>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="23.196" height="21.101" viewBox="0 0 23.196 21.101">
+                        <path class='heart' d="M54.75,39.993a5.662,5.662,0,0,0-5.2-5.3c-4.965-.482-5.9,3.374-5.9,3.374s-.934-3.856-5.9-3.374a5.662,5.662,0,0,0-5.2,5.3s-1.494,6.143,10.968,14.748l.129.091.141-.1C56.243,46.132,54.75,39.993,54.75,39.993Z" transform="translate(-32.055 -34.236)"/>
+                    </svg>
                     <div class="view__title like">0</div>
+                    <div class="view__circles">
+                        <div class="view__circle"></div>
+                        <div class="view__circle"></div>
+                        <div class="view__circle"></div>
+                    </div>
+                    <div class="view__menus">
+                        <div class="view__menu">수정하기</div>
+                        <div class="view__menu">삭제하기</div>
+                        <div class="view__menu">신고하기</div>
+                    </div>
                 </div>
             </div>
             <div class="view__remocon">
