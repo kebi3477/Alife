@@ -193,8 +193,6 @@ if(alifeBasket) {
                             alert('장난 치지 마시길 바랍니다.');
                         }
                     })
-                    
-
                 } else {
                     const msg = `결제에 실패하였습니다.`;
                     alert(msg);

@@ -10,6 +10,7 @@
         $hashtags = $_POST['hashtags'];
         $images = $_FILES['images'];
         $recipe = $_POST['recipe'];
+        $video = $_POST['video'];
         $ingredients = json_decode($_POST['ingredients'], true);
         $timers = explode(",", $_POST['timers']);
         $user = $_SESSION['alife_user_email'];
@@ -54,7 +55,7 @@
                 }
                 //Collection Upload
                 $path .= '/rep_img.jpg';
-                $result = mysqli_set_query("INSERT INTO collection VALUES('','$title','$intro','$time','$serving','$hashtags',NOW(),'$user')");
+                $result = mysqli_set_query("INSERT INTO collection VALUES('','$title','$intro','$time','$serving','$hashtags','$video',NOW(),'$user')");
                 $message['status'] = $result ? 'A200' : 'A500';
                 //Update User Point
                 if($message['status'] == 'A200') {
@@ -95,22 +96,27 @@
     function getRecipeByFridge() {
         $arr = array();
         $message = array();
-        $email = $_SESSION['alife_user_email'];
-        $sql = "SELECT i.ingredient_name name, i.ingredient_image image FROM fridge f JOIN ingredient i ON f.ingredient_id = i.ingredient_id WHERE user_email = '$email'";
-        $fridge = mysqli_get_query($sql);
-        if(count($fridge) > 0) {
-            $rand = rand(0, count($fridge)-1);
-            $ingredient = $fridge[$rand];
-            $sql = "SELECT DISTINCT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user, t.thumbsup_id, u.user_point point,
-                (SELECT count(*) from thumbsup WHERE thumbsup.collection_id=c.collection_id) count
-                FROM collection c
-                JOIN ringredient ri ON c.collection_id = ri.collection_id AND ri.ringredient_name like '%".$ingredient['name']."%'
-                LEFT JOIN thumbsup t ON t.collection_id = c.collection_id AND t.user_email = '$email'
-                JOIN users u ON u.user_email = c.user_email";
-            $recipes = mysqli_get_query($sql);
-            $arr['ingredient'] = $ingredient;
-            $arr['recipes'] = $recipes;
-            echo json_encode($arr);
+        if(isset($_SESSION['alife_user_email'])) {
+            $email = $_SESSION['alife_user_email'];
+            $sql = "SELECT i.ingredient_name name, i.ingredient_image image FROM fridge f JOIN ingredient i ON f.ingredient_id = i.ingredient_id WHERE user_email = '$email'";
+            $fridge = mysqli_get_query($sql);
+            if(count($fridge) > 0) {
+                $rand = rand(0, count($fridge)-1);
+                $ingredient = $fridge[$rand];
+                $sql = "SELECT DISTINCT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user, t.thumbsup_id, u.user_point point,
+                    (SELECT count(*) from thumbsup WHERE thumbsup.collection_id=c.collection_id) count
+                    FROM collection c
+                    JOIN ringredient ri ON c.collection_id = ri.collection_id AND ri.ringredient_name like '%".$ingredient['name']."%'
+                    LEFT JOIN thumbsup t ON t.collection_id = c.collection_id AND t.user_email = '$email'
+                    JOIN users u ON u.user_email = c.user_email";
+                $recipes = mysqli_get_query($sql);
+                $arr['ingredient'] = $ingredient;
+                $arr['recipes'] = $recipes;
+                echo json_encode($arr);
+            } else {
+                $message['status'] = 'A400';
+                echo json_encode($message);
+            }
         } else {
             $message['status'] = 'A400';
             echo json_encode($message);

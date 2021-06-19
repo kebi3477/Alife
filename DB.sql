@@ -31,6 +31,7 @@ CREATE TABLE `collection` (
   `collection_time` int,
   `collection_serving` int,
   `collection_hashtag` varchar(255),
+  `collection_video` varchar(255),
   `collection_date` datetime,
   `user_email` varchar(255)
 );
@@ -60,7 +61,7 @@ CREATE TABLE `mealkit` (
   `mealkit_sfee` int,
   `mealkit_psfee` int,
   `mealkit_weight` int,
-  `mealkit_serving` int,
+  `mealkit_serving` varchar(255),
   `user_email` varchar(255)
 );
 --구축

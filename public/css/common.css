@@ -303,6 +303,7 @@ footer {
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0 auto;
+    overflow: hidden;
 }
 .view__remocon {
     width: 100%;

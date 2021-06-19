@@ -1,4 +1,5 @@
 import { changePoint } from './point.js';
+
 class View {
     constructor() {
         this.popup = document.querySelector('.popup');
@@ -20,7 +21,6 @@ class View {
     }
     show(id=null) {
         const formData = new FormData();
-        
         this.init();
         formData.append("id", id);
         fetch('controller/recipe/getRecipeById', {
@@ -68,6 +68,7 @@ class View {
             this.popup.querySelector('.view__button').remove();
             this.popup.querySelector('.view__wrap').append(this.viewRemocon, this.viewRecipes, this.viewTime);
         }
+        this.popup.querySelector('iframe') && this.popup.querySelector('iframe').remove();
         this.popup.style.display = 'none';
     }
     appendHashtags() {
@@ -100,10 +101,19 @@ class View {
         const viewRecipe = this.popup.querySelector('.view__recipe');
         const appendRecipe = (recipe, index) => {
             const dom = viewRecipe.cloneNode(true);
+            const embedUrl = this.col.collection_video.split('watch?v=')[1];            
             this.viewRecipes.append(dom);
             if(!index) {
                 dom.querySelector('.view__text').innerText = this.col.collection_intro;
-                dom.querySelector('.view__image').style.backgroundImage = `url('recipes/${this.col.collection_id}/reg_img.jpg')`;
+                if(this.col.collection_video) {
+                    dom.querySelector('.view__image').innerHTML = `
+                        <iframe id="player" type="text/html" width="584" height="389"
+                            src="https://www.youtube.com/embed/${embedUrl}" frameborder="0"></iframe>
+                    `;
+                } else {
+                    dom.querySelector('.view__image').style.backgroundImage = `url('recipes/${this.col.collection_id}/reg_img.jpg')`;
+                }
+                dom.querySelector('.view__title').innerText = '요리 소개';
             } else {
                 dom.querySelector('.view__text').innerText = recipe.recipe_content;
                 dom.querySelector('.view__image').style.backgroundImage = `url('recipes/${this.col.collection_id}/seq_img_${index}.jpg')`;
@@ -123,7 +133,6 @@ class View {
         this.appendIngredients(this.now);
     }
     nextPage() {
-        console.log(this.now, this.recipes.length);
         if(this.now < this.recipes.length) {
             this.now++
         } else if(this.cooking) {

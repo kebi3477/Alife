@@ -58,6 +58,13 @@
                         <div class="insert__label--small">해시태그 설정 시 A Life이용자들이 쉽게 레시피를 검색할 수 있습니다.</div>
                     </div>
                 </div>
+                <div class="insert__row">
+                    <div class="insert__label">비디오</div>
+                    <div class='insert__wrap-col'>
+                        <input type="text" placeholder='http://youtube.com/alife' name='video'>
+                        <div class="insert__label--small">동영상 링크 설정 시 좀 더 쉽게 레시피를 알 수 있습니다. 유튜브 주소를 받아와주세요.</div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="insert__form seq__dom">
