@@ -209,5 +209,11 @@
         echo $point[0]['user_point'];
     }
 
+    function getAllUsers() {
+        $sql = "SELECT * FROM users";
+        $users = mysqli_get_query($sql);
+        echo json_encode($users);
+    }
+
     $urls[3]();
 ?>

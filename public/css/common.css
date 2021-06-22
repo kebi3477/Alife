@@ -325,11 +325,15 @@ footer {
     flex: 1;
     margin-top: 1.5rem;
     overflow: hidden;
+    height: fit-content;
+    display: flex;
+    flex-flow: column;
 }
 .view__text {
     font-size: .9rem;
     overflow-y: scroll;
     max-height: 80%;
+    flex: 1;
 }
 @keyframes timer {
     from { width: 0%; }
@@ -514,26 +518,24 @@ footer {
     max-height: 58%;
     display: grid;
     grid-template-rows: 1fr;
-    /* gap: 1rem; */
     overflow-y: scroll;
     margin: 0 auto;
     margin-top: 1rem;
     position: relative;
-    /* padding-top: 2rem; */
     border-radius: 1rem;
     border: 1px solid var(--gray-light);
 }
-.view__ingredients::-webkit-scrollbar {
+.scrollbar::-webkit-scrollbar {
     width: 6px;
 }
-.view__ingredients::-webkit-scrollbar-track {
+.scrollbar::-webkit-scrollbar-track {
     background-color: transparent;
 }
-.view__ingredients::-webkit-scrollbar-thumb {
+.scrollbar::-webkit-scrollbar-thumb {
     border-radius: 3px;
     background-color: var(--green-middle);
 }
-.view__ingredients::-webkit-scrollbar-button {
+.scrollbar::-webkit-scrollbar-button {
     width: 0;
     height: 0;
 }

@@ -16,3 +16,9 @@ fetch('controller/recipe/getRecipeByFridge')
         document.querySelector('.ingredient').remove();
     }
 })
+
+fetch('controller/recipe/getRecipeByIngredient')
+.then(json => json.json())
+.then(json => {
+    appendRecipeList(json, 'ingredient');
+})

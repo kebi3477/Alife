@@ -13,7 +13,14 @@
 
     function isAdmin() {
         isLoging();
-        if($_SESSION['alife_user_rank'] != 1) {
+        if($_SESSION['alife_user_rank'] < 1) {
+            echoScript('관리자가 아닙니다!', 'index');
+        }
+    }
+
+    function isSuperAdmin() {
+        isLoging();
+        if($_SESSION['alife_user_rank'] < 99) {
             echoScript('관리자가 아닙니다!', 'index');
         }
     }
