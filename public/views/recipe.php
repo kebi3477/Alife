@@ -36,37 +36,18 @@
         <div class="recipe__list rank"></div>
     </div>
     <?php if($user != "") { ?>
-    <div class="recipe__wrap padding">
+    <div class="recipe__wrap padding fridge__wrap">
         <div class="recipe__list-title fridge__title">대파가 냉장고에 남아 있다면?</div>
         <div class="recipe__list fridge"></div>
     </div>
-    <div class="recipe__wrap padding">
+    <div class="recipe__wrap padding ingredient__wrap">
         <div class="recipe__list-title"><?=$_SESSION['alife_user_name']?>님의 냉장고 속 재료와 어울리는 레시피</div>
         <div class="recipe__list ingredient"></div>
     </div>
     <?php } ?>
     <div class="recipe__wrap padding">
         <div class="recipe__list-title">A-Life가 추천하는 오늘의 메뉴</div>
-        <div class="recipe__list">
-            <?php for($i = 0; $i < 8; $i++) { ?>
-            <div class="recipe__item">
-                <div class="recipe__img"></div>
-                <div class="recipe__title">국물 떡볶이 만들기</div>
-                <div class="recipe__content">국물 떡볶이 만들어 봅시다. 국물 떡볶이 만들어 봅시다.  국물 떡볶이 만들어 봅시다. 국물...  </div>
-                <div class="recipe--bottom">
-                    <div class="recipe__cover">
-                        <div class="recipe__user-img"></div>
-                        <div class="recipe__user-name">나는 요리사</div>
-                    </div>
-                    <div class="recipe__cover">
-                        <object class="heart" data="public/images/icon/heart_r.svg" type="image/svg+xml"></object>
-                        <div class="recipe__user-name">100</div>
-                    </div>
-                </div>
-            </div>
-            <?php } ?>
-            </div>
-        </div>
+        <div class="recipe__list recommend"></div>
     </div>
     <script type="module" src="public/js/loading.js"></script>
     <script type="module" src="public/js/common.js"></script>

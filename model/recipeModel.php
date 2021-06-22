@@ -96,22 +96,28 @@
     function getRecipeByFridge() {
         $arr = array();
         $message = array();
+        $count = 0;
+        $cnt = 0;
         if(isset($_SESSION['alife_user_email'])) {
             $email = $_SESSION['alife_user_email'];
             $sql = "SELECT i.ingredient_name name, i.ingredient_image image FROM fridge f JOIN ingredient i ON f.ingredient_id = i.ingredient_id WHERE user_email = '$email'";
             $fridge = mysqli_get_query($sql);
             if(count($fridge) > 0) {
-                $rand = rand(0, count($fridge)-1);
-                $ingredient = $fridge[$rand];
-                $sql = "SELECT DISTINCT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user, t.thumbsup_id, u.user_point point,
-                    (SELECT count(*) from thumbsup WHERE thumbsup.collection_id=c.collection_id) count
-                    FROM collection c
-                    JOIN ringredient ri ON c.collection_id = ri.collection_id AND ri.ringredient_name like '%".$ingredient['name']."%'
-                    LEFT JOIN thumbsup t ON t.collection_id = c.collection_id AND t.user_email = '$email'
-                    JOIN users u ON u.user_email = c.user_email";
-                $recipes = mysqli_get_query($sql);
-                $arr['ingredient'] = $ingredient;
-                $arr['recipes'] = $recipes;
+                while($count == 0 || $cnt < 100) {
+                    $rand = rand(0, count($fridge)-1);
+                    $ingredient = $fridge[$rand];
+                    $sql = "SELECT DISTINCT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user, t.thumbsup_id, u.user_point point,
+                        (SELECT count(*) from thumbsup WHERE thumbsup.collection_id=c.collection_id) count
+                        FROM collection c
+                        JOIN ringredient ri ON c.collection_id = ri.collection_id AND ri.ringredient_name like '%".$ingredient['name']."%'
+                        LEFT JOIN thumbsup t ON t.collection_id = c.collection_id AND t.user_email = '$email'
+                        JOIN users u ON u.user_email = c.user_email";
+                    $recipes = mysqli_get_query($sql);
+                    $arr['ingredient'] = $ingredient;
+                    $arr['recipes'] = $recipes;
+                    $count = count($recipes);
+                    $cnt++;
+                }
                 echo json_encode($arr);
             } else {
                 $message['status'] = 'A400';
@@ -230,6 +236,18 @@
             $message['status'] = 'A400';
             echo json_encode($message);
         }
+    }
+
+    function getRecipeByRandom() {
+        $user = $_SESSION['alife_user_email'];
+        $sql = "SELECT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user, t.thumbsup_id, u.user_point point,
+            (SELECT count(*) from thumbsup WHERE thumbsup.collection_id=c.collection_id) count
+            FROM collection c
+            JOIN users u ON c.user_email = u.user_email
+            LEFT JOIN thumbsup t ON t.collection_id = c.collection_id AND t.user_email = '$user'
+            ORDER BY RAND() LIMIT 0, 8";
+        $recipes = mysqli_get_query($sql);
+        echo json_encode($recipes);
     }
 
     $urls[3]();
