@@ -40,7 +40,7 @@
 .circle:nth-of-type(1) { top: 27rem; left: 1rem; background-color: #F7C401;}
 .circle:nth-of-type(2) {top: 31rem;left: 8rem; background-color: #F7C401;}
 .circle:nth-of-type(3) {top: 10rem;left: 14rem;background-color: #E1EFB3;}
-.circle:nth-of-type(4) {top: 2rem;left: 31rem;background-color: #183E15;}
+.circle:nth-of-type(4) {top: 8rem;left: 31rem;background-color: #183E15;}
 .circle:nth-of-type(5) {top: 0rem;left: 46rem;background-color: #31802B;}
 .circle:nth-of-type(6) {top: 13rem;left: 52rem;background-color: #F79C01;}
 .circle:nth-of-type(7) {top: 14rem;left: 66rem;background-color: #B2DB31;}
@@ -74,15 +74,18 @@
     color: var(--gray-hard);
     font-size: 24px;
 }
-.intro__text--big {
-    color: var(--green-hard);
-    font-size: 7rem;
-    font-weight: 800;
+.intro__logo {
+    width: 20rem;
+    margin-bottom: 1rem;
 }
+
 .intro__text--middle {
     font-size: 36px;
-    padding-left: 10px;
-    padding-bottom: 24px;
+    padding-left: 11px;
+    margin-bottom: 1rem;
+}
+.intro__text--small {
+    margin-top: .5rem;
 }
 /* Monster */
 .monster {

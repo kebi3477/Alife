@@ -42,7 +42,6 @@
     border: 1px solid #15700e;
     font-size: 1.3rem;
     color: var(--green-middle);
-    box-shadow: 0px 3px 1px var(--gray-light);
 }
 .search__input::placeholder {
     color: var(--green-middle);
@@ -161,7 +160,7 @@
 .mart__label {
     font-size: .7rem;
     position: absolute;
-    bottom: 8rem;
+    bottom: 7.5rem;
     left: 18rem;
 }
 /* Monster */

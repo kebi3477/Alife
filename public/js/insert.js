@@ -83,7 +83,6 @@ function setRecipe() {
     formData.append("hashtags", hashtags);
     formData.append("ingredients", JSON.stringify(ingredients));
     formData.append("timers", timers);
-    loading.start();
     fetch('controller/recipe/setRecipe', {
         method: 'POST',
         body: formData
@@ -98,7 +97,6 @@ function setRecipe() {
         } else if(msg.status === 'A500'){
             alert('서버 오류!');
         }
-        loading.end();
     })
 }
 

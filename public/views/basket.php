@@ -90,6 +90,14 @@
                             <div class="basket__text basket__text--middle psfee">0원</div>
                             <div class="basket__text basket__text--small">* 도서/산간지역은 추가비용이 발생할 수 있습니다.</div>
                         </div>
+                        <div class="basket__row benefit__row">
+                            <div class="basket__text basket__text--big">쿠폰할인금액</div>
+                            <div class="basket__text basket__text--big coupon"></div>
+                        </div>
+                        <div class="basket__row benefit__row">
+                            <div class="basket__text basket__text--big">회원 멤버십</div>
+                            <div class="basket__text basket__text--big benefit"></div>
+                        </div>
                         <div class="basket__row">
                             <div class="basket__text basket__text--bbig">결제예상금액</div>
                             <div class="basket__text basket__text--bbig total">0원</div>

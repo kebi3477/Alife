@@ -22,10 +22,10 @@
             </div>
             <div class="view__remocon">
                 <div class="view__arrow left">
-                    <object data="public/images/icon/arrow_left.svg" type="image/svg+xml"></object>
+                    <object data="/public/images/icon/arrow_left.svg" type="image/svg+xml"></object>
                 </div>
                 <div class="view__arrow right">
-                    <object data="public/images/icon/arrow_right.svg" type="image/svg+xml"></object>
+                    <object data="/public/images/icon/arrow_right.svg" type="image/svg+xml"></object>
                 </div>
             </div>
             <div class="view__recipes" style="left: 0;">
@@ -50,7 +50,7 @@
         <div class="view__wrap view__wrap--right">
             <div class="view__top">
                 <div class="view__title">요리정보</div>
-                <div class="view__close"><object data="public/images/icon/close_s.svg" type="image/svg+xml"></object></div>
+                <div class="view__close"><object data="/public/images/icon/close_s.svg" type="image/svg+xml"></object></div>
             </div>
             <div class="view__wrap-row view--margin-top">
                 <div class="view__title view__title--small">조리시간 :</div>

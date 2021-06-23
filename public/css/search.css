@@ -1,3 +1,38 @@
+footer {
+    margin-top: 5rem;
+}
+.result {
+    padding-top: 80px;
+}
+.result__title {
+    text-align: center;
+    margin-top: 5rem;
+}
+.title__text--big {
+    font-size: 1.5rem;
+}
+.title__text--small {
+    font-size: .9rem;
+    margin-top: .5rem;
+}
+.recipe__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 1rem;
+    justify-content: space-between;
+    gap: 2rem;
+}
+.search__recipe {
+    margin-top: 2rem;
+}
+.search__mealkit {
+    margin-top: 5rem;
+}
+.list__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
 .search {
     height: 100vh;
     background-color: var(--green-light);
@@ -13,6 +48,7 @@
     font-weight: 900;
     color: var(--green-hard);
     margin-bottom: 2rem;
+    width: 20rem;
 }
 .search__wrap {
     width: 100%;
@@ -25,7 +61,7 @@
 .search__input {
     width: 100%;
     padding: 1rem 2rem;
-    border-radius: 5rem;
+    border-radius: 1rem;
     border: 1px solid var(--green-middle);
     font-size: 1.3rem;
     color: var(--green-middle);
@@ -39,6 +75,7 @@
     right: 1.5rem;
     border-left: 1px solid var(--green-middle);
     padding-left: 1rem;
+    cursor: pointer;
 }
 .monster__opacity {
     opacity: .5;

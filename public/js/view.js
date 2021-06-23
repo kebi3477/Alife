@@ -23,7 +23,7 @@ class View {
         const formData = new FormData();
         this.init();
         formData.append("id", id);
-        fetch('controller/recipe/getRecipeById', {
+        fetch('/controller/recipe/getRecipeById', {
             method: 'POST',
             body: formData
         })
@@ -111,12 +111,12 @@ class View {
                             src="https://www.youtube.com/embed/${embedUrl}" frameborder="0"></iframe>
                     `;
                 } else {
-                    dom.querySelector('.view__image').style.backgroundImage = `url('recipes/${this.col.collection_id}/reg_img.jpg')`;
+                    dom.querySelector('.view__image').style.backgroundImage = `url('/recipes/${this.col.collection_id}/reg_img.jpg')`;
                 }
                 dom.querySelector('.view__title').innerText = '요리 소개';
             } else {
                 dom.querySelector('.view__text').innerText = recipe.recipe_content;
-                dom.querySelector('.view__image').style.backgroundImage = `url('recipes/${this.col.collection_id}/seq_img_${index}.jpg')`;
+                dom.querySelector('.view__image').style.backgroundImage = `url('/recipes/${this.col.collection_id}/seq_img_${index}.jpg')`;
             }
         }
     
@@ -199,7 +199,7 @@ class View {
         this.popup.querySelector('.view__recipes').remove();
         this.popup.querySelector('.view__remocon').remove();
         this.popup.querySelector('.view__time').remove();
-        fetch('controller/fridge/getMyFridge')
+        fetch('/controller/fridge/getMyFridge')
         .then(fridge => fridge.json())
         .then(fridge => {
             const viewTitle = document.createElement('div');
@@ -213,7 +213,7 @@ class View {
                 viewIngredient.classList.add('view__ingredient');
                 viewIngredient.innerHTML = `
                     <div class="view__checkbox"><input type="checkbox" value=${json.fridge_id} name='fridge_id[]'></div>
-                    <div class="view__img--ingredient"><img src="public/images/ingredient/${json.ingredient_image}"></div>
+                    <div class="view__img--ingredient"><img src="/public/images/ingredient/${json.ingredient_image}"></div>
                     <div>${json.ingredient_name}</div>
                 `;
                 viewIngredients.append(viewIngredient);
@@ -229,7 +229,7 @@ class View {
     deleteIngredient() {
         const formData = new FormData(this.popup.querySelector('.view__ingredients'));
         
-        fetch('controller/fridge/deleteFridge', {
+        fetch('/controller/fridge/deleteFridge', {
             method: 'POST',
             body: formData
         })
@@ -250,7 +250,7 @@ class View {
         
         collectionId = collectionId ? collectionId : this.collectionId;
         formData.append('collection_id', collectionId);
-        fetch('controller/recipe/setThumbsup', {
+        fetch('/controller/recipe/setThumbsup', {
             method: 'POST',
             body: formData
         })

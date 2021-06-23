@@ -42,6 +42,7 @@
                 </div>
                 <div class="rank content__box">
                     <div class="content__title">ALife 멤버십 혜택</div>
+                    <div class="rank__text">레시피 작성 / 밀키트 구매 후기 / 구매금액에 의한 등급에 따라 다양한 혜택을 누리실 수 있습니다.</div>
                     <div class="rank__wrap">
                         <div class="rank__col">
                             <div class="rank__label">현재 나의 등급</div>
@@ -86,6 +87,7 @@
                             </div>
                         </div>
                     </div>
+                    <div class="rank__text rank__text--bottom">취소 / 교환 / 반품을 제외한 금액을 (배송완료)기준으로 하며 회원등급은 매달 1일에 새롭게 갱신되며 회원등급 별 혜택이 제공됩니다.</div>
                 </div>
                 <div class="write content__box">
                     <div class="content__title">작성한 레시피</div>
@@ -114,6 +116,7 @@
                             <div>주문처리상태</div>
                         </div>
                     </div>
+                    <div class="history__text">기본적으로 최근 3개월간의 자료가 조회되며, 주문처리완료 후 12개월 이외의 주문건은 자동적으로 삭제됩니다.</div>
                 </div>
                 <form class="modify content__box">
                     <div class="content__title">회원정보수정</div>
@@ -133,6 +136,11 @@
                         <div class="modify__wrap">
                             <div class="modify__label">주소</div>
                             <input type="text" class="modify__input" value="<?=$_SESSION['alife_user_address']?>" name="address">
+                        </div>
+                        <div></div>
+                        <div class="modify__wrap">
+                            <div></div>
+                            <div class="modify__text">※정확한 도로명 주소 기입 시 배송주문이 가능합니다.</div>
                         </div>
                     </div>
                     <div class="modify__buttons">

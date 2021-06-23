@@ -26,7 +26,7 @@
         </div>
         <div class="intro">
             <div class="intro__text">
-                <div class="intro__text--big">A Life</div>
+                <div class="intro__logo"><img src="/public/images/logo.svg"></object></div>
                 <div class="intro__text--middle">로 시작해보세요!</div>
             </div>
             <div class="intro__text intro__text--small">냉장고 안에 있는 재료들을 선택하여 원하는</div>

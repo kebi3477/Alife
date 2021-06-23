@@ -1,6 +1,6 @@
 import { getPoint } from './point.js';
 const alifeBasket = localStorage.getItem('alife_basket');
-let state = 0, total = 0, sale = 0;
+let state = 0, total = 0, benefit = 0;
 
 if(alifeBasket) {
     const mealkits = JSON.parse(alifeBasket);
@@ -68,9 +68,8 @@ if(alifeBasket) {
             if(data.mealkit_sprice !== '0') 
                 amounts[index].parentElement.nextElementSibling.nextElementSibling.innerText = `${parseInt(data.mealkit_price*amounts[index].value).toLocaleString()}원`;
         })
-
-        if(sale) sprices = prices / 100 * sale;
         total = prices - sprices + sfees + psfees;
+        total = benefit ? total-parseInt(total/100)*benefit : total;
 
         document.querySelector('.price').innerText = `${prices.toLocaleString()}원`;
         document.querySelector('.sprice').innerText = `${sprices.toLocaleString()}원`;
@@ -92,9 +91,9 @@ if(alifeBasket) {
                         location.href = '/login';
                         return false;
                     } else {
-                        sale = parseInt(json.benefit);
-                        setPriceData();
+                        benefit = parseInt(json.benefit);
                         document.querySelector('.order__point').innerText = `${json.name} ${json.benefit}`;
+                        setPriceData();
                         return true;
                     }
                 })
@@ -108,6 +107,10 @@ if(alifeBasket) {
                         `;
                         agree.classList.add('agree');
                         document.querySelector('.basket__button').before(agree);
+
+                        document.querySelectorAll('.benefit__row').forEach(el => el.classList.remove('benefit__row'));
+                        document.querySelector('.coupon').innerText = `0 원`;
+                        document.querySelector('.benefit').innerText = `${parseInt(total/100)*benefit} 원`;
 
                         document.querySelectorAll('.basket__nav').item(0).classList.remove('basket__active');
                         document.querySelectorAll('.basket__nav').item(1).classList.add('basket__active');
@@ -128,7 +131,7 @@ if(alifeBasket) {
                                         <div class="basket__label--small">${data.mealkit_cname}</div>
                                         <div class="basket__label--middle">${data.mealkit_name}</div>
                                     </div>
-                                    <div class="basket__number">${data.amount}</div>
+                                    <div class="basket__number">${data.amount} 개</div>
                                     <div class="basket__label--bold">${prices.toLocaleString()}원</div>
                                     <div></div>
                                     <input type='hidden' name='id[]' value=${data.mealkit_id}>
@@ -201,13 +204,13 @@ if(alifeBasket) {
                                         <div class="payment__item--title">주문번호 :</div>
                                         <div class="payment__item--value">${rsp.imp_uid}</div>
                                         <div class="payment__item--title">결제수단 :</div>
-                                        <div class="payment__item--value">${rsp.merchant_uid}</div>
+                                        <div class="payment__item--value">${pg}</div>
                                         <div class="payment__item--title">주문일자 :</div>
                                         <div class="payment__item--value">${date}</div>
                                         <div class="payment__item--title">주문상품 :</div>
                                         <div class="payment__item--value">${text}</div>
                                         <div class="payment__item--title">결제금액 :</div>
-                                        <div class="payment__item--value">${total.toLocaleString()}</div>
+                                        <div class="payment__item--value">${total.toLocaleString()}원</div>
                                     </div>
                                     <div class='payment__buttons'>
                                         <div class='payment__button'>마이페이지</div>

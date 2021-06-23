@@ -32,19 +32,20 @@ modify.querySelector('.cancel').addEventListener('click', function() {
 fetch('controller/recipe/getRecipeByWriter')
 .then(recipes => recipes.json())
 .then(recipes => {
-    appendRecipeList(recipes, 'write__recipe-list');
+    recipes && appendRecipeList(recipes, 'write__recipe-list');
 })
 
 fetch('controller/recipe/getRecipeByThumbsup')
 .then(recipes => recipes.json())
 .then(recipes => {
-    appendRecipeList(recipes, 'thumbs__recipe-list');
+    recipes && appendRecipeList(recipes, 'thumbs__recipe-list');
 })
 
 fetch('controller/mealkit/getMealkitByWriter')
 .then(mealkits => mealkits.json())
 .then(mealkits => {
-    appendMealkitItem(mealkits, 'write__mealkit-list');
+    if(mealkits.length)
+        appendMealkitItem(mealkits, 'write__mealkit-list');
 })
 
 fetch('controller/mealkit/getMealkitByThumbsup')

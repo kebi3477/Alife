@@ -19,8 +19,8 @@ function appendMealkitItem(mealkits, listName) {
                     </div>
                 </div>
             `;
-            item.querySelector('.mealkit__image').style.backgroundImage = `url(mealkits/${data.mealkit_id}/title_img.jpg)`;
-            item.onclick = () => location.href = `mealkitDetail/${data.mealkit_id}`;
+            item.querySelector('.mealkit__image').style.backgroundImage = `url(/mealkits/${data.mealkit_id}/title_img.jpg)`;
+            item.onclick = () => location.href = `/mealkitDetail/${data.mealkit_id}`;
             list.append(item);
         })  
     }

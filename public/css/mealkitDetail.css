@@ -113,6 +113,13 @@
     stroke: #fff;
     transition: .2s;
 }
+.number > input {
+    padding: .5rem;
+    padding-left: 1rem;
+    animation: none;
+    border: 1px solid #ddd;
+    border-radius: .5rem;
+}
 
 input[type=radio] { 
     display: none;
@@ -180,7 +187,7 @@ input[type=radio] {
 }
 
 .info__content > img {
-    width: 1000px;
+    width: 1400px;
 }
 .tab4__content {
     padding: 2rem;

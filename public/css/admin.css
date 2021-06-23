@@ -11,11 +11,13 @@ input[type=radio] {
     background-color: var(--green-light);
     display: flex;
     flex-flow: column;
+    border-right: 1px solid #ddd;
 }
 .menu__item {
     background-color: var(--green-light);
     padding: 1rem 3rem;
     transition: .2s;
+    border-bottom: 1px solid #ddd;
     cursor: pointer;
 }
 .menu__item:hover {
@@ -24,7 +26,9 @@ input[type=radio] {
 #user:checked ~ .menu__list > .menu__item:nth-of-type(1), 
 #mealkit:checked ~ .menu__list > .menu__item:nth-of-type(2),
 #report:checked ~ .menu__list > .menu__item:nth-of-type(3) {
-    background-color: #f4fbe0;
+    background-color: #fff;
+    color: var(--green-middle);
+    font-weight: 500;
 }
 .board__list {
     width: 100%;
@@ -38,7 +42,6 @@ input[type=radio] {
 #report:checked ~ .board__list > .board__item:nth-of-type(3) {
     display: block;
     height: 100%;
-    background-color: #efefef;
 }
 .board__title {
     font-size: 1.5rem;
@@ -55,25 +58,24 @@ input[type=radio] {
     flex-flow: column;
     background-color: #fff;
     margin-top: 1rem;
-    box-shadow: 0px 0px 8px #a5a5a5;
+    box-shadow: 0px 0px 4px #a5a5a5;
     border-radius: .25rem;
 }
 .users__row {
     display: grid;
     grid-template-columns: 1fr .5fr .7fr 1fr .5fr .5fr .5fr;
     align-items: center;
-    padding: .5rem 2rem;
     transition: .2s;
 }
 .users__row:hover {
-    background-color: var(--green-light);
-    border-left: .5rem solid var(--green-middle);
+    background-color: #fafafa;
+    border-left: .5rem solid var(--green-light);
 }
 .users__row:first-child {
-    font-weight: bold;
-    font-size: 1.1rem;
-    padding: 1rem 2rem;
+    font-size: 1rem;
     border-left: none;
+    background-color: var(--green-light);
+    color: #676767;
 }
 .users__row:first-child:hover {
     background-color: #fff;
@@ -86,4 +88,7 @@ input[type=radio] {
     color: #fff;
     padding: .5rem 2rem;
     border-radius: 1rem;
+}
+.users__row > div {
+    padding: 1rem 2rem;
 }

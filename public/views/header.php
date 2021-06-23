@@ -1,8 +1,7 @@
 <?php session_start() ?>
 <header class="padding">
     <div class="header__list">
-        <a href="/index"><text class="header__logo" transform="translate(1 42)" font-size="36">A Life</text></a>
-        <img class="header__logo" src="" alt="">
+        <a href="/index"><img class="header__logo" src="/public/images/logo.svg" alt="logo"></a>
         <div class="header__item"><a href="/fridge">나의 냉장고</a></div>
         <div class="header__item"><a href="/recipe">레시피</a></div>
         <div class="header__item"><a href="/mealkit">밀키트</a></div>

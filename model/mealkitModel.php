@@ -167,5 +167,13 @@
         echo json_encode($message);
     }
 
+    function getMealkitBySearch() {
+        $text = rawurldecode(file_get_contents('php://input'));
+        $sql = "SELECT * FROM mealkit m
+            WHERE m.mealkit_name LIKE '%$text%' OR m.mealkit_cname LIKE '%$text%'";
+        $mealkits = mysqli_get_query($sql);
+        echo json_encode($mealkits);
+    }
+
     $urls[3]();
 ?>

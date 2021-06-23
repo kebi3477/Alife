@@ -45,7 +45,7 @@ textarea[name="recipe[]"] {
     background-color: #fff;
     padding: 40px 120px;
     border-radius: 1rem;
-    border: 1px solid var(--gray-hard);
+    border: 1px solid var(--green-middle);
     margin-top: 2rem;
 }
 .insert__input {
@@ -73,6 +73,7 @@ textarea[name="recipe[]"] {
     padding: 0 1rem;
     margin-left: 1rem;
     margin-right: 1rem;
+    margin-top: 0rem;
 }
 .insert__row:nth-of-type(1) > div {
     vertical-align: top;
@@ -154,10 +155,10 @@ textarea[name="recipe[]"] {
     height: 2rem;
     border: 1px solid var(--green-middle);
     border-radius: 5rem;
-    font-size: 11px;
+    font-size: .8rem;
     padding: 1rem;
     color: var(--green-middle);
-    font-weight: bold;
+    font-weight: 500;
     background-color: #fff;
     display: flex;
     align-items: center;
@@ -168,6 +169,7 @@ textarea[name="recipe[]"] {
     width: fit-content;
     margin: 0 auto;
     margin-top: 2rem;
+    padding: .5rem 1.5rem;
 }
 .insert__button-append {
     margin-top: 1rem;

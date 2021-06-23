@@ -153,11 +153,11 @@
     
     function getRecipeByWriter() {
         $user = $_SESSION['alife_user_email'];
-        $sql = "SELECT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user, t.thumbsup_id, u.user_point point,
+        $sql = "SELECT DISTINCT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user, t.thumbsup_id, u.user_point point,
             (SELECT count(*) from thumbsup WHERE thumbsup.collection_id=c.collection_id) count
             FROM collection c
             JOIN users u ON c.user_email = u.user_email AND u.user_email='$user'
-            LEFT JOIN thumbsup t ON t.collection_id = c.collection_id
+            LEFT JOIN thumbsup t ON t.collection_id = c.collection_id AND t.user_email='$user'
             ORDER BY c.collection_date desc";
         $recipes = mysqli_get_query($sql);
         echo json_encode($recipes);
@@ -165,7 +165,7 @@
 
     function getRecipeByThumbsup() {
         $user = $_SESSION['alife_user_email'];
-        $sql = "SELECT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user, t.thumbsup_id, u.user_point point,
+        $sql = "SELECT DISTINCT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user, t.thumbsup_id, u.user_point point,
             (SELECT count(*) from thumbsup WHERE thumbsup.collection_id=c.collection_id) count
             FROM collection c
             JOIN users u ON c.user_email = u.user_email
@@ -209,6 +209,7 @@
     function getRecipeByIngredient() {
         $arr = array();
         $message = array();
+        $result = array();
         if(isset($_SESSION['alife_user_email'])) {
             $email = $_SESSION['alife_user_email'];
             $sql = "SELECT i.ingredient_name name, i.ingredient_image image FROM fridge f JOIN ingredient i ON f.ingredient_id = i.ingredient_id WHERE user_email = '$email'";
@@ -227,7 +228,10 @@
                     }
                 }
                 $array = array_unique($arr, SORT_REGULAR);
-                echo json_encode($array);
+                foreach($array as $recipe) {
+                    if(count($result) < 8) array_push($result, $recipe);
+                }
+                echo json_encode($result);
             } else {
                 $message['status'] = 'A400';
                 echo json_encode($message);
@@ -246,6 +250,21 @@
             JOIN users u ON c.user_email = u.user_email
             LEFT JOIN thumbsup t ON t.collection_id = c.collection_id AND t.user_email = '$user'
             ORDER BY RAND() LIMIT 0, 8";
+        $recipes = mysqli_get_query($sql);
+        echo json_encode($recipes);
+    }
+
+    function getRecipeBySearch() {
+        $text = rawurldecode(file_get_contents('php://input'));
+        $user = isset($_SESSION['alife_user_email']) ? $_SESSION['alife_user_email'] : "";
+        $sql = "SELECT DISTINCT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user, t.thumbsup_id, u.user_point point,
+            (SELECT count(*) from thumbsup WHERE thumbsup.collection_id=c.collection_id) count
+            FROM collection c
+            JOIN users u ON c.user_email = u.user_email
+            JOIN ringredient ri ON ri.collection_id = c.collection_id 
+            JOIN recipe r ON r.collection_id = c.collection_id
+            LEFT JOIN thumbsup t ON t.collection_id = c.collection_id AND t.user_email = '$user'
+            WHERE ri.ringredient_name LIKE '%$text%' OR c.collection_title LIKE '%$text%' OR c.collection_intro LIKE '%$text%' OR r.recipe_content LIKE '%$text%'";
         $recipes = mysqli_get_query($sql);
         echo json_encode($recipes);
     }

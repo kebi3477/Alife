@@ -44,7 +44,7 @@
             </div>
             <div class="show__wrap">
                 <div class="show__label">인분</div>
-                <div class="show__text"><?=$mealkit['mealkit_serving']?> 인분</div>
+                <div class="show__text"><?=$mealkit['mealkit_serving']?>인분</div>
             </div>
             <div class="show__wrap">
                 <div class="show__label">중량</div>
