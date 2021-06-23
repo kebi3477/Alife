@@ -59,7 +59,9 @@
             </div>
             <div class="show__wrap">
                 <div class="show__label">구매수량</div>
-                <div class="show__text"><input type="number"></div>
+                <div class="show__text number">
+                    <input type="number" min="1" max="9" step="1" value="1">
+                </div>
             </div>
             <div class="show__wrap show__wrap--right">
                 <div class="show__label show__label--light">총 상품금액 :</div>

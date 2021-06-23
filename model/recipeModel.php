@@ -238,8 +238,8 @@
         }
     }
 
-    function getRecipeByRandom() {
-        $user = $_SESSION['alife_user_email'];
+    function getRecipeByRecommend() {
+        $user = isset($_SESSION['alife_user_email']) ? $_SESSION['alife_user_email'] : "";
         $sql = "SELECT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user, t.thumbsup_id, u.user_point point,
             (SELECT count(*) from thumbsup WHERE thumbsup.collection_id=c.collection_id) count
             FROM collection c

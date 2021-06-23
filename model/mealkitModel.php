@@ -49,14 +49,14 @@
     }
 
     function getMealkitByFridge() {
-        $sql = "SELECT mealkit_id, mealkit_cname, mealkit_name, mealkit_price, mealkit_sprice FROM mealkit";
+        $sql = "SELECT * FROM mealkit LIMIT 0, 8";
         $mealkits = mysqli_get_query($sql);
         echo json_encode($mealkits);
     }
 
     function getMealkitByWriter() {
         $user = $_SESSION['alife_user_email'];
-        $sql = "SELECT mealkit_id, mealkit_cname, mealkit_name, mealkit_price, mealkit_sprice
+        $sql = "SELECT *
             FROM mealkit
             WHERE user_email = '$user'";
         $mealkits = mysqli_get_query($sql);
@@ -65,9 +65,26 @@
 
     function getMealkitByThumbsup() {
         $user = $_SESSION['alife_user_email'];
-        $sql = "SELECT m.mealkit_id, m.mealkit_cname, m.mealkit_name, m.mealkit_price, m.mealkit_sprice
+        $sql = "SELECT m.*
             FROM mealkit m
             JOIN thumbsup t ON t.mealkit_id = m.mealkit_id AND t.user_email='$user'";
+        $mealkits = mysqli_get_query($sql);
+        echo json_encode($mealkits);
+    }
+
+    function getMealkitByCompany() {
+        $array = array();
+        $sql = "SELECT DISTINCT mealkit_cname company FROM mealkit GROUP BY mealkit_cname";
+        $cnames = mysqli_get_query($sql);
+        $cname = $cnames[rand(0, count($cnames)-1)]['company'];
+        $sql = "SELECT * FROM mealkit WHERE mealkit_cname='$cname' LIMIT 0, 8";
+        $array['company'] = $cname;
+        $array['mealkits'] = mysqli_get_query($sql);
+        echo json_encode($array);
+    }
+
+    function getMealkitByDiscount() {
+        $sql = "SELECT *, ROUND(mealkit_sprice / (mealkit_price/100), 1) discount FROM `mealkit` ORDER BY discount DESC LIMIT 0, 8";
         $mealkits = mysqli_get_query($sql);
         echo json_encode($mealkits);
     }

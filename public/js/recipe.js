@@ -29,7 +29,7 @@ fetch('controller/recipe/getRecipeByIngredient')
     }
 })
 
-fetch('controller/recipe/getRecipeByRandom')
+fetch('controller/recipe/getRecipeByRecommend')
 .then(recipes => recipes.json())
 .then(recipes => {
     appendRecipeList(recipes, 'recommend');

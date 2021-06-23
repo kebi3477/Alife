@@ -37,6 +37,7 @@ basket.addEventListener('click', function() {
         if(filtering.length) {
             alert('이미 장바구니에 존재합니다!');
         } else {
+            mealkit.amount = document.querySelector('.number > input').value;
             basketArr.push(mealkit);
             localStorage.setItem('alife_basket', JSON.stringify(basketArr));
             if(confirm('장바구니에 담겼습니다. 이동하시겠습니까?')) {

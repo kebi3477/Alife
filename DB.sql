@@ -62,6 +62,7 @@ CREATE TABLE `mealkit` (
   `mealkit_psfee` int,
   `mealkit_weight` int,
   `mealkit_serving` varchar(255),
+  `mealkit_tag` varchar(255),
   `user_email` varchar(255)
 );
 --구축

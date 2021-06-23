@@ -589,14 +589,14 @@ footer {
     display: flex;
     flex-flow: column;
     gap: .2rem;
-    margin-left: 1rem;
+    margin-left: 1.5rem;
     cursor: pointer;
 }
 .view__circle {
-    width: .4rem;
-    height: .4rem;
+    width: .3rem;
+    height: .3rem;
     background-color: #000;
-    border-radius: 1rem;
+    border-radius: .6rem;
 }
 .view__menus {
     background-color: #fff;
@@ -614,12 +614,16 @@ footer {
     visibility: visible;
 }
 .view__menu {
-    border: 1px solid #676767;
-    padding: .4rem .7rem;
-    padding-right: 1.5rem;
+    border-top: 1px solid #ddd;
+    padding: .6rem 1rem;
+    padding-right: 3rem;
     font-size: .9rem;
     cursor: pointer;
     transition: .2s;
+    font-weight: 400;
+}
+.view__menu:first-child {
+    border-top: none;
 }
 .view__menu:hover {
     background-color: #efefef;
@@ -674,6 +678,8 @@ footer {
 .recipe__cover {
     display: flex;
     flex-flow: row nowrap;
+    gap: .2rem;
+    align-items: center;
 }
 .recipe__user-img {
     width: 1rem;
@@ -692,7 +698,7 @@ footer {
     width: 2.5rem;
     height: 2.5rem;
     position: absolute;
-    right: .8rem;
+    right: .5rem;
     bottom: 7.5rem;
     background-color: var(--green-middle);
     border-radius: 1rem;
@@ -748,7 +754,24 @@ footer {
     padding: .5rem 1rem 1rem 1rem;
 }
 .mealkit__tag {
-    min-height: 1rem;
+    width: 3rem;
+    height: 1.1rem;
+    font-size: 9px;
+    text-align: center;
+    margin: .2rem auto;
+    border-radius: 5rem;
+}
+.mealkit__tag.NEW {
+    color: var(--green-middle);
+    border: 1px solid var(--green-middle);
+}
+.mealkit__tag.SALE {
+    color: #fbaf03;
+    border: 1px solid #fbaf03;
+}
+.mealkit__tag.HOT {
+    color: #e44424;
+    border: 1px solid #e44424;
 }
 .mealkit__text--right {
     display: flex;

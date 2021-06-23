@@ -1,7 +1,13 @@
+body {
+    padding-top: 80px;
+}
 .mealkit__list {
-    margin-top: 11rem;
+    margin-top: 5rem;
 }
 .title {
     font-size: 1.5rem;
     font-weight: bold;
+}
+footer {
+    margin-top: 5rem;
 }

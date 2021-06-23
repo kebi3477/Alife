@@ -13,29 +13,19 @@
     <?php include('header.php') ?>
     <div class="mealkit__list padding">
         <div class="title">냉장고에 있는 대파가 사용되는 식품</div>
-        <div class="fridge mealkit__items"></div>
+        <div class="mealkit__items fridge"></div>
     </div>
-    <?php for($i = 0; $i < 3; $i++) { ?>
     <div class="mealkit__list padding">
-        <div class="title">냉장고에 있는 대파가 사용되는 식품</div>
-        <div class="mealkit__items">
-            <?php for($j = 0; $j < 8; $j++) { ?>
-            <div class="mealkit__item">
-                <div class="mealkit__image"></div>
-                <div class="mealkit__wrap">
-                    <div class="mealkit__tag"></div>
-                    <div class="mealkit__text--small">앙트레</div>
-                    <div class="mealkit__text--big">얼큰한 해물 누룽지탕 쿠킹박스</div>
-                    <div class="mealkit__text--right">
-                        <div class="mealkit__text--won">14,900</div>
-                        원
-                    </div>
-                </div>
-            </div>
-            <?php } ?>
-        </div>
+        <div class="title"></div>
+        <div class="mealkit__items company"></div>
     </div>
-    <?php } ?>
+    <div class="mealkit__list padding">
+        <div class="title">할인율 순으로 볼까요?</div>
+        <div class="mealkit__items discount"></div>
+    </div>
+    <?php 
+        include('footer.php');
+    ?>
     <script type="module" src="public/js/loading.js"></script>
     <script type="module" src="public/js/common.js"></script>
     <script type="module" src="public/js/mealkitModule.js"></script>

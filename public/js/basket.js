@@ -10,7 +10,6 @@ if(alifeBasket) {
     mealkits.forEach(data => {
         const basketItem = document.createElement('div');
         data.checked = false;
-        data.amount = 1;
         basketItem.classList.add('basket__item');
         basketItem.innerHTML = `
             <div class="basket__checkbox">
@@ -21,17 +20,13 @@ if(alifeBasket) {
                 <div class="basket__label--small">${data.mealkit_cname}</div>
                 <div class="basket__label--middle">${data.mealkit_name}</div>
             </div>
-            <div class="basket__number"><input class='amount' type="number" value=1 min=1></div>
+            <div class="basket__number"><input class='amount' type="number" value=${data.amount} min=1></div>
             <div class="basket__label--bold">${(parseInt(data.mealkit_price)-parseInt(data.mealkit_sprice)).toLocaleString()}원</div>
             ${data.mealkit_sprice !== '0' ? `<div class='basket__label--small basket__label--sale'>${parseInt(data.mealkit_price).toLocaleString()}원</div>` : ""}
             <div class="basket__delete"><img src="public/images/icon/close.svg"></div>
         `
         basketItem.querySelector('.amount').addEventListener('change', function() {
             data.amount = this.value;
-                this.parentElement.nextElementSibling.innerText = `${(parseInt(data.mealkit_price)*this.value-parseInt(data.mealkit_sprice)*this.value).toLocaleString()}원`;
-            if(data.mealkit_sprice !== '0') {
-                this.parentElement.nextElementSibling.nextElementSibling.innerText = `${parseInt(data.mealkit_price*this.value).toLocaleString()}원`;
-            }
             setPriceData();
         })
         basketItem.querySelector('.basket__delete').addEventListener('click', function() {
@@ -49,20 +44,24 @@ if(alifeBasket) {
         })
         basketList.append(basketItem);
     })
-
+    setPriceData(); 
     basketButton.addEventListener('click', function() {
         stateButton();
     })
 
     function setPriceData() {
         let prices = 0, sprices = 0, sfees = 0, psfees = 0;
-        mealkits.forEach(json => {
-            if(json.checked) {
-                prices += parseInt(json.mealkit_price)*json.amount;
-                sprices += parseInt(json.mealkit_sprice)*json.amount;
-                sfees = Math.max(parseInt(json.mealkit_sfee), sfees);
-                psfees = Math.max(parseInt(json.mealkit_psfree), psfees);
+        const amounts = document.querySelectorAll(".amount");
+        mealkits.forEach((data, index) => {
+            if(data.checked) {
+                prices += parseInt(data.mealkit_price)*data.amount;
+                sprices += parseInt(data.mealkit_sprice)*data.amount;
+                sfees = Math.max(parseInt(data.mealkit_sfee), sfees);
+                psfees = Math.max(parseInt(data.mealkit_psfree), psfees);
             }
+            amounts[index].parentElement.nextElementSibling.innerText = `${(parseInt(data.mealkit_price)*amounts[index].value-parseInt(data.mealkit_sprice)*amounts[index].value).toLocaleString()}원`;
+            if(data.mealkit_sprice !== '0') 
+                amounts[index].parentElement.nextElementSibling.nextElementSibling.innerText = `${parseInt(data.mealkit_price*amounts[index].value).toLocaleString()}원`;
         })
 
         if(sale) sprices = prices / 100 * sale;

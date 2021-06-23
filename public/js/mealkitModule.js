@@ -9,7 +9,7 @@ function appendMealkitItem(mealkits, listName) {
             item.innerHTML = `
                 <div class="mealkit__image"></div>
                 <div class="mealkit__wrap">
-                    <div class="mealkit__tag"></div>
+                    <div class="mealkit__tag ${data.mealkit_tag}">${data.mealkit_tag}</div>
                     <div class="mealkit__text--small">${data.mealkit_cname}</div>
                     <div class="mealkit__text--big">${data.mealkit_name}</div>
                     <div class="mealkit__text--right">
