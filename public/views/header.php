@@ -32,6 +32,9 @@
         }
     ?>
         <a href="/search"><object class="header__img" data="/public/images/icon/search.svg" type="image/svg+xml"></object></a>
-        <a href="/basket"><object class="header__img" data="/public/images/icon/basket.svg" type="image/svg+xml"></object></a>
+        <a href="/basket">
+            <object class="header__img" data="/public/images/icon/basket.svg" type="image/svg+xml"></object>
+            <div class="basket__num">0</div>
+        </a>
     </div>
 </header>

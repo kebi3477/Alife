@@ -40,6 +40,7 @@ basket.addEventListener('click', function() {
             mealkit.amount = document.querySelector('.number > input').value;
             basketArr.push(mealkit);
             localStorage.setItem('alife_basket', JSON.stringify(basketArr));
+            document.querySelector('.basket__num').innerText = parseInt(document.querySelector('.basket__num').textContent)+1;
             if(confirm('장바구니에 담겼습니다. 이동하시겠습니까?')) {
                 location.href = '/basket';
             }

@@ -127,6 +127,25 @@ header {
     height: 2rem;    
     pointer-events: none;
 }
+a[href="/basket"] {
+    position: relative;
+}
+.basket__num {
+    background-color: var(--green-middle);
+    position: absolute;
+    border-radius: 5rem;
+    color: #fff;
+    border: 1px solid #fff;
+    width: 1.2rem;
+    height: 1.2rem;
+    text-align: center;
+    font-size: 9px;
+    display: grid;
+    place-content: center;
+    font-weight: bold;
+    right: -.5rem;
+    top: -.1rem;
+}
 /* Footer */
 footer {
     background-color: var(--gray-btn);
@@ -789,4 +808,11 @@ footer {
 }
 .mealkit__text--won {
     font-size: 1.13rem;
+    margin-bottom: -.2rem;
+    margin-right: .1rem;
+}
+.mealkit__text--swon {
+    text-decoration: line-through;
+    margin-right: .5rem;
+    font-weight: 400;
 }

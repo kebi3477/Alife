@@ -12,15 +12,15 @@
 <body>
     <?php include('header.php') ?>
     <div class="mealkit__list padding">
-        <div class="title">냉장고에 있는 대파가 사용되는 식품</div>
-        <div class="mealkit__items fridge"></div>
+        <div class="title">구매량이 많은 밀키트</div>
+        <div class="mealkit__items payment"></div>
     </div>
     <div class="mealkit__list padding">
         <div class="title"></div>
         <div class="mealkit__items company"></div>
     </div>
     <div class="mealkit__list padding">
-        <div class="title">할인율 순으로 볼까요?</div>
+        <div class="title">초특가 세일 상품</div>
         <div class="mealkit__items discount"></div>
     </div>
     <?php 

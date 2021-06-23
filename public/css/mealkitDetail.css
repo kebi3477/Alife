@@ -40,6 +40,10 @@
     flex-flow: row nowrap;
     padding: 1rem 0;
 }
+.show__wrap:nth-of-type(2) > .show__text {
+    font-weight: bold;
+    font-size: 1.13rem;
+}
 .show__wrap:nth-of-type(3),
 .show__wrap:nth-of-type(6),
 .show__wrap:nth-of-type(8) {
@@ -71,6 +75,12 @@
     font-size: .7rem;
     text-decoration: line-through;
     margin-right: .2rem;
+    font-weight: 400;
+}
+.show__text--small {
+    font-size: .7rem;
+    color: #676767;
+    margin-left: .5rem;
 }
 .show__buttons {
     height: 5rem;
@@ -81,7 +91,7 @@
 .show__button {
     background-color: var(--green-middle);
     color: #fff;
-    border-radius: .5rem;
+    border-radius: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -37,6 +37,10 @@
                             <div class="order__label order__label--right">배송 요청사항</div>
                             <select name="" class="order__select">
                                 <option value="">배송기사에서 전달되는 메시지입니다.  - 선택해주세요 -</option>
+                                <option value="">부재 시 경비실에 맡겨주세요.</option>
+                                <option value="">부재 시 문 앞에 놓아주세요.</option>
+                                <option value="">직접 받겠습니다.</option>
+                                <option value="">배송 전에 연락주세요.</option>
                             </select>
                         </div>
                         <div class="order__title">회원멤버십 / 쿠폰</div>
@@ -84,9 +88,10 @@
                         <div class="basket__row">
                             <div class="basket__text basket__text--middle">추가배송비</div>
                             <div class="basket__text basket__text--middle psfee">0원</div>
+                            <div class="basket__text basket__text--small">* 도서/산간지역은 추가비용이 발생할 수 있습니다.</div>
                         </div>
                         <div class="basket__row">
-                            <div class="basket__text basket__text--big">결제예상금액</div>
+                            <div class="basket__text basket__text--bbig">결제예상금액</div>
                             <div class="basket__text basket__text--bbig total">0원</div>
                         </div>
                     </div>

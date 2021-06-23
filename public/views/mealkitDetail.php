@@ -31,9 +31,10 @@
                 <div class="show__label">가격</div>
                 <div class="show__text">
                     <?php 
-                        if($mealkit['mealkit_sprice'] > 0)  
+                        if($mealkit['mealkit_sprice'] > 0) {
                     ?>
                         <span class="show__text-sale"><?=number_format($mealkit['mealkit_price'])?>원</span>
+                    <?php } ?>
                         <?=number_format($mealkit['mealkit_price']-$mealkit['mealkit_sprice'])?>원
                 </div>
             </div>
@@ -51,11 +52,17 @@
             </div>
             <div class="show__wrap">
                 <div class="show__label">배송비</div>
-                <div class="show__text"><?=number_format($mealkit['mealkit_sfee'])?>원</div>
+                <div class="show__text">
+                    <?=number_format($mealkit['mealkit_sfee'])?>원
+                    <span class='show__text--small'>( 3만원 이상 구매 시 무료 배송 )</span>        
+                </div>
             </div>
             <div class="show__wrap">
                 <div class="show__label">추가배송비</div>
-                <div class="show__text"><?=number_format($mealkit['mealkit_psfree'])?>원</div>
+                <div class="show__text">
+                    <?=number_format($mealkit['mealkit_psfree'])?>원
+                    <span class='show__text--small'>도서/산간지역은 추가비용이 발생할 수 있습니다.</span>        
+                </div>
             </div>
             <div class="show__wrap">
                 <div class="show__label">구매수량</div>

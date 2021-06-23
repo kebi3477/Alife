@@ -13,7 +13,8 @@ function appendMealkitItem(mealkits, listName) {
                     <div class="mealkit__text--small">${data.mealkit_cname}</div>
                     <div class="mealkit__text--big">${data.mealkit_name}</div>
                     <div class="mealkit__text--right">
-                        <div class="mealkit__text--won">${Number(data.mealkit_price).toLocaleString()}</div>
+                        <div class='mealkit__text--swon'>${+data.mealkit_sprice !== 0 ? Number(data.mealkit_price).toLocaleString() + "원" : ''}</div>
+                        <div class="mealkit__text--won">${Number(+data.mealkit_price-data.mealkit_sprice).toLocaleString()}</div>
                         원
                     </div>
                 </div>

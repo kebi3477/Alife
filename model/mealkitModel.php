@@ -48,8 +48,8 @@
         echo json_encode($message);
     }
 
-    function getMealkitByFridge() {
-        $sql = "SELECT * FROM mealkit LIMIT 0, 8";
+    function getMealkitByPayment() {
+        $sql = "SELECT DISTINCT m.* FROM mealkit m JOIN payment p ON p.mealkit_id = m.mealkit_id LIMIT 0, 8";
         $mealkits = mysqli_get_query($sql);
         echo json_encode($mealkits);
     }

@@ -203,10 +203,14 @@
     }
 
     function getUserPoint() {
-        $user = $_SESSION['alife_user_email'];
-        $sql = "SELECT user_point FROM users WHERE user_email='$user'";
-        $point = mysqli_get_query($sql);
-        echo $point[0]['user_point'];
+        if(isset($_SESSION['alife_user_email'])) {
+            $user = $_SESSION['alife_user_email'];
+            $sql = "SELECT user_point FROM users WHERE user_email='$user'";
+            $point = mysqli_get_query($sql);
+            echo $point[0]['user_point'];
+        } else {
+            echo 'undefined';
+        }
     }
 
     function getAllUsers() {

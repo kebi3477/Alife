@@ -1,6 +1,8 @@
 "use strict";
 import loading from './loading.js';
 const logout = document.querySelector('.logout');
+const basket = localStorage.getItem('alife_basket');
+const basketNum = document.querySelector('.basket__num');
 
 loading.start();
 logout && logout.addEventListener('click', function() {
@@ -12,5 +14,6 @@ logout && logout.addEventListener('click', function() {
         }
     })
 })
+basketNum.innerText = JSON.parse(basket).length;
 
 window.addEventListener('load', () => loading.end());

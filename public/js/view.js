@@ -257,27 +257,30 @@ class View {
         .then(msg => msg.json())
         .then(msg => {
             const like = this.popup.querySelector('.like');
-            const parent = document.querySelector(`input[name=recipeId_${collectionId}]`).parentElement;
-            const count = parent.querySelector('.recipe__count')
-            
-            if(msg.status === 'A200') {
-                this.popup.querySelector('.heart').style.fill = 'var(--green-middle)';
-                parent.querySelector('.heart--green').style.fill = 'var(--green-middle)';
-                parent.querySelector('.heart--white').style.fill = '#fff';
-                like.innerText = parseInt(like.textContent)+1;
-                count.innerText = parseInt(count.textContent)+1;
-            } else if(msg.status === 'A401') {
-                this.popup.querySelector('.heart').style.fill = '#fff';
-                parent.querySelector('.heart--green').style.fill = 'transparent';
-                parent.querySelector('.heart--white').style.fill = 'transparent';
-                like.innerText = parseInt(like.textContent)-1;
-                count.innerText = parseInt(count.textContent)-1;
-            } else if(msg.status === 'A400') {
-                alert('로그인을 해주세요!');
-                location.href = "login";
-            } else {
-                alert('에러!');
-            }
+            const parents = document.querySelectorAll(`input[name=recipeId_${collectionId}]`);
+            parents.forEach(parentDom => {
+                const parent = parentDom.parentElement;
+                const count = parent.querySelector('.recipe__count')
+                
+                if(msg.status === 'A200') {
+                    this.popup.querySelector('.heart').style.fill = 'var(--green-middle)';
+                    parent.querySelector('.heart--green').style.fill = 'var(--green-middle)';
+                    parent.querySelector('.heart--white').style.fill = '#fff';
+                    like.innerText = parseInt(like.textContent)+1;
+                    count.innerText = parseInt(count.textContent)+1;
+                } else if(msg.status === 'A401') {
+                    this.popup.querySelector('.heart').style.fill = '#fff';
+                    parent.querySelector('.heart--green').style.fill = 'transparent';
+                    parent.querySelector('.heart--white').style.fill = 'transparent';
+                    like.innerText = parseInt(like.textContent)-1;
+                    count.innerText = parseInt(count.textContent)-1;
+                } else if(msg.status === 'A400') {
+                    alert('로그인을 해주세요!');
+                    location.href = "login";
+                } else {
+                    alert('에러!');
+                }
+            })
         })
     }
 }
@@ -321,7 +324,7 @@ function appendRecipeList(recipes, listName) {
         dom.querySelector('.recipe__img').style.backgroundImage = `url(/recipes/${recipe.id}/reg_img.jpg)`;
         dom.querySelector('.recipe__user-img').style.backgroundImage = `url(/public/images/icon/${image})`;
         dom.querySelector('.recipe__thumbs').onclick = e => {
-            e.stopPropagation() 
+            e.stopPropagation()
             view.thumbsup(recipe.id);
         }
         dom.onclick = () => view.show(recipe.id);
