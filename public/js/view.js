@@ -44,6 +44,8 @@ class View {
             this.popup.querySelector('.date').innerText = this.col.collection_date.split(" ")[0].replaceAll("-", ". ");
             this.popup.querySelector('.like').innerHTML = data.count;
             heart.style.fill = parseInt(data.thumbsup) === 1 ? 'var(--green-middle)' : "#fff";
+            this.popup.querySelector('.view__menu').innerText = +data.writer ? '삭제하기' : '신고하기';
+            this.popup.querySelector('.view__menu').onclick = () => this.clickMenu(+data.writer);
             // 해시태그 올리기
             this.appendHashtags();
             // 재료 넣기
@@ -263,13 +265,11 @@ class View {
                     this.popup.querySelector('.heart').style.fill = 'var(--green-middle)';
                     parent.querySelector('.heart--green').style.fill = 'var(--green-middle)';
                     parent.querySelector('.heart--white').style.fill = '#fff';
-                    like.innerText = parseInt(like.textContent)+1;
                     count.innerText = parseInt(count.textContent)+1;
                 } else if(msg.status === 'A401') {
                     this.popup.querySelector('.heart').style.fill = '#fff';
                     parent.querySelector('.heart--green').style.fill = 'transparent';
                     parent.querySelector('.heart--white').style.fill = 'transparent';
-                    like.innerText = parseInt(like.textContent)-1;
                     count.innerText = parseInt(count.textContent)-1;
                 } else if(msg.status === 'A400') {
                     alert('로그인을 해주세요!');
@@ -278,7 +278,58 @@ class View {
                     alert('에러!');
                 }
             })
+            if(msg.status === 'A200') {
+                like.innerText = parseInt(like.textContent)+1;
+            } else if(msg.status === 'A401') {
+                like.innerText = parseInt(like.textContent)-1;
+            }
         })
+    }
+    clickMenu(flag) {
+        if(flag) {
+            if(confirm('정말 삭제하시겠습니까?')) {
+                fetch('/controller/recipe/removeRecipe', {
+                    method: 'POST',
+                    body: this.collectionId
+                })
+                .then(msg => msg.json())
+                .then(msg => {
+                    if(msg.status === 'A200') {
+                        alert('삭제 완료!');
+                        location.reload();
+                    } else {
+                        alert('에러!');
+                    }
+                })
+            }
+        } else {
+            const content = prompt('신고 내용을 적어주세요!');
+            if(content !== null) {
+                const json = {
+                    id: this.collectionId,
+                    content: content
+                }
+
+                fetch('/controller/user/setReport', {
+                    method: 'POST',
+                    body: JSON.stringify(json)
+                })
+                .then(msg => msg.json())
+                .then(msg => {
+                    if(msg.status === 'A200') {
+                        alert('신고 완료!');
+                        location.reload();
+                    } else if(msg.status === 'A400') {
+                        alert('로그인 해주세요!');
+                        location.href = '/login';
+                    } else {
+                        alert('에러!');
+                    }
+                })
+            } else {
+                alert('내용을 입력해주세요!');
+            }
+        }
     }
 }
 

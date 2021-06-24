@@ -59,7 +59,7 @@
                 $message['status'] = $result ? 'A200' : 'A500';
                 //Update User Point
                 if($message['status'] == 'A200') {
-                    $sql = "UPDATE `users` SET `user_point`= user_point+5 WHERE user_email='$email'";
+                    $sql = "UPDATE `users` SET `user_point`= user_point+5 WHERE user_email='$user'";
                     $result = mysqli_set_query($sql);
                 }
             } else {
@@ -146,6 +146,8 @@
             $email = $_SESSION['alife_user_email'];
             $sql = "SELECT IF(count(*) > 0, true, false) isThumbsup FROM thumbsup WHERE collection_id = '$id' and user_email = '$email'";
             $arr['thumbsup'] = mysqli_get_query($sql)[0]['isThumbsup'];
+            $sql = "SELECT IF(count(*) > 0, true, false) isWriter FROM collection WHERE collection_id = '$id' AND user_email = '$email'";
+            $arr['writer'] = mysqli_get_query($sql)[0]['isWriter'];
         }
 
         echo json_encode($arr);
@@ -278,6 +280,17 @@
         WHERE c.collection_type = 1";
         $recipes = mysqli_get_query($sql);
         echo json_encode($recipes);
+    }
+
+    function removeRecipe() {
+        $message = array();
+        $id = file_get_contents('php://input');
+        $sql = "DELETE FROM collection WHERE collection_id=$id";
+        $result = mysqli_set_query($sql);
+        $sql = "DELETE FROM recipe WHERE collection_id=$id";
+        $result = mysqli_set_query($sql);
+        $message['status'] = $result ? 'A200' : 'A500';
+        echo json_encode($message);
     }
 
     $urls[3]();

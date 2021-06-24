@@ -237,5 +237,27 @@
         echo json_encode($message);
     }
 
+    function setReport() {
+        $message = array();
+        $json = json_decode(file_get_contents('php://input'));
+        if(isset($_SESSION['alife_user_email'])) {
+            $user = $_SESSION['alife_user_email'];
+            $sql = "INSERT report VALUES('', $json->id, '$json->content', '$user')";
+            $result = mysqli_set_query($sql);
+            $message['status'] = $result ? 'A200' : 'A500';
+        } else {
+            $message['status'] = 'A400';
+        } 
+        echo json_encode($message);
+    }
+
+    function getReports() {
+        $sql = "SELECT c.collection_title, (SELECT u.user_name FROM users u WHERE u.user_email = c.user_email) report_user, u.user_name, r.report_content FROM report r
+            JOIN collection c ON c.collection_id = r.collection_id
+            JOIN users u ON u.user_email = r.user_email";
+        $reports = mysqli_get_query($sql);
+        echo json_encode($reports);
+    }
+
     $urls[3]();
 ?>

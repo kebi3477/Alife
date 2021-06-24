@@ -72,14 +72,14 @@ CREATE TABLE `thumbsup` (
   `user_email` varchar(255),
   `collection_id` int
 );  
-
+--구축
 CREATE TABLE `history` (
   `history_id` int PRIMARY KEY AUTO_INCREMENT,
   `user_email` varchar(255),
   `collection_id` int,
   `history_date` datetime
 );
-
+--구축
 CREATE TABLE `payment` (
   `payment_id` int PRIMARY KEY AUTO_INCREMENT,
   `mealkit_id` int,
@@ -88,6 +88,13 @@ CREATE TABLE `payment` (
   `payment_uid` varchar(255),
   `user_email` varchar(255),
   `payment_date` datetime
+)
+--구축
+CREATE TABLE `report` (
+  `report_id` int PRIMARY KEY AUTO_INCREMENT,
+  `collection_id` int,
+  `report_content` varchar(255),
+  `user_email` varchar(255)
 )
 
 ALTER TABLE `recipe` ADD FOREIGN KEY (`collection_id`) REFERENCES `collection` (`collection_id`);

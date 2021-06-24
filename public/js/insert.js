@@ -1,10 +1,29 @@
 "use strict";
+class Loading {
+    constructor() {
+        this.dom = document.createElement('div');
+        this.init();
+    }
+    init() {
+        this.dom.classList.add('loading');
+        this.dom.innerHTML = '<div class="loading__circle"></div>';
+        document.querySelector('body').before(this.dom);
+        this.loading = document.querySelector('.loading');
+    }
+    start() {
+        this.loading.style.display = 'flex';
+    }
+    end() {
+        this.loading.style.display = 'none';
+    }
+}
 const insert = document.querySelector('.insert');
 const seqDom = document.querySelector('.seq__dom').cloneNode(true);
 const ingredientDom = document.querySelector('.ingredient__dom').cloneNode(true);
 const files = document.querySelectorAll('input[type=file]');
 const insertHashtag = document.querySelector('.insert__hashtag');
 const insertSubmit = document.querySelector('.insert__submit');
+const loading = new Loading();
 
 files.forEach(file => {
     file.addEventListener('change', function() {
@@ -98,6 +117,7 @@ function setRecipe() {
     formData.append("hashtags", hashtags);
     formData.append("ingredients", JSON.stringify(ingredients));
     formData.append("timers", timers);
+    loading.start();
     fetch('controller/recipe/setRecipe', {
         method: 'POST',
         body: formData
@@ -112,6 +132,7 @@ function setRecipe() {
         } else if(msg.status === 'A500'){
             alert('서버 오류!');
         }
+        loading.end();
     })
 }
 

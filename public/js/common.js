@@ -4,6 +4,8 @@ const logout = document.querySelector('.logout');
 const basket = localStorage.getItem('alife_basket');
 const basketNum = document.querySelector('.basket__num');
 
+if(basket === null) localStorage.setItem('alife_basket', '[]');
+
 loading.start();
 logout && logout.addEventListener('click', function() {
     fetch('controller/user/logout')
@@ -14,6 +16,7 @@ logout && logout.addEventListener('click', function() {
         }
     })
 })
+
 basketNum.innerText = JSON.parse(basket).length;
 
 window.addEventListener('load', () => loading.end());

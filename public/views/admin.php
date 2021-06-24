@@ -44,7 +44,17 @@
                 <div class="board__title">밀키트 전환 희망 리스트</div>
                 <div class="recipe__list"></div>
             </div>
-            <div class="board__item">123asdsad</div>
+            <div class="board__item">
+                <div class="board__title">신고 목록</div>
+                <div class="report">
+                    <div class="report__row">
+                        <div>게시글 제목</div>
+                        <div>게시글 작성자</div>
+                        <div>신고자</div>
+                        <div>신고 내용</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

@@ -183,7 +183,7 @@ footer {
     border-right: none;
 }
 .footer__logo {
-    width: 10rem;
+    width: 7rem;
     padding-bottom: 2rem;
     margin-top: 0;
 }
@@ -472,6 +472,7 @@ footer {
 }
 .hashtag {
     padding: .3rem 1rem;
+    max-height: 2rem;
     border-radius: 5rem;
     margin: .5rem;
     font-size: .8rem;

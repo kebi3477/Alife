@@ -10,7 +10,7 @@ body {
 }
 .advertising {
     width: 100%;
-    height: 2rem;
+    height: 2.5rem;
     background-color: var(--green-middle);
     display: flex;
     align-items: center;

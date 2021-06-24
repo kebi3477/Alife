@@ -14,9 +14,7 @@
                         <div class="view__circle"></div>
                     </div>
                     <div class="view__menus">
-                        <div class="view__menu">수정하기</div>
                         <div class="view__menu">삭제하기</div>
-                        <div class="view__menu">신고하기</div>
                     </div>
                 </div>
             </div>
