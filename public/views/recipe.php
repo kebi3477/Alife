@@ -29,7 +29,7 @@
         <div class="recipe__row">
             <div class="recipe__list-title">좋아요가 높은 레시피</div> 
             <a href="insert"><div class="recipe__insert">
-                레시피 작성
+                레시피 등록
                 <object data="public/images/icon/pencil.svg" type="image/svg+xml"></object>
             </div></a>
         </div>

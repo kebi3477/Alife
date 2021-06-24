@@ -70,15 +70,10 @@ CREATE TABLE `mealkit` (
 CREATE TABLE `thumbsup` (
   `thumbsup_id` int PRIMARY KEY AUTO_INCREMENT,
   `user_email` varchar(255),
-  `collection_id` int
-);  
---구축
-CREATE TABLE `history` (
-  `history_id` int PRIMARY KEY AUTO_INCREMENT,
-  `user_email` varchar(255),
   `collection_id` int,
-  `history_date` datetime
-);
+  `mealkit_id` int,
+  `thumbsup_date` datetime
+);  
 --구축
 CREATE TABLE `payment` (
   `payment_id` int PRIMARY KEY AUTO_INCREMENT,

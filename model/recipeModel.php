@@ -111,7 +111,8 @@
                         FROM collection c
                         JOIN ringredient ri ON c.collection_id = ri.collection_id AND ri.ringredient_name like '%".$ingredient['name']."%'
                         LEFT JOIN thumbsup t ON t.collection_id = c.collection_id AND t.user_email = '$email'
-                        JOIN users u ON u.user_email = c.user_email";
+                        JOIN users u ON u.user_email = c.user_email
+                        LIMIT 0, 8";
                     $recipes = mysqli_get_query($sql);
                     $arr['ingredient'] = $ingredient;
                     $arr['recipes'] = $recipes;
@@ -290,6 +291,21 @@
         $sql = "DELETE FROM recipe WHERE collection_id=$id";
         $result = mysqli_set_query($sql);
         $message['status'] = $result ? 'A200' : 'A500';
+        echo json_encode($message);
+    }
+
+    function updateType() {
+        $message = array();
+        $id = file_get_contents('php://input');
+        $sql = "SELECT collection_type FROM collection WHERE collection_id = $id";
+        $type = mysqli_get_query($sql)[0]['collection_type'];
+        if($type == 0) {
+            $sql = "UPDATE collection SET collection_type = 1 WHERE collection_id = $id";
+            $result = mysqli_set_query($sql);
+            $message['status'] = $result ? 'A200' : 'A500';
+        } else {
+            $message['status'] = 'A400';
+        }
         echo json_encode($message);
     }
 

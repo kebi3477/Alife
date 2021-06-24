@@ -46,6 +46,13 @@ class View {
             heart.style.fill = parseInt(data.thumbsup) === 1 ? 'var(--green-middle)' : "#fff";
             this.popup.querySelector('.view__menu').innerText = +data.writer ? '삭제하기' : '신고하기';
             this.popup.querySelector('.view__menu').onclick = () => this.clickMenu(+data.writer);
+            if(+data.count >= 5 && this.popup.querySelectorAll('.view__menu').length === 1 && +data.writer === 1) {
+                const viewMenu = document.createElement('div');
+                viewMenu.innerText = '밀키트 변환 신청';
+                viewMenu.classList.add('view__menu');
+                viewMenu.onclick = () => this.updateType();
+                this.popup.querySelector('.view__menus').append(viewMenu);
+            }
             // 해시태그 올리기
             this.appendHashtags();
             // 재료 넣기
@@ -87,7 +94,7 @@ class View {
         if(!this.now) {
             filtering = this.rin;            
         } else {
-            filtering = this.rin.filter(data => parseInt(data.recipe_seq) === step);
+            filtering = this.rin.filter(data => parseInt(data.recipe_seq) === step-1);
         }
         filtering.forEach(ingred => {
             const dom = this.popup.querySelector('.view__row').cloneNode(true);
@@ -309,7 +316,6 @@ class View {
                     id: this.collectionId,
                     content: content
                 }
-
                 fetch('/controller/user/setReport', {
                     method: 'POST',
                     body: JSON.stringify(json)
@@ -330,6 +336,22 @@ class View {
                 alert('내용을 입력해주세요!');
             }
         }
+    }
+    updateType() {
+        fetch('/controller/recipe/updateType', {
+            method: 'POST',
+            body: this.collectionId
+        })
+        .then(msg => msg.json())
+        .then(msg => {
+            if(msg.status === 'A200') {
+                alert('신청 완료!');
+            } else if(msg.status === 'A400') {
+                alert('이미 신청되었습니다!');
+            } else {
+                alert('에러!');
+            }
+        })
     }
 }
 
