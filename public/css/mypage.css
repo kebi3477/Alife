@@ -351,6 +351,14 @@ input[name=tab] {
     margin-top: -.5rem;
     color: #676767;
 }
+.signout {
+    width: fit-content;
+    float: right;
+    cursor: pointer;
+}
+.signout:hover {
+    color: var(--green-middle);
+}
 
 .recipe__item {
     width: 100%;

@@ -55,7 +55,7 @@
                 }
                 //Collection Upload
                 $path .= '/rep_img.jpg';
-                $result = mysqli_set_query("INSERT INTO collection VALUES('','$title','$intro','$time','$serving','$hashtags','$video',NOW(),'$user')");
+                $result = mysqli_set_query("INSERT INTO collection VALUES('','$title','$intro','$time','$serving','$hashtags','$video',NOW(),'$user', 0)");
                 $message['status'] = $result ? 'A200' : 'A500';
                 //Update User Point
                 if($message['status'] == 'A200') {
@@ -265,6 +265,17 @@
             JOIN recipe r ON r.collection_id = c.collection_id
             LEFT JOIN thumbsup t ON t.collection_id = c.collection_id AND t.user_email = '$user'
             WHERE ri.ringredient_name LIKE '%$text%' OR c.collection_title LIKE '%$text%' OR c.collection_intro LIKE '%$text%' OR r.recipe_content LIKE '%$text%'";
+        $recipes = mysqli_get_query($sql);
+        echo json_encode($recipes);
+    }
+
+    function getRecipeByType() {
+        $sql = "SELECT DISTINCT c.collection_id id, c.collection_title title, c.collection_intro intro, u.user_name user, t.thumbsup_id, u.user_point point,
+        (SELECT count(*) from thumbsup WHERE thumbsup.collection_id=c.collection_id) count
+        FROM collection c
+        JOIN users u ON c.user_email = u.user_email
+        LEFT JOIN thumbsup t ON t.collection_id = c.collection_id AND t.user_email = 'admin'
+        WHERE c.collection_type = 1";
         $recipes = mysqli_get_query($sql);
         echo json_encode($recipes);
     }

@@ -12,6 +12,7 @@
 <body>
     <?php
         include('header.php');
+        include('view.php');
         include('interceptor/userInterceptor.php');
         isSuperAdmin();
     ?>
@@ -39,7 +40,10 @@
                     </div>
                 </div>
             </div>
-            <div class="board__item">d123</div>
+            <div class="board__item">
+                <div class="board__title">밀키트 전환 희망 리스트</div>
+                <div class="recipe__list"></div>
+            </div>
             <div class="board__item">123asdsad</div>
         </div>
     </div>
@@ -47,5 +51,6 @@
     <script type="module" src="public/js/loading.js"></script>
     <script type="module" src="public/js/common.js"></script>
     <script type="module" src="public/js/admin.js"></script>
+    <script type="module" src="public/js/view.js"></script>
 </body>
 </html>

@@ -187,6 +187,11 @@ textarea[name="recipe[]"] {
     padding: 1.2rem 3rem;
     margin: 0 2rem;
 }
+.insert__buttons--row {
+    width: 30%;
+    display: flex;
+    margin: 0 auto;
+}
 .hashtag__box {
     border-radius: .5rem;
     margin-top: 1.1rem;

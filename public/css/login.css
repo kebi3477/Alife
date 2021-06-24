@@ -123,9 +123,7 @@
     position: relative;
 }
 .login__logo {
-    font-size: 3rem;
-    font-weight: 800;
-    font-family: 'Noto Sans KR', sans-serif;
+    width: 10rem;
     margin-bottom: 2rem;
 }
 .login__input {

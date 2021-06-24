@@ -1,7 +1,7 @@
 function appendMealkitItem(mealkits, listName) {
     const list = document.querySelector(`.${listName}`);
     if(mealkits.length === 0) {
-        list.innerHTML = `<a href="mealkit"><div class="mypage__button">밀키트 찾아보기</div></a>`;
+        list.innerHTML = `<a href="/mealkit"><div class="mypage__button">밀키트 찾아보기</div></a>`;
     } else {
         mealkits.forEach(data => {
             const item = document.createElement('div');

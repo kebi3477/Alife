@@ -50,8 +50,23 @@ function appendSeq(that) {
     })
     dom.querySelector('label').setAttribute('for', `step__img${formCount}`);
     step.innerText = `STEP ${formCount}`;
-    insert.insertBefore(dom, that.parentElement.nextElementSibling);
+    insert.insertBefore(dom, that.parentElement.parentElement.nextElementSibling);
+    that.nextElementSibling.remove();
     that.remove();
+}
+
+function removeSeq(that) {
+    const seqDoms = document.querySelectorAll('.seq__dom');
+
+    if(seqDoms.length === 1) {
+        alert('최소 1개의 페이지는 있어야 합니다!');
+    } else {
+        seqDoms.item(seqDoms.length-2).querySelector('.insert__buttons--row').innerHTML = `
+            <button class="insert__button insert__button--big" onclick="appendSeq(this)" type="button">순서추가 +</button>
+            <button class="insert__button insert__button--big" onclick="removeSeq(this)" type="button">순서삭제 -</button>
+        `;
+        seqDoms.item(seqDoms.length-1).remove();
+    }
 }
 
 function setRecipe() {

@@ -33,7 +33,8 @@ CREATE TABLE `collection` (
   `collection_hashtag` varchar(255),
   `collection_video` varchar(255),
   `collection_date` datetime,
-  `user_email` varchar(255)
+  `user_email` varchar(255),
+  `collection_type` int
 );
 --구축
 CREATE TABLE `recipe` (

@@ -119,7 +119,10 @@
                     <div class="history__text">기본적으로 최근 3개월간의 자료가 조회되며, 주문처리완료 후 12개월 이외의 주문건은 자동적으로 삭제됩니다.</div>
                 </div>
                 <form class="modify content__box">
-                    <div class="content__title">회원정보수정</div>
+                    <div class="content__title">
+                        회원정보수정
+                        <div class="signout">회원탈퇴</div>
+                    </div>
                     <div class="modify__wraps">
                         <div class="modify__wrap">
                             <div class="modify__label">이메일</div>

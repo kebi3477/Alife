@@ -8,6 +8,32 @@ body {
     font-size: 1.5rem;
     font-weight: bold;
 }
+.advertising {
+    width: 100%;
+    height: 2rem;
+    background-color: var(--green-middle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: .8rem;
+    padding: .5rem 0;
+}
+.advertising > span {
+    color: #fff;
+    font-size: .9rem;
+    margin: 0 .5rem;
+    font-weight: 500;
+    margin-top: -.2rem;
+}
+.advertising > svg {
+    margin-left: 5rem;
+    cursor: pointer;
+}
+.advertising > svg:last-child {
+    position: absolute;
+    right: 17%;
+}
 footer {
     margin-top: 5rem;
 }

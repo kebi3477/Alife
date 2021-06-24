@@ -36,8 +36,6 @@ class View {
             // Collection 변경
             const heart = this.popup.querySelector('.heart');
             const img = changePoint(this.col.user_point).image;
-            const circles = this.popup.querySelector('.view__circles');
-            const menu = this.popup.querySelector('.view__menus');
             this.popup.querySelector('.title').innerText = this.col.collection_title;
             this.popup.querySelector('.time').innerText = `${this.col.collection_time} 분 이내`;
             this.popup.querySelector('.serving').innerText = `${this.col.collection_serving} 인분`;
@@ -46,7 +44,6 @@ class View {
             this.popup.querySelector('.date').innerText = this.col.collection_date.split(" ")[0].replaceAll("-", ". ");
             this.popup.querySelector('.like').innerHTML = data.count;
             heart.style.fill = parseInt(data.thumbsup) === 1 ? 'var(--green-middle)' : "#fff";
-            circles.onclick = () => menu.className.includes('menu__active') ? menu.classList.remove('menu__active') : menu.classList.add('menu__active');
             // 해시태그 올리기
             this.appendHashtags();
             // 재료 넣기

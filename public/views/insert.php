@@ -124,7 +124,10 @@
                     </div>
                 </div>
             </div>
-            <button class="insert__button insert__button--big" onclick="appendSeq(this)" type="button">순서추가 +</button>
+            <div class="insert__buttons--row">
+                <button class="insert__button insert__button--big" onclick="appendSeq(this)" type="button">순서추가 +</button>
+                <button class="insert__button insert__button--big" onclick="removeSeq(this)" type="button">순서삭제 -</button>
+            </div>
         </div>
         <div class="insert__label--small insert__label--center">
         (주)A Life의 해당 레시피의 문구와 이미지에 대한 저작권은 자사에 있으며 어떤 경우에도 이미지 사용은 불가합니다.    저작권에 위배되는 이미지 편집이나 무단 도용 및 무단 복제, 재배포 시 사전 경고 없이 행사 고발 조치와 관계법령에 의거하여 처벌됨을 알려드립니다.

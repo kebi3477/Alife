@@ -183,9 +183,7 @@ footer {
     border-right: none;
 }
 .footer__logo {
-    font-size: 2rem;
-    font-weight: bold;
-    font-family: 'Noto Sans KR', sans-serif;
+    width: 10rem;
     padding-bottom: 2rem;
     margin-top: 0;
 }
@@ -611,6 +609,10 @@ footer {
     margin-left: 1.5rem;
     cursor: pointer;
 }
+.view__circles:hover ~ .view__menus {
+    opacity: 1;
+    visibility: visible;
+}
 .view__circle {
     width: .3rem;
     height: .3rem;
@@ -628,7 +630,7 @@ footer {
     opacity: 0;
     visibility: hidden;
 }
-.menu__active {
+.view__menus:hover {
     opacity: 1;
     visibility: visible;
 }

@@ -18,3 +18,7 @@ fetch('controller/mealkit/getMealkitByDiscount')
 .then(mealkits => {
     appendMealkitItem(mealkits, 'discount');
 })
+
+document.querySelector('.advertising > svg:last-child').addEventListener('click', function() {
+    this.parentElement.remove();
+})

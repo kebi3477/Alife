@@ -219,5 +219,23 @@
         echo json_encode($users);
     }
 
+    function removeUser() {
+        $message = array();
+        $email = file_get_contents('php://input');
+
+        $sql = "DELETE FROM users WHERE user_email='$email'";
+        $result = mysqli_set_query($sql);
+        $sql = "DELETE FROM fridge WHERE user_email='$email'";
+        $result = mysqli_set_query($sql);
+        $sql = "DELETE FROM collection WHERE user_email='$email'";
+        $result = mysqli_set_query($sql);
+        $sql = "DELETE FROM thumbsup WHERE user_email='$email'";
+        $result = mysqli_set_query($sql);
+
+        $message['status'] = $result ? 'A200' : 'A500';
+        session_destroy();
+        echo json_encode($message);
+    }
+
     $urls[3]();
 ?>

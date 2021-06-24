@@ -1,5 +1,8 @@
+body {
+    min-height: 100vh;
+}
 footer {
-    margin-top: 5rem;
+    margin-top: 5.5rem;
 }
 .result {
     padding-top: 80px;
@@ -81,4 +84,14 @@ footer {
     opacity: .5;
     margin-top: -1rem;
     margin-bottom: -3rem;
+}
+.mypage__button {
+    text-align: center;
+    padding: .5rem;
+    border: 1px solid var(--green-middle);
+    border-radius: 1rem;
+    cursor: pointer;
+    color: var(--green-middle);
+    font-weight: 500;
+    width: 70%;
 }

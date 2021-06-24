@@ -1,6 +1,6 @@
 <footer class="padding">
     <div class="footer__logo footer__text">
-        A Life
+        <img src="/public/images/logo_w.svg" alt="logo">
     </div>
     <div class="footer__list footer__list--bold">
         <div class="footer__item">회사소개</div>

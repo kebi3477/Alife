@@ -42,6 +42,7 @@ input[type=radio] {
 #report:checked ~ .board__list > .board__item:nth-of-type(3) {
     display: block;
     height: 100%;
+    padding: 5rem;
 }
 .board__title {
     font-size: 1.5rem;
@@ -49,9 +50,6 @@ input[type=radio] {
     font-weight: 400;
 }
 
-.board__users {
-    padding: 5rem;
-}
 .users {
     width: 100%;
     display: flex;
@@ -91,4 +89,12 @@ input[type=radio] {
 }
 .users__row > div {
     padding: 1rem 2rem;
+}
+
+.recipe__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 1rem;
+    justify-content: space-between;
+    gap: 2rem;
 }

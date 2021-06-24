@@ -3,6 +3,7 @@ import appendRecipeList from './view.js';
 import appendMealkitItem from './mealkitModule.js';
 import { getPoint } from './point.js';
 const modify = document.querySelector('.modify');
+const signout = document.querySelector('.signout');
 
 modify.querySelector('.submit').addEventListener('click', function() {
     const formData = new FormData(modify);
@@ -27,6 +28,25 @@ modify.querySelector('.submit').addEventListener('click', function() {
 
 modify.querySelector('.cancel').addEventListener('click', function() {
     history.back();
+})
+
+signout.addEventListener('click', function() {
+    if(confirm('정말 삭제하시겠습니까?')) {
+        const email = prompt('이메일을 입력해주세요.');
+        fetch('controller/user/removeUser', {
+            method: 'POST',
+            body: email
+        })
+        .then(msg => msg.json())
+        .then(msg => {
+            if(msg.status === 'A200') {
+                alert('회원탈퇴 완료!');
+            } else {
+                alert('에러!');
+            }
+            location.reload();
+        })
+    }
 })
 
 fetch('controller/recipe/getRecipeByWriter')

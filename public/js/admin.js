@@ -1,3 +1,5 @@
+import appendRecipeList from './view.js';
+
 fetch('controller/user/getAllUsers')
 .then(users => users.json())
 .then(users => {
@@ -15,6 +17,31 @@ fetch('controller/user/getAllUsers')
             <div>${user.user_point}</div>
             <div><button>삭제</button></div>
         `;
+        usersRow.querySelector('button').onclick = () => removeUser(user.user_email);
         usersDom.append(usersRow);
     })
 })
+
+fetch('controller/recipe/getRecipeByType')
+.then(recipes => recipes.json())
+.then(recipes => {
+    appendRecipeList(recipes, 'recipe__list');
+})
+
+function removeUser(email) {
+    if(confirm('정말 삭제하시겠습니까?')) {
+        fetch('controller/user/removeUser', {
+            method: 'POST',
+            body: email
+        })
+        .then(msg => msg.json())
+        .then(msg => {
+            if(msg.status === 'A200') {
+                alert('삭제 되었습니다.');
+                location.reload();
+            } else {
+                alert('에러!');
+            }
+        })
+    }
+}

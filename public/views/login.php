@@ -65,7 +65,7 @@
     <div class="login page">
         <div class="login__img"></div>
         <form class="login__form login__wrap">
-            <div class="login__logo">A Life</div>
+            <div class="login__logo"><img src="/public/images/logo.svg" alt="logo"></div>
             <input type="text" class="login__input" placeholder="이메일" name="email">
             <input type="password" class="login__input" placeholder="비밀번호" name="password">
             <button class="login__button" type="button">로그인</button>
@@ -73,7 +73,7 @@
             <div class="login__text">회원이 아니십니까? <b>회원가입</b></div>
         </form>
         <form class="login__form sign__wrap">
-            <div class="login__logo">A Life</div>
+            <div class="login__logo"><img src="/public/images/logo.svg" alt="logo"></div>
             <div class="login__title">회원정보입력</div>
             <div class="login__input--row">
                 <input type="text" class="login__input" placeholder="이메일" name="email">
@@ -113,7 +113,7 @@
             </div>
         </form>
         <div class="login__form find__wrap login__form-id">
-            <div class="login__logo">A Life</div>
+            <div class="login__logo"><img src="/public/images/logo.svg" alt="logo"></div>
             <div class="login__toggle">
                 <div class="login__toggle-button">이메일 찾기</div>
                 <div class="login__toggle-button">비밀번호 찾기</div>
@@ -149,13 +149,13 @@
             </div>
         </div>
         <div class="login__form find-email__wrap">
-            <div class="login__logo">A Life</div>
+            <div class="login__logo"><img src="/public/images/logo.svg" alt="logo"></div>
             <div class="login__label--under">입력한 정보로 조회된 이메일입니다.</div>
             <div class="login__input login__input--green">undifined</div>
             <button class="login__button">로그인 하러가기</button>
         </div>
         <form class="login__form change-pw__wrap">
-            <div class="login__logo">A Life</div>
+                <div class="login__logo"><img src="/public/images/logo.svg" alt="logo"></div>
             <input type="hidden" name="email" value="">
             <div class="login__label--under">비밀번호 재설정</div>
             <input type="password" class="login__input change-pw" placeholder="비밀번호" name="password">
