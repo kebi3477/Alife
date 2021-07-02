@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="public/css/common.css">
     <link rel="stylesheet" href="public/css/basket.css">
     <link rel="shortcut icon" href="public/images/favicon/favicon.ico">
-    <title>장바구니 - ALife</title>
+    <title>장바구니 - CLife</title>
 </head>
 <body>
     <?php include('header.php'); ?>

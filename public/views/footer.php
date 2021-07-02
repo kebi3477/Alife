@@ -12,7 +12,7 @@
         <div class="footer__item">상호명: (주) 어 라이프</div>
         <div class="footer__item">대표이사: 고동민</div>
         <div class="footer__item">사업자등록번호: 123-45-67890</div>
-        <div class="footer__item">이메일: (고객문의)adlife@gmail.com (제휴문의) alife@naver.com</div>
+        <div class="footer__item">이메일: (고객문의)adlife@gmail.com (제휴문의) clife@naver.com</div>
     </div>
     <div class="footer__list">
         <div class="footer__item">통신판매업신고번호: 제 2021-제주산천-0331호</div>
@@ -26,6 +26,6 @@
         <div class="footer__text">본 사이트의 컨텐츠는 저작권법의 보호를 받는 바 무단 전재, 복사, 배포 등을 금합니다.</div>
     </div>
     <div class="footer__list footer__list--under">
-        <div class="footer__text">Copyright © 2021 ALife. All Rights Reserved.</div>
+        <div class="footer__text">Copyright © 2021 CLife. All Rights Reserved.</div>
     </div>
 </footer>

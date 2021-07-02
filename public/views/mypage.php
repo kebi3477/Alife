@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALife</title>
+    <title>마이페이지 - CLife</title>
     <link rel="stylesheet" href="public/css/common.css">
     <link rel="stylesheet" href="public/css/mypage.css">
     <link rel="shortcut icon" href="public/images/favicon/favicon.ico">
@@ -41,7 +41,7 @@
                     <label for="modify" class="content__tab">회원정보 수정</label>
                 </div>
                 <div class="rank content__box">
-                    <div class="content__title">ALife 멤버십 혜택</div>
+                    <div class="content__title">CLife 멤버십 혜택</div>
                     <div class="rank__text">레시피 작성 / 밀키트 구매 후기 / 구매금액에 의한 등급에 따라 다양한 혜택을 누리실 수 있습니다.</div>
                     <div class="rank__wrap">
                         <div class="rank__col">

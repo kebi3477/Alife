@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>냉장고 - ALife</title>
+    <title>냉장고 - CLife</title>
     <link rel="stylesheet" href="public/css/common.css">
     <link rel="stylesheet" href="public/css/fridge.css">
     <link rel="shortcut icon" href="public/images/favicon/favicon.ico">
@@ -63,7 +63,7 @@
         </div>
     </div>
     <div class="buttons">
-        <div class="button">레시피 검색</div>
+        <a href="/recipe"><div class="button">레시피 검색</div></a>
     </div>
     <div class="background--bottom"></div> 
     <script type="module" src="public/js/loading.js"></script>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>레시피 - ALife</title>
+    <title>레시피 - CLife</title>
     <link rel="stylesheet" href="public/css/common.css">
     <link rel="stylesheet" href="public/css/recipe.css">
     <link rel="shortcut icon" href="public/images/favicon/favicon.ico">
@@ -46,7 +46,7 @@
     </div>
     <?php } ?>
     <div class="recipe__wrap padding">
-        <div class="recipe__list-title">A-Life가 추천하는 오늘의 메뉴</div>
+        <div class="recipe__list-title">CLife가 추천하는 오늘의 메뉴</div>
         <div class="recipe__list recommend"></div>
     </div>
     <script type="module" src="public/js/loading.js"></script>

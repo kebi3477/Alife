@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALife</title>
+    <title>CLife</title>
     <link rel="stylesheet" href="public/css/common.css">
     <link rel="stylesheet" href="public/css/insert.css">
     <link rel="shortcut icon" href="public/images/favicon/favicon.ico">
@@ -55,13 +55,13 @@
                         <div class="hashtag__box">
                         </div>
                         <textarea class="insert__hashtag" placeholder="레시피와 관련된 단어를 입력 후 스페이스바를 눌러주세요."></textarea>
-                        <div class="insert__label--small">해시태그 설정 시 A Life이용자들이 쉽게 레시피를 검색할 수 있습니다.</div>
+                        <div class="insert__label--small">해시태그 설정 시 CLife이용자들이 쉽게 레시피를 검색할 수 있습니다.</div>
                     </div>
                 </div>
                 <div class="insert__row">
                     <div class="insert__label">비디오</div>
                     <div class='insert__wrap-col'>
-                        <input type="text" placeholder='http://youtube.com/alife' name='video'>
+                        <input type="text" placeholder='http://youtube.com/clife' name='video'>
                         <div class="insert__label--small">동영상 링크 설정 시 좀 더 쉽게 레시피를 알 수 있습니다. 유튜브 주소를 받아와주세요.</div>
                     </div>
                 </div>

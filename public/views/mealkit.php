@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>밀키트 - ALife</title>
+    <title>밀키트 - CLife</title>
     <link rel="stylesheet" href="public/css/common.css">
     <link rel="stylesheet" href="public/css/mealkit.css">
     <link rel="shortcut icon" href="public/images/favicon/favicon.ico">
@@ -12,8 +12,8 @@
 <body>
     <?php include('header.php') ?>
     <div class="advertising">
-        ALife 사용자분들이 직접 누른 좋아요로 
-        <span>선정된 ALife 밀키트</span>
+    CLife 사용자분들이 직접 누른 좋아요로 
+        <span>선정된 CLife 밀키트</span>
         보러가자!
         <svg xmlns="http://www.w3.org/2000/svg" width="7.089" height="11.346" viewBox="0 0 7.089 11.346">
             <path id="패스_1390" data-name="패스 1390" d="M-1300.179,483l-4.257,4.257-4.256-4.257-.709.709,4.256,4.257.709.709.709-.709,4.256-4.257Z" transform="translate(-482.293 -1298.763) rotate(-90)" fill="#fff" stroke="#fff" stroke-width="1"/>

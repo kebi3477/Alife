@@ -14,7 +14,7 @@
         $total = $mealkit['mealkit_price']-$mealkit['mealkit_sprice'];
         $mealkitJson = json_encode($mealkit);
     ?>
-    <title><?=$mealkit['mealkit_name']?> - ALife</title>
+    <title><?=$mealkit['mealkit_name']?> - CLife</title>
 </head>
 <body>
     <div class="show padding">
@@ -125,7 +125,7 @@
                 시간 경과에 따라 상품 등의 가치가 현저히 감소하여 재판매가 불가능한 경우<br>
                 기타, 상품의 교환, 환불 및 상품 결함 등의 보상은 소비자분쟁해결기준(공정거래위원회 고시)에 의함<br>
             </div>  
-            <div class="tab4__label">자세한 내용은  A-Life 고객센터로 문의주시길 바랍니다. </div>
+            <div class="tab4__label">자세한 내용은  CLife 고객센터로 문의주시길 바랍니다. </div>
         </div>
         <input type="hidden" class="mealkit__json" value='<?=$mealkitJson?>'>
     </div>
