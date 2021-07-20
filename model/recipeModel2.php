@@ -1,7 +1,6 @@
 <?php
     include 'modules/mysql.php';
     session_start();    
-
     function setRecipe() {
         $message = array();
         $title = $_POST['title'];
@@ -72,8 +71,12 @@
 
     function checkImageType($tmpName) {
         $typeCheck = 1;
-        $imageType = getimagesize($tmpName)[2];
-        if($imageType > 3 || is_null($imageType)) $typeCheck = 0;
+        try {
+            $imageType = getimagesize($tmpName)[2];
+            if($imageType > 3 || is_null($imageType)) $typeCheck = 0;
+        } catch(e) {
+            $typeCheck = 0;
+        }
         return $typeCheck;
     }
 

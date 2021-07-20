@@ -17,6 +17,6 @@ logout && logout.addEventListener('click', function() {
     })
 })
 
-basketNum.innerText = JSON.parse(basket).length;
+// basketNum.innerText = JSON.parse(basket).length;
 
 window.addEventListener('load', () => loading.end());
