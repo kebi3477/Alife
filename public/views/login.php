@@ -14,6 +14,7 @@
     <?php 
         include('header.php');
         include('interceptor/userInterceptor.php');
+        include('modules/mailer.php');
         isNonLoging();
     ?>
     <div class="popup accept1">
