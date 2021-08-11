@@ -78,7 +78,7 @@ class View {
         this.popup.style.display = 'none';
     }
     appendHashtags() {
-        const hashtags = this.col.collection_hastag.split(",");
+        const hashtags = this.col.collection_hashtag.split(",");
         const hashtagDom = this.popup.querySelector('.view__hashtag');
         this.popup.querySelectorAll('.hashtag').forEach(el => el.remove());
         hashtags.forEach(hashtag => {

@@ -1,6 +1,7 @@
 <?php
     include 'modules/mysql.php';
     include 'modules/mailer.php';
+    session_start();
     function login() {
         $message = array();
         $email = $_POST['email'];
