@@ -1,2 +1,3 @@
 /modules/mysql.php
+/modules/info.php
 /public/views/dbconnect.php
