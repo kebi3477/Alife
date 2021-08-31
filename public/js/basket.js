@@ -39,12 +39,13 @@ if(alifeBasket) {
                 basketItem.remove();
                 localStorage.setItem('alife_basket', JSON.stringify(filtering));
                 data.checked = false;
-                document.querySelector('.basket__num').innerText = parseInt(document.querySelector('.basket__num').textContent)-1;
                 setPriceData();
+                document.querySelector('.basket__num').innerText = +document.querySelector('.basket__num').textContent-1;
             }
         })
         basketItem.querySelector('input.basket__checkbox').addEventListener('change', function() {
             data.checked = this.checked;
+            document.querySelector('.basket__num').innerText = mealkits.length;
             setPriceData();
         })
         basketList.append(basketItem);
@@ -57,15 +58,16 @@ if(alifeBasket) {
     function setPriceData() {
         let prices = 0, sprices = 0, sfees = 0, psfees = 0;
         const amounts = document.querySelectorAll(".amount");
+        
         mealkits.forEach((data, index) => {
             if(data.checked) {
                 prices += parseInt(data.mealkit_price)*data.amount;
                 sprices += parseInt(data.mealkit_sprice)*data.amount;
                 sfees = Math.max(parseInt(data.mealkit_sfee), sfees);
-                psfees = Math.max(parseInt(data.mealkit_psfree), psfees);
+                psfees = Math.max(parseInt(data.mealkit_psfee), psfees);
             }
-            amounts[index].parentElement.nextElementSibling.innerText = `${(parseInt(data.mealkit_price)*amounts[index].value-parseInt(data.mealkit_sprice)*amounts[index].value).toLocaleString()}원`;
-            if(data.mealkit_sprice !== '0') 
+            if(amounts[index]) amounts[index].parentElement.nextElementSibling.innerText = `${(parseInt(data.mealkit_price)*amounts[index].value-parseInt(data.mealkit_sprice)*amounts[index].value).toLocaleString()}원`;
+            if(data.mealkit_sprice !== '0' && amounts[index]) 
                 amounts[index].parentElement.nextElementSibling.nextElementSibling.innerText = `${parseInt(data.mealkit_price*amounts[index].value).toLocaleString()}원`;
         })
         total = prices - sprices + sfees + psfees;

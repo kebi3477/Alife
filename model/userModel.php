@@ -1,7 +1,8 @@
 <?php
     include 'modules/mysql.php';
     include 'modules/mailer.php';
-    session_start();
+    error_reporting(0);
+    if(is_null($_SESSION['alife_user_email'])) session_start();
     function login() {
         $message = array();
         $email = $_POST['email'];

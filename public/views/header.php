@@ -1,4 +1,7 @@
-<?php session_start() ?>
+<?php
+    error_reporting(0);
+    if(is_null($_SESSION['alife_user_email'])) session_start();
+?>
 <header class="padding">
     <div class="header__list">
         <a href="/index"><img class="header__logo" src="/public/images/logo.svg" alt="logo"></a>
