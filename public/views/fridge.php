@@ -62,9 +62,6 @@
             </div>
         </div>
     </div>
-    <div class="buttons">
-        <div class="button">레시피 검색</div>
-    </div>
     <div class="background--bottom"></div> 
     <script type="module" src="public/js/loading.js"></script>
     <script type="module" src="public/js/fridge.js"></script>

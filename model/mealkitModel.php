@@ -1,6 +1,5 @@
 <?php
     include 'modules/mysql.php';
-    session_start();    
 
     function setMealkit() {
         $message = array();

@@ -1,6 +1,5 @@
 <?php
     include 'modules/mysql.php';
-    session_start();    
 
     function setRecipe() {
         $message = array();
@@ -38,7 +37,7 @@
                 if($uploadCheck) $uploadCheck = checkImageType($tmpName);
             }
             
-            if($uploadCheck) {
+            // if($uploadCheck) {
                 //Image Upload
                 foreach($images['tmp_name'] as $index => $tmpName) {
                     $path = "recipes/$num/";
@@ -63,9 +62,9 @@
                     $sql = "UPDATE `users` SET `user_point`= user_point+5 WHERE user_email='$user'";
                     $result = mysqli_set_query($sql);
                 }
-            } else {
-                $message['status'] = 'A500';
-            }
+            // } else {
+            //     $message['status'] = 'A500';
+            // }
         }
         echo json_encode($message);
     }
